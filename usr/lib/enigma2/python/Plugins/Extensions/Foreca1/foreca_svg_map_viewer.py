@@ -1,6 +1,7 @@
 import zlib, base64
 
 def _decode(data_list, keys):
+    data_list = [int(x) for x in data_list]
     b = bytes(data_list)
     for key in reversed(keys):
         key = key & 0xFF

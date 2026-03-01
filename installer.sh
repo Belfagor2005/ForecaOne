@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.0.0'
-changelog='\nInit New Foreca Forecast Weather'
+version='1.0.1'
+changelog='\HOUR DETAILS ON OK SELECT AND ADD UP/DOWN/CH+/CH-'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz
