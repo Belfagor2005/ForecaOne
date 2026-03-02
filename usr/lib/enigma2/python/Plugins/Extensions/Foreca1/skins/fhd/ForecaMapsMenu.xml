@@ -1,6 +1,6 @@
 <screen name="ForecaMapsMenu" position="center,center" backgroundColor="#ff000000" size="1920,1080" title="Foreca 1 Select Region" flags="wfNoBorder">
     <!-- Description -->
-    <widget name="title" position="46,33" size="1820,50" font="Regular; 42" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" halign="center" zPosition="4"/>
+    <widget name="title" position="46,43" size="1820,50" font="Regular; 42" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" halign="center" zPosition="4" />
     <widget name="info" position="56,97" size="1093,40" font="Regular; 38" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>
     <ePixmap position="1312,152" size="401,86" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1"/>
     <!-- List -->
