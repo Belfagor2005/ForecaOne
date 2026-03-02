@@ -34,7 +34,7 @@
     <!-- Header -->
     <widget name="transp_bg_header" size="513,46" zPosition="2" position="13,13" backgroundColor="#40000000" cornerRadius="32"/>
     <!-- Logo -->
-    <ePixmap position="70,675" size="90,23" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1"/>
+    <ePixmap position="70,675" size="90,23" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1"/>
     <widget source="menu" render="Listbox" position="555,110" size="700,480" scrollbarMode="showOnDemand" zPosition="10" transparent="1" backgroundColor="#00000000">
         <convert type="TemplatedMultiContent">
             {"template": [

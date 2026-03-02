@@ -41,9 +41,6 @@ msgstr ""
 msgid "7 - Today + 7 days"
 msgstr ""
 
-msgid "7 Day Forecast"
-msgstr ""
-
 msgid "8 - Today + 8 days"
 msgstr ""
 
@@ -51,9 +48,6 @@ msgid "9 - Today + 9 days"
 msgstr ""
 
 msgid "API credentials not configured."
-msgstr ""
-
-msgid "AQI"
 msgstr ""
 
 msgid "AQI: N/A"
@@ -96,9 +90,6 @@ msgid "Belgium"
 msgstr ""
 
 msgid "Berlin"
-msgstr ""
-
-msgid "Blue"
 msgstr ""
 
 msgid "Blue - Home"
@@ -215,12 +206,6 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-msgid "Dewpoint"
-msgstr ""
-
-msgid "Distance"
-msgstr ""
-
 msgid "Distance {} km"
 msgstr ""
 
@@ -282,9 +267,6 @@ msgid "Favorite 2"
 msgstr ""
 
 msgid "Feels like"
-msgstr ""
-
-msgid "Feels like:"
 msgstr ""
 
 msgid "Feels like: {}{}"
@@ -350,16 +332,7 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
-msgid "Green"
-msgstr ""
-
 msgid "Green - Favorite 1"
-msgstr ""
-
-msgid "Gust"
-msgstr ""
-
-msgid "HTML"
 msgstr ""
 
 msgid "Hamburg"
@@ -384,9 +357,6 @@ msgid "Hour Details"
 msgstr ""
 
 msgid "Humidity"
-msgstr ""
-
-msgid "Humidity:"
 msgstr ""
 
 msgid "Humidity: {}%"
@@ -441,9 +411,6 @@ msgid "Keyboard"
 msgstr ""
 
 msgid "Last Quarter"
-msgstr ""
-
-msgid "Last update"
 msgstr ""
 
 msgid "Latvia"
@@ -689,16 +656,13 @@ msgstr ""
 msgid "Portugal"
 msgstr ""
 
-msgid "Precip"
-msgstr ""
-
 msgid "Precipitation"
 msgstr ""
 
 msgid "Precipitation: {}%"
 msgstr ""
 
-msgid "Precipitations:"
+msgid "Precipitations"
 msgstr ""
 
 msgid "Press RED to search again"
@@ -725,16 +689,7 @@ msgstr ""
 msgid "Previous page"
 msgstr ""
 
-msgid "Rain"
-msgstr ""
-
-msgid "Rain prob."
-msgstr ""
-
 msgid "Rain prob.: N/A"
-msgstr ""
-
-msgid "Red"
 msgstr ""
 
 msgid "Red - Color select"
@@ -821,13 +776,13 @@ msgstr ""
 msgid "Show info"
 msgstr ""
 
+msgid "Showers"
+msgstr ""
+
 msgid "Slovakia"
 msgstr ""
 
 msgid "Slower: {}s"
-msgstr ""
-
-msgid "Snow prob."
 msgstr ""
 
 msgid "Snow prob.: N/A"
@@ -902,9 +857,6 @@ msgstr ""
 msgid "Try different zoom or region"
 msgstr ""
 
-msgid "UV"
-msgstr ""
-
 msgid "UV Index"
 msgstr ""
 
@@ -927,9 +879,6 @@ msgid "Up"
 msgstr ""
 
 msgid "Up - Previous page"
-msgstr ""
-
-msgid "Updated"
 msgstr ""
 
 msgid "Updated: N/A"

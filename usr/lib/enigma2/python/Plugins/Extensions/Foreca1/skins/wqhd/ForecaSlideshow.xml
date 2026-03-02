@@ -3,8 +3,8 @@
     <widget name="title" position="67,62" size="2440,54" font="Regular; 56" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>
     <widget name="info" position="1754,1311" size="747,67" font="Regular; 51" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>
     <!-- Play/Pause -->
-    <widget name="pauseButton" position="1672,1310" size="67,67" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/buttons/pause.png" zPosition="3" scale="1"/>
-    <widget name="playButton" position="1672,1310" size="67,67" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/buttons/play.png" zPosition="3" scale="1"/>
+    <widget name="pauseButton" position="1672,1310" size="67,67" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/buttons/pause.png" zPosition="3" scale="1"/>
+    <widget name="playButton" position="1672,1310" size="67,67" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/buttons/play.png" zPosition="3" scale="1"/>
     <!-- Button icons -->
     <widget source="key_red" render="Label" position="100,1320" size="240,47" font="Regular;43" backgroundColor="#ff0000" foregroundColor="#ffffff" halign="center" valign="center" zPosition="5"/>
     <widget source="key_green" render="Label" position="340,1320" size="240,47" font="Regular;43" backgroundColor="#00ff00" foregroundColor="#ffffff" halign="center" valign="center" zPosition="5"/>

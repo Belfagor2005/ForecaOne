@@ -2,7 +2,7 @@
     <!-- Description -->
     <widget name="title" position="62,44" size="2427,67" font="Regular; 56" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" halign="center" zPosition="4"/>
     <widget name="info" position="75,130" size="1458,54" font="Regular; 51" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>
-    <ePixmap position="1750,203" size="535,115" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1"/>
+    <ePixmap position="1750,203" size="535,115" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1"/>
     <!-- List -->
     <widget name="list" position="107,196" size="1374,1000" itemHeight="72" font="Regular;56" enableWrapAround="1" scrollbarMode="showOnDemand" zPosition="3"/>
     <!-- Service name e Pig -->

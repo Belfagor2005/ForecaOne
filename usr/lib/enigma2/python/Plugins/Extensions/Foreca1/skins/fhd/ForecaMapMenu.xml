@@ -1,6 +1,6 @@
 <screen name="ForecaMapMenu" position="center,center" size="1067,934" title="Foreca 1 Live Maps" flags="wfNoBorder" backgroundColor="#ff000000">
     <!-- List -->
-    <widget name="list" position="66,144" size="930,658" itemHeight="47" font="Regular;43" scrollbarMode="showNever" zPosition="3"/>
+    <widget name="list" position="66,144" size="930,658" itemHeight="47" font="Regular;32" scrollbarMode="showNever" zPosition="3"/>
     <!-- Description -->
     <widget name="title" position="35,33" size="998,50" font="Regular; 42" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" halign="center" zPosition="4"/>
     <widget name="info" position="35,97" size="996,40" font="Regular; 38" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>

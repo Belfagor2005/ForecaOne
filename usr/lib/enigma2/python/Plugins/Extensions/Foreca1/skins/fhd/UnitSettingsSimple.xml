@@ -6,8 +6,8 @@
     <widget name="metric_details" position="190,300" size="660,60" font="Regular;26" halign="left" zPosition="3"/>
     <widget name="option_imperial" position="150,380" size="700,70" font="Regular;38" halign="left" zPosition="3"/>
     <widget name="imperial_details" position="190,450" size="660,60" font="Regular;26" halign="left" zPosition="3"/>
-    <widget name="check_metric" position="90,230" size="50,50" alphatest="on" scale="1" zPosition="3"/>
-    <widget name="check_imperial" position="90,380" size="50,50" alphatest="on" scale="1" zPosition="3"/>
+    <widget name="check_metric" position="90,230" size="50,50" alphatest="blend" scale="1" zPosition="3"/>
+    <widget name="check_imperial" position="90,380" size="50,50" alphatest="blend" scale="1" zPosition="3"/>
     <!-- Button icons -->
     <widget source="key_red" render="Label" position="50,600" size="180,50" font="Regular;32" backgroundColor="#ff0000" foregroundColor="#ffffff" halign="center" valign="center" zPosition="3"/>
     <widget source="key_green" render="Label" position="230,600" size="180,50" font="Regular;32" backgroundColor="#00ff00" foregroundColor="#ffffff" halign="center" valign="center" zPosition="3"/>

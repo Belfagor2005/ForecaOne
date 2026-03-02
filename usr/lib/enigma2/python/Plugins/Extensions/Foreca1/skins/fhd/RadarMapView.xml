@@ -1,5 +1,5 @@
 <screen name="RadarMapView" position="center,center" backgroundColor="#ff000000" size="1200,800" flags="wfNoBorder">
-    <ePixmap position="725,104" size="400,86" alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1" transparent="1"/>
+    <ePixmap position="725,104" size="400,86" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1" transparent="1"/>
     <!-- Description -->
     <widget name="title" position="30,26" size="1131,56" font="Regular; 38" foregroundColor="#53a9ff" backgroundColor="#40000000" transparent="1" valign="center" zPosition="10" halign="center"/>
     <widget name="icon_latitude" position="741,531" size="40,40" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on"/>

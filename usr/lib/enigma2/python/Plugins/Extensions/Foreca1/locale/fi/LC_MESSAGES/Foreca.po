@@ -42,9 +42,6 @@ msgstr "6 - Tänään + 6 päivää"
 msgid "7 - Today + 7 days"
 msgstr "7 - Tänään + 7 päivää"
 
-msgid "7 Day Forecast"
-msgstr "7 päivän ennuste"
-
 msgid "8 - Today + 8 days"
 msgstr "8 - Tänään + 8 päivää"
 
@@ -53,9 +50,6 @@ msgstr "9 - Tänään + 9 päivää"
 
 msgid "API credentials not configured."
 msgstr "API-tunnuksia ei ole määritetty."
-
-msgid "AQI"
-msgstr "AQI"
 
 msgid "AQI: N/A"
 msgstr "AQI: N/A"
@@ -98,9 +92,6 @@ msgstr "Belgia"
 
 msgid "Berlin"
 msgstr "Berliini"
-
-msgid "Blue"
-msgstr "Sininen"
 
 msgid "Blue - Home"
 msgstr "Sininen - Koti"
@@ -217,12 +208,6 @@ msgstr "Tanska"
 msgid "Details"
 msgstr "Yksityiskohdat"
 
-msgid "Dewpoint"
-msgstr "Kastepiste"
-
-msgid "Distance"
-msgstr "Etäisyys"
-
 msgid "Distance {} km"
 msgstr "Etäisyys {} km"
 
@@ -285,9 +270,6 @@ msgstr "Suosikki 2"
 
 msgid "Feels like"
 msgstr "Tuntuu kuin"
-
-msgid "Feels like:"
-msgstr "Tuntuu kuin:"
 
 msgid "Feels like: {}{}"
 msgstr "Tuntuu kuin: {}{}"
@@ -360,17 +342,8 @@ msgstr "Iso-Britannia"
 msgid "Greece"
 msgstr "Kreikka"
 
-msgid "Green"
-msgstr "Vihreä"
-
 msgid "Green - Favorite 1"
 msgstr "Vihreä - Suosikki 1"
-
-msgid "Gust"
-msgstr "Puuska"
-
-msgid "HTML"
-msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Hampuri"
@@ -396,9 +369,6 @@ msgstr "Näytä yksityiskohdat"
 
 msgid "Humidity"
 msgstr "Kosteus"
-
-msgid "Humidity:"
-msgstr "Kosteus:"
 
 msgid "Humidity: {}%"
 msgstr "Kosteus: {}%"
@@ -453,9 +423,6 @@ msgstr "Näppäimistö"
 
 msgid "Last Quarter"
 msgstr "Viimeinen neljännes"
-
-msgid "Last update"
-msgstr "Viimeisin päivitys"
 
 msgid "Latvia"
 msgstr "Latvia"
@@ -704,16 +671,14 @@ msgstr "Puola"
 msgid "Portugal"
 msgstr "Portugali"
 
-msgid "Precip"
-msgstr "Sade"
-
 msgid "Precipitation"
 msgstr "Sademäärä"
 
 msgid "Precipitation: {}%"
 msgstr "Sateen todennäköisyys: {}%"
 
-msgid "Precipitations:"
+#, fuzzy
+msgid "Precipitations"
 msgstr "Sateen todennäköisyys:"
 
 msgid "Press RED to search again"
@@ -740,17 +705,8 @@ msgstr "Edellinen kuva"
 msgid "Previous page"
 msgstr "Edellinen sivu"
 
-msgid "Rain"
-msgstr "Sade"
-
-msgid "Rain prob."
-msgstr "Sateen todennäköisyys"
-
 msgid "Rain prob.: N/A"
 msgstr "Sateen todennäköisyys: N/A"
-
-msgid "Red"
-msgstr "Punainen"
 
 msgid "Red - Color select"
 msgstr "Punainen - Valitse väri"
@@ -837,14 +793,15 @@ msgstr "Lasku"
 msgid "Show info"
 msgstr "Näytä tiedot"
 
+#, fuzzy
+msgid "Showers"
+msgstr "Hitaampi: {}s"
+
 msgid "Slovakia"
 msgstr "Slovakia"
 
 msgid "Slower: {}s"
 msgstr "Hitaampi: {}s"
-
-msgid "Snow prob."
-msgstr "Lumisateen todennäköisyys"
 
 msgid "Snow prob.: N/A"
 msgstr "Lumisateen todennäköisyys: N/A"
@@ -918,9 +875,6 @@ msgstr "Kokeile eri zoomausta tai tasoa"
 msgid "Try different zoom or region"
 msgstr "Kokeile eri zoomausta tai aluetta"
 
-msgid "UV"
-msgstr "UV"
-
 msgid "UV Index"
 msgstr ""
 
@@ -944,9 +898,6 @@ msgstr "Ylös"
 
 msgid "Up - Previous page"
 msgstr "Ylös - Edellinen sivu"
-
-msgid "Updated"
-msgstr "Päivitetty"
 
 msgid "Updated: N/A"
 msgstr "Päivitetty: N/A"
@@ -1085,6 +1036,60 @@ msgstr "• Käytä nuolinäppäimiä navigointiin\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
+
+#~ msgid "7 Day Forecast"
+#~ msgstr "7 päivän ennuste"
+
+#~ msgid "AQI"
+#~ msgstr "AQI"
+
+#~ msgid "Blue"
+#~ msgstr "Sininen"
+
+#~ msgid "Dewpoint"
+#~ msgstr "Kastepiste"
+
+#~ msgid "Distance"
+#~ msgstr "Etäisyys"
+
+#~ msgid "Feels like:"
+#~ msgstr "Tuntuu kuin:"
+
+#~ msgid "Green"
+#~ msgstr "Vihreä"
+
+#~ msgid "Gust"
+#~ msgstr "Puuska"
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Humidity:"
+#~ msgstr "Kosteus:"
+
+#~ msgid "Last update"
+#~ msgstr "Viimeisin päivitys"
+
+#~ msgid "Precip"
+#~ msgstr "Sade"
+
+#~ msgid "Rain"
+#~ msgstr "Sade"
+
+#~ msgid "Rain prob."
+#~ msgstr "Sateen todennäköisyys"
+
+#~ msgid "Red"
+#~ msgstr "Punainen"
+
+#~ msgid "Snow prob."
+#~ msgstr "Lumisateen todennäköisyys"
+
+#~ msgid "UV"
+#~ msgstr "UV"
+
+#~ msgid "Updated"
+#~ msgstr "Päivitetty"
 
 #~ msgid "Created by @Bauernbub"
 #~ msgstr "Luonut @Bauernbub"
