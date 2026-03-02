@@ -5,9 +5,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml">
-    <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
-  </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
     <img src="https://img.shields.io/badge/Version-1.0.1-blue.svg" alt="Version">
   </a>
