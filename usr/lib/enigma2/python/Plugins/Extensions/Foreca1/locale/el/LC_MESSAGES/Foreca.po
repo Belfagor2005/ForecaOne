@@ -107,13 +107,13 @@ msgid "Celsius, km/h, hPa"
 msgstr "Κελσίου, χλμ/ώρα, hPa"
 
 msgid "Changelog: {changelog}"
-msgstr "Αρχείο αλλαγών: {changelog}"
+msgstr ""
 
 msgid "Changes apply immediately"
 msgstr "Οι αλλαγές εφαρμόζονται άμεσα"
 
 msgid "Check for updates"
-msgstr "Έλεγχος για ενημερώσεις"
+msgstr ""
 
 msgid "Choose detail view"
 msgstr "Επιλογή προβολής λεπτομερειών"
@@ -176,7 +176,7 @@ msgid "Continents Weather Maps"
 msgstr "Χάρτες καιρού ηπείρων"
 
 msgid "Could not fetch update information."
-msgstr "Δεν ήταν δυνατή η ανάκτηση πληροφοριών ενημέρωσης."
+msgstr ""
 
 msgid "Could not initialize map API."
 msgstr "Δεν ήταν δυνατή η αρχικοποίηση του API χάρτη."
@@ -185,7 +185,7 @@ msgid "Could not load forecast data"
 msgstr "Δεν ήταν δυνατή η φόρτωση δεδομένων πρόγνωσης"
 
 msgid "Could not parse version information."
-msgstr "Δεν ήταν δυνατή η ανάλυση των πληροφοριών έκδοσης."
+msgstr ""
 
 msgid "Current weather and forecast"
 msgstr "Τρέχων καιρός και πρόγνωση"
@@ -224,7 +224,7 @@ msgid "Distance: {} m"
 msgstr "Απόσταση: {} μ"
 
 msgid "Do you want to install it now?"
-msgstr "Θέλετε να το εγκαταστήσετε τώρα;"
+msgstr ""
 
 msgid "Down"
 msgstr "Κάτω"
@@ -241,8 +241,9 @@ msgstr "Λήψη πλακιδίων..."
 msgid "East Asia"
 msgstr "Ανατολική Ασία"
 
+#, fuzzy
 msgid "Error checking for updates."
-msgstr "Σφάλμα κατά τον έλεγχο για ενημερώσεις."
+msgstr "Σφάλμα αποθήκευσης αγαπημένου!"
 
 msgid "Error displaying map"
 msgstr "Σφάλμα εμφάνισης χάρτη"
@@ -291,6 +292,10 @@ msgstr "Λεπτομέρειες αγαπημένων"
 
 msgid "Feels like"
 msgstr "Αίσθηση ως"
+
+#, fuzzy
+msgid "Feels like: {}"
+msgstr "Αίσθηση ως: {}{}"
 
 msgid "Feels like: {}{}"
 msgstr "Αίσθηση ως: {}{}"
@@ -526,8 +531,9 @@ msgstr "Ολλανδία"
 msgid "New Moon"
 msgstr "Νέα σελήνη"
 
+#, fuzzy
 msgid "New version {version} is available."
-msgstr "Η νέα έκδοση {version} είναι διαθέσιμη."
+msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα σταθμού"
 
 msgid "Next"
 msgstr "Επόμενη"
@@ -690,6 +696,10 @@ msgstr "Βροχόπτωση: {}"
 
 msgid "Precipitations"
 msgstr "Βροχοπτώσεις"
+
+#, fuzzy
+msgid "Precipitations: {}%"
+msgstr "Βροχόπτωση: {}"
 
 msgid "Press RED to search again"
 msgstr "Πατήστε το ΚΟΚΚΙΝΟ για νέα αναζήτηση"
@@ -910,11 +920,12 @@ msgstr "Πάνω"
 msgid "Up - Previous page"
 msgstr "Πάνω - Προηγούμενη σελίδα"
 
+#, fuzzy
 msgid "Update canceled."
-msgstr "Η ενημέρωση ακυρώθηκε."
+msgstr "Ενημερώθηκε"
 
 msgid "Update completed. Please restart Enigma2."
-msgstr "Η ενημέρωση ολοκληρώθηκε. Επανεκκινήστε το Enigma2."
+msgstr ""
 
 msgid "Updated: N/A"
 msgstr "Ενημερώθηκε: Μ/Δ"
@@ -922,8 +933,9 @@ msgstr "Ενημερώθηκε: Μ/Δ"
 msgid "Updated: {}"
 msgstr "Ενημερώθηκε: {}"
 
+#, fuzzy
 msgid "Updating..."
-msgstr "Ενημέρωση..."
+msgstr "Φόρτωση..."
 
 msgid "Use arrow keys to scroll"
 msgstr "Χρησιμοποιήστε τα βέλη για κύλιση"
@@ -1019,7 +1031,7 @@ msgid "Yellow - Favorite 2"
 msgstr "Κίτρινο - Αγαπημένο 2"
 
 msgid "You already have the latest version."
-msgstr "Έχετε ήδη την πιο πρόσφατη έκδοση."
+msgstr ""
 
 msgid "Zoom In"
 msgstr "Μεγέθυνση"

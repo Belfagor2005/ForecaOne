@@ -309,6 +309,10 @@ msgid "Feels like"
 msgstr "Gefühlt wie"
 
 #, fuzzy
+msgid "Feels like: {}"
+msgstr "Gefühlt wie"
+
+#, fuzzy
 msgid "Feels like: {}{}"
 msgstr "Gefühlt wie"
 
@@ -729,6 +733,10 @@ msgstr "Niederschlag"
 
 #, fuzzy
 msgid "Precipitations"
+msgstr "Niederschlag"
+
+#, fuzzy
+msgid "Precipitations: {}%"
 msgstr "Niederschlag"
 
 msgid "Press RED to search again"

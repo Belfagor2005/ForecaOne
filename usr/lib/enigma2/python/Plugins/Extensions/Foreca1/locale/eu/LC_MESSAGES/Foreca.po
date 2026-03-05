@@ -292,6 +292,9 @@ msgstr ""
 msgid "Feels like"
 msgstr ""
 
+msgid "Feels like: {}"
+msgstr ""
+
 msgid "Feels like: {}{}"
 msgstr ""
 
@@ -689,6 +692,9 @@ msgid "Precipitation: {}"
 msgstr ""
 
 msgid "Precipitations"
+msgstr ""
+
+msgid "Precipitations: {}%"
 msgstr ""
 
 msgid "Press RED to search again"

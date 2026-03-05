@@ -311,6 +311,10 @@ msgid "Feels like"
 msgstr "Pocitová teplota"
 
 #, fuzzy
+msgid "Feels like: {}"
+msgstr "Pocitová teplota"
+
+#, fuzzy
 msgid "Feels like: {}{}"
 msgstr "Pocitová teplota"
 
@@ -731,6 +735,10 @@ msgstr "Srážky"
 
 #, fuzzy
 msgid "Precipitations"
+msgstr "Srážky"
+
+#, fuzzy
+msgid "Precipitations: {}%"
 msgstr "Srážky"
 
 msgid "Press RED to search again"

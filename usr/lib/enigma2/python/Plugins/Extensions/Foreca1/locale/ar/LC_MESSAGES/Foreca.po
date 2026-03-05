@@ -295,6 +295,10 @@ msgstr "تفاصيل المفضلة"
 msgid "Feels like"
 msgstr "يبدو كـ"
 
+#, fuzzy
+msgid "Feels like: {}"
+msgstr "يبدو كـ: {}{}"
+
 msgid "Feels like: {}{}"
 msgstr "يبدو كـ: {}{}"
 
@@ -699,6 +703,10 @@ msgstr "هطول الأمطار: {}"
 
 msgid "Precipitations"
 msgstr "هطول الأمطار"
+
+#, fuzzy
+msgid "Precipitations: {}%"
+msgstr "هطول الأمطار: {}"
 
 msgid "Press RED to search again"
 msgstr "اضغط على الأحمر للبحث مرة أخرى"

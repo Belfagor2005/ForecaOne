@@ -311,6 +311,10 @@ msgid "Feels like"
 msgstr "Sensación térmica"
 
 #, fuzzy
+msgid "Feels like: {}"
+msgstr "Sensación térmica"
+
+#, fuzzy
 msgid "Feels like: {}{}"
 msgstr "Sensación térmica"
 
@@ -731,6 +735,10 @@ msgstr "Precipitación"
 
 #, fuzzy
 msgid "Precipitations"
+msgstr "Precipitación"
+
+#, fuzzy
+msgid "Precipitations: {}%"
 msgstr "Precipitación"
 
 msgid "Press RED to search again"
