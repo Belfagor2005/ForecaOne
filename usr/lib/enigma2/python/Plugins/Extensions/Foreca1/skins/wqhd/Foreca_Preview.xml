@@ -49,10 +49,10 @@
                 MultiContentEntryText(pos = (707, 20), size = (134, 40), font=0, flags = RT_HALIGN_LEFT, text = 5),
                 MultiContentEntryText(pos = (707, 74), size = (134, 40), font=0, flags = RT_HALIGN_LEFT, text = 6),
                 
-                MultiContentEntryText(pos = (934, 2), size = (480, 40), font=0, flags = RT_HALIGN_LEFT, text = 7),
-                MultiContentEntryText(pos = (934, 42), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 8),
-                MultiContentEntryText(pos = (934, 75), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 9),
-                MultiContentEntryText(pos = (934, 108), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 10),
+                MultiContentEntryText(pos = (900, 2), size = (480, 40), font=0, flags = RT_HALIGN_LEFT, text = 7),
+                MultiContentEntryText(pos = (900, 42), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 8),
+                MultiContentEntryText(pos = (900, 75), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 9),
+                MultiContentEntryText(pos = (900, 108), size = (480, 32), font=1, flags = RT_HALIGN_LEFT, text = 10),
             ],
             "fonts": [gFont("Regular", 35), gFont("Regular", 27)],
             "itemHeight": 147

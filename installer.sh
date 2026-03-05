@@ -1,10 +1,14 @@
 #!/bin/bash
 
 version='1.0.2'
-changelog='\MAJOR FIX AND OTHER SCREEN ;)\nOffer coffe if you like this plugin'
+changelog='\nMAJOR FIX AND OTHER SCREEN ;)\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz
+
+# Config directory where user settings are stored
+CONFIG_DIR="/etc/enigma2/foreca"
+BACKUP_DIR="/tmp/foreca_backup"
 
 if [ ! -d /usr/lib64 ]; then
     PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/Foreca1
@@ -18,6 +22,38 @@ cleanup() {
     echo "Cleaning up temporary files..."
     [ -d "$TMPPATH" ] && rm -rf "$TMPPATH"
     [ -f "$FILEPATH" ] && rm -f "$FILEPATH"
+}
+
+# Backup configuration if it exists
+backup_config() {
+    if [ -d "$CONFIG_DIR" ]; then
+        echo "Backing up configuration from $CONFIG_DIR to $BACKUP_DIR ..."
+        rm -rf "$BACKUP_DIR" 2>/dev/null
+        cp -r "$CONFIG_DIR" "$BACKUP_DIR"
+        if [ $? -eq 0 ]; then
+            echo "Backup successful."
+        else
+            echo "Backup failed! Aborting."
+            exit 1
+        fi
+    else
+        echo "No existing configuration directory found. Skipping backup."
+    fi
+}
+
+# Restore configuration after installation
+restore_config() {
+    if [ -d "$BACKUP_DIR" ]; then
+        echo "Restoring configuration from $BACKUP_DIR to $CONFIG_DIR ..."
+        mkdir -p "$CONFIG_DIR"
+        cp -r "$BACKUP_DIR"/* "$CONFIG_DIR"/ 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo "Configuration restored successfully."
+        else
+            echo "Warning: Failed to restore some configuration files."
+        fi
+        rm -rf "$BACKUP_DIR"
+    fi
 }
 
 detect_os() {
@@ -106,6 +142,9 @@ fi
 cleanup
 mkdir -p "$TMPPATH"
 
+# Backup configuration before installing new version
+backup_config
+
 echo "Downloading ForecaOne..."
 wget --no-check-certificate 'https://github.com/Belfagor2005/ForecaOne/archive/refs/heads/main.tar.gz' -O "$FILEPATH"
 if [ $? -ne 0 ]; then
@@ -141,6 +180,9 @@ else
     cleanup
     exit 1
 fi
+
+# Restore user configuration after installing new version
+restore_config
 
 sync
 
