@@ -33,13 +33,14 @@ class MoonPhase:
     # Reference date: New Moon on January 6, 2000 at 00:00 UTC
     NEW_MOON_REF = (2000, 1, 6, 0, 0, 0, 0, 0, 0)  # struct_time
 
-    def __init__(self, icon_path=None, total_icons=31):
+    def __init__(self, icon_path=None, total_icons=101):
         """
-        icon_path: absolute path to the folder containing the icons (moon1.png ... moonN.png)
-        total_icons: total number of icons (default 32)
+        icon_path: absolute path to the folder containing the icons (moon0000.png ... moon0100.png)
+        total_icons: total number of icons (default 101, from 0 to 100)
         """
         self.icon_path = icon_path
         self.total_icons = total_icons
+        self.api_data = None  # stores data obtained from the USNO API
         # Phase names in English (approximate, you can modify them)
         self.phase_names_en = {
             (0.0, 0.03): _("New Moon"),
@@ -52,6 +53,48 @@ class MoonPhase:
             (0.78, 0.97): _("Waning Crescent"),
             (0.97, 1.0): _("New Moon")
         }
+
+    def _moon_phase_to_icon(self, phase_name, illum_percent):
+        """
+        Maps the phase name and illumination percentage (0-100)
+        to the icon index (0-100) according to your icon sequence.
+        """
+        # Indicative centers of the main phases
+        phase_centers = {
+            "New Moon": 0,
+            "Waxing Crescent": 12,
+            "First Quarter": 25,
+            "Waxing Gibbous": 37,
+            "Full Moon": 50,
+            "Waning Gibbous": 62,
+            "Last Quarter": 75,
+            "Waning Crescent": 87,
+        }
+        # Special cases with linear variation
+        if phase_name == "New Moon":
+            # Very close to 0% or 100%
+            return 0 if illum_percent < 10 else 100
+        elif phase_name == "Waxing Crescent":
+            # illum from 0% to 50% -> icons from 0 to 25
+            return int(illum_percent * 25 / 50)
+        elif phase_name == "First Quarter":
+            return 25
+        elif phase_name == "Waxing Gibbous":
+            # illum from 50% to 100% -> icons from 25 to 50
+            return int(25 + (illum_percent - 50) * 25 / 50)
+        elif phase_name == "Full Moon":
+            return 50
+        elif phase_name == "Waning Gibbous":
+            # illum from 100% to 50% -> icons from 50 to 75
+            return int(50 + (100 - illum_percent) * 25 / 50)
+        elif phase_name == "Last Quarter":
+            return 75
+        elif phase_name == "Waning Crescent":
+            # illum from 50% to 0% -> icons from 75 to 100
+            return int(75 + (50 - illum_percent) * 25 / 50)
+        else:
+            # fallback to center
+            return phase_centers.get(phase_name, 50)
 
     def _get_current_phase_value(self):
         """Calculates the current lunar phase (0-1, 0 = New Moon)"""
@@ -82,36 +125,41 @@ class MoonPhase:
 
     def get_phase_info(self):
         """
-        Returns a dictionary with:
-            - phase: phase value (0-1, 0 = new)
-            - illumination: illumination percentage (0-100)
-            - name: phase name in English
-            - icon_number: most suitable icon number (1..total_icons)
-            - icon_path: full path to the PNG file
+        Returns a dictionary with phase, illumination, name, icon number and path.
+        Gives priority to API data if available, otherwise uses internal calculation.
         """
-        phase = self._get_current_phase_value()
-        illum = self._illumination_from_phase(phase)
-        name = self._get_phase_name(phase)
+        if self.api_data and self.api_data["illumination"] is not None and self.api_data["phase"] != "N/A":
+            # Use API data
+            illum_percent = self.api_data["illumination"] * 100
+            phase_name = self.api_data["phase"]
+            # Calculate icon index based on phase and illumination
+            icon_number = self._moon_phase_to_icon(phase_name, illum_percent)
+            # For consistency, we also estimate the phase (0-1) from illumination (not needed, but we keep it)
+            phase = illum_percent / 100.0  # approximation
+            name = phase_name
+            illumination = illum_percent
+        else:
+            # Fallback to internal calculation
+            phase = self._get_current_phase_value()
+            illumination = self._illumination_from_phase(phase)
+            name = self._get_phase_name(phase)
+            # Linear mapping phase -> icon
+            icon_number = int(round(phase * (self.total_icons - 1)))
+            icon_number = max(0, min(self.total_icons - 1, icon_number))
 
-        # Maps illumination to icon number (1 = full, total_icons = new)
-        # illum = 100% → icon 1, illum = 0% → icon total_icons
-        # Formula: icon_number = 1 + round( (100 - illum) * (total_icons-1) / 100 )
-        icon_number = 1 + round((100 - illum) * (self.total_icons - 1) / 100)
-        # Ensure it stays within 1..total_icons
-        icon_number = max(1, min(self.total_icons, icon_number))
-
+        # Find the icon file
         icon_file = None
         if self.icon_path:
-            # Build full path (e.g., moon12.png)
-            icon_file = join(self.icon_path, f"moon{icon_number}.png")
-            # If the file does not exist, look for the nearest PNG (safety
-            # fallback)
+            # Build full path (e.g., moon0012.png) with zero-padded to 4 digits
+            icon_file = join(self.icon_path, f"moon{icon_number:04d}.png")
+            # If the file does not exist, look for the nearest PNG (safety fallback)
+
             if not exists(icon_file):
                 icon_file = self._find_nearest_icon(icon_number)
 
         return {
             "phase": phase,
-            "illumination": illum,
+            "illumination": illumination,
             "name": name,
             "icon_number": icon_number,
             "icon_path": icon_file
@@ -211,12 +259,16 @@ class MoonPhase:
                             illum_str) / 100.0 if illum_str != "N/A" else None
                     break
 
-            return {
+            result = {
                 "rise": moonrise,
                 "set": moonset,
                 "phase": phase_name,
                 "illumination": illumination
             }
+            # Save the obtained data for later use
+            if illumination is not None:
+                self.api_data = result
+            return result
         except Exception as e:
             print(f"[Moon] Exception: {e}")
             return None
@@ -270,7 +322,7 @@ class MoonPhase:
 
     def _find_nearest_icon(self, target_num):
         """
-        Searches in the icon folder for the file moonX.png with X closest to target_num.
+        Searches in the icon folder for the file moonXXXX.png with XXXX closest to target_num.
         Returns the path of the found file, or None.
         """
         if not self.icon_path or not isdir(self.icon_path):
@@ -280,12 +332,12 @@ class MoonPhase:
         numbers = []
         for f in files:
             base = basename(f)
-            # Extract the number from "moon123.png"
+            # Extract the number from "moon0123.png"
             num_str = base.replace('moon', '').replace('.png', '')
             if num_str.isdigit():
                 numbers.append((int(num_str), f))
         if not numbers:
             return None
-        # Find the closest number
+
         nearest = min(numbers, key=lambda x: abs(x[0] - target_num))
         return nearest[1]
