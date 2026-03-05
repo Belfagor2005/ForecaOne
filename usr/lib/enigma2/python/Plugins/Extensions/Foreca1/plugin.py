@@ -846,7 +846,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                 "%H:%M") if day_selected.sunset else 'N/A'
             hours = day_selected.daylength // 60 if day_selected.daylength else 0
             mins = day_selected.daylength % 60 if day_selected.daylength else 0
-            self.daylen = _("{hours} h {mins} min").format(hours=hours, mins=mins)
+            self.daylen = _("{hours} h {mins} min").format(
+                hours=hours, mins=mins)
 
             # --- DATA THAT CHANGES WITH THE DAY (present in daily) ---
             # <-- only for tomorrow, the day after tomorrow, etc.
