@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-04 19:24+0100\n"
+"PO-Revision-Date: 2026-03-05 19:13+0100\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -294,31 +294,26 @@ msgstr "Nebbia"
 msgid "Foreca One"
 msgstr "Foreca One"
 
-#, fuzzy
 msgid "Foreca One Live Maps (API)"
-msgstr "Foreca 1 Mappe Live (API)"
+msgstr "Foreca One Mappe Live (API)"
 
 msgid "Foreca One Menu"
 msgstr "Menu Foreca One"
 
-#, fuzzy
 msgid "Foreca One No stations found"
-msgstr "Foreca 1 Nessuna stazione trovata"
+msgstr "Foreca One Nessuna stazione trovata"
 
-#, fuzzy
 msgid "Foreca One Stations: {} stations nearby ({})"
-msgstr "Stazioni Foreca 1 {} stazioni nelle vicinanze ({})"
+msgstr "Stazioni Foreca One {} stazioni nelle vicinanze ({})"
 
-#, fuzzy
 msgid "Foreca One Weather Forecast"
-msgstr "Foreca One Meteo e Previsioni"
+msgstr "Foreca One Meteo Previsioni"
 
 msgid "Foreca One Weather and Forecast"
 msgstr "Foreca One Meteo e Previsioni"
 
-#, fuzzy
 msgid "Foreca One | Map {}"
-msgstr "Foreca 1 | Mappa {}"
+msgstr "Foreca One | Mappa {}"
 
 msgid "Found %d cities locally for '%s'"
 msgstr "Trovate %d città localmente per '%s'"
@@ -378,7 +373,7 @@ msgid "Hungary"
 msgstr "Ungheria"
 
 msgid "Illumination"
-msgstr ""
+msgstr "Illuminazione"
 
 msgid "Image %(current)d/%(total)d"
 msgstr "Immaggine %(current)d/%(total)d"
@@ -836,9 +831,8 @@ msgstr "Temperatura"
 msgid "Temperature"
 msgstr "Temperatura"
 
-#, fuzzy
 msgid "Temperature: {}"
-msgstr "Temperatura: {}{}"
+msgstr "Temperatura: {}"
 
 msgid "Temperature: {}{}"
 msgstr "Temperatura: {}{}"
@@ -981,9 +975,8 @@ msgstr "Direzione del Vento"
 msgid "Wind speed"
 msgstr "Velocità del Vento"
 
-#, fuzzy
 msgid "Wind: {}"
-msgstr "Vento: {} {} {}"
+msgstr "Vento: {}"
 
 msgid "Wind: {} km/h {}"
 msgstr "Vento: {} km/h {}"

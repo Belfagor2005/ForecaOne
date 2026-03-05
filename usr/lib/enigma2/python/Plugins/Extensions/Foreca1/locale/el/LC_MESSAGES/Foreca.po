@@ -292,31 +292,26 @@ msgstr "Ομίχλη"
 msgid "Foreca One"
 msgstr "Foreca One"
 
-#, fuzzy
 msgid "Foreca One Live Maps (API)"
-msgstr "Ζωντανοί χάρτες (API) Foreca 1"
+msgstr "Ζωντανοί χάρτες (API) Foreca One"
 
 msgid "Foreca One Menu"
 msgstr "Μενού Foreca One"
 
-#, fuzzy
 msgid "Foreca One No stations found"
-msgstr "Δεν βρέθηκαν σταθμοί  Foreca 1"
+msgstr "Δεν βρέθηκαν σταθμοί  Foreca One"
 
-#, fuzzy
 msgid "Foreca One Stations: {} stations nearby ({})"
-msgstr "Σταθμοί: {} σταθμοί κοντά ({} )  Foreca 1"
+msgstr "Σταθμοί: {} σταθμοί κοντά ({} )  Foreca One"
 
-#, fuzzy
 msgid "Foreca One Weather Forecast"
 msgstr "Καιρός και πρόγνωση Foreca One"
 
 msgid "Foreca One Weather and Forecast"
 msgstr "Καιρός και πρόγνωση Foreca One"
 
-#, fuzzy
 msgid "Foreca One | Map {}"
-msgstr "Foreca 1 | Χάρτης {}"
+msgstr "Foreca One | Χάρτης {}"
 
 msgid "Found %d cities locally for '%s'"
 msgstr "Βρέθηκαν %d πόλεις τοπικά για '%s'"
@@ -376,7 +371,7 @@ msgid "Hungary"
 msgstr "Ουγγαρία"
 
 msgid "Illumination"
-msgstr ""
+msgstr "Φωτισμός"
 
 msgid "Image %(current)d/%(total)d"
 msgstr "Εικόνα %(current)d/%(total)d"
@@ -834,9 +829,8 @@ msgstr "Θερμοκρασία"
 msgid "Temperature"
 msgstr "Θερμοκρασία"
 
-#, fuzzy
 msgid "Temperature: {}"
-msgstr "Θερμοκρασία: {}{}"
+msgstr "Θερμοκρασία: {}"
 
 msgid "Temperature: {}{}"
 msgstr "Θερμοκρασία: {}{}"
@@ -979,9 +973,8 @@ msgstr "Κατεύθυνση ανέμου"
 msgid "Wind speed"
 msgstr "Ταχύτητα ανέμου"
 
-#, fuzzy
 msgid "Wind: {}"
-msgstr "Άνεμος: {} {} {}"
+msgstr "Άνεμος: {}"
 
 msgid "Wind: {} km/h {}"
 msgstr "Άνεμος: {} χλμ/ω {}"

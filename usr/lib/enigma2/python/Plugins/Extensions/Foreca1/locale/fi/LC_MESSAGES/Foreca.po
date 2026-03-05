@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 17:54+0100\n"
-"PO-Revision-Date: 2026-03-04 15:49+0200\n"
+"PO-Revision-Date: 2026-03-05 19:16+0100\n"
 "Last-Translator: Orlandox\n"
 "Language-Team: Orlandox\n"
 "Language: fi\n"
@@ -294,32 +294,26 @@ msgstr "Sumua"
 msgid "Foreca One"
 msgstr "Foreca One"
 
-#, fuzzy
 msgid "Foreca One Live Maps (API)"
-msgstr "Foreca 1 Live -kartat (API)"
+msgstr "Foreca One Live -kartat (API)"
 
 msgid "Foreca One Menu"
 msgstr "Foreca One valikko"
 
-#, fuzzy
 msgid "Foreca One No stations found"
-msgstr "Foreca 1 asemia ei löytynyt"
+msgstr "Foreca One asemia ei löytynyt"
 
-#, fuzzy
 msgid "Foreca One Stations: {} stations nearby ({})"
-msgstr "Foreca1 asemat: {} asemaa lähellä ({})"
+msgstr "Foreca One asemat: {} asemaa lähellä ({})"
 
-#, fuzzy
 msgid "Foreca One Weather Forecast"
-msgstr "Foreca 1 sääennuste"
+msgstr "Foreca One sääennuste"
 
-#, fuzzy
 msgid "Foreca One Weather and Forecast"
-msgstr "Foreca 1 sää ja ennuste"
+msgstr "Foreca One sää ja ennuste"
 
-#, fuzzy
 msgid "Foreca One | Map {}"
-msgstr "Foreca 1 | Kartta {}"
+msgstr "Foreca One | Kartta {}"
 
 msgid "Found %d cities locally for '%s'"
 msgstr "Löytyi %d kaupunkia paikallisesti hakusanalla '%s'"
