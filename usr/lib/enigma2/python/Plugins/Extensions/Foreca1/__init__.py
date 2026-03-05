@@ -14,7 +14,7 @@ import gettext
 import codecs
 
 
-VERSION = "1.0.2"
+VERSION = "1.0.4"
 BASEURL = "https://www.foreca.com/"
 TEMP_DIR = '/tmp/foreca'
 SYSTEM_DIR = '/etc/enigma2/foreca'
@@ -185,8 +185,7 @@ def apply_global_theme(screen):
                     r, g, b = parts[0], parts[1], parts[2]
                     bg_color = gRGB(int(r), int(g), int(b))
                     if "background_plate" in screen:
-                        screen["background_plate"].instance.setBackgroundColor(
-                            bg_color)
+                        screen["background_plate"].instance.setBackgroundColor(bg_color)
         except Exception as e:
             print("[Theme] Error loading color:", e)
 
@@ -196,8 +195,7 @@ def apply_global_theme(screen):
             with open(alpha_file, "r") as f:
                 alpha = f.read().strip()
                 if "selection_overlay" in screen:
-                    screen["selection_overlay"].instance.setBackgroundColor(
-                        parseColor(alpha))
+                    screen["selection_overlay"].instance.setBackgroundColor(parseColor(alpha))
         except Exception as e:
             print("[Theme] Error loading alpha:", e)
 
