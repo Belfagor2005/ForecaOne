@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-05 19:13+0100\n"
+"PO-Revision-Date: 2026-03-05 21:01+0100\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -109,13 +109,13 @@ msgid "Celsius, km/h, hPa"
 msgstr "Celsius, km/h, hPa"
 
 msgid "Changelog: {changelog}"
-msgstr ""
+msgstr "Registro modifiche: {changelog}"
 
 msgid "Changes apply immediately"
 msgstr "Applica modifiche immediatamente"
 
 msgid "Check for updates"
-msgstr ""
+msgstr "Controlla gli aggiornamenti"
 
 msgid "Choose detail view"
 msgstr "Scegli la vista dettagliata"
@@ -178,7 +178,7 @@ msgid "Continents Weather Maps"
 msgstr "Mappe Meteo dei Continenti"
 
 msgid "Could not fetch update information."
-msgstr ""
+msgstr "Impossibile recuperare le informazioni di aggiornamento."
 
 msgid "Could not initialize map API."
 msgstr "Impossibile inizializzare l'API della mappa."
@@ -187,7 +187,7 @@ msgid "Could not load forecast data"
 msgstr "Impossibile caricare i dati delle previsioni"
 
 msgid "Could not parse version information."
-msgstr ""
+msgstr "Impossibile analizzare le informazioni sulla versione."
 
 msgid "Current weather and forecast"
 msgstr "Meteo attuale e previsioni"
@@ -226,7 +226,7 @@ msgid "Distance: {} m"
 msgstr "Distanza {} m"
 
 msgid "Do you want to install it now?"
-msgstr ""
+msgstr "Vuoi installarlo ora?"
 
 msgid "Down"
 msgstr "Giù"
@@ -243,9 +243,8 @@ msgstr "Download schemi..."
 msgid "East Asia"
 msgstr "Asia Orientale"
 
-#, fuzzy
 msgid "Error checking for updates."
-msgstr "Errore durante il salvataggio dei preferiti!"
+msgstr "Errore durante il controllo degli aggiornamenti."
 
 msgid "Error displaying map"
 msgstr "Errore durante la visualizzazione della Mappa"
@@ -529,9 +528,8 @@ msgstr "Paesi Bassi"
 msgid "New Moon"
 msgstr "Luna Nuova"
 
-#, fuzzy
 msgid "New version {version} is available."
-msgstr "Nessun dato sulla stazione disponibile"
+msgstr "È disponibile la nuova versione {version}."
 
 msgid "Next"
 msgstr "Avanti"
@@ -914,12 +912,11 @@ msgstr "Su"
 msgid "Up - Previous page"
 msgstr "Su - Pagina precedente"
 
-#, fuzzy
 msgid "Update canceled."
-msgstr "Aggiornato"
+msgstr "Aggiornamento annullato."
 
 msgid "Update completed. Please restart Enigma2."
-msgstr ""
+msgstr "Aggiornamento completato. Riavviare Enigma2."
 
 msgid "Updated: N/A"
 msgstr "Aggiornato: N/D"
@@ -927,9 +924,8 @@ msgstr "Aggiornato: N/D"
 msgid "Updated: {}"
 msgstr "Aggiornato: {}"
 
-#, fuzzy
 msgid "Updating..."
-msgstr "Caricamento..."
+msgstr "Aggiornamento..."
 
 msgid "Use arrow keys to scroll"
 msgstr "Utilizzare i tasti freccia per scorrere"
@@ -1025,7 +1021,7 @@ msgid "Yellow - Favorite 2"
 msgstr "Giallo - Favorito 2"
 
 msgid "You already have the latest version."
-msgstr ""
+msgstr "Hai già l'ultima versione."
 
 msgid "Zoom In"
 msgstr ""
