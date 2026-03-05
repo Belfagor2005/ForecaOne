@@ -51,6 +51,9 @@ msgstr "9 - Tänään + 9 päivää"
 msgid "API credentials not configured."
 msgstr "API-tunnuksia ei ole määritetty."
 
+msgid "AQI {}"
+msgstr ""
+
 msgid "AQI: N/A"
 msgstr "AQI: N/A"
 
@@ -219,6 +222,14 @@ msgstr "Tanska"
 msgid "Details"
 msgstr "Yksityiskohdat"
 
+#, fuzzy
+msgid "Dewpoint {}"
+msgstr "Kastepiste"
+
+#, fuzzy
+msgid "Dewpoint {}°C"
+msgstr "Kastepiste"
+
 msgid "Distance {} km"
 msgstr "Etäisyys {} km"
 
@@ -295,6 +306,18 @@ msgstr "Suosikkien tiedot"
 msgid "Feels like"
 msgstr "Tuntuu kuin"
 
+#, fuzzy
+msgid "Feels like {}"
+msgstr "Tuntuu kuin: {}{}"
+
+#, fuzzy
+msgid "Feels like {}{}"
+msgstr "Tuntuu kuin: {}{}"
+
+#, fuzzy
+msgid "Feels like: {}"
+msgstr "Tuntuu kuin: {}{}"
+
 msgid "Feels like: {}{}"
 msgstr "Tuntuu kuin: {}{}"
 
@@ -360,6 +383,13 @@ msgstr "Kreikka"
 
 msgid "Green - Favorite 1"
 msgstr "Vihreä - Suosikki 1"
+
+#, fuzzy
+msgid "Gust {}"
+msgstr "Puuska"
+
+msgid "Gust: {:.1f} {}"
+msgstr ""
 
 msgid "Hamburg"
 msgstr "Hampuri"
@@ -695,6 +725,10 @@ msgstr "Sademäärä: {}"
 msgid "Precipitations"
 msgstr "Jatkuva sade"
 
+#, fuzzy
+msgid "Precipitations: {}%"
+msgstr "Sateen todennäköisyys: {}%"
+
 msgid "Press RED to search again"
 msgstr "Paina PUNAISTA hakeaksesi uudelleen"
 
@@ -719,8 +753,16 @@ msgstr "Edellinen kuva"
 msgid "Previous page"
 msgstr "Edellinen sivu"
 
+#, fuzzy
+msgid "Rain prob. {}%"
+msgstr "Sateen todennäk."
+
 msgid "Rain prob.: N/A"
 msgstr "Sateen todennäköisyys: N/A"
+
+#, fuzzy
+msgid "Rain: {:.1f} {}"
+msgstr "Tuuli: {} {} {}"
 
 msgid "Red - Color select"
 msgstr "Punainen - Valitse väri"
@@ -814,6 +856,10 @@ msgstr "Slovakia"
 
 msgid "Slower: {}s"
 msgstr "Hitaampi: {}s"
+
+#, fuzzy
+msgid "Snow prob. {}%"
+msgstr "Lumisateen todennäk."
 
 msgid "Snow prob.: N/A"
 msgstr "Lumisateen todennäköisyys: N/A"
@@ -921,6 +967,10 @@ msgstr "Päivitetty"
 msgid "Update completed. Please restart Enigma2."
 msgstr ""
 
+#, fuzzy
+msgid "Updated {}"
+msgstr "Päivitetty: {}"
+
 msgid "Updated: N/A"
 msgstr "Päivitetty: N/A"
 
@@ -1009,6 +1059,14 @@ msgstr "Tuulen suunta"
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 
+#, fuzzy
+msgid "Wind speed {}"
+msgstr "Tuulen nopeus"
+
+#, fuzzy
+msgid "Wind speed: {:.1f} {}"
+msgstr "Tuulen nopeus"
+
 msgid "Wind: {}"
 msgstr "Tuuli: {}"
 
@@ -1069,22 +1127,11 @@ msgstr "• Käytä nuolinäppäimiä navigointiin\n"
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 
-#, fuzzy
-#~ msgid "Feels like: {}"
-#~ msgstr "Tuntuu kuin: {}{}"
-
-#, fuzzy
-#~ msgid "Precipitations: {}%"
-#~ msgstr "Sateen todennäköisyys: {}%"
-
 #~ msgid "Min: {}°C, Max: {}°C"
 #~ msgstr "Min: {}°C, Max: {}°C"
 
 #~ msgid "Precipitations:"
 #~ msgstr "Sateen todennäköisyys:"
-
-#~ msgid "Dewpoint"
-#~ msgstr "Kastepiste"
 
 #~ msgid "Dewpoint:"
 #~ msgstr "Kastepiste:"
@@ -1095,9 +1142,6 @@ msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 #~ msgid "Feels like:"
 #~ msgstr "Tuntuu kuin:"
 
-#~ msgid "Gust"
-#~ msgstr "Puuska"
-
 #~ msgid "Humidity:"
 #~ msgstr "Kosteus:"
 
@@ -1106,12 +1150,6 @@ msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 
 #~ msgid "Rain"
 #~ msgstr "Sade"
-
-#~ msgid "Rain prob."
-#~ msgstr "Sateen todennäk."
-
-#~ msgid "Snow prob."
-#~ msgstr "Lumisateen todennäk."
 
 #~ msgid "7 Day Forecast"
 #~ msgstr "7 päivän ennuste"
