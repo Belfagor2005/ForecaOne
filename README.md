@@ -1,5 +1,3 @@
-## 🇬🇧 English README
-
 # 🌤️ Foreca 1 Weather Forecast – Enigma2 Plugin
 
 <p align="center">
