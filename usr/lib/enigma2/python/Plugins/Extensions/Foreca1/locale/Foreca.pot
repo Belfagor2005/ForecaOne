@@ -12,6 +12,7 @@
 
 
 
+
 msgid "0 - Today"
 msgstr ""
 
@@ -286,9 +287,6 @@ msgid "Favorites details"
 msgstr ""
 
 msgid "Feels like"
-msgstr ""
-
-msgid "Feels like: {}"
 msgstr ""
 
 msgid "Feels like: {}{}"
@@ -688,9 +686,6 @@ msgid "Precipitation: {}"
 msgstr ""
 
 msgid "Precipitations"
-msgstr ""
-
-msgid "Precipitations: {}%"
 msgstr ""
 
 msgid "Press RED to search again"

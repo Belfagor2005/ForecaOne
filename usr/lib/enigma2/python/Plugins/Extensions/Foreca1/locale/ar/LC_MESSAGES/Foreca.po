@@ -295,10 +295,6 @@ msgstr "تفاصيل المفضلة"
 msgid "Feels like"
 msgstr "يبدو كـ"
 
-#, fuzzy
-msgid "Feels like: {}"
-msgstr "يبدو كـ: {}{}"
-
 msgid "Feels like: {}{}"
 msgstr "يبدو كـ: {}{}"
 
@@ -704,10 +700,6 @@ msgstr "هطول الأمطار: {}"
 msgid "Precipitations"
 msgstr "هطول الأمطار"
 
-#, fuzzy
-msgid "Precipitations: {}%"
-msgstr "هطول الأمطار: {}"
-
 msgid "Press RED to search again"
 msgstr "اضغط على الأحمر للبحث مرة أخرى"
 
@@ -1082,6 +1074,14 @@ msgstr "• استخدم مفاتيح الأسهم للتنقل\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• أصفر للحفظ كالمفضلة 2\n"
+
+#, fuzzy
+#~ msgid "Feels like: {}"
+#~ msgstr "يبدو كـ: {}{}"
+
+#, fuzzy
+#~ msgid "Precipitations: {}%"
+#~ msgstr "هطول الأمطار: {}"
 
 #~ msgid "Foreca 1 Weather Forecast"
 #~ msgstr "توقعات الطقس Foreca 1"

@@ -311,10 +311,6 @@ msgid "Feels like"
 msgstr "Ressenti"
 
 #, fuzzy
-msgid "Feels like: {}"
-msgstr "Ressenti"
-
-#, fuzzy
 msgid "Feels like: {}{}"
 msgstr "Ressenti"
 
@@ -737,10 +733,6 @@ msgstr "Précipitations"
 msgid "Precipitations"
 msgstr "Précipitations"
 
-#, fuzzy
-msgid "Precipitations: {}%"
-msgstr "Précipitations"
-
 msgid "Press RED to search again"
 msgstr ""
 
@@ -1134,6 +1126,14 @@ msgstr "• Utilisez les touches fléchées pour naviguer\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• JAUNE pour enregistrer comme Favori 2\n"
+
+#, fuzzy
+#~ msgid "Feels like: {}"
+#~ msgstr "Ressenti"
+
+#, fuzzy
+#~ msgid "Precipitations: {}%"
+#~ msgstr "Précipitations"
 
 #, fuzzy
 #~ msgid "Foreca 1 Weather Forecast"

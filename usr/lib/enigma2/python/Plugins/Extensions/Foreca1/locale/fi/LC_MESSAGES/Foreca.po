@@ -295,10 +295,6 @@ msgstr "Suosikkien tiedot"
 msgid "Feels like"
 msgstr "Tuntuu kuin"
 
-#, fuzzy
-msgid "Feels like: {}"
-msgstr "Tuntuu kuin: {}{}"
-
 msgid "Feels like: {}{}"
 msgstr "Tuntuu kuin: {}{}"
 
@@ -699,10 +695,6 @@ msgstr "Sademäärä: {}"
 msgid "Precipitations"
 msgstr "Jatkuva sade"
 
-#, fuzzy
-msgid "Precipitations: {}%"
-msgstr "Sateen todennäköisyys: {}%"
-
 msgid "Press RED to search again"
 msgstr "Paina PUNAISTA hakeaksesi uudelleen"
 
@@ -1076,6 +1068,14 @@ msgstr "• Käytä nuolinäppäimiä navigointiin\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
+
+#, fuzzy
+#~ msgid "Feels like: {}"
+#~ msgstr "Tuntuu kuin: {}{}"
+
+#, fuzzy
+#~ msgid "Precipitations: {}%"
+#~ msgstr "Sateen todennäköisyys: {}%"
 
 #~ msgid "Min: {}°C, Max: {}°C"
 #~ msgstr "Min: {}°C, Max: {}°C"
