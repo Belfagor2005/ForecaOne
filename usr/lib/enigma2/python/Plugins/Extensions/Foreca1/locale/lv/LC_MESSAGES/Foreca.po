@@ -107,7 +107,13 @@ msgstr ""
 msgid "Celsius, km/h, hPa"
 msgstr ""
 
+msgid "Changelog: {changelog}"
+msgstr ""
+
 msgid "Changes apply immediately"
+msgstr ""
+
+msgid "Check for updates"
 msgstr ""
 
 msgid "Choose detail view"
@@ -170,10 +176,16 @@ msgstr ""
 msgid "Continents Weather Maps"
 msgstr ""
 
+msgid "Could not fetch update information."
+msgstr ""
+
 msgid "Could not initialize map API."
 msgstr ""
 
 msgid "Could not load forecast data"
+msgstr ""
+
+msgid "Could not parse version information."
 msgstr ""
 
 msgid "Current weather and forecast"
@@ -212,6 +224,9 @@ msgstr ""
 msgid "Distance: {} m"
 msgstr ""
 
+msgid "Do you want to install it now?"
+msgstr ""
+
 msgid "Down"
 msgstr ""
 
@@ -225,6 +240,9 @@ msgid "Downloading tiles..."
 msgstr ""
 
 msgid "East Asia"
+msgstr ""
+
+msgid "Error checking for updates."
 msgstr ""
 
 msgid "Error displaying map"
@@ -507,6 +525,9 @@ msgid "Netherlands"
 msgstr ""
 
 msgid "New Moon"
+msgstr ""
+
+msgid "New version {version} is available."
 msgstr ""
 
 msgid "Next"
@@ -890,10 +911,19 @@ msgstr ""
 msgid "Up - Previous page"
 msgstr ""
 
+msgid "Update canceled."
+msgstr ""
+
+msgid "Update completed. Please restart Enigma2."
+msgstr ""
+
 msgid "Updated: N/A"
 msgstr ""
 
 msgid "Updated: {}"
+msgstr ""
+
+msgid "Updating..."
 msgstr ""
 
 msgid "Use arrow keys to scroll"
@@ -987,6 +1017,9 @@ msgid "Window transparency"
 msgstr ""
 
 msgid "Yellow - Favorite 2"
+msgstr ""
+
+msgid "You already have the latest version."
 msgstr ""
 
 msgid "Zoom In"

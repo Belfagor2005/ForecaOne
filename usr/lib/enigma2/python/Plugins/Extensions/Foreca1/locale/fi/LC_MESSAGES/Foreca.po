@@ -108,8 +108,14 @@ msgstr "Peruuta"
 msgid "Celsius, km/h, hPa"
 msgstr "Celsius, km/h, hPa"
 
+msgid "Changelog: {changelog}"
+msgstr ""
+
 msgid "Changes apply immediately"
 msgstr "Muutokset tulevat heti voimaan"
+
+msgid "Check for updates"
+msgstr ""
 
 msgid "Choose detail view"
 msgstr "Valitse yksityiskohtainen näkymä"
@@ -171,11 +177,17 @@ msgstr "Sää: {}"
 msgid "Continents Weather Maps"
 msgstr "Maanosien säätiedotuskartat"
 
+msgid "Could not fetch update information."
+msgstr ""
+
 msgid "Could not initialize map API."
 msgstr "Kartta-API:n alustaminen epäonnistui."
 
 msgid "Could not load forecast data"
 msgstr "Ennustetietojen lataaminen epäonnistui"
+
+msgid "Could not parse version information."
+msgstr ""
 
 msgid "Current weather and forecast"
 msgstr "Tämänhetkinen sää ja ennuste"
@@ -213,6 +225,9 @@ msgstr "Etäisyys {} km"
 msgid "Distance: {} m"
 msgstr "Etäisyys: {} m"
 
+msgid "Do you want to install it now?"
+msgstr ""
+
 msgid "Down"
 msgstr "Alas"
 
@@ -227,6 +242,10 @@ msgstr "Ladataan nimikkeitä..."
 
 msgid "East Asia"
 msgstr "Itä-Aasia"
+
+#, fuzzy
+msgid "Error checking for updates."
+msgstr "Virhe tallennettaessa suosikkia!"
 
 msgid "Error displaying map"
 msgstr "Virhe kartan näyttämisessä"
@@ -509,6 +528,10 @@ msgstr "Alankomaat"
 
 msgid "New Moon"
 msgstr "Uusi kuu"
+
+#, fuzzy
+msgid "New version {version} is available."
+msgstr "Asemadataa ei ole saatavilla"
 
 msgid "Next"
 msgstr "Seuraava"
@@ -891,11 +914,22 @@ msgstr "Ylös"
 msgid "Up - Previous page"
 msgstr "Ylös - Edellinen sivu"
 
+#, fuzzy
+msgid "Update canceled."
+msgstr "Päivitetty"
+
+msgid "Update completed. Please restart Enigma2."
+msgstr ""
+
 msgid "Updated: N/A"
 msgstr "Päivitetty: N/A"
 
 msgid "Updated: {}"
 msgstr "Päivitetty: {}"
+
+#, fuzzy
+msgid "Updating..."
+msgstr "Ladataan..."
 
 msgid "Use arrow keys to scroll"
 msgstr "Käytä nuolinäppäimiä vierittääksesi"
@@ -989,6 +1023,9 @@ msgstr "Ikkunan läpinäkyvyys"
 
 msgid "Yellow - Favorite 2"
 msgstr "Keltainen - Suosikki 2"
+
+msgid "You already have the latest version."
+msgstr ""
 
 msgid "Zoom In"
 msgstr "Lähennä"
@@ -1094,9 +1131,6 @@ msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 
 #~ msgid "UV"
 #~ msgstr "UV"
-
-#~ msgid "Updated"
-#~ msgstr "Päivitetty"
 
 #~ msgid "Created by @Bauernbub"
 #~ msgstr "Luonut @Bauernbub"

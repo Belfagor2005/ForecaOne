@@ -110,8 +110,14 @@ msgstr "Annuler"
 msgid "Celsius, km/h, hPa"
 msgstr "Celsius, km/h, hPa"
 
+msgid "Changelog: {changelog}"
+msgstr ""
+
 msgid "Changes apply immediately"
 msgstr "Les changements s'appliquent immédiatement"
+
+msgid "Check for updates"
+msgstr ""
 
 msgid "Choose detail view"
 msgstr ""
@@ -176,11 +182,17 @@ msgstr "Plus rapide : {}s"
 msgid "Continents Weather Maps"
 msgstr "Cartes météo des continents"
 
+msgid "Could not fetch update information."
+msgstr ""
+
 msgid "Could not initialize map API."
 msgstr ""
 
 msgid "Could not load forecast data"
 msgstr "Impossible de charger les données de prévision"
+
+msgid "Could not parse version information."
+msgstr ""
 
 msgid "Current weather and forecast"
 msgstr "Météo actuelle et prévisions"
@@ -223,6 +235,9 @@ msgstr "Distance"
 msgid "Distance: {} m"
 msgstr "Distance"
 
+msgid "Do you want to install it now?"
+msgstr ""
+
 msgid "Down"
 msgstr ""
 
@@ -238,6 +253,10 @@ msgstr "Téléchargement des images..."
 
 msgid "East Asia"
 msgstr "Asie de l'Est"
+
+#, fuzzy
+msgid "Error checking for updates."
+msgstr "Erreur lors de l'enregistrement du favori !"
 
 #, fuzzy
 msgid "Error displaying map"
@@ -538,6 +557,10 @@ msgstr "Pays-Bas"
 
 msgid "New Moon"
 msgstr ""
+
+#, fuzzy
+msgid "New version {version} is available."
+msgstr "Aucune donnée de station disponible"
 
 msgid "Next"
 msgstr "Suivant"
@@ -943,12 +966,22 @@ msgstr ""
 msgid "Up - Previous page"
 msgstr "Haut - Page précédente"
 
+msgid "Update canceled."
+msgstr ""
+
+msgid "Update completed. Please restart Enigma2."
+msgstr ""
+
 msgid "Updated: N/A"
 msgstr ""
 
 #, fuzzy
 msgid "Updated: {}"
 msgstr "Plus rapide : {}s"
+
+#, fuzzy
+msgid "Updating..."
+msgstr "Chargement..."
 
 msgid "Use arrow keys to scroll"
 msgstr "Utilisez les touches fléchées pour défiler"
@@ -1048,6 +1081,9 @@ msgstr "Transparence de la fenêtre"
 
 msgid "Yellow - Favorite 2"
 msgstr "Jaune - Favori 2"
+
+msgid "You already have the latest version."
+msgstr ""
 
 msgid "Zoom In"
 msgstr ""

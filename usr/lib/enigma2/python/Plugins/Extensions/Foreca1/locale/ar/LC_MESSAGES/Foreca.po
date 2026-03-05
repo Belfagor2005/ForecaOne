@@ -107,8 +107,14 @@ msgstr "إلغاء"
 msgid "Celsius, km/h, hPa"
 msgstr "مئوية، كم/س، هيكتوباسكال"
 
+msgid "Changelog: {changelog}"
+msgstr ""
+
 msgid "Changes apply immediately"
 msgstr "يتم تطبيق التغييرات فورًا"
+
+msgid "Check for updates"
+msgstr ""
 
 msgid "Choose detail view"
 msgstr "اختر عرض التفاصيل"
@@ -171,11 +177,17 @@ msgstr "الحالة: {}"
 msgid "Continents Weather Maps"
 msgstr "خرائط الطقس الأوروبية"
 
+msgid "Could not fetch update information."
+msgstr ""
+
 msgid "Could not initialize map API."
 msgstr "تعذر تهيئة واجهة برمجة تطبيقات الخريطة."
 
 msgid "Could not load forecast data"
 msgstr "تعذر تحميل بيانات التوقعات"
+
+msgid "Could not parse version information."
+msgstr ""
 
 msgid "Current weather and forecast"
 msgstr "الطقس الحالي والتوقعات"
@@ -213,6 +225,9 @@ msgstr "المسافة {} كم"
 msgid "Distance: {} m"
 msgstr "المسافة: {} م"
 
+msgid "Do you want to install it now?"
+msgstr ""
+
 msgid "Down"
 msgstr "أسفل"
 
@@ -227,6 +242,10 @@ msgstr "جاري تحميل البلاط..."
 
 msgid "East Asia"
 msgstr "شرق آسيا"
+
+#, fuzzy
+msgid "Error checking for updates."
+msgstr "خطأ في حفظ المفضلة!"
 
 msgid "Error displaying map"
 msgstr "خطأ في عرض الخريطة"
@@ -514,6 +533,10 @@ msgstr "هولندا"
 
 msgid "New Moon"
 msgstr "المحاق"
+
+#, fuzzy
+msgid "New version {version} is available."
+msgstr "لا توجد بيانات محطة متاحة"
 
 msgid "Next"
 msgstr "التالي"
@@ -897,11 +920,21 @@ msgstr "أعلى"
 msgid "Up - Previous page"
 msgstr "أعلى - الصفحة السابقة"
 
+msgid "Update canceled."
+msgstr ""
+
+msgid "Update completed. Please restart Enigma2."
+msgstr ""
+
 msgid "Updated: N/A"
 msgstr "آخر تحديث: غير متوفر"
 
 msgid "Updated: {}"
 msgstr "آخر تحديث: {}"
+
+#, fuzzy
+msgid "Updating..."
+msgstr "جاري التحميل..."
 
 msgid "Use arrow keys to scroll"
 msgstr "استخدم مفاتيح الأسهم للتمرير"
@@ -996,6 +1029,9 @@ msgstr "شفافية النافذة"
 
 msgid "Yellow - Favorite 2"
 msgstr "أصفر - المفضلة 2"
+
+msgid "You already have the latest version."
+msgstr ""
 
 msgid "Zoom In"
 msgstr "تكبير"
