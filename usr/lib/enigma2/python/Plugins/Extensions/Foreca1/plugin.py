@@ -61,6 +61,7 @@ from Tools.LoadPixmap import LoadPixmap
 from . import (
     _,
     VERSION,
+    INSTALLER_URL,
     PLUGIN_PATH,
     MOON_ICON_PATH,
     load_skin_for_class,
@@ -609,6 +610,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             (_("Unit Settings (Advanced)"), "units_advanced"),
             (_("Color select"), "colorselector"),
             (_("Transparency Settings"), "transparency"),
+            (_("Check for updates"), "update"),
             (_("Info"), "info"),
             (_("Exit"), "exit")
         ]
@@ -695,11 +697,13 @@ class Foreca_Preview(Screen, HelpableScreen):
         elif key == "transparency":
             self.session.openWithCallback(
                 self.after_main_menu, TransparencySelector, self)
+        elif key == "update":
+            self.update_me()
+        elif key == "maps":
+            self.open_maps_menu()
         elif key == "info":
             self.session.openWithCallback(
                 self.after_main_menu, InfoDialog, self)
-        elif key == "maps":
-            self.open_maps_menu()
         elif key == "exit":
             return
 
@@ -1397,6 +1401,76 @@ class Foreca_Preview(Screen, HelpableScreen):
             except Exception as e:
                 print(f"[Foreca1] Forecast debug write error: {e}")
 
+    def update_me(self):
+        """Checks for updates and asks for confirmation to install them."""
+        import requests
+        try:
+            resp = requests.get(INSTALLER_URL, timeout=10)
+            if resp.status_code != 200:
+                self.session.open(MessageBox, _("Could not fetch update information."), MessageBox.TYPE_ERROR)
+                return
+
+            data = resp.text
+            remote_version = None
+            remote_changelog = ""
+            for line in data.splitlines():
+                if line.startswith("version="):
+                    # assume format: version='1.0.0' or version="1.0.0"
+                    if "'" in line:
+                        remote_version = line.split("'")[1]
+                    else:
+                        remote_version = line.split("=")[1].strip().strip('"')
+                elif line.startswith("changelog="):
+                    if "'" in line:
+                        remote_changelog = line.split("'")[1]
+                    else:
+                        remote_changelog = line.split("=")[1].strip().strip('"')
+
+            if remote_version is None:
+                self.session.open(MessageBox, _("Could not parse version information."), MessageBox.TYPE_ERROR)
+                return
+
+            current_version = VERSION
+
+            # helper function to compare versions like "1.0.0"
+            def version_tuple(v):
+                return tuple(map(int, v.split('.')))
+            if version_tuple(remote_version) > version_tuple(current_version):
+                msg = _("New version {version} is available.").format(version=remote_version) + "\n"
+                if remote_changelog:
+                    msg += _("Changelog: {changelog}").format(changelog=remote_changelog) + "\n"
+                msg += _("Do you want to install it now?")
+                self.session.openWithCallback(
+                    lambda answer: self.install_update(answer, INSTALLER_URL),
+                    MessageBox,
+                    msg,
+                    MessageBox.TYPE_YESNO
+                )
+            else:
+                self.session.open(MessageBox, _("You already have the latest version."), MessageBox.TYPE_INFO, timeout=4)
+        except Exception as e:
+            print("[Foreca1] Update check error:", e)
+            self.session.open(MessageBox, _("Error checking for updates."), MessageBox.TYPE_ERROR)
+
+    def install_update(self, answer, installer_url):
+        """Runs the update script if the user confirmed."""
+        if answer:
+            cmd = f"wget -q --no-check-certificate {installer_url} -O - | /bin/sh"
+            from Screens.Console import Console
+            self.session.open(
+                Console,
+                _("Updating..."),
+                cmdlist=[cmd],
+                finishedCallback=self.update_finished,
+                closeOnSuccess=True
+            )
+        else:
+            self.session.open(MessageBox, _("Update canceled."), MessageBox.TYPE_INFO, timeout=3)
+
+    def update_finished(self, result=None):
+        """Callback executed when the installation finishes."""
+        self.session.open(MessageBox, _("Update completed. Please restart Enigma2."), MessageBox.TYPE_INFO)
+
     def _update_titles(self):
         date_str = str(self.f_date[0]) if self.f_date else _(
             "No date available")
@@ -1411,7 +1485,6 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["title_loading"].text = ""
 
     def update_time(self):
-        import datetime
         # Use the city's timezone if available
         now = datetime.datetime.now()
         if hasattr(self, 'tz') and self.tz:
@@ -1568,19 +1641,22 @@ class Foreca_Preview(Screen, HelpableScreen):
             from twisted.internet import reactor
 
             def update_ui():
+                if "moonrise_value" in self and api_data.get("rise", "N/A") != "N/A":
+                    self["moonrise_value"].setText(api_data["rise"])
+                if "moonset_value" in self and api_data.get("set", "N/A") != "N/A":
+                    self["moonset_value"].setText(api_data["set"])
+
                 info = self.moon.get_phase_info()
                 if "icon_moon" in self and info["icon_path"]:
-                    self["icon_moon"].instance.setPixmapFromFile(
-                        info["icon_path"])
+                    self["icon_moon"].instance.setPixmapFromFile(info["icon_path"])
                 if "moon_label" in self:
                     self["moon_label"].setText(_(info["name"]))
                 if "moon_illum" in self:
-                    self["moon_illum"].setText(
-                        _("Illumination") + f" {info['illumination']:.1f}%")
+                    self["moon_illum"].setText(_("Illumination") + f" {info['illumination']:.1f}%")
                 if "moon_distance" in self:
                     distance = self.moon.get_moon_distance()
-                    self["moon_distance"].setText(
-                        _("Distance {} km").format(distance))
+                    self["moon_distance"].setText(_("Distance {} km").format(distance))
+
             reactor.callFromThread(update_ui)
 
     def open_foreca_api_maps(self, callback=None):

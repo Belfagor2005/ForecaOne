@@ -75,8 +75,8 @@
     <widget name="moonrise_label" position="100,365" size="170,30" zPosition="10" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="left" />
     <widget name="moonrise_value" position="100,335" size="170,30" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_moonset" position="730,338" size="50,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/moonset.png" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
-    <widget name="moonset_label" position="490,335" size="230,30" zPosition="10" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />
-    <widget name="moonset_value" position="490,365" size="230,30" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="moonset_label" position="490,365" size="230,30" zPosition="10" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />
+    <widget name="moonset_value" position="490,335" size="230,30" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="right" zPosition="10" />
     <!-- Station -->
     <widget name="icon_observation" position="40,540" size="50,50" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="station_name" position="95,548" size="491,40" font="Regular; 26" halign="left" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" />

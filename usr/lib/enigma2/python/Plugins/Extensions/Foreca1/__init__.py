@@ -28,7 +28,7 @@ DBG_DIR = join(PLUGIN_PATH, 'debug')
 DATA_FILE = join(PLUGIN_PATH, "color_database.txt")
 TOKEN_FILE = join(CACHE_BASE, "token.json")
 WETTERKONTOR_CACHE = join(CACHE_BASE, "wetterkontor/")
-
+INSTALLER_URL = "https://raw.githubusercontent.com/Belfagor2005/ForecaOne/main/installer.sh"
 
 DEBUG = True
 CACHE_EXPIRE = 3600
