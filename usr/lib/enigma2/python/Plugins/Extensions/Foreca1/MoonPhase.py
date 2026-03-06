@@ -134,9 +134,13 @@ class MoonPhase:
             phase_name = self.api_data["phase"]
 
             # Determine whether the phase is waxing or waning
-            crescente = phase_name in ["Waxing Crescent", "First Quarter", "Waxing Gibbous"]
+            crescente = phase_name in [
+                "Waxing Crescent",
+                "First Quarter",
+                "Waxing Gibbous"]
 
-            # Linear mapping: illumination 0% → icon 0 (new), 100% → icon 50 (full)
+            # Linear mapping: illumination 0% → icon 0 (new), 100% → icon 50
+            # (full)
             if crescente:
                 icon_number = int(round(illum_percent * 50 / 100))
             else:
@@ -148,7 +152,9 @@ class MoonPhase:
             elif phase_name == "Full Moon":
                 icon_number = 50
 
-            icon_number = max(0, min(99, icon_number))  # 0-99 for 100 icons? Actually you have 101 (0-100), so 100 is valid
+            # 0-99 for 100 icons? Actually you have 101 (0-100), so 100 is
+            # valid
+            icon_number = max(0, min(99, icon_number))
         else:
             # Fallback to internal calculation (as before)
             phase = self._get_current_phase_value()

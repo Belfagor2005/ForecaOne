@@ -46,27 +46,29 @@ desk = getDesktop(0)
 res = (desk.size().width(), desk.size().height())
 
 if res == (1920, 1080):     # Full HD
-    GRAPH_WIDTH  = 1665
+    GRAPH_WIDTH = 1665
     GRAPH_HEIGHT = 522
-    HOUR_STEP    = 48
-    GRAPH_TOP    = 198
+    HOUR_STEP = 48
+    GRAPH_TOP = 198
 elif res == (1280, 720):    # HD ready
-    GRAPH_WIDTH  = 1105
+    GRAPH_WIDTH = 1105
     GRAPH_HEIGHT = 348
-    HOUR_STEP    = 32
-    GRAPH_TOP    = 132
+    HOUR_STEP = 32
+    GRAPH_TOP = 132
 elif res == (2560, 1440):   # WQHD
-    GRAPH_WIDTH  = 2215
+    GRAPH_WIDTH = 2215
     GRAPH_HEIGHT = 696
-    HOUR_STEP    = 64
-    GRAPH_TOP    = 264
+    HOUR_STEP = 64
+    GRAPH_TOP = 264
 else:                       # fallback (should match skin defaults)
-    GRAPH_WIDTH  = 1665
+    GRAPH_WIDTH = 1665
     GRAPH_HEIGHT = 522
-    HOUR_STEP    = 48
-    GRAPH_TOP    = 198
+    HOUR_STEP = 48
+    GRAPH_TOP = 198
 
-PERIODS = 35    # Number of 3-hour periods to display (covers ~4.5 days, but typically we have 7 days)
+# Number of 3-hour periods to display (covers ~4.5 days, but typically we
+# have 7 days)
+PERIODS = 35
 
 
 TEMP_PALETTE = [
@@ -371,7 +373,9 @@ class MeteogramView(Screen, HelpableScreen):
         # Retrieve the temperature scale from the JSON data
         temp_block = ranges.get('temp', {})
         if unit_flag == 'c':
-            conf = temp_block.get('metric', {'start': -20, 'end': 40, 'step': 5})
+            conf = temp_block.get(
+                'metric', {
+                    'start': -20, 'end': 40, 'step': 5})
         else:
             conf = temp_block.get('us', {'start': -4, 'end': 104, 'step': 9})
 
@@ -386,10 +390,12 @@ class MeteogramView(Screen, HelpableScreen):
             if idx >= PERIODS:
                 break
             # Get the temperature value (Celsius or Fahrenheit)
-            temp_val = item.get('temp') if unit_flag == 'c' else item.get('tempf')
+            temp_val = item.get(
+                'temp') if unit_flag == 'c' else item.get('tempf')
             if temp_val is None:
                 temp_val = 0
-            # Y coordinate: 0 = tmax (top of graph), GRAPH_HEIGHT = tmin (bottom)
+            # Y coordinate: 0 = tmax (top of graph), GRAPH_HEIGHT = tmin
+            # (bottom)
             ratio = 1 - (temp_val - tmin) / (tmax - tmin)
             y = int(GRAPH_HEIGHT * ratio)
             points.append((x, y, temp_val))
