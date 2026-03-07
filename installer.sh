@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.0.5'
-changelog='\nMoon Recode Jwl Calc\nFix Zeroline Meteogramm\nMinor fix on screen\nOffer coffee if you like this plugin'
+version='1.0.6'
+changelog='\nAdd Moon Calendar\nRecoded MoonPhase Exact Lat/Long\nSkin Fix\nAdd Cache to Traductions\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz
@@ -17,6 +17,7 @@ else
 fi
 
 echo "Starting ForecaOne installation..."
+
 
 cleanup() {
     echo "Cleaning up temporary files..."
