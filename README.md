@@ -346,4 +346,3 @@ See the [LICENSE](LICENSE) file for details.
   <i>Enjoy the weather, rain or shine! ☀️🌧️</i><br>
   © Lululla 2026
 </p>
-```
