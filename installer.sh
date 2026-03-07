@@ -18,6 +18,7 @@ fi
 
 echo "Starting ForecaOne installation..."
 
+
 cleanup() {
     echo "Cleaning up temporary files..."
     [ -d "$TMPPATH" ] && rm -rf "$TMPPATH"
