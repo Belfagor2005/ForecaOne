@@ -1,4 +1,4 @@
-SUMMARY = "Foreca1"
+SUMMARY = "Foreca One"
 MAINTAINER = "Lululla"
 SECTION = "base"
 PRIORITY = "required"
