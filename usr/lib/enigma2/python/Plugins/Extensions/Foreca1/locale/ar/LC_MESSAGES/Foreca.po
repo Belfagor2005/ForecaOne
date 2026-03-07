@@ -41,6 +41,10 @@ msgstr "6 - اليوم + 6 أيام"
 msgid "7 - Today + 7 days"
 msgstr "7 - اليوم + 7 أيام"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "موافق - التوقعات"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - اليوم + 8 أيام"
 
@@ -95,6 +99,9 @@ msgstr "بلجيكا"
 msgid "Berlin"
 msgstr "برلين"
 
+msgid "Blue"
+msgstr ""
+
 msgid "Blue - Home"
 msgstr "أزرق - الصفحة الرئيسية"
 
@@ -103,6 +110,10 @@ msgstr "براندنبورغ"
 
 msgid "Bremen"
 msgstr "بريمن"
+
+#, fuzzy
+msgid "Calculating..."
+msgstr "جاري التحميل..."
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -222,11 +233,18 @@ msgstr "الدنمارك"
 msgid "Details"
 msgstr "التفاصيل"
 
+msgid "Dewpoint"
+msgstr ""
+
 msgid "Dewpoint {}"
 msgstr ""
 
 msgid "Dewpoint {}°C"
 msgstr ""
+
+#, fuzzy
+msgid "Distance"
+msgstr "المسافة {} كم"
 
 msgid "Distance {} km"
 msgstr "المسافة {} كم"
@@ -384,6 +402,10 @@ msgstr "بريطانيا العظمى"
 msgid "Greece"
 msgstr "اليونان"
 
+#, fuzzy
+msgid "Green"
+msgstr "اليونان"
+
 msgid "Green - Favorite 1"
 msgstr "أخضر - المفضلة 1"
 
@@ -393,6 +415,9 @@ msgstr ""
 #, fuzzy
 msgid "Gust: {:.1f} {}"
 msgstr "الرياح: {} {} {}"
+
+msgid "HTML"
+msgstr ""
 
 msgid "Hamburg"
 msgstr "هامبورغ"
@@ -475,6 +500,10 @@ msgstr "لوحة المفاتيح"
 msgid "Last Quarter"
 msgstr "الربع الأخير"
 
+#, fuzzy
+msgid "Last update"
+msgstr "الربع الأخير"
+
 msgid "Latvia"
 msgstr "لاتفيا"
 
@@ -486,6 +515,10 @@ msgstr "السهم الأيسر - اليوم السابق"
 
 msgid "Loading available maps..."
 msgstr "جاري تحميل الخرائط المتاحة..."
+
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "جاري تحميل المحطات القريبة..."
 
 msgid "Loading nearby stations..."
 msgstr "جاري تحميل المحطات القريبة..."
@@ -501,6 +534,12 @@ msgstr "منخفض"
 
 msgid "Lower Saxony"
 msgstr "ساكسونيا السفلى"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "لوكسمبورغ"
@@ -771,6 +810,9 @@ msgstr "احتمالية المطر: غير متوفرة"
 msgid "Rain: {:.1f} {}"
 msgstr "الرياح: {} {} {}"
 
+msgid "Red"
+msgstr ""
+
 msgid "Red - Color select"
 msgstr "أحمر - اختيار اللون"
 
@@ -943,6 +985,9 @@ msgstr "جرب تكبيرًا أو طبقة مختلفة"
 
 msgid "Try different zoom or region"
 msgstr "جرب تكبيرًا أو منطقة مختلفة"
+
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr "مؤشر الأشعة فوق البنفسجية"
@@ -1134,22 +1179,6 @@ msgstr "• استخدم مفاتيح الأسهم للتنقل\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• أصفر للحفظ كالمفضلة 2\n"
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "موافق - التوقعات"
-
-#, fuzzy
-#~ msgid "Distance"
-#~ msgstr "المسافة {} كم"
-
-#, fuzzy
-#~ msgid "Green"
-#~ msgstr "اليونان"
-
-#, fuzzy
-#~ msgid "Last update"
-#~ msgstr "الربع الأخير"
 
 #~ msgid "Foreca 1 Weather Forecast"
 #~ msgstr "توقعات الطقس Foreca 1"

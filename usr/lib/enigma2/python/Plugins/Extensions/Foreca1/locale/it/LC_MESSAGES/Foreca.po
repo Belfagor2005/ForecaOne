@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-06 21:13+0100\n"
+"PO-Revision-Date: 2026-03-07 19:46+0100\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -41,6 +41,9 @@ msgstr "6 - Oggi + 6 giorni"
 
 msgid "7 - Today + 7 days"
 msgstr "7 - Oggi + 7 giorni"
+
+msgid "7 Day Forecast"
+msgstr "Previsione 7 Giorni"
 
 msgid "8 - Today + 8 days"
 msgstr "8 - Oggi + 8 giorni"
@@ -96,6 +99,9 @@ msgstr "Belgio"
 msgid "Berlin"
 msgstr "Berlino"
 
+msgid "Blue"
+msgstr "Blu"
+
 msgid "Blue - Home"
 msgstr "Blu - Principale"
 
@@ -104,6 +110,9 @@ msgstr "Brandeburgo"
 
 msgid "Bremen"
 msgstr "Brema"
+
+msgid "Calculating..."
+msgstr "Calcolo..."
 
 msgid "Cancel"
 msgstr "Annulla"
@@ -222,11 +231,17 @@ msgstr "Danimarca"
 msgid "Details"
 msgstr "Dettagli"
 
+msgid "Dewpoint"
+msgstr "Punto di rugiada"
+
 msgid "Dewpoint {}"
 msgstr "Punto di rugiada {}"
 
 msgid "Dewpoint {}°C"
 msgstr "Punto di rugiada {}°C"
+
+msgid "Distance"
+msgstr "Distanza"
 
 msgid "Distance {} km"
 msgstr "Distanza {} km"
@@ -375,6 +390,9 @@ msgstr "Gran Bretagna"
 msgid "Greece"
 msgstr "Grecia"
 
+msgid "Green"
+msgstr "Verde"
+
 msgid "Green - Favorite 1"
 msgstr "Verde - Favorito 1"
 
@@ -383,6 +401,9 @@ msgstr "Raffica {}"
 
 msgid "Gust: {:.1f} {}"
 msgstr "Raffica: {:.1f} {}"
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Amburgo"
@@ -465,6 +486,9 @@ msgstr "Tastiera"
 msgid "Last Quarter"
 msgstr "Ultimo Quarto"
 
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
 msgid "Latvia"
 msgstr "Lettonia"
 
@@ -476,6 +500,9 @@ msgstr "Freccia sinistra - Giorno precedente"
 
 msgid "Loading available maps..."
 msgstr "Caricamento mappe disponibili..."
+
+msgid "Loading lunar phases..."
+msgstr "Caricamento delle fasi lunari..."
 
 msgid "Loading nearby stations..."
 msgstr "Caricamento delle stazioni vicine..."
@@ -491,6 +518,12 @@ msgstr "Basso"
 
 msgid "Lower Saxony"
 msgstr "Bassa Sassonia"
+
+msgid "Lunar Calendar"
+msgstr "Calendario Lunare"
+
+msgid "Lunar phases from next month"
+msgstr "Fasi lunari dal prossimo mese"
 
 msgid "Luxembourg"
 msgstr "Lussemburgo"
@@ -756,6 +789,9 @@ msgstr "Prob. di pioggia: N/D"
 msgid "Rain: {:.1f} {}"
 msgstr "Pioggia: {:.1f} {}"
 
+msgid "Red"
+msgstr "Rosso"
+
 msgid "Red - Color select"
 msgstr "Rosso - Seleziona colore"
 
@@ -927,6 +963,9 @@ msgstr "Prova uno zoom o un livello diverso"
 msgid "Try different zoom or region"
 msgstr "Prova uno zoom o una regione diversi"
 
+msgid "UV"
+msgstr ""
+
 msgid "UV Index"
 msgstr "UV Indice"
 
@@ -1090,7 +1129,7 @@ msgid "v."
 msgstr "v."
 
 msgid "{hours} h {mins} min"
-msgstr ""
+msgstr "{hours} ore {mins} minuti"
 
 msgid "• BLUE to save as Home\n"
 msgstr "• BLU per salvare Home\n"
@@ -1112,30 +1151,6 @@ msgstr "• Utilizzare i tasti freccia per navigare\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• GIALLO per salvare Preferito 2\n"
-
-#~ msgid "7 Day Forecast"
-#~ msgstr "Previsione 7 Giorni"
-
-#~ msgid "Blue"
-#~ msgstr "Blu"
-
-#~ msgid "Dewpoint"
-#~ msgstr "Punto di rugiada"
-
-#~ msgid "Distance"
-#~ msgstr "Distanza"
-
-#~ msgid "Green"
-#~ msgstr "Verde"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Ultimo aggiornamento"
-
-#~ msgid "Red"
-#~ msgstr "Rosso"
 
 #~ msgid "Foreca 1 Weather Forecast"
 #~ msgstr "Foreca 1 Previsioni del tempo"
