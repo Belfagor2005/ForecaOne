@@ -107,6 +107,10 @@ msgstr "Braniborsko"
 msgid "Bremen"
 msgstr "Brémy"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "Načítání..."
+
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -509,6 +513,10 @@ msgstr "Šipka doleva - Předchozí den"
 msgid "Loading available maps..."
 msgstr "Načítání dostupných map..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "Načítání blízkých stanic..."
+
 msgid "Loading nearby stations..."
 msgstr "Načítání blízkých stanic..."
 
@@ -523,6 +531,12 @@ msgstr ""
 
 msgid "Lower Saxony"
 msgstr "Dolní Sasko"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Lucembursko"

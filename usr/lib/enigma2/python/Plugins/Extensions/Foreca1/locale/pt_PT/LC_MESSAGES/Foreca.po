@@ -103,6 +103,9 @@ msgstr ""
 msgid "Bremen"
 msgstr ""
 
+msgid "Calculating..."
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -475,6 +478,9 @@ msgstr ""
 msgid "Loading available maps..."
 msgstr ""
 
+msgid "Loading lunar phases..."
+msgstr ""
+
 msgid "Loading nearby stations..."
 msgstr ""
 
@@ -488,6 +494,12 @@ msgid "Low"
 msgstr ""
 
 msgid "Lower Saxony"
+msgstr ""
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
 msgstr ""
 
 msgid "Luxembourg"

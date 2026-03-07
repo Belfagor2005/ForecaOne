@@ -105,6 +105,10 @@ msgstr "Brandenburg"
 msgid "Bremen"
 msgstr "Bremen"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "Päivitetään..."
+
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -477,6 +481,10 @@ msgstr "Vasen nuoli - Edellinen päivä"
 msgid "Loading available maps..."
 msgstr "Ladataan saatavilla olevia karttoja..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "Ladataan läheisiä asemia..."
+
 msgid "Loading nearby stations..."
 msgstr "Ladataan läheisiä asemia..."
 
@@ -491,6 +499,12 @@ msgstr "Matala"
 
 msgid "Lower Saxony"
 msgstr "Ala-Saksi"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxemburg"

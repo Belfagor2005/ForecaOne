@@ -103,6 +103,10 @@ msgstr "Βρανδεμβούργο"
 msgid "Bremen"
 msgstr "Βρέμη"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "Ενημέρωση..."
+
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -475,6 +479,10 @@ msgstr "Βέλος αριστερά - Προηγούμενη ημέρα"
 msgid "Loading available maps..."
 msgstr "Φόρτωση διαθέσιμων χαρτών..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "Φόρτωση κοντινών σταθμών..."
+
 msgid "Loading nearby stations..."
 msgstr "Φόρτωση κοντινών σταθμών..."
 
@@ -489,6 +497,12 @@ msgstr "Χαμηλό"
 
 msgid "Lower Saxony"
 msgstr "Κάτω Σαξονία"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Λουξεμβούργο"

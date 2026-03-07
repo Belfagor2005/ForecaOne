@@ -103,6 +103,10 @@ msgstr "勃兰登堡"
 msgid "Bremen"
 msgstr "不来梅"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "更新..."
+
 msgid "Cancel"
 msgstr "取消"
 
@@ -483,6 +487,10 @@ msgstr "左箭头-前一天"
 msgid "Loading available maps..."
 msgstr "正在加载可用地图..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "正在加载附近的站点..."
+
 msgid "Loading nearby stations..."
 msgstr "正在加载附近的站点..."
 
@@ -497,6 +505,12 @@ msgstr "低"
 
 msgid "Lower Saxony"
 msgstr "下萨克森"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "卢森堡"

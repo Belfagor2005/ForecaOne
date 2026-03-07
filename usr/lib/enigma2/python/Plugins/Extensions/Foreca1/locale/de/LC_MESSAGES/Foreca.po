@@ -105,6 +105,10 @@ msgstr "Brandenburg"
 msgid "Bremen"
 msgstr "Bremen"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "Laden..."
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -507,6 +511,10 @@ msgstr "Pfeil nach links – Vorheriger Tag"
 msgid "Loading available maps..."
 msgstr "Verfügbare Karten werden geladen..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "Nahegelegene Stationen werden geladen..."
+
 msgid "Loading nearby stations..."
 msgstr "Nahegelegene Stationen werden geladen..."
 
@@ -521,6 +529,12 @@ msgstr ""
 
 msgid "Lower Saxony"
 msgstr "Niedersachsen"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxemburg"

@@ -107,6 +107,10 @@ msgstr "Brandeburgo"
 msgid "Bremen"
 msgstr "Bremen"
 
+#, fuzzy
+msgid "Calculating..."
+msgstr "Cargando..."
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -509,6 +513,10 @@ msgstr "Flecha izquierda - Día anterior"
 msgid "Loading available maps..."
 msgstr "Cargando mapas disponibles..."
 
+#, fuzzy
+msgid "Loading lunar phases..."
+msgstr "Cargando estaciones cercanas..."
+
 msgid "Loading nearby stations..."
 msgstr "Cargando estaciones cercanas..."
 
@@ -523,6 +531,12 @@ msgstr ""
 
 msgid "Lower Saxony"
 msgstr "Baja Sajonia"
+
+msgid "Lunar Calendar"
+msgstr ""
+
+msgid "Lunar phases from next month"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxemburgo"
