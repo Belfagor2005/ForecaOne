@@ -42,6 +42,10 @@ msgstr "6 - Dnes + 6 dnů"
 msgid "7 - Today + 7 days"
 msgstr "7 - Dnes + 7 dnů"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Předpověď"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Dnes + 8 dnů"
 
@@ -97,6 +101,9 @@ msgstr "Belgie"
 
 msgid "Berlin"
 msgstr "Berlín"
+
+msgid "Blue"
+msgstr "Modrá"
 
 msgid "Blue - Home"
 msgstr "Modrá - Domov"
@@ -234,11 +241,17 @@ msgstr "Dánsko"
 msgid "Details"
 msgstr ""
 
+msgid "Dewpoint"
+msgstr ""
+
 msgid "Dewpoint {}"
 msgstr ""
 
 msgid "Dewpoint {}°C"
 msgstr ""
+
+msgid "Distance"
+msgstr "Vzdálenost"
 
 #, fuzzy
 msgid "Distance {} km"
@@ -409,6 +422,9 @@ msgstr "Velká Británie"
 msgid "Greece"
 msgstr "Řecko"
 
+msgid "Green"
+msgstr "Zelená"
+
 msgid "Green - Favorite 1"
 msgstr "Zelená - Oblíbené 1"
 
@@ -417,6 +433,9 @@ msgstr ""
 
 msgid "Gust: {:.1f} {}"
 msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Hamburk"
@@ -499,6 +518,9 @@ msgstr "Klávesnice"
 
 #, fuzzy
 msgid "Last Quarter"
+msgstr "Poslední aktualizace"
+
+msgid "Last update"
 msgstr "Poslední aktualizace"
 
 msgid "Latvia"
@@ -818,6 +840,9 @@ msgstr ""
 msgid "Rain: {:.1f} {}"
 msgstr ""
 
+msgid "Red"
+msgstr "Červená"
+
 msgid "Red - Color select"
 msgstr "Červená - Výběr barvy"
 
@@ -995,6 +1020,9 @@ msgid "Try different zoom or layer"
 msgstr ""
 
 msgid "Try different zoom or region"
+msgstr ""
+
+msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1195,28 +1223,6 @@ msgstr "• Pro navigaci použijte šipky\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• ŽLUTÁ pro uložení jako Oblíbené 2\n"
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Předpověď"
-
-#~ msgid "Blue"
-#~ msgstr "Modrá"
-
-#~ msgid "Distance"
-#~ msgstr "Vzdálenost"
-
-#~ msgid "Green"
-#~ msgstr "Zelená"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Poslední aktualizace"
-
-#~ msgid "Red"
-#~ msgstr "Červená"
 
 #, fuzzy
 #~ msgid "Foreca 1 Weather Forecast"
