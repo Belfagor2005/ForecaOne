@@ -368,7 +368,8 @@ class WeatherDetailView(Screen, HelpableScreen):
 
                 path = get_icon_path(f"{icon_name}.png")
                 if path:
-                    self[f'wind_icon_{suffix}'].instance.setPixmapFromFile(path)
+                    self[f'wind_icon_{suffix}'].instance.setPixmapFromFile(
+                        path)
                     self[f'wind_icon_{suffix}'].show()
                 else:
                     self[f'wind_icon_{suffix}'].hide()
