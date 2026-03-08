@@ -17,7 +17,8 @@ from . import (
     _,
     PLUGIN_PATH,
     load_skin_for_class,
-    apply_global_theme
+    apply_global_theme,
+    get_icon_path
 )
 from .google_translate import trans
 from .foreca_weather_api import _symbol_to_description
@@ -113,12 +114,12 @@ class HourDetailView(Screen, HelpableScreen):
 
         # Weather condition
         condition = self.hour_data['condition']
-        icon_path = join(PLUGIN_PATH, "thumb", f"{condition}.png")
-        if exists(icon_path):
+        icon_path = get_icon_path(f"{condition}.png")
+        if icon_path:
             self["condition_icon"].instance.setPixmapFromFile(icon_path)
+            self["condition_icon"].show()
         else:
-            fallback = join(PLUGIN_PATH, "thumb", "d000.png")
-            self["condition_icon"].instance.setPixmapFromFile(fallback)
+            self["condition_icon"].hide()
         desc = _symbol_to_description(condition)
         self["condition_text"].setText(trans(desc))
 

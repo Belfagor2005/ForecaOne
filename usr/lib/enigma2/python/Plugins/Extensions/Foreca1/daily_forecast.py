@@ -18,6 +18,7 @@ from . import (
     load_skin_for_class,
     apply_global_theme,
     PLUGIN_PATH,
+    get_icon_path
 )
 from .google_translate import trans
 from .foreca_weather_api import _symbol_to_description
@@ -130,10 +131,15 @@ class DailyForecast(Screen, HelpableScreen):
             weather = weather[:60] + "."
 
         # Weather icon
-        icon_path = join(PLUGIN_PATH, "thumb", f"{day.condition}.png")
-        if not exists(icon_path):
-            icon_path = join(PLUGIN_PATH, "thumb", "d000.png")
-        icon = LoadPixmap(cached=True, path=icon_path)
+        icon_path = get_icon_path(f"{day.condition}.png")
+        if icon_path:
+            icon = LoadPixmap(cached=True, path=icon_path)
+        else:
+            icon = None
+        # icon_path = join(PLUGIN_PATH, "thumb", f"{day.condition}.png")
+        # if not exists(icon_path):
+            # icon_path = join(PLUGIN_PATH, "thumb", "d000.png")
+        # icon = LoadPixmap(cached=True, path=icon_path)
 
         # Precipitation
         if hasattr(self.api, 'unit_manager') and self.api.unit_manager:
