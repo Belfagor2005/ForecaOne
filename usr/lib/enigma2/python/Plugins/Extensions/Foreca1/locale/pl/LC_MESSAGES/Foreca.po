@@ -245,10 +245,10 @@ msgstr ""
 msgid "Distance {} km"
 msgstr ""
 
-msgid "Distance: %s m"
+msgid "Distance: %s"
 msgstr ""
 
-msgid "Distance: {} m"
+msgid "Distance: {}"
 msgstr ""
 
 msgid "Do you want to install it now?"

@@ -246,10 +246,12 @@ msgstr "Punto di rugiada: N/A"
 msgid "Distance {} km"
 msgstr "Distanza {} km"
 
-msgid "Distance: %s m"
+#, fuzzy
+msgid "Distance: %s"
 msgstr "Distanza %s m"
 
-msgid "Distance: {} m"
+#, fuzzy
+msgid "Distance: {}"
 msgstr "Distanza {} m"
 
 msgid "Do you want to install it now?"

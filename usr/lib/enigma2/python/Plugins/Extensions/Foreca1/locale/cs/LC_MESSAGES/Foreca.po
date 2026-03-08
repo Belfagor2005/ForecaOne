@@ -258,11 +258,11 @@ msgid "Distance {} km"
 msgstr "Vzdálenost"
 
 #, fuzzy
-msgid "Distance: %s m"
+msgid "Distance: %s"
 msgstr "Vzdálenost"
 
 #, fuzzy
-msgid "Distance: {} m"
+msgid "Distance: {}"
 msgstr "Vzdálenost"
 
 msgid "Do you want to install it now?"

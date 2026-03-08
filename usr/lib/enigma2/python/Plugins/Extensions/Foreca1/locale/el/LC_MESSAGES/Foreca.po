@@ -245,10 +245,12 @@ msgstr ""
 msgid "Distance {} km"
 msgstr "Απόσταση {} χλμ"
 
-msgid "Distance: %s m"
-msgstr ""
+#, fuzzy
+msgid "Distance: %s"
+msgstr "Απόσταση"
 
-msgid "Distance: {} m"
+#, fuzzy
+msgid "Distance: {}"
 msgstr "Απόσταση: {} μ"
 
 msgid "Do you want to install it now?"
@@ -1204,9 +1206,6 @@ msgstr "• ΚΙΤΡΙΝΟ για αποθήκευση ως Αγαπημένο 2
 
 #~ msgid "Blue"
 #~ msgstr "Μπλε"
-
-#~ msgid "Distance"
-#~ msgstr "Απόσταση"
 
 #, fuzzy
 #~ msgid "Found {} lunar phases"
