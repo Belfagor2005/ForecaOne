@@ -447,10 +447,12 @@ msgstr "Unkari"
 msgid "Illumination"
 msgstr "Valaistus"
 
-msgid "Image %(current)d/%(total)d"
-msgstr "Kuva %(current)d/%(total)d"
+#, fuzzy
+msgid "Image %(current)d/%(total)d – %(day)s"
+msgstr "Kuva %(current)d/%(total)d (keskeytetty)"
 
-msgid "Image %(current)d/%(total)d (Paused)"
+#, fuzzy
+msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr "Kuva %(current)d/%(total)d (keskeytetty)"
 
 msgid "Image Downloaded"
@@ -984,8 +986,15 @@ msgstr "Thüringen"
 msgid "Time"
 msgstr "Tunnit"
 
+#, fuzzy
+msgid "Today"
+msgstr "0 - Tänään"
+
 msgid "Today/Tomorrow details"
 msgstr "Tämän päivän/huomisen tiedot"
+
+msgid "Tomorrow"
+msgstr ""
 
 msgid "Transparency Settings"
 msgstr "Läpinäkyvyysasetukset"
@@ -1199,6 +1208,9 @@ msgstr "• Käytä nuolinäppäimiä navigointiin\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
+
+#~ msgid "Image %(current)d/%(total)d"
+#~ msgstr "Kuva %(current)d/%(total)d"
 
 #~ msgid "7 Day Forecast"
 #~ msgstr "7 päivän ennuste"

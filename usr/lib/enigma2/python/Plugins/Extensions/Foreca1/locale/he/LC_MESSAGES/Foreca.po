@@ -446,10 +446,10 @@ msgstr ""
 msgid "Illumination"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d"
+msgid "Image %(current)d/%(total)d – %(day)s"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d (Paused)"
+msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
 msgid "Image Downloaded"
@@ -983,7 +983,13 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
+msgid "Today"
+msgstr ""
+
 msgid "Today/Tomorrow details"
+msgstr ""
+
+msgid "Tomorrow"
 msgstr ""
 
 msgid "Transparency Settings"
