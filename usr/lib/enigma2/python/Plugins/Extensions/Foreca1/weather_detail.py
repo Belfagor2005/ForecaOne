@@ -245,13 +245,24 @@ class WeatherDetailView(Screen, HelpableScreen):
         periods = ['morning', 'afternoon', 'evening', 'overnight']
         for period in periods:
             period_data = day_data.get(period, {})
+            temp = period_data.get('temp')
             symbol = period_data.get('symbol', 'd000')
-            # Use the API's mapping if needed, but we assume symbol is already
-            # correct
-            path = join(PLUGIN_PATH, "thumb", f"{symbol}.png")
             widget = self[f'symbol_{period}_{suffix}']
+
+            if temp is None or temp == 'N/A':
+                widget.hide()
+                continue
+
+            if symbol == 'd000' and period in ['evening', 'overnight']:
+                widget.hide()
+                continue
+
+            path = join(PLUGIN_PATH, "thumb", f"{symbol}.png")
             if exists(path):
                 widget.instance.setPixmapFromFile(path)
+                widget.show()
+            else:
+                widget.hide()
 
     def _setup_temperature_labels(self):
         temp_unit = self.unit_manager.get_temp_label()
@@ -288,13 +299,12 @@ class WeatherDetailView(Screen, HelpableScreen):
     def _convert_temp_value(self, temp_val):
         """Helper: Converts a temperature (number or 'N/A') to a rounded string."""
         if temp_val is None or temp_val == 'N/A':
-            return 'N/A'
+            return '-'
         try:
-            converted, _ = self.unit_manager.convert_temperature(
-                float(temp_val))
+            converted, _ = self.unit_manager.convert_temperature(float(temp_val))
             return str(int(converted))
-        except BaseException:
-            return 'N/A'
+        except:
+            return '-'
 
     def _update_titles(self):
         self['title_today'].setText(_('Weather today'))

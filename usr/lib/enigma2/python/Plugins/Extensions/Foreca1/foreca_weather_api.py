@@ -133,7 +133,7 @@ class HourForecast:
         self.humidity = humidity
         self.wind_speed = wind_speed
         self.wind_direction = wind_direction
-        self.precipitation = precipitation  # quantità in mm
+        self.precipitation = precipitation  # quantity in mm
         self.precip_prob = precip_prob
 
 
@@ -440,15 +440,15 @@ class ForecaFreeAPI:
         def _process_day(day_index):
             hourly = self.get_hourly_forecast(location_id, day=day_index)
             if not hourly:
+                print(f"[DEBUG] _process_day: no time data per day {day_index}")
                 return None
-
+            print(f"[DEBUG] _process_day: receveid {len(hourly)} objects per day {day_index}")
             periods = {
                 'overnight': [],  # 0-6
                 'morning': [],    # 6-12
                 'afternoon': [],  # 12-18
                 'evening': []     # 18-24
             }
-
             for h in hourly:
                 hour = h.time.hour
                 if 0 <= hour < 6:
@@ -460,22 +460,10 @@ class ForecaFreeAPI:
                 elif 18 <= hour < 24:
                     periods['evening'].append(h)
 
-            day_data = {}
-            for period_name, hours_list in periods.items():
-                if not hours_list:
-                    day_data[period_name] = {'temp': 'N/A', 'symbol': 'd000'}
-                    continue
-                # Average temperature
-                avg_temp = sum(h.temp for h in hours_list) / len(hours_list)
-                # Most frequent symbol (or take middle one)
-                symbols = [h.condition for h in hours_list]
-                # Choose symbol at median position for representativeness
-                symbol = symbols[len(symbols) // 2] if symbols else 'd000'
-                day_data[period_name] = {
-                    'temp': round(avg_temp),
-                    'symbol': symbol
-                }
-            return day_data
+            for period, lst in periods.items():
+                print(f"[DEBUG]   Period {period}: {len(lst)} ore")
+                if lst:
+                    print(f"[DEBUG]     first hour: {lst[0].time}")
 
         # Process today
         today_periods = _process_day(0)
