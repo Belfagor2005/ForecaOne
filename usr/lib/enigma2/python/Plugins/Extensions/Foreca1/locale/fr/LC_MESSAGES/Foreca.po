@@ -485,10 +485,10 @@ msgstr "Hongrie"
 msgid "Illumination"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d"
+msgid "Image %(current)d/%(total)d – %(day)s"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d (Paused)"
+msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
 msgid "Image Downloaded"
@@ -1054,7 +1054,14 @@ msgstr "Thuringe"
 msgid "Time"
 msgstr ""
 
+#, fuzzy
+msgid "Today"
+msgstr "0 - Aujourd'hui"
+
 msgid "Today/Tomorrow details"
+msgstr ""
+
+msgid "Tomorrow"
 msgstr ""
 
 msgid "Transparency Settings"
