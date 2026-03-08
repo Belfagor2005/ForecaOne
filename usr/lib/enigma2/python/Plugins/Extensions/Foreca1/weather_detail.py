@@ -301,9 +301,10 @@ class WeatherDetailView(Screen, HelpableScreen):
         if temp_val is None or temp_val == 'N/A':
             return '-'
         try:
-            converted, _ = self.unit_manager.convert_temperature(float(temp_val))
+            converted, _ = self.unit_manager.convert_temperature(
+                float(temp_val))
             return str(int(converted))
-        except:
+        except BaseException:
             return '-'
 
     def _update_titles(self):

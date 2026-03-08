@@ -440,9 +440,11 @@ class ForecaFreeAPI:
         def _process_day(day_index):
             hourly = self.get_hourly_forecast(location_id, day=day_index)
             if not hourly:
-                print(f"[DEBUG] _process_day: no time data per day {day_index}")
+                print(
+                    f"[DEBUG] _process_day: no time data per day {day_index}")
                 return None
-            print(f"[DEBUG] _process_day: receveid {len(hourly)} objects per day {day_index}")
+            print(
+                f"[DEBUG] _process_day: receveid {len(hourly)} objects per day {day_index}")
             periods = {
                 'overnight': [],  # 0-6
                 'morning': [],    # 6-12
