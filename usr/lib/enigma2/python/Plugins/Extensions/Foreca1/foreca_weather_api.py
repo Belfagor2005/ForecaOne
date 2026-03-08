@@ -19,7 +19,7 @@ from . import (
     DEBUG,
     HEADERS,
     TOKEN_FILE,
-    CONFIG_FILE,
+    CONFIG_FILE
 )
 
 
@@ -422,29 +422,23 @@ class ForecaFreeAPI:
         morning (6-12), afternoon (12-18), evening (18-24), overnight (0-6).
         Uses hourly forecast (scraping) and daily data.
         """
-        result = {
-            'today': {},
-            'tomorrow': {}
-        }
+        result = {'today': {}, 'tomorrow': {}}
 
-        # Get daily forecast for today and tomorrow (for min/max temps and
-        # general text)
+        # Get daily forecast for today and tomorrow
         daily_all = self.get_daily_forecast(location_id, days=2)
         if len(daily_all) < 2:
-            return result  # Not enough data
+            return result
 
         today_daily = daily_all[0]
         tomorrow_daily = daily_all[1]
 
-        # Helper to get period data from hourly list
         def _process_day(day_index):
             hourly = self.get_hourly_forecast(location_id, day=day_index)
             if not hourly:
-                print(
-                    f"[DEBUG] _process_day: no time data per day {day_index}")
+                print(f"[DEBUG] _process_day: no data for day {day_index}")
                 return None
-            print(
-                f"[DEBUG] _process_day: receveid {len(hourly)} objects per day {day_index}")
+            print(f"[DEBUG] _process_day: received {len(hourly)} objects for day {day_index}")
+
             periods = {
                 'overnight': [],  # 0-6
                 'morning': [],    # 6-12
@@ -462,33 +456,41 @@ class ForecaFreeAPI:
                 elif 18 <= hour < 24:
                     periods['evening'].append(h)
 
-            for period, lst in periods.items():
-                print(f"[DEBUG]   Period {period}: {len(lst)} ore")
-                if lst:
-                    print(f"[DEBUG]     first hour: {lst[0].time}")
+            day_data = {}
+            for period, hours_list in periods.items():
+                if not hours_list:
+                    day_data[period] = {'temp': 'N/A', 'symbol': 'na'}
+                    continue
+                # Average temperature
+                avg_temp = sum(h.temp for h in hours_list) / len(hours_list)
+                # Most frequent symbol (or median)
+                symbols = [h.condition for h in hours_list]
+                symbol = symbols[len(symbols) // 2] if symbols else 'na'
+                day_data[period] = {
+                    'temp': round(avg_temp),
+                    'symbol': symbol
+                }
+            return day_data
 
         # Process today
         today_periods = _process_day(0)
         if today_periods:
-            result['today'] = {
-                **today_periods,
-                'text': today_daily.condition,  # or use description from symbol
-                'max_temp': today_daily.max_temp,
-                'min_temp': today_daily.min_temp,
-                'rain_mm': today_daily.precipitation
-            }
+            result['today'].update(today_periods)
+        result['today']['text'] = today_daily.condition
+        result['today']['max_temp'] = today_daily.max_temp
+        result['today']['min_temp'] = today_daily.min_temp
+        result['today']['rain_mm'] = today_daily.precipitation
 
         # Process tomorrow
         tomorrow_periods = _process_day(1)
         if tomorrow_periods:
-            result['tomorrow'] = {
-                **tomorrow_periods,
-                'text': tomorrow_daily.condition,
-                'max_temp': tomorrow_daily.max_temp,
-                'min_temp': tomorrow_daily.min_temp,
-                'rain_mm': tomorrow_daily.precipitation
-            }
+            result['tomorrow'].update(tomorrow_periods)
+        result['tomorrow']['text'] = tomorrow_daily.condition
+        result['tomorrow']['max_temp'] = tomorrow_daily.max_temp
+        result['tomorrow']['min_temp'] = tomorrow_daily.min_temp
+        result['tomorrow']['rain_mm'] = tomorrow_daily.precipitation
 
+        # Add wind data
         result['today']['wind_dir'] = today_daily.wind_direction
         result['today']['wind_speed'] = today_daily.wind_speed
         result['tomorrow']['wind_dir'] = tomorrow_daily.wind_direction
@@ -642,9 +644,10 @@ class ForecaFreeAPI:
             'd432': 'd432', 'n432': 'n432',
             'd440': 'd440', 'n440': 'n440',
             'd500': 'd500', 'n500': 'n500',
-            'd600': 'd600', 'n600': 'n600'
+            'd600': 'd600', 'n600': 'n600',
+            'na': 'N/A'
         }
-        return symbol_map.get(api_symbol, 'd000')
+        return symbol_map.get(api_symbol, 'na')
 
 
 class ForecaWeatherAPI:

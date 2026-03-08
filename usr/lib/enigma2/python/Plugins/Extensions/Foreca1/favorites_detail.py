@@ -3,7 +3,6 @@
 # Copyright (c) @Lululla 2026
 # favorites_detail.py - Detailed view for all favorites
 
-from os.path import exists, join
 from Screens.Screen import Screen
 from Screens.HelpMenu import HelpableScreen
 from Components.ActionMap import HelpableActionMap
@@ -15,9 +14,9 @@ from skin import parseColor
 
 from . import (
     _,
-    PLUGIN_PATH,
     load_skin_for_class,
     apply_global_theme,
+    get_icon_path
 )
 
 
@@ -118,37 +117,28 @@ class FavoritesDetailView(Screen, HelpableScreen):
             current = self.api.get_current_weather(location_id)
             if current:
                 # Temperature
-                temp_val, temp_unit = self.units.convert_temperature(
-                    current.temp)
+                temp_val, temp_unit = self.units.convert_temperature(current.temp)
                 self[f"temp_current_{i}"].setText(f"{temp_val:.0f}{temp_unit}")
 
                 # Weather icon
-                icon_path = join(
-                    PLUGIN_PATH, "thumb", f"{current.condition}.png")
-                if exists(icon_path):
-                    self[f"weather_icon_{i}"].instance.setPixmapFromFile(
-                        icon_path)
+                icon_path = get_icon_path(f"{current.condition}.png")
+                if icon_path:
+                    self[f"weather_icon_{i}"].instance.setPixmapFromFile(icon_path)
+                    self[f"weather_icon_{i}"].show()
                 else:
-                    fallback = join(PLUGIN_PATH, "thumb", "d000.png")
-                    self[f"weather_icon_{i}"].instance.setPixmapFromFile(
-                        fallback)
+                    self[f"weather_icon_{i}"].hide()
 
                 # Wind direction icon
-                wind_dir_code = self.fp.degreesToWindDirection(
-                    current.wind_direction)
-                wind_icon_path = join(
-                    PLUGIN_PATH, "thumb", f"{wind_dir_code}.png")
-                if exists(wind_icon_path):
-                    self[f"wind_dir_icon_{i}"].instance.setPixmapFromFile(
-                        wind_icon_path)
+                wind_dir_code = self.fp.degreesToWindDirection(current.wind_direction)
+                wind_icon_path = get_icon_path(f"{wind_dir_code}.png")
+                if wind_icon_path:
+                    self[f"wind_dir_icon_{i}"].instance.setPixmapFromFile(wind_icon_path)
+                    self[f"wind_dir_icon_{i}"].show()
                 else:
-                    fallback = join(PLUGIN_PATH, "thumb", "wN.png")
-                    self[f"wind_dir_icon_{i}"].instance.setPixmapFromFile(
-                        fallback)
+                    self[f"wind_dir_icon_{i}"].hide()
 
                 # Wind speed
-                wind_val, wind_unit = self.units.convert_wind(
-                    current.wind_speed)
+                wind_val, wind_unit = self.units.convert_wind(current.wind_speed)
                 self[f"wind_speed_{i}"].setText(f"{wind_val:.1f} {wind_unit}")
 
                 # Humidity
@@ -159,8 +149,7 @@ class FavoritesDetailView(Screen, HelpableScreen):
 
                 # Pressure
                 if current.pressure is not None:
-                    press_val, press_unit = self.units.convert_pressure(
-                        current.pressure)
+                    press_val, press_unit = self.units.convert_pressure(current.pressure)
                     if press_unit == 'inHg':
                         press_text = f"{press_val:.2f} {press_unit}"
                     else:
@@ -174,20 +163,17 @@ class FavoritesDetailView(Screen, HelpableScreen):
                 if daily and len(daily) > 0:
                     day0 = daily[0]
                     if day0.sunrise:
-                        self[f"sunrise_{i}"].setText(
-                            day0.sunrise.strftime("%H:%M"))
+                        self[f"sunrise_{i}"].setText(day0.sunrise.strftime("%H:%M"))
                     else:
                         self[f"sunrise_{i}"].setText("--:--")
                     if day0.sunset:
-                        self[f"sunset_{i}"].setText(
-                            day0.sunset.strftime("%H:%M"))
+                        self[f"sunset_{i}"].setText(day0.sunset.strftime("%H:%M"))
                     else:
                         self[f"sunset_{i}"].setText("--:--")
                     # Min/Max temperature
                     min_val, _ = self.units.convert_temperature(day0.min_temp)
                     max_val, _ = self.units.convert_temperature(day0.max_temp)
-                    self[f"temp_minmax_{i}"].setText(
-                        f"{int(min_val)} - {int(max_val)}{temp_unit[-1]}")
+                    self[f"temp_minmax_{i}"].setText(f"{int(min_val)} - {int(max_val)}{temp_unit[-1]}")
                 else:
                     self[f"sunrise_{i}"].setText("--:--")
                     self[f"sunset_{i}"].setText("--:--")
@@ -202,8 +188,10 @@ class FavoritesDetailView(Screen, HelpableScreen):
                 self[f"sunrise_{i}"].setText("--:--")
                 self[f"sunset_{i}"].setText("--:--")
 
+                self[f"weather_icon_{i}"].hide()
+                self[f"wind_dir_icon_{i}"].hide()
+
         # Apply background colors
         bg = gRGB(int(self.rgbmyr), int(self.rgbmyg), int(self.rgbmyb))
         self["background_plate"].instance.setBackgroundColor(bg)
-        self["selection_overlay"].instance.setBackgroundColor(
-            parseColor(self.alpha))
+        self["selection_overlay"].instance.setBackgroundColor(parseColor(self.alpha))

@@ -27,6 +27,7 @@ from . import (
     PLUGIN_PATH,
     TEMP_DIR,
     HEADERS,
+    get_icon_path
 )
 from .google_translate import trans
 from .foreca_weather_api import _symbol_to_description
@@ -80,8 +81,7 @@ class WeatherDetailView(Screen, HelpableScreen):
         self.max_zoom = 12
 
         self.weather_data = self._fetch_data()
-
-
+        """
         print("[DEBUG] weather_data keys:", self.weather_data.keys())
         if self.weather_data.get('today'):
             print("[DEBUG] today keys:", self.weather_data['today'].keys())
@@ -91,7 +91,7 @@ class WeatherDetailView(Screen, HelpableScreen):
             print("[DEBUG] tomorrow keys:", self.weather_data['tomorrow'].keys())
             for period in ['morning', 'afternoon', 'evening', 'overnight']:
                 print(f"[DEBUG] tomorrow[{period}]:", self.weather_data['tomorrow'].get(period, {}))
-
+        """
         self['title_main'] = Label(_('Weather Radar'))
         self['title_location'] = Label()
         self['title_today'] = Label(_('Weather today'))
@@ -261,15 +261,26 @@ class WeatherDetailView(Screen, HelpableScreen):
             widget = self[f'symbol_{period}_{suffix}']
 
             if temp is None or temp == 'N/A':
-                widget.hide()
+                # Usa na.png
+                path = get_icon_path('na.png')
+                if path:
+                    widget.instance.setPixmapFromFile(path)
+                    widget.show()
+                else:
+                    widget.hide()
                 continue
 
             if symbol == 'd000' and period in ['evening', 'overnight']:
-                widget.hide()
+                path = get_icon_path('na.png')
+                if path:
+                    widget.instance.setPixmapFromFile(path)
+                    widget.show()
+                else:
+                    widget.hide()
                 continue
 
-            path = join(PLUGIN_PATH, "thumb", f"{symbol}.png")
-            if exists(path):
+            path = get_icon_path(f"{symbol}.png")
+            if path:
                 widget.instance.setPixmapFromFile(path)
                 widget.show()
             else:
@@ -354,18 +365,14 @@ class WeatherDetailView(Screen, HelpableScreen):
                     icon_name = self._degrees_to_wind_icon(deg)
                 except BaseException:
                     icon_name = "wN"
-                path = join(PLUGIN_PATH, "thumb", f"{icon_name}.png")
-                if DEBUG:
-                    print(f"[WeatherDetail] Icon path for {suffix}: {path}")
-                if exists(path):
-                    self[f'wind_icon_{suffix}'].instance.setPixmapFromFile(
-                        path)
+
+                path = get_icon_path(f"{icon_name}.png")
+                if path:
+                    self[f'wind_icon_{suffix}'].instance.setPixmapFromFile(path)
+                    self[f'wind_icon_{suffix}'].show()
                 else:
-                    fallback = join(PLUGIN_PATH, "thumb", "wN.png")
-                    if exists(fallback):
-                        self[f'wind_icon_{suffix}'].instance.setPixmapFromFile(
-                            fallback)
-                self[f'wind_icon_{suffix}'].show()
+                    self[f'wind_icon_{suffix}'].hide()
+
             else:
                 if DEBUG:
                     print(

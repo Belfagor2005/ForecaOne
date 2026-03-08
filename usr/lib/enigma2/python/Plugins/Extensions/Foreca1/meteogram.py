@@ -30,6 +30,7 @@ from . import (
     TEMP_DIR,
     DBG_DIR,
     HEADERS,
+    get_icon_path
 )
 from .google_translate import _get_system_language
 
@@ -572,26 +573,51 @@ class MeteogramView(Screen, HelpableScreen):
             else:
                 # fallback: km/h
                 self[f"windspeed_{n}"].setText(str(int(ws_ms * 3.6)))
+
             # Weather icon
             symb = row.get('symb', 'd000')
-            fpath = join(PLUGIN_PATH, "thumb", f"{symb}.png")
-            if exists(fpath):
+            fpath = get_icon_path(f"{symb}.png")
+            if fpath:
                 self[f"weather_{n}"].instance.setPixmapFromFile(fpath)
             else:
-                fallback = join(PLUGIN_PATH, "thumb", "d000.png")
-                if exists(fallback):
+                # Fallback na.png
+                fallback = get_icon_path("na.png")
+                if fallback:
                     self[f"weather_{n}"].instance.setPixmapFromFile(fallback)
+                else:
+                    self[f"weather_{n}"].hide()
 
             # Wind direction icon
             deg = row.get('windd', 0)
             card = wind_arrow(deg)
-            wfile = join(PLUGIN_PATH, "thumb", f"w{card}.png")
-            if exists(wfile):
+            wfile = get_icon_path(f"w{card}.png")
+            if wfile:
                 self[f"winddir_{n}"].instance.setPixmapFromFile(wfile)
             else:
-                fb = join(PLUGIN_PATH, "thumb", "wN.png")
-                if exists(fb):
-                    self[f"winddir_{n}"].instance.setPixmapFromFile(fb)
+                fallback = get_icon_path("wN.png")  # o na.png
+                if fallback:
+                    self[f"winddir_{n}"].instance.setPixmapFromFile(fallback)
+
+            # # Weather icon
+            # symb = row.get('symb', 'd000')
+            # fpath = join(PLUGIN_PATH, "thumb", f"{symb}.png")
+            # if exists(fpath):
+                # self[f"weather_{n}"].instance.setPixmapFromFile(fpath)
+            # else:
+                # fallback = join(PLUGIN_PATH, "thumb", "d000.png")
+                # if exists(fallback):
+                    # self[f"weather_{n}"].instance.setPixmapFromFile(fallback)
+
+            # # Wind direction icon
+            # deg = row.get('windd', 0)
+            # card = wind_arrow(deg)
+            # wfile = join(PLUGIN_PATH, "thumb", f"w{card}.png")
+            # if exists(wfile):
+                # self[f"winddir_{n}"].instance.setPixmapFromFile(wfile)
+            # else:
+                # fb = join(PLUGIN_PATH, "thumb", "wN.png")
+                # if exists(fb):
+                    # self[f"winddir_{n}"].instance.setPixmapFromFile(fb)
 
     def _draw_dates(self, forecast):
         """Add date labels and vertical lines (up to 10 days)."""
