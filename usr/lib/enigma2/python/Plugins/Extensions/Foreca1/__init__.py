@@ -13,7 +13,6 @@ from os import makedirs, listdir, environ
 import gettext
 import codecs
 
-
 VERSION = "1.0.8"
 _AUTHOR_ = "by Lululla - 2026"
 IDEAS = "@Bauernbub"
