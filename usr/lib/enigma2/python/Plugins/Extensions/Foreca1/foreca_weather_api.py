@@ -437,7 +437,8 @@ class ForecaFreeAPI:
             if not hourly:
                 print(f"[DEBUG] _process_day: no data for day {day_index}")
                 return None
-            print(f"[DEBUG] _process_day: received {len(hourly)} objects for day {day_index}")
+            print(
+                f"[DEBUG] _process_day: received {len(hourly)} objects for day {day_index}")
 
             periods = {
                 'overnight': [],  # 0-6
