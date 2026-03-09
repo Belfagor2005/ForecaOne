@@ -710,6 +710,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         elif key == "maps":
             self.open_maps_menu()
         elif key == "rainviewer":
+            return
             from .rain_maps import RainViewerMaps
             self.session.open(RainViewerMaps, self)
         elif key == "info":
