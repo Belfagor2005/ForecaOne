@@ -274,6 +274,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.map_h = self.grid_rows * self.tile_size
 
         # Compute initial zoom level based on latitude (if possible)
+        self.zoom_level = 5
         try:
             lat_float = float(self.center_lat)
             # Heuristic: higher zoom near equator
@@ -306,12 +307,14 @@ class ForecaMapViewer(Screen, HelpableScreen):
             {
                 "cancel": (self.exit, _("Exit")),
                 "red": (self.exit, _("Exit")),
-                "left": (self.prev_time, _("Prev")),
-                "right": (self.next_time, _("Next")),
+                "left": (self.pan_left, _("Pan left")),
+                "right": (self.pan_right, _("Pan right")),
+                "up": (self.pan_up, _("Pan up")),
+                "down": (self.pan_down, _("Pan down")),
+                "pageUp": (self.prev_time, _("Previous time")),
+                "pageDown": (self.next_time, _("Next time")),
                 "green": (self.zoom_in, _("Zoom+")),
                 "yellow": (self.zoom_out, _("Zoom-")),
-                "nextBouquet": (self.zoom_in, _("Zoom+")),
-                "prevBouquet": (self.zoom_out, _("Zoom-"))
             },
             -1
         )
@@ -358,7 +361,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
             now = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             self.timestamps = [now]
             self.current_time_index = 0
-            self["time"].setText(_("Using current time"))
+            self["time"].setText(trans("Using current time"))
 
         if self.current_time_index >= len(self.timestamps):
             self.current_time_index = 0
@@ -450,8 +453,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
             return False
 
     def _show_no_tiles_error(self):
-        self["time"].setText(_("No tiles available"))
-        self["info"].setText(_("Try different zoom or region"))
+        self["time"].setText(trans("No tiles available"))
+        self["info"].setText(trans("Try different zoom or region"))
 
     def merge_tile_grid(self, tile_paths):
         try:
@@ -537,10 +540,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
                 print(f"[Foreca1] Display error: {e}")
                 import traceback
                 traceback.print_exc()
-                self["time"].setText(_("Error displaying map"))
+                self["time"].setText(trans("Error displaying map"))
         else:
-            self["time"].setText(_("No tiles available"))
-            self["info"].setText(_("Try different zoom or layer"))
+            self["time"].setText(trans("No tiles available"))
+            self["info"].setText(trans("Try different zoom or layer"))
 
     def update_layer_info(self):
         try:
@@ -553,7 +556,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
             self["layerinfo"].setText(self.layer_title)
 
     def get_layer_type(self):
-        """Restituisce il tipo di layer (png, windsvg, ecc.)"""
+        """Returns the layer type (png, windsvg, etc.)"""
         return self.layer.get('type', 'png')
 
     def get_data_type_from_layer(self, layer_name):
@@ -574,6 +577,52 @@ class ForecaMapViewer(Screen, HelpableScreen):
             return _("Radar")
         else:
             return layer_name
+
+    """
+    def pan_left(self):
+        self.center_lon -= 0.5
+        self.update_frame_display()
+
+    def pan_right(self):
+        self.center_lon += 0.5
+        self.update_frame_display()
+
+    def pan_up(self):
+        self.center_lat += 0.5
+        self.update_frame_display()
+
+    def pan_down(self):
+        self.center_lat -= 0.5
+        self.update_frame_display()
+    """
+
+    """
+    Adjust the base step
+    The 0.5 value in the formula is empirical.
+    You can adjust it to achieve the desired sensitivity.
+    If you want the movement to be faster, increase the value;
+    if you want it to be slower, decrease it.
+    """
+
+    def pan_left(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lon -= step
+        self.load_current_tile()
+
+    def pan_right(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lon += step
+        self.load_current_tile()
+
+    def pan_up(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lat += step
+        self.load_current_tile()
+
+    def pan_down(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lat -= step
+        self.load_current_tile()
 
     def zoom_in(self):
         if self.zoom_level < self.max_zoom:

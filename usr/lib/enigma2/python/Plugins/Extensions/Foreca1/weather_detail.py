@@ -4,6 +4,7 @@
 # weather_detail.py - Detailed weather view (today/tomorrow)
 
 from os.path import exists, join
+from os import makedirs
 import requests
 
 from twisted.internet import reactor
@@ -31,6 +32,11 @@ from . import (
 )
 from .google_translate import trans
 from .foreca_weather_api import _symbol_to_description
+
+
+WEATHER_DETAIL_VIEW_DIR = join(TEMP_DIR, "weather_detail")
+if not exists(WEATHER_DETAIL_VIEW_DIR):
+    makedirs(WEATHER_DETAIL_VIEW_DIR)
 
 
 class WeatherDetailView(Screen, HelpableScreen):
@@ -208,7 +214,7 @@ class WeatherDetailView(Screen, HelpableScreen):
             url = f"https://map-cf.foreca.net/teaser/map/light/rain/{self.zoom_level}/{self.lon}/{self.lat}/380/598.png?names&units=mm"
             response = requests.get(url, headers=HEADERS, timeout=10)
             if response.status_code == 200 and len(response.content) > 0:
-                output_file = join(TEMP_DIR, f'radar_{self.zoom_level}.png')
+                output_file = join(WEATHER_DETAIL_VIEW_DIR, f'radar_{self.zoom_level}.png')
                 with open(output_file, 'wb') as f:
                     f.write(response.content)
 

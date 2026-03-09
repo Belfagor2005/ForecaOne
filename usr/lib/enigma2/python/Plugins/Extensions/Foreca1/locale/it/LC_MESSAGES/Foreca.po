@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-03-08 23:34+0100\n"
+"PO-Revision-Date: 2026-03-09 13:58+0100\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -42,6 +42,9 @@ msgstr "6 - Oggi + 6 giorni"
 msgid "7 - Today + 7 days"
 msgstr "7 - Oggi + 7 giorni"
 
+msgid "7 Day Forecast"
+msgstr "Previsione 7 Giorni"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Oggi + 8 giorni"
 
@@ -52,7 +55,7 @@ msgid "API credentials not configured."
 msgstr "Nessuna credenziale API configurata."
 
 msgid "API error"
-msgstr ""
+msgstr "Errore Api"
 
 msgid "AQI {}"
 msgstr "IQA {}"
@@ -98,6 +101,9 @@ msgstr "Belgio"
 
 msgid "Berlin"
 msgstr "Berlino"
+
+msgid "Blue"
+msgstr "Blu"
 
 msgid "Blue - Home"
 msgstr "Blu - Principale"
@@ -246,6 +252,9 @@ msgstr "Punto di rugiada %s°C"
 msgid "Dewpoint: N/A"
 msgstr "Punto di rugiada: N/A"
 
+msgid "Distance"
+msgstr "Distanza"
+
 msgid "Distance {} km"
 msgstr "Distanza {} km"
 
@@ -275,9 +284,6 @@ msgstr "Asia Orientale"
 
 msgid "Error checking for updates."
 msgstr "Errore durante il controllo degli aggiornamenti."
-
-msgid "Error displaying map"
-msgstr "Errore durante la visualizzazione della Mappa"
 
 msgid "Error loading data"
 msgstr "Errore durante il caricamento dei dati"
@@ -351,9 +357,6 @@ msgstr "Percepita: {}{}"
 msgid "Feels like: {}°C"
 msgstr "Percepita: {}°C"
 
-msgid "Fetching radar data..."
-msgstr "Recupero dati radar in corso..."
-
 msgid "Finland"
 msgstr "Finlandia"
 
@@ -417,6 +420,9 @@ msgstr "Gran Bretagna"
 msgid "Greece"
 msgstr "Grecia"
 
+msgid "Green"
+msgstr "Verde"
+
 msgid "Green - Favorite 1"
 msgstr "Verde - Favorito 1"
 
@@ -425,6 +431,9 @@ msgstr "Raffica {}"
 
 msgid "Gust: {:.1f} {}"
 msgstr "Raffica: {:.1f} {}"
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Amburgo"
@@ -510,8 +519,14 @@ msgstr "Tastiera"
 msgid "Last Quarter"
 msgstr "Ultimo Quarto"
 
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
 msgid "Latvia"
 msgstr "Lettonia"
+
+msgid "Left"
+msgstr "Sinistra"
 
 msgid "Left - Previous day"
 msgstr "Sinistra - Giorno precedente"
@@ -527,9 +542,6 @@ msgstr "Caricamento delle fasi lunari..."
 
 msgid "Loading nearby stations..."
 msgstr "Caricamento delle stazioni vicine..."
-
-msgid "Loading tiles..."
-msgstr "Caricamento schemi..."
 
 msgid "Loading weekly forecast..."
 msgstr "Caricamento previsioni settimanali..."
@@ -555,9 +567,6 @@ msgstr "Lussemburgo"
 msgid "Map & Tiles Loaded"
 msgstr "Mappa e  Schemi caricati"
 
-msgid "Map loaded"
-msgstr "Mappa caricata"
-
 msgid "Map {} selected"
 msgstr "Mappa {} selezionata"
 
@@ -569,9 +578,6 @@ msgstr ""
 
 msgid "Menu - Settings"
 msgstr "Menu - Impostazioni"
-
-msgid "Merge failed"
-msgstr "Unione fallita"
 
 msgid "Meteogram"
 msgstr "Meteogramma"
@@ -632,6 +638,9 @@ msgstr "Cornice successivo"
 
 msgid "Next page"
 msgstr "Pagina successiva"
+
+msgid "Next time"
+msgstr "Ora Successiva"
 
 msgid "No Internet connection detected."
 msgstr "Nessuna connessione Internet rilevata."
@@ -747,6 +756,18 @@ msgstr "Pagina giù"
 msgid "Page up"
 msgstr "Pagina sù"
 
+msgid "Pan down"
+msgstr "Panorama giù"
+
+msgid "Pan left"
+msgstr "Panorama Sinistra"
+
+msgid "Pan right"
+msgstr "Panorama Destra"
+
+msgid "Pan up"
+msgstr "Panorama Su"
+
 msgid "Partly cloudy"
 msgstr "Parzialmente nuvoloso"
 
@@ -834,6 +855,9 @@ msgstr "Cornice precedente"
 msgid "Previous page"
 msgstr "Pagina precedente"
 
+msgid "Previous time"
+msgstr "Ora Precedente"
+
 msgid "Radar"
 msgstr "Radar"
 
@@ -852,6 +876,9 @@ msgstr "Pioggia: {:.1f} {}"
 msgid "RainViewer Radar"
 msgstr "Radar RainViewer"
 
+msgid "Red"
+msgstr "Rosso"
+
 msgid "Red - Color select"
 msgstr "Rosso - Seleziona colore"
 
@@ -860,6 +887,9 @@ msgstr "Ricarica"
 
 msgid "Rhineland-Palatine"
 msgstr "Renania-Palatinato"
+
+msgid "Right"
+msgstr "Destra"
 
 msgid "Right - Next day"
 msgstr "Destra - Il giorno dopo"
@@ -1038,11 +1068,8 @@ msgstr "Livello trasparenza"
 msgid "Try again later"
 msgstr "Prova più tardi"
 
-msgid "Try different zoom or layer"
-msgstr "Prova uno zoom o un livello diverso"
-
-msgid "Try different zoom or region"
-msgstr "Prova uno zoom o una regione diversi"
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr "UV Indice"
@@ -1094,9 +1121,6 @@ msgstr "Usa <- -> per cambiare, OK per Uscire"
 
 msgid "Use ▲/▼ to change, OK to select"
 msgstr "Usa ▲/▼ per cambiare, OK per selezionare"
-
-msgid "Using current time"
-msgstr "Utilizzo dell'ora corrente"
 
 msgid "Very high"
 msgstr "Molto alto"
@@ -1151,6 +1175,9 @@ msgstr "Meteo domani"
 
 msgid "Weekly Forecast"
 msgstr "Previsioni settimanali"
+
+msgid "Wetter.de Maps Test"
+msgstr "Wetter.de Maps Test"
 
 msgid "Wind"
 msgstr "Vento"
@@ -1245,29 +1272,29 @@ msgstr "• GIALLO per salvare Preferito 2\n"
 msgid "← Frame"
 msgstr "← Cornice"
 
-#~ msgid "7 Day Forecast"
-#~ msgstr "Previsione 7 Giorni"
+#~ msgid "Error displaying map"
+#~ msgstr "Errore durante la visualizzazione della Mappa"
 
-#~ msgid "Blue"
-#~ msgstr "Blu"
+#~ msgid "Try different zoom or layer"
+#~ msgstr "Prova uno zoom o un livello diverso"
 
-#~ msgid "Distance"
-#~ msgstr "Distanza"
+#~ msgid "Try different zoom or region"
+#~ msgstr "Prova uno zoom o una regione diversi"
 
-#~ msgid "Green"
-#~ msgstr "Verde"
+#~ msgid "Using current time"
+#~ msgstr "Utilizzo dell'ora corrente"
 
-#~ msgid "HTML"
-#~ msgstr "HTML"
+#~ msgid "Fetching radar data..."
+#~ msgstr "Recupero dati radar in corso..."
 
-#~ msgid "Last update"
-#~ msgstr "Ultimo aggiornamento"
+#~ msgid "Loading tiles..."
+#~ msgstr "Caricamento schemi..."
 
-#~ msgid "Red"
-#~ msgstr "Rosso"
+#~ msgid "Map loaded"
+#~ msgstr "Mappa caricata"
 
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Wetter.de Maps Test"
+#~ msgid "Merge failed"
+#~ msgstr "Unione fallita"
 
 #~ msgid "Image %(current)d/%(total)d"
 #~ msgstr "Immaggine %(current)d/%(total)d"

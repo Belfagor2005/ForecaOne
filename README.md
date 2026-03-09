@@ -9,7 +9,7 @@
     <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
   </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
-    <img src="https://img.shields.io/badge/Version-1.0.7-blue.svg" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.0.9-blue.svg" alt="Version">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.html">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
@@ -32,7 +32,7 @@
   - [Daily Forecast (7 days)](#daily-forecast-7-days)
   - [Meteogram](#meteogram)
   - [Observation Stations](#observation-stations)
-  - [Lunar Calendar (NEW)](#lunar-calendar-new)
+  - [Lunar Calendar](#lunar-calendar)
   - [Weather Maps](#weather-maps)
   - [Unit Settings](#unit-settings)
   - [Color and Transparency](#color-and-transparency)
@@ -45,7 +45,7 @@
 
 ## Introduction
 
-**Foreca 1 Weather Forecast** is a comprehensive Enigma2 plugin that provides detailed weather forecasts for up to 10 days using public data from **Foreca**. With an intuitive interface and extensive customization options, you can always keep an eye on the weather directly from your receiver. The plugin now also includes a **complete lunar calendar** with precise astronomical calculations.
+**Foreca One Weather Forecast** is a comprehensive Enigma2 plugin that provides detailed weather forecasts for up to 10 days using public data from **Foreca**. With an intuitive interface and extensive customization options, you can always keep an eye on the weather directly from your receiver. The plugin now also includes a **complete lunar calendar** with precise astronomical calculations and a **new live radar viewer** based on RainViewer data.
 
 ## Key Features
 
@@ -75,13 +75,18 @@
 - Nearby stations (from authenticated API or scraping)
 - Temperature, feels like, humidity, pressure, wind, visibility
 
-### 🗺️ Weather Maps (Improved)
+### 🗺️ Weather Maps
 - **Wetterkontor** – slideshow of regional maps (Europe, Germany, continents)
 - **Foreca Live Maps (API)** – temperature, wind, precipitation, clouds, radar
-  - 3×3 tile grid with zoom in/out
+  - 3×3 tile grid with zoom in/out and **pan** (move with arrow keys)
   - Multiple forecast times
   - Overlay on geographic backgrounds (now supports **North America, South America, Asia, Australia, Africa, and world fallback**)
   - Local tile cache to respect API limits
+- **RainViewer Radar (NEW)** – free, no API key required
+  - Real‑time weather radar for the last 2 hours (10‑minute steps)
+  - Zoom and pan with arrow keys (step scales with zoom)
+  - Geographic background from OpenStreetMap tiles
+  - Ideal for tracking precipitation worldwide
 
 ### ⚙️ Advanced Unit Management
 - Choose between **metric** and **imperial** systems
@@ -98,6 +103,7 @@
 - **Multilingual** – built‑in GetText support with Google Translate fallback
 - **Full remote control navigation** – all screens accessible via keys
 - **Skins for FHD, HD, WQHD** – perfect on any screen
+- **Centralized icon fallback** – missing icons show `na.png` to avoid blank spaces
 
 ### 🔧 Technical Highlights
 - Python 3 compatible
@@ -172,11 +178,11 @@ Upon startup, the main screen displays:
 Pressing **MENU** opens a choice with the following options:
 
 - **City Selection** – search and assign cities to favorites
-- **Weather Maps** – submenu to choose between Wetterkontor and Foreca Live Maps
+- **Weather Maps** – submenu to choose between Wetterkontor, Foreca Live Maps, and **RainViewer Radar**
 - **Weekly Forecast** – 7‑day detailed forecast screen
 - **Meteogram** – graphical weather trend
 - **Station Observations** – list of nearby stations
-- **Lunar Calendar (NEW)** – view all lunar phases for the next 12 months
+- **Lunar Calendar** – view all lunar phases for the next 12 months
 - **Unit Settings (Simple)** – quick choice between metric and imperial
 - **Unit Settings (Advanced)** – customize wind, pressure, temperature, precipitation
 - **Color Selector** – change global background color
@@ -223,8 +229,8 @@ For each station: name, distance, temperature, feels like, dew point, humidity, 
 - **UP/DOWN** – navigate through stations
 - **OK** – show details of selected station (if not already visible)
 
-### 🌙 Lunar Calendar (NEW)
-This new screen displays a table of **all lunar phases for the next 12 months**, starting from the next month. For each phase you see:
+### 🌙 Lunar Calendar
+This screen displays a table of **all lunar phases for the next 12 months**, starting from the next month. For each phase you see:
 
 - Month and year
 - Icon of the moon phase (using the same 101‑icon set as the main screen)
@@ -240,7 +246,7 @@ This new screen displays a table of **all lunar phases for the next 12 months**,
 The calculations are performed offline using precise astronomical algorithms (Meeus), so no internet connection is required. The data is consistent and accurate for any location (geocentric).
 
 ### Weather Maps
-The **Weather Maps** submenu offers two options:
+The **Weather Maps** submenu offers three options:
 
 #### Wetterkontor Maps (slideshow)
 - **RED** – play/pause
@@ -251,12 +257,24 @@ The **Weather Maps** submenu offers two options:
 
 #### Foreca Live Maps (API)
 Requires valid credentials. Shows list of available layers (temperature, wind, precipitation, clouds, radar). After selection, the viewer opens:
-- **←/→** – change forecast time (if available)
+- **←/→** – pan left/right (step scales with zoom)
+- **↑/↓** – pan up/down (step scales with zoom)
+- **PAGE UP/PAGE DOWN** – change forecast time (if available)
 - **GREEN** – zoom in
 - **YELLOW** – zoom out
 - **RED/EXIT** – close
 
 **Note:** without credentials, this menu item is hidden.
+
+#### RainViewer Radar (NEW)
+Free, no API key required. Shows the last 2 hours of weather radar data with 10‑minute steps. The viewer includes:
+- **←/→** – pan left/right
+- **↑/↓** – pan up/down
+- **PAGE UP/PAGE DOWN** – change time frame
+- **GREEN** – zoom in
+- **YELLOW** – zoom out
+- **RED/EXIT** – close
+- Geographic background from OpenStreetMap tiles for perfect alignment.
 
 ### Unit Settings
 
@@ -329,11 +347,15 @@ An example file `api_config.txt.example` is created automatically.
 ### 7. Lunar phases seem inaccurate
 - The plugin now uses high‑precision algorithms (Meeus). If you still suspect errors, enable debug and check the calculated Julian Day vs. official sources.
 
+### 8. RainViewer shows no precipitation
+- The tiles are transparent when no precipitation is detected. Try moving the map to a different area or wait for a rainy day.
+- If the background map does not appear, check that the OpenStreetMap tile URL is reachable.
+
 ## Credits
 
 - **Original design and idea:** @Bauernbub
 - **Modifications and further development:** @Lululla
-- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements)
+- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements, **RainViewer integration**, **pan in live maps**, **centralized icon fallback**)
 
 Thanks to @Orlandox and all friends who provided suggestions and tested the plugin.
 

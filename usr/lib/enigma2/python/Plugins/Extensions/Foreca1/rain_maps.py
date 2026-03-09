@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# wetter_maps.py - RainViewer radar viewer with geographic background
-# (free, no API key)
+# wetter_maps.py - RainViewer radar viewer with geographic background (free, no API key)
 
 import requests
 from datetime import datetime
@@ -21,124 +20,88 @@ from Components.Pixmap import Pixmap
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from PIL import Image
+
+from .google_translate import trans
 from . import (
     _,
     # DEBUG,
     load_skin_for_class,
     apply_global_theme,
-    TEMP_DIR,
     THUMB_PATH,
+    TEMP_DIR,
     HEADERS
 )
+from .foreca_map_viewer import get_background_for_layer
+
+
 RAIN_MAPS_DIR = join(TEMP_DIR, "rainviewer")
 if not exists(RAIN_MAPS_DIR):
     makedirs(RAIN_MAPS_DIR)
 
 TILE_SIZE = 256
 API_URL = "https://api.rainviewer.com/public/weather-maps.json"
+OSM_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 
 
-# ---------------------------------------------
-# Funzione per selezionare lo sfondo geografico
-# ---------------------------------------------
-def get_background_for_layer(lat, lon, region=None):
-    """
-    Return the filename of a geographic background image.
-    The region parameter (e.g., 'eu', 'us') has highest priority.
-    If region is not provided or the corresponding file is missing,
-    fall back to coordinate-based selection using precise continental extents.
-    """
-    # 1) Priority: Known region (specific layer)
-    if region:
-        region_map = {
-            'eu': 'europa.png',
-            'europe': 'europa.png',
-            'us': 'nordamerika.png',
-            'usa': 'nordamerika.png',
-            'it': 'italien.png',
-            'italy': 'italien.png',
-            'de': 'deutschland.png',
-            'germany': 'deutschland.png',
-            'fr': 'frankreich.png',
-            'france': 'frankreich.png',
-            'uk': 'grossbritannien.png',
-            'gb': 'grossbritannien.png',
-            'es': 'spanien.png',
-            'spain': 'spanien.png',
-            'at': 'oesterreich.png',
-            'austria': 'oesterreich.png',
-            'ch': 'schweiz.png',
-            'switzerland': 'schweiz.png',
-        }
-        reg_low = region.lower()
-        if reg_low in region_map:
-            fname = region_map[reg_low]
-            if exists(join(THUMB_PATH, fname)):
-                print(
-                    f"[DEBUG] get_background: using region {region} -> {fname}")
-                return fname
+BACKGROUND_EXTENTS = {
+    # Europe (based on get_background_for_layer)
+    'europa.png': {'minLat': 36, 'maxLat': 71, 'minLon': -9.57, 'maxLon': 66.17},
+    # Africa
+    'africa.png': {'minLat': -34.85, 'maxLat': 37.35, 'minLon': -17.56, 'maxLon': 51.46},
+    # Asia (two ranges to cross 180°)
+    'asia.png': {'minLat': -1.27, 'maxLat': 77.72, 'minLon': 26.07, 'maxLon': 180},
+    # North America (two ranges)
+    'nordamerika.png': {'minLat': 7.2, 'maxLat': 83.67, 'minLon': -180, 'maxLon': -12.13},
+    # South America
+    'suedamerika.png': {'minLat': -56.5, 'maxLat': 12.45, 'minLon': -81.33, 'maxLon': -34.78},
+    # Oceania
+    'oceania.png': {'minLat': -55.05, 'maxLat': 28.63, 'minLon': 110, 'maxLon': 180},
+    # World (fallback)
+    'world.png': {'minLat': -90, 'maxLat': 90, 'minLon': -180, 'maxLon': 180},
+}
+
+
+def merge_tiles(self, tile_paths):
+    try:
+        # Load the geographic background based on the center coordinates
+        bg_file = get_background_for_layer(self.center_lat, self.center_lon)
+        if bg_file:
+            bg_path = join(THUMB_PATH, bg_file)
+            bg = Image.open(bg_path).convert("RGBA")
+            # Get the image extent (if known)
+            extent = BACKGROUND_EXTENTS.get(bg_file)
+            if extent:
+                # Calculate the portion of the image corresponding to the current view
+                # Coordinates of the grid edges in lat/lon
+                # Use the latlon_to_pixel function to convert lat/lon to image pixels
+                # This is complex, but we can use a simplification:
+                # Assume the image covers the known geographic range.
+                # Compute pixel coordinates of the four corners of the grid.
+                # For simplicity, we simply resize the image to the grid size.
+                bg = bg.resize((self.map_w, self.map_h), Image.Resampling.LANCZOS)
+                merged = bg.copy()
             else:
-                print(
-                    f"[DEBUG] get_background: region {region} file {fname} not found")
+                # If we don't know the extent, just resize
+                bg = bg.resize((self.map_w, self.map_h), Image.Resampling.LANCZOS)
+                merged = bg.copy()
+        else:
+            # If no background, use a neutral color
+            merged = Image.new('RGBA', (self.map_w, self.map_h), (176, 196, 222, 255))
 
-    # 2) Selection based on the precise coordinates of the continents
-    # Europa (lat 36°N - 71°N, lon 9°34'W - 66°10'E)
-    if -9.57 <= lon <= 66.17 and 36 <= lat <= 71.13:
-        if exists(join(THUMB_PATH, 'europa.png')):
-            print("[DEBUG] get_background: coordinate-based -> europa.png")
-            return 'europa.png'
+        # Paste the radar tiles over the background
+        for col, row, path in tile_paths:
+            tile = Image.open(path).convert('RGBA')
+            x = col * TILE_SIZE
+            y = row * TILE_SIZE
+            merged.paste(tile, (x, y), tile)
 
-    # Africa (lat 34°51'S - 37°21'N, lon 17°33'W - 51°28'E)
-    if -17.56 <= lon <= 51.46 and -34.85 <= lat <= 37.35:
-        if exists(join(THUMB_PATH, 'africa.png')):
-            print("[DEBUG] get_background: coordinate-based -> africa.png")
-            return 'africa.png'
-
-    # Asia (lat 1°16'S - 77°43'N, lon 26°04'E - 169°40'W)
-    if (26.07 <= lon <= 180) and -1.27 <= lat <= 77.72:
-        if exists(join(THUMB_PATH, 'asia.png')):
-            print("[DEBUG] get_background: coordinate-based -> asia.png")
-            return 'asia.png'
-    if (-180 <= lon <= -169.67) and -1.27 <= lat <= 77.72:
-        if exists(join(THUMB_PATH, 'asia.png')):
-            print("[DEBUG] get_background: coordinate-based -> asia.png")
-            return 'asia.png'
-
-    # Nord America (lat 7°12'N - 83°40'N, lon 172°27'E - 12°08'W)
-    if (lon >= -180 and lon <= -12.13) and 7.2 <= lat <= 83.67:
-        if exists(join(THUMB_PATH, 'nordamerika.png')):
-            print("[DEBUG] get_background: coordinate-based -> nordamerika.png")
-            return 'nordamerika.png'
-    if (lon >= 172.45 and lon <= 180) and 7.2 <= lat <= 83.67:
-        if exists(join(THUMB_PATH, 'nordamerika.png')):
-            print("[DEBUG] get_background: coordinate-based -> nordamerika.png")
-            return 'nordamerika.png'
-
-    # Sud America (lat 12°27'N - 56°30'S, lon 81°20'W - 34°47'W)
-    if -81.33 <= lon <= -34.78 and -56.5 <= lat <= 12.45:
-        if exists(join(THUMB_PATH, 'suedamerika.png')):
-            print("[DEBUG] get_background: coordinate-based -> suedamerika.png")
-            return 'suedamerika.png'
-
-    # Oceania (lat 55°03'S - 28°38'N, lon 110°E - 180°)
-    if 110 <= lon <= 180 and -55.05 <= lat <= 28.63:
-        if exists(join(THUMB_PATH, 'oceania.png')):
-            print("[DEBUG] get_background: coordinate-based -> oceania.png")
-            return 'oceania.png'
-
-    # Antartide (lat < -60°)
-    if lat <= -60:
-        if exists(join(THUMB_PATH, 'antarctica.png')):
-            print("[DEBUG] get_background: coordinate-based -> antarctica.png")
-            return 'antarctica.png'
-
-    # 3) Fallback globale
-    if exists(join(THUMB_PATH, 'world.png')):
-        print("[DEBUG] get_background: fallback -> world.png")
-        return 'world.png'
-
-    print("[DEBUG] get_background: no background found")
-    return None
+        merged_rgb = merged.convert('RGB')
+        out_path = join(RAIN_MAPS_DIR, 'merged.jpg')
+        merged_rgb.save(out_path, 'JPEG', quality=90)
+        return out_path
+    except Exception as e:
+        print(f"[RainViewer] merge error: {e}")
+        return None
 
 
 class RainViewerMaps(Screen, HelpableScreen):
@@ -153,13 +116,13 @@ class RainViewerMaps(Screen, HelpableScreen):
         self.frames = []
         self.current_frame = 0
 
-        # Coordinate di default (centro Europa)
-        self.center_lat = 50.0
-        self.center_lon = 10.0
-        # self.center_lat = 35.71
-        # self.center_lon = -70.87
-
-        self.zoom = 5
+        try:
+            self.center_lat = float(foreca_preview.lat) if foreca_preview.lat != 'N/A' else 50.0
+            self.center_lon = float(foreca_preview.lon) if foreca_preview.lon != 'N/A' else 10.0
+        except:
+            self.center_lat = 50.0
+            self.center_lon = 10.0
+        self.zoom_level = 5
         self.min_zoom = 2
         self.max_zoom = 7
 
@@ -179,7 +142,7 @@ class RainViewerMaps(Screen, HelpableScreen):
         self.map_w = self.grid_cols * TILE_SIZE
         self.map_h = self.grid_rows * TILE_SIZE
 
-        # Widget
+        # Widgets
         self["map"] = Pixmap()
         self["title"] = Label(_("RainViewer Radar"))
         self["time_label"] = Label("")
@@ -190,11 +153,10 @@ class RainViewerMaps(Screen, HelpableScreen):
         self['key_blue'] = StaticText()
         self['key_left'] = StaticText(_("← Frame"))
         self['key_right'] = StaticText(_("Frame →"))
-        self['zoom_label'] = Label(_("Zoom: ") + str(self.zoom))
+        self['zoom_label'] = Label(_("Zoom: ") + str(self.zoom_level))
 
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
-
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
             {
@@ -202,12 +164,15 @@ class RainViewerMaps(Screen, HelpableScreen):
                 "red": (self.exit, _("Exit")),
                 "green": (self.zoom_in, _("Zoom+")),
                 "yellow": (self.zoom_out, _("Zoom-")),
-                "left": (self.prev_frame, _("Previous frame")),
-                "right": (self.next_frame, _("Next frame")),
+                "left": (self.pan_left, _("Left")),
+                "right": (self.pan_right, _("Right")),
+                "up": (self.pan_up, _("Up")),
+                "down": (self.pan_down, _("Down")),
+                "pageUp": (self.prev_frame, _("Previous frame")),
+                "pageDown": (self.next_frame, _("Next frame")),
             },
             -1
         )
-
         self.onLayoutFinish.append(self._apply_theme)
         self.onLayoutFinish.append(self.load_frame_list)
 
@@ -215,8 +180,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         apply_global_theme(self)
 
     def load_frame_list(self):
-        """Scarica il JSON e ottiene l'elenco dei frame disponibili"""
-        self["info"].setText(_("Fetching radar data..."))
+        """Download the JSON and get the list of available frames"""
+        self["info"].setText(trans("Fetching radar data..."))
         Thread(target=self._fetch_frames).start()
 
     def _fetch_frames(self):
@@ -224,87 +189,75 @@ class RainViewerMaps(Screen, HelpableScreen):
             resp = requests.get(API_URL, headers=HEADERS, timeout=10)
             if resp.status_code != 200:
                 print(f"[RainViewer] API error: {resp.status_code}")
-                reactor.callFromThread(
-                    lambda: self["info"].setText(
-                        _("API error")))
+                reactor.callFromThread(lambda: self["info"].setText(_("API error")))
                 return
             data = resp.json()
             self.host = data['host']
             self.frames = [frame['path'] for frame in data['radar']['past']]
-            self.frames.reverse()  # dal più vecchio al più recente
-            self.current_frame = len(self.frames) - 1  # ultimo frame
-            print(
-                f"[RainViewer] {len(self.frames)} frames disponibili, host: {self.host}")
+            self.frames.reverse()  # oldest to newest
+            self.current_frame = len(self.frames) - 1  # last frame
+            print(f"[RainViewer] {len(self.frames)} frames available, host: {self.host}")
             reactor.callFromThread(self.update_frame_display)
         except Exception as e:
             print(f"[RainViewer] Error: {e}")
-            reactor.callFromThread(
-                lambda: self["info"].setText(
-                    _("Error loading data")))
+            reactor.callFromThread(lambda: self["info"].setText(_("Error loading data")))
 
     def update_frame_display(self):
         if not self.frames:
             return
         frame_path = self.frames[self.current_frame]
-        timestamp = frame_path.split('/')[-1]  # estrae il numero
+        timestamp = frame_path.split('/')[-1]  # extract the number
         try:
             dt = datetime.utcfromtimestamp(int(timestamp))
             time_str = dt.strftime("%d/%m %H:%M UTC")
-        except BaseException:
+        except:
             time_str = timestamp
         self["time_label"].setText(_("Frame: {}").format(time_str))
-        self["info"].setText(_("Loading tiles..."))
-        print(f"[RainViewer] Caricamento frame: {frame_path}")
+        self["info"].setText(trans("Loading tiles..."))
+        print(f"[RainViewer] Loading frame: {frame_path}")
         self.download_tiles(frame_path)
 
     def download_tiles(self, frame_path):
-        """Scarica e compone le tile per il frame selezionato"""
+        """Download and compose tiles for the selected frame"""
         Thread(target=self._download_thread, args=(frame_path,)).start()
 
     def _download_thread(self, frame_path):
-        cx, cy = self.latlon_to_tile(
-            self.center_lat, self.center_lon, self.zoom)
+        cx, cy = self.latlon_to_tile(self.center_lat, self.center_lon, self.zoom_level)
         offset_cols = self.grid_cols // 2
         offset_rows = self.grid_rows // 2
 
-        tile_paths = []
+        osm_tiles = []
+        radar_tiles = []
         for dx in range(-offset_cols, offset_cols + 1):
             for dy in range(-offset_rows, offset_rows + 1):
                 x = cx + dx
                 y = cy + dy
-                url = self.build_tile_url(frame_path, x, y, self.zoom)
-                path = self.download_tile(url)
-                if path:
-                    tile_paths.append(
-                        (dx + offset_cols, dy + offset_rows, path))
-                else:
-                    print(f"[RainViewer] Tile non scaricata: {url}")
+                # OSM tile
+                osm_url = OSM_URL.format(z=self.zoom_level, x=x, y=y)
+                osm_path = self.download_tile(osm_url, prefix='osm')
+                if osm_path:
+                    osm_tiles.append((dx + offset_cols, dy + offset_rows, osm_path))
+                # Radar tile
+                radar_url = self.build_tile_url(frame_path, x, y, self.zoom_level)
+                radar_path = self.download_tile(radar_url, prefix='radar')
+                if radar_path:
+                    radar_tiles.append((dx + offset_cols, dy + offset_rows, radar_path))
 
-        print(f"[RainViewer] Scaricate {len(tile_paths)} tile")
-        if tile_paths:
-            merged = self.merge_tiles(tile_paths)
+        if osm_tiles and radar_tiles:
+            merged = self.merge_tiles(osm_tiles, radar_tiles)
             if merged:
-                print(f"[RainViewer] Immagine composita creata: {merged}")
                 reactor.callFromThread(self.show_map, merged)
-            else:
-                reactor.callFromThread(
-                    lambda: self["info"].setText(
-                        _("Merge failed")))
         else:
-            reactor.callFromThread(
-                lambda: self["info"].setText(
-                    _("No tiles downloaded")))
+            reactor.callFromThread(lambda: self["info"].setText(_("No tiles downloaded")))
 
     def build_tile_url(self, frame_path, x, y, z):
-        # Parametri fissi: size=256, colore=2 (verde-rosso), opzioni=1_1 (blur
-        # + neve)
+        # Fixed parameters: size=256, color=2 (green-red), options=1_1 (blur + snow)
         return f"{self.host}{frame_path}/256/{z}/{x}/{y}/2/1_1.png"
 
-    def download_tile(self, url):
+    def download_tile(self, url, prefix=''):
         import hashlib
-        cache_file = join(
-            RAIN_MAPS_DIR, hashlib.md5(
-                url.encode()).hexdigest() + '.png')
+        key = (prefix + url).encode()
+        cache_file = join(RAIN_MAPS_DIR, hashlib.md5(key).hexdigest() + '.png')
         if exists(cache_file):
             return cache_file
         try:
@@ -314,50 +267,32 @@ class RainViewerMaps(Screen, HelpableScreen):
                     f.write(r.content)
                 return cache_file
             else:
-                print(
-                    f"[RainViewer] Tile download error {r.status_code}: {url}")
+                print(f"[RainViewer] Tile download error {r.status_code}: {url}")
         except Exception as e:
             print(f"[RainViewer] download exception: {e}")
         return None
 
-    # def merge_tiles(self, tile_paths):
-        # try:
-        # merged = Image.new('RGBA', (self.map_w, self.map_h), (0, 0, 0, 255))
-        # for col, row, path in tile_paths:
-        # tile = Image.open(path).convert('RGBA')
-        # x = col * TILE_SIZE
-        # y = row * TILE_SIZE
-        # merged.paste(tile, (x, y), tile)
-        # merged_rgb = merged.convert('RGB')
-        # out_path = join(RAIN_MAPS_DIR, 'merged.jpg')
-        # merged_rgb.save(out_path, 'JPEG', quality=90)
-        # return out_path
-        # except Exception as e:
-        # print(f"[RainViewer] merge error: {e}")
-        # return None
-
-    def merge_tiles(self, tile_paths):
+    def merge_tiles(self, osm_tiles, radar_tiles):
+        """First merge the OSM tiles (background) and then overlay the radar tiles."""
         try:
-            bg_file = get_background_for_layer(
-                self.center_lat, self.center_lon)
-            if bg_file:
-                bg_path = join(THUMB_PATH, bg_file)
-                bg = Image.open(bg_path).convert("RGBA")
-                bg = bg.resize((self.map_w, self.map_h),
-                               Image.Resampling.LANCZOS)
-                merged = bg.copy()
-            else:
-                merged = Image.new(
-                    'RGBA', (self.map_w, self.map_h), (64, 64, 64, 255))
-
-            for col, row, path in tile_paths:
+            # Create background with OSM tiles
+            bg = Image.new('RGBA', (self.map_w, self.map_h), (0, 0, 0, 255))
+            for col, row, path in osm_tiles:
                 tile = Image.open(path).convert('RGBA')
                 x = col * TILE_SIZE
                 y = row * TILE_SIZE
-                merged.paste(tile, (x, y), tile)
+                bg.paste(tile, (x, y), tile)
 
-            out_path = join(RAIN_MAPS_DIR, 'merged.png')
-            merged.save(out_path)
+            # Overlay radar tiles
+            for col, row, path in radar_tiles:
+                tile = Image.open(path).convert('RGBA')
+                x = col * TILE_SIZE
+                y = row * TILE_SIZE
+                bg.paste(tile, (x, y), tile)
+
+            bg_rgb = bg.convert('RGB')
+            out_path = join(RAIN_MAPS_DIR, 'merged.jpg')
+            bg_rgb.save(out_path, 'JPEG', quality=90)
             return out_path
         except Exception as e:
             print(f"[RainViewer] merge error: {e}")
@@ -366,17 +301,17 @@ class RainViewerMaps(Screen, HelpableScreen):
     def show_map(self, path):
         from PIL import Image
         img = Image.open(path)
-        # Ottieni le dimensioni del widget map
+        # Get widget dimensions
         widget_width = self["map"].instance.size().width()
         widget_height = self["map"].instance.size().height()
-        # Ridimensiona mantenendo le proporzioni? Forse meglio riempire
-        img_resized = img.resize(
-            (widget_width, widget_height), Image.Resampling.LANCZOS)
-        resized_path = path.replace('.png', '_widget.png')
+        # Resize to fit widget (possibly fill)
+        img_resized = img.resize((widget_width, widget_height), Image.Resampling.LANCZOS)
+        # resized_path = path.replace('.png', '_widget.png')
+        resized_path = path.replace('.jpg', '_widget.jpg')
         img_resized.save(resized_path)
         self["map"].instance.setPixmapFromFile(resized_path)
         self["map"].instance.show()
-        self["info"].setText(_("Map loaded"))
+        self["info"].setText(trans("Map loaded"))
 
     def latlon_to_tile(self, lat, lon, zoom):
         lat_rad = radians(lat)
@@ -386,15 +321,15 @@ class RainViewerMaps(Screen, HelpableScreen):
         return x, y
 
     def zoom_in(self):
-        if self.zoom < self.max_zoom:
-            self.zoom += 1
-            self['zoom_label'].setText(_("Zoom: ") + str(self.zoom))
+        if self.zoom_level < self.max_zoom:
+            self.zoom_level += 1
+            self['zoom_label'].setText(_("Zoom: ") + str(self.zoom_level))
             self.update_frame_display()
 
     def zoom_out(self):
-        if self.zoom > self.min_zoom:
-            self.zoom -= 1
-            self['zoom_label'].setText(_("Zoom: ") + str(self.zoom))
+        if self.zoom_level > self.min_zoom:
+            self.zoom_level -= 1
+            self['zoom_label'].setText(_("Zoom: ") + str(self.zoom_level))
             self.update_frame_display()
 
     def prev_frame(self):
@@ -406,6 +341,52 @@ class RainViewerMaps(Screen, HelpableScreen):
         if self.current_frame < len(self.frames) - 1:
             self.current_frame += 1
             self.update_frame_display()
+
+    """
+    def pan_left(self):
+        self.center_lon -= 0.5
+        self.update_frame_display()
+
+    def pan_right(self):
+        self.center_lon += 0.5
+        self.update_frame_display()
+
+    def pan_up(self):
+        self.center_lat += 0.5
+        self.update_frame_display()
+
+    def pan_down(self):
+        self.center_lat -= 0.5
+        self.update_frame_display()
+    """
+
+    """
+    Adjust the base step
+    The 0.5 value in the formula is empirical.
+    You can adjust it to achieve the desired sensitivity.
+    If you want the movement to be faster, increase the value;
+    if you want it to be slower, decrease it.
+    """
+
+    def pan_left(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lon -= step
+        self.load_current_tile()
+
+    def pan_right(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lon += step
+        self.load_current_tile()
+
+    def pan_up(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lat += step
+        self.load_current_tile()
+
+    def pan_down(self):
+        step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
+        self.center_lat -= step
+        self.load_current_tile()
 
     def exit(self):
         self.close()

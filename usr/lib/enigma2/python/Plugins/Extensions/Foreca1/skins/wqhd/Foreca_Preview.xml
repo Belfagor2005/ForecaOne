@@ -5,7 +5,7 @@
     <widget source="title_section_weather" render="Label" position="27,20" size="1027,62" font="Regular;48" foregroundColor="#0053a9ff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" halign="center" />
     <widget source="title_main" render="Label" position="1091,35" size="1440,75" font="Regular;43" foregroundColor="#0053a9ff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" halign="center" />
     <widget source="title_loading" render="Label" position="1168,712" size="1314,75" font="Regular;46" foregroundColor="#00000000" backgroundColor="#00000000" transparent="1" valign="center" zPosition="20" halign="center" />
-    <widget name="current_time" position="810,194" size="200,80" zPosition="10" font="Regular;54" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="current_time" position="835,236" size="200,52" zPosition="10" font="Regular; 48" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
 
     <!-- Button icons -->
     <widget source="key_red" render="Label" position="1274,1320" size="267,47" font="Regular;43" backgroundColor="#ff0000" foregroundColor="#000000" halign="center" valign="center" zPosition="3" />
@@ -60,7 +60,7 @@
     </widget>
     <!-- Location and current weather -->
     <widget name="city_name" position="27,72" size="1026,56" zPosition="10" font="Regular;48" backgroundColor="#00000000" transparent="1" valign="center" halign="center" foregroundColor="#0053a9ff" />
-    <widget name="temperature_current" position="84,194" size="200,80" zPosition="10" font="Regular;72" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="temperature_current" position="84,214" size="200,80" zPosition="10" font="Regular;72" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <widget name="icon_temp_perc" position="54,815" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="temperature_feelslike" position="127,820" size="400,54" zPosition="10" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" />
     <!-- Moon phase -->
@@ -80,7 +80,7 @@
     <widget name="icon_observation" position="54,720" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="station_name" position="127,731" size="655,54" font="Regular;35" halign="left" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" />
     <!-- Weather description and details -->
-    <widget name="weather_description" position="38,160" size="1027,54" zPosition="10" font="Regular;46" foregroundColor="#fe00" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="weather_description" position="38,165" size="1027,48" zPosition="10" font="Regular;46" foregroundColor="#fe00" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <widget name="icon_sun" position="327,236" size="427,334" scale="1" zPosition="8" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="icon_dew_point" position="969,1094" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="dewpoint_value" position="520,1100" size="440,54" zPosition="10" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />
@@ -102,11 +102,11 @@
     <!-- Sun info -->
     <widget name="day_length" position="400,247" size="267,51" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <widget name="sunrise_label" position="127,312" size="300,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="left" />
-    <widget name="icon_sunrise" position="54,318" size="67,67" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/sunrise.png" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
+    <widget name="icon_sunrise" position="54,320" size="67,67" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/sunrise.png" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="sunrise_value" position="127,350" size="300,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="left" />
-    <widget name="sunset_label" position="727,317" size="227,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
-    <widget name="icon_sunset" position="954,321" size="67,67" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/sunset.png" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
-    <widget name="sunset_value" position="727,350" size="227,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="sunset_label" position="732,312" size="227,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="icon_sunset" position="969,320" size="67,67" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/sunset.png" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
+    <widget name="sunset_value" position="732,350" size="227,34" zPosition="10" font="Regular;38" foregroundColor="#ff9632" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <!-- uva -->
     <widget name="uvi_value" position="520,1307" size="440,47" zPosition="10" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />
     <widget name="uvi_desc" position="520,1274" size="440,47" zPosition="10" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />

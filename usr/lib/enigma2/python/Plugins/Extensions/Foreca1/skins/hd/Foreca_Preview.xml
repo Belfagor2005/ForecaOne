@@ -5,7 +5,7 @@
     <widget source="title_section_weather" render="Label" position="13,10" size="513,30" font="Regular; 20" foregroundColor="#0053a9ff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" halign="center" />
     <widget source="title_main" render="Label" position="545,17" size="720,37" font="Regular; 21" foregroundColor="#0053a9ff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" halign="center" />
     <widget source="title_loading" render="Label" position="584,356" size="656,37" font="Regular;22" foregroundColor="#00000000" backgroundColor="#00000000" transparent="1" valign="center" zPosition="20" halign="center" />
-    <widget name="current_time" position="364,96" size="153,40" zPosition="13" font="Regular; 36" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="current_time" position="367,117" size="153,34" zPosition="13" font="Regular; 32" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
 
     <!-- Button icons -->
     <widget source="key_red" render="Label" position="636,660" size="133,23" font="Regular;21" backgroundColor="#ff0000" foregroundColor="#000000" halign="center" valign="center" zPosition="3" />
@@ -60,7 +60,7 @@
     </widget>
     <!-- Location and current weather -->
     <widget name="city_name" position="13,30" size="512,28" zPosition="10" font="Regular; 22" backgroundColor="#00000000" transparent="1" valign="center" halign="center" foregroundColor="#0053a9ff" />
-    <widget name="temperature_current" position="42,96" size="100,40" zPosition="10" font="Regular;36" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="temperature_current" position="42,106" size="100,40" zPosition="10" font="Regular;36" foregroundColor="#49bbff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <widget name="icon_temp_perc" position="26,407" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="temperature_feelslike" position="63,410" size="200,26" zPosition="10" font="Regular; 17" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" />
     <!-- Moon phase -->
@@ -80,7 +80,7 @@
     <widget name="icon_observation" position="26,360" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="station_name" position="63,365" size="327,26" font="Regular; 17" halign="left" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" zPosition="10" />
     <!-- Weather description and details -->
-    <widget name="weather_description" position="18,80" size="513,26" zPosition="10" font="Regular; 22" foregroundColor="#fe00" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
+    <widget name="weather_description" position="18,85" size="513,24" zPosition="10" font="Regular; 22" foregroundColor="#fe00" backgroundColor="#00000000" transparent="1" valign="center" halign="center" />
     <widget name="icon_sun" position="163,118" size="213,166" scale="1" zPosition="8" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="icon_dew_point" position="486,546" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="dewpoint_value" position="260,550" size="220,26" zPosition="10" font="Regular; 17" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="right" />

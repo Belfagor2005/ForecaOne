@@ -13,7 +13,7 @@ from os import makedirs, listdir, environ
 import gettext
 import codecs
 
-VERSION = "1.0.8"
+VERSION = "1.0.9"
 _AUTHOR_ = "by Lululla - 2026"
 IDEAS = "@Bauernbub"
 THANKS = "@Orlandox"
@@ -24,10 +24,10 @@ PLUGIN_PATH = dirname(__file__)
 SKINS_PATH = join(PLUGIN_PATH, "skins")
 MOON_ICON_PATH = join(PLUGIN_PATH, "moon")
 CONFIG_FILE = join(SYSTEM_DIR, "api_config.txt")
+DATA_FILE = join(SYSTEM_DIR, "color_database.txt")
 CACHE_BASE = join(TEMP_DIR, "foreca_map_cache")
 THUMB_PATH = join(PLUGIN_PATH, "thumb/")
 DBG_DIR = join(PLUGIN_PATH, 'debug')
-DATA_FILE = join(PLUGIN_PATH, "color_database.txt")
 TOKEN_FILE = join(CACHE_BASE, "token.json")
 WETTERKONTOR_CACHE = join(CACHE_BASE, "wetterkontor/")
 INSTALLER_URL = "https://raw.githubusercontent.com/Belfagor2005/ForecaOne/main/installer.sh"

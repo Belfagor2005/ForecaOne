@@ -35,6 +35,11 @@ from . import (
 from .google_translate import _get_system_language
 
 
+METEOGRAM_DIR = join(TEMP_DIR, "meteogram")
+if not exists(METEOGRAM_DIR):
+    makedirs(METEOGRAM_DIR)
+
+
 # =============================================================================
 # SCREEN RESOLUTION DEPENDENT CONSTANTS
 # =============================================================================
@@ -152,8 +157,8 @@ class MeteogramView(Screen, HelpableScreen):
         self.tz = tz
         self.tz_offset = tz_offset
 
-        if not exists(TEMP_DIR):
-            makedirs(TEMP_DIR)
+        if not exists(METEOGRAM_DIR):
+            makedirs(METEOGRAM_DIR)
 
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
@@ -205,16 +210,16 @@ class MeteogramView(Screen, HelpableScreen):
         apply_global_theme(self)
 
     def cleanup_temp_files(self):
-        if exists(TEMP_DIR):
+        if exists(METEOGRAM_DIR):
             try:
-                for f in listdir(TEMP_DIR):
+                for f in listdir(METEOGRAM_DIR):
                     if f.startswith(
                             'foreca_temp_curve.svg') or f.startswith('rainbar_'):
-                        file_path = join(TEMP_DIR, f)
+                        file_path = join(METEOGRAM_DIR, f)
                         remove(file_path)
                 if DEBUG:
                     print(
-                        f"[Meteogram] Cleaned temporary SVG files from {TEMP_DIR}")
+                        f"[Meteogram] Cleaned temporary SVG files from {METEOGRAM_DIR}")
             except Exception as e:
                 print(f"[Meteogram] Error cleaning temp files: {e}")
 
@@ -426,7 +431,7 @@ class MeteogramView(Screen, HelpableScreen):
     </svg>'''
 
         # Save and load the SVG into the temp_curve pixmap
-        svg_file = join(TEMP_DIR, 'foreca_temp_curve.svg')
+        svg_file = join(METEOGRAM_DIR, 'foreca_temp_curve.svg')
         try:
             with open(svg_file, 'w') as f:
                 f.write(svg)
@@ -529,7 +534,7 @@ class MeteogramView(Screen, HelpableScreen):
       <rect x="0" y="{ly}" width="20" height="{lh}" fill="#1E90FF"/>
     </svg>'''
 
-            ftmp = join(TEMP_DIR, f'rainbar_{n}.svg')
+            ftmp = join(METEOGRAM_DIR, f'rainbar_{n}.svg')
             try:
                 with open(ftmp, 'w', encoding='utf-8') as f:
                     f.write(svg_chunk)

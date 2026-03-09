@@ -41,6 +41,10 @@ msgstr "6 - اليوم + 6 أيام"
 msgid "7 - Today + 7 days"
 msgstr "7 - اليوم + 7 أيام"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "موافق - التوقعات"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - اليوم + 8 أيام"
 
@@ -97,6 +101,9 @@ msgstr "بلجيكا"
 
 msgid "Berlin"
 msgstr "برلين"
+
+msgid "Blue"
+msgstr ""
 
 msgid "Blue - Home"
 msgstr "أزرق - الصفحة الرئيسية"
@@ -248,6 +255,10 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
+#, fuzzy
+msgid "Distance"
+msgstr "المسافة {} كم"
+
 msgid "Distance {} km"
 msgstr "المسافة {} كم"
 
@@ -280,9 +291,6 @@ msgstr "شرق آسيا"
 #, fuzzy
 msgid "Error checking for updates."
 msgstr "خطأ في حفظ المفضلة!"
-
-msgid "Error displaying map"
-msgstr "خطأ في عرض الخريطة"
 
 #, fuzzy
 msgid "Error loading data"
@@ -363,9 +371,6 @@ msgstr "يبدو كـ: {}{}"
 msgid "Feels like: {}°C"
 msgstr "يبدو كـ: {}°م"
 
-msgid "Fetching radar data..."
-msgstr ""
-
 msgid "Finland"
 msgstr "فنلندا"
 
@@ -437,6 +442,10 @@ msgstr "بريطانيا العظمى"
 msgid "Greece"
 msgstr "اليونان"
 
+#, fuzzy
+msgid "Green"
+msgstr "اليونان"
+
 msgid "Green - Favorite 1"
 msgstr "أخضر - المفضلة 1"
 
@@ -446,6 +455,9 @@ msgstr ""
 #, fuzzy
 msgid "Gust: {:.1f} {}"
 msgstr "الرياح: {} {} {}"
+
+msgid "HTML"
+msgstr ""
 
 msgid "Hamburg"
 msgstr "هامبورغ"
@@ -534,8 +546,15 @@ msgstr "لوحة المفاتيح"
 msgid "Last Quarter"
 msgstr "الربع الأخير"
 
+#, fuzzy
+msgid "Last update"
+msgstr "الربع الأخير"
+
 msgid "Latvia"
 msgstr "لاتفيا"
+
+msgid "Left"
+msgstr ""
 
 msgid "Left - Previous day"
 msgstr "يسار - اليوم السابق"
@@ -552,10 +571,6 @@ msgstr "جاري تحميل المحطات القريبة..."
 
 msgid "Loading nearby stations..."
 msgstr "جاري تحميل المحطات القريبة..."
-
-#, fuzzy
-msgid "Loading tiles..."
-msgstr "جاري تحميل البلاط..."
 
 msgid "Loading weekly forecast..."
 msgstr "جاري تحميل التوقعات الأسبوعية..."
@@ -581,10 +596,6 @@ msgstr "لوكسمبورغ"
 msgid "Map & Tiles Loaded"
 msgstr "تم تحميل الخريطة والبلاط"
 
-#, fuzzy
-msgid "Map loaded"
-msgstr "تم تحميل الخريطة والبلاط"
-
 msgid "Map {} selected"
 msgstr "الخريطة {} محددة"
 
@@ -596,9 +607,6 @@ msgstr "القائمة"
 
 msgid "Menu - Settings"
 msgstr "القائمة - الإعدادات"
-
-msgid "Merge failed"
-msgstr ""
 
 msgid "Meteogram"
 msgstr "الرسم الجوي"
@@ -661,6 +669,10 @@ msgstr "الصفحة التالية"
 
 msgid "Next page"
 msgstr "الصفحة التالية"
+
+#, fuzzy
+msgid "Next time"
+msgstr "الصورة التالية"
 
 msgid "No Internet connection detected."
 msgstr "لم يتم اكتشاف اتصال بالإنترنت."
@@ -777,6 +789,19 @@ msgstr "الصفحة التالية"
 msgid "Page up"
 msgstr "الصفحة السابقة"
 
+#, fuzzy
+msgid "Pan down"
+msgstr "الصفحة التالية"
+
+msgid "Pan left"
+msgstr ""
+
+msgid "Pan right"
+msgstr ""
+
+msgid "Pan up"
+msgstr ""
+
 msgid "Partly cloudy"
 msgstr "غائم جزئيًا"
 
@@ -869,6 +894,10 @@ msgstr "الصفحة السابقة"
 msgid "Previous page"
 msgstr "الصفحة السابقة"
 
+#, fuzzy
+msgid "Previous time"
+msgstr "الصورة السابقة"
+
 msgid "Radar"
 msgstr ""
 
@@ -891,6 +920,9 @@ msgstr "الرياح: {} {} {}"
 msgid "RainViewer Radar"
 msgstr "رادار الطقس"
 
+msgid "Red"
+msgstr ""
+
 msgid "Red - Color select"
 msgstr "أحمر - اختيار اللون"
 
@@ -899,6 +931,9 @@ msgstr "تحديث"
 
 msgid "Rhineland-Palatine"
 msgstr "راينلاند-بفالز"
+
+msgid "Right"
+msgstr ""
 
 msgid "Right - Next day"
 msgstr "يمين - اليوم التالي"
@@ -1084,11 +1119,8 @@ msgstr "مستوى الشفافية"
 msgid "Try again later"
 msgstr "حاول مرة أخرى لاحقًا"
 
-msgid "Try different zoom or layer"
-msgstr "جرب تكبيرًا أو طبقة مختلفة"
-
-msgid "Try different zoom or region"
-msgstr "جرب تكبيرًا أو منطقة مختلفة"
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr "مؤشر الأشعة فوق البنفسجية"
@@ -1142,9 +1174,6 @@ msgstr "استخدم ← → لتغيير الوقت | موافق للخروج"
 
 msgid "Use ▲/▼ to change, OK to select"
 msgstr "استخدم ▲/▼ للتغيير، موافق للاختيار"
-
-msgid "Using current time"
-msgstr "استخدام الوقت الحالي"
 
 msgid "Very high"
 msgstr "مرتفع جدًا"
@@ -1200,6 +1229,10 @@ msgstr "طقس الغد"
 
 msgid "Weekly Forecast"
 msgstr "التوقعات الأسبوعية"
+
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "خرائط الطقس"
 
 msgid "Wind"
 msgstr "الرياح"
@@ -1299,25 +1332,25 @@ msgstr "• أصفر للحفظ كالمفضلة 2\n"
 msgid "← Frame"
 msgstr ""
 
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "موافق - التوقعات"
+#~ msgid "Error displaying map"
+#~ msgstr "خطأ في عرض الخريطة"
+
+#~ msgid "Try different zoom or layer"
+#~ msgstr "جرب تكبيرًا أو طبقة مختلفة"
+
+#~ msgid "Try different zoom or region"
+#~ msgstr "جرب تكبيرًا أو منطقة مختلفة"
+
+#~ msgid "Using current time"
+#~ msgstr "استخدام الوقت الحالي"
 
 #, fuzzy
-#~ msgid "Distance"
-#~ msgstr "المسافة {} كم"
+#~ msgid "Loading tiles..."
+#~ msgstr "جاري تحميل البلاط..."
 
 #, fuzzy
-#~ msgid "Green"
-#~ msgstr "اليونان"
-
-#, fuzzy
-#~ msgid "Last update"
-#~ msgstr "الربع الأخير"
-
-#, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "خرائط الطقس"
+#~ msgid "Map loaded"
+#~ msgstr "تم تحميل الخريطة والبلاط"
 
 #~ msgid "Image %(current)d/%(total)d"
 #~ msgstr "الصورة %(current)d/%(total)d"

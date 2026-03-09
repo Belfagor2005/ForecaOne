@@ -40,6 +40,9 @@ msgstr ""
 msgid "7 - Today + 7 days"
 msgstr ""
 
+msgid "7 Day Forecast"
+msgstr ""
+
 msgid "8 - Today + 8 days"
 msgstr ""
 
@@ -95,6 +98,9 @@ msgid "Belgium"
 msgstr ""
 
 msgid "Berlin"
+msgstr ""
+
+msgid "Blue"
 msgstr ""
 
 msgid "Blue - Home"
@@ -244,6 +250,9 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
+msgid "Distance"
+msgstr ""
+
 msgid "Distance {} km"
 msgstr ""
 
@@ -272,9 +281,6 @@ msgid "East Asia"
 msgstr ""
 
 msgid "Error checking for updates."
-msgstr ""
-
-msgid "Error displaying map"
 msgstr ""
 
 msgid "Error loading data"
@@ -349,9 +355,6 @@ msgstr ""
 msgid "Feels like: {}°C"
 msgstr ""
 
-msgid "Fetching radar data..."
-msgstr ""
-
 msgid "Finland"
 msgstr ""
 
@@ -415,6 +418,9 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
+msgid "Green"
+msgstr ""
+
 msgid "Green - Favorite 1"
 msgstr ""
 
@@ -422,6 +428,9 @@ msgid "Gust {}"
 msgstr ""
 
 msgid "Gust: {:.1f} {}"
+msgstr ""
+
+msgid "HTML"
 msgstr ""
 
 msgid "Hamburg"
@@ -508,7 +517,13 @@ msgstr ""
 msgid "Last Quarter"
 msgstr ""
 
+msgid "Last update"
+msgstr ""
+
 msgid "Latvia"
+msgstr ""
+
+msgid "Left"
 msgstr ""
 
 msgid "Left - Previous day"
@@ -524,9 +539,6 @@ msgid "Loading lunar phases..."
 msgstr ""
 
 msgid "Loading nearby stations..."
-msgstr ""
-
-msgid "Loading tiles..."
 msgstr ""
 
 msgid "Loading weekly forecast..."
@@ -553,9 +565,6 @@ msgstr ""
 msgid "Map & Tiles Loaded"
 msgstr ""
 
-msgid "Map loaded"
-msgstr ""
-
 msgid "Map {} selected"
 msgstr ""
 
@@ -566,9 +575,6 @@ msgid "Menu"
 msgstr ""
 
 msgid "Menu - Settings"
-msgstr ""
-
-msgid "Merge failed"
 msgstr ""
 
 msgid "Meteogram"
@@ -629,6 +635,9 @@ msgid "Next frame"
 msgstr ""
 
 msgid "Next page"
+msgstr ""
+
+msgid "Next time"
 msgstr ""
 
 msgid "No Internet connection detected."
@@ -745,6 +754,18 @@ msgstr ""
 msgid "Page up"
 msgstr ""
 
+msgid "Pan down"
+msgstr ""
+
+msgid "Pan left"
+msgstr ""
+
+msgid "Pan right"
+msgstr ""
+
+msgid "Pan up"
+msgstr ""
+
 msgid "Partly cloudy"
 msgstr ""
 
@@ -832,6 +853,9 @@ msgstr ""
 msgid "Previous page"
 msgstr ""
 
+msgid "Previous time"
+msgstr ""
+
 msgid "Radar"
 msgstr ""
 
@@ -850,6 +874,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr ""
 
+msgid "Red"
+msgstr ""
+
 msgid "Red - Color select"
 msgstr ""
 
@@ -857,6 +884,9 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Rhineland-Palatine"
+msgstr ""
+
+msgid "Right"
 msgstr ""
 
 msgid "Right - Next day"
@@ -1036,10 +1066,7 @@ msgstr ""
 msgid "Try again later"
 msgstr ""
 
-msgid "Try different zoom or layer"
-msgstr ""
-
-msgid "Try different zoom or region"
+msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1091,9 +1118,6 @@ msgid "Use ← → to change time | OK to exit"
 msgstr ""
 
 msgid "Use ▲/▼ to change, OK to select"
-msgstr ""
-
-msgid "Using current time"
 msgstr ""
 
 msgid "Very high"
@@ -1148,6 +1172,9 @@ msgid "Weather tomorrow"
 msgstr ""
 
 msgid "Weekly Forecast"
+msgstr ""
+
+msgid "Wetter.de Maps Test"
 msgstr ""
 
 msgid "Wind"

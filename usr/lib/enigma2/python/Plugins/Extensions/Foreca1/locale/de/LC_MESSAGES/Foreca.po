@@ -40,6 +40,10 @@ msgstr "6 – Heute + 6 Tage"
 msgid "7 - Today + 7 days"
 msgstr "7 - Heute + 7 Tage"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Vorhersage"
+
 msgid "8 - Today + 8 days"
 msgstr "8 – Heute + 8 Tage"
 
@@ -98,6 +102,9 @@ msgstr "Belgien"
 
 msgid "Berlin"
 msgstr "Berlin"
+
+msgid "Blue"
+msgstr "Blau"
 
 msgid "Blue - Home"
 msgstr "Blau – Startseite"
@@ -254,6 +261,9 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
+msgid "Distance"
+msgstr "Entfernung"
+
 #, fuzzy
 msgid "Distance {} km"
 msgstr "Entfernung"
@@ -287,10 +297,6 @@ msgstr "Ostasien"
 
 #, fuzzy
 msgid "Error checking for updates."
-msgstr "Fehler beim Speichern des Favoriten!"
-
-#, fuzzy
-msgid "Error displaying map"
 msgstr "Fehler beim Speichern des Favoriten!"
 
 #, fuzzy
@@ -377,9 +383,6 @@ msgstr "Gefühlt wie"
 msgid "Feels like: {}°C"
 msgstr "Gefühlt wie"
 
-msgid "Fetching radar data..."
-msgstr ""
-
 msgid "Finland"
 msgstr "Finnland"
 
@@ -454,6 +457,9 @@ msgstr "Großbritannien"
 msgid "Greece"
 msgstr "Griechenland"
 
+msgid "Green"
+msgstr "Grün"
+
 msgid "Green - Favorite 1"
 msgstr "Grün – Favorit 1"
 
@@ -462,6 +468,9 @@ msgstr ""
 
 msgid "Gust: {:.1f} {}"
 msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Hamburg"
@@ -550,8 +559,14 @@ msgstr "Tastatur"
 msgid "Last Quarter"
 msgstr "Letzte Aktualisierung"
 
+msgid "Last update"
+msgstr "Letzte Aktualisierung"
+
 msgid "Latvia"
 msgstr "Lettland"
+
+msgid "Left"
+msgstr ""
 
 msgid "Left - Previous day"
 msgstr "Links – Vortag"
@@ -568,10 +583,6 @@ msgstr "Nahegelegene Stationen werden geladen..."
 
 msgid "Loading nearby stations..."
 msgstr "Nahegelegene Stationen werden geladen..."
-
-#, fuzzy
-msgid "Loading tiles..."
-msgstr "Bilder werden heruntergeladen..."
 
 msgid "Loading weekly forecast..."
 msgstr "Wochenvorhersage wird geladen..."
@@ -597,9 +608,6 @@ msgstr "Luxemburg"
 msgid "Map & Tiles Loaded"
 msgstr ""
 
-msgid "Map loaded"
-msgstr ""
-
 #, fuzzy
 msgid "Map {} selected"
 msgstr "Keine Stadt ausgewählt"
@@ -612,9 +620,6 @@ msgstr ""
 
 msgid "Menu - Settings"
 msgstr "Menü - Einstellungen"
-
-msgid "Merge failed"
-msgstr ""
 
 msgid "Meteogram"
 msgstr "Meteogramm"
@@ -677,6 +682,10 @@ msgid "Next frame"
 msgstr "Nächste Seite"
 
 msgid "Next page"
+msgstr "Nächste Seite"
+
+#, fuzzy
+msgid "Next time"
 msgstr "Nächste Seite"
 
 #, fuzzy
@@ -799,6 +808,18 @@ msgstr ""
 msgid "Page up"
 msgstr ""
 
+msgid "Pan down"
+msgstr ""
+
+msgid "Pan left"
+msgstr ""
+
+msgid "Pan right"
+msgstr ""
+
+msgid "Pan up"
+msgstr ""
+
 msgid "Partly cloudy"
 msgstr "Teilweise bewölkt"
 
@@ -898,6 +919,10 @@ msgstr "Vorherige Seite"
 msgid "Previous page"
 msgstr "Vorherige Seite"
 
+#, fuzzy
+msgid "Previous time"
+msgstr "Vorherige Seite"
+
 msgid "Radar"
 msgstr ""
 
@@ -917,6 +942,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Wetterradar"
 
+msgid "Red"
+msgstr "Rot"
+
 msgid "Red - Color select"
 msgstr "Rot – Farbe auswählen"
 
@@ -925,6 +953,9 @@ msgstr ""
 
 msgid "Rhineland-Palatine"
 msgstr "Rheinland-Pfalz"
+
+msgid "Right"
+msgstr ""
 
 msgid "Right - Next day"
 msgstr "Rechts – Nächster Tag"
@@ -1115,10 +1146,7 @@ msgstr "Transparenzgrad"
 msgid "Try again later"
 msgstr ""
 
-msgid "Try different zoom or layer"
-msgstr ""
-
-msgid "Try different zoom or region"
+msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1177,9 +1205,6 @@ msgstr ""
 msgid "Use ▲/▼ to change, OK to select"
 msgstr ""
 
-msgid "Using current time"
-msgstr ""
-
 msgid "Very high"
 msgstr ""
 
@@ -1236,6 +1261,10 @@ msgstr "Wetter morgen"
 
 msgid "Weekly Forecast"
 msgstr "Wochenvorhersage"
+
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "Wetterkarten"
 
 msgid "Wind"
 msgstr "Wind"
@@ -1338,30 +1367,12 @@ msgid "← Frame"
 msgstr ""
 
 #, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Vorhersage"
-
-#~ msgid "Blue"
-#~ msgstr "Blau"
-
-#~ msgid "Distance"
-#~ msgstr "Entfernung"
-
-#~ msgid "Green"
-#~ msgstr "Grün"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Letzte Aktualisierung"
-
-#~ msgid "Red"
-#~ msgstr "Rot"
+#~ msgid "Error displaying map"
+#~ msgstr "Fehler beim Speichern des Favoriten!"
 
 #, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Wetterkarten"
+#~ msgid "Loading tiles..."
+#~ msgstr "Bilder werden heruntergeladen..."
 
 #, fuzzy
 #~ msgid "Found {} lunar phases"

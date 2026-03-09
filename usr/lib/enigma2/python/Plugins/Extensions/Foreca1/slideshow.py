@@ -203,11 +203,11 @@ class ForecaSlideshow(Screen, HelpableScreen):
 
                 # Determine the day text
                 if index == 0:
-                    day_str = _("Today")
+                    day_str = _("Today") + " " + target_date.strftime("%a")
                 elif index == 1:
-                    day_str = _("Tomorrow")
+                    day_str = _("Tomorrow") + " " + target_date.strftime("%a")
                 else:
-                    day_str = target_date.strftime("%d.%m")
+                    day_str = target_date.strftime("%a %Y/%m/%d")
 
                 # Update the info label
                 self["info"].setText(
