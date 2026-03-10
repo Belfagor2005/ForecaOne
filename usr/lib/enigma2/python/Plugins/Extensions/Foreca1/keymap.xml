@@ -55,7 +55,7 @@
 		-->
 		<key id="KEY_YELLOW" mapto="yellow" flags="b"/>
 		<key id="KEY_YELLOW" mapto="yellowRepeated" flags="l"/>
-		<key id="KEY_VOLUMEUP" mapto="volumeUp" flags="mr" />
-		<key id="KEY_VOLUMEDOWN" mapto="volumeDown" flags="mr" />
+		<key id="KEY_VOLUMEUP" mapto="volumeUp" flags="mr"/>
+		<key id="KEY_VOLUMEDOWN" mapto="volumeDown" flags="mr"/>
 	</map>
 </keymap>

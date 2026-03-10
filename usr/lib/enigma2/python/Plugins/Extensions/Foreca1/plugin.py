@@ -1641,7 +1641,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             self["moon_label"].setText(_(phase_name))
         if "moon_illum" in self:
             self["moon_illum"].setText(
-                _("Visibility") + f" {illumination:.1f}%")
+                _("Illumination") + f" {illumination:.1f}%")
         if "moon_distance" in self:
             distance = self.moon.get_moon_distance()
             self["moon_distance"].setText(_("Distance {} km").format(distance))

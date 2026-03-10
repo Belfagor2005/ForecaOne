@@ -36,6 +36,9 @@ msgstr "6-今天+ 6天"
 msgid "7 - Today + 7 days"
 msgstr "7-今天+ 7天"
 
+msgid "7 Day Forecast"
+msgstr "未来七天天气预报"
+
 msgid "8 - Today + 8 days"
 msgstr "8-今天+ 8天"
 
@@ -93,6 +96,9 @@ msgstr "比利时"
 msgid "Berlin"
 msgstr "柏林"
 
+msgid "Blue"
+msgstr "蓝色"
+
 msgid "Blue - Home"
 msgstr "蓝色-主页"
 
@@ -136,6 +142,10 @@ msgid "Close"
 msgstr "关闭"
 
 #, fuzzy
+msgid "Close legend"
+msgstr "颜色选择"
+
+#, fuzzy
 msgid "Cloud Cover"
 msgstr "多云和阵雨"
 
@@ -163,14 +173,25 @@ msgstr "多云和潮湿的降雪"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "多云、有雨的雷暴"
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 msgid "Color"
 msgstr "颜色"
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "颜色选择"
 
 msgid "Color Selector"
 msgstr "预定分组更新"
 
 msgid "Color data"
 msgstr "颜色数据"
+
+#, fuzzy
+msgid "Color legend"
+msgstr "颜色选择"
 
 msgid "Color name"
 msgstr "颜色名称"
@@ -183,6 +204,9 @@ msgstr "天气状况: {}"
 
 msgid "Continents Weather Maps"
 msgstr "大陆天气地图"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr "无法获取更新信息。"
@@ -246,6 +270,9 @@ msgstr "露点温度"
 msgid "Dewpoint: N/A"
 msgstr "露点温度"
 
+msgid "Distance"
+msgstr "距离"
+
 msgid "Distance {} km"
 msgstr "距离: {}千米"
 
@@ -303,8 +330,15 @@ msgstr "退出"
 msgid "Exit - End"
 msgstr "退出-结束"
 
+#, fuzzy
+msgid "Exit / Close legend"
+msgstr "颜色选择"
+
 msgid "Extreme"
 msgstr "极度"
+
+msgid "Extreme / thunderstorms"
+msgstr ""
 
 msgid "Fahrenheit, mph, inHg"
 msgstr "华氏度，英里/小时，英寸汞柱"
@@ -408,6 +442,9 @@ msgstr "法国"
 msgid "Full Moon"
 msgstr "满月"
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 msgid "German States Weather Maps"
 msgstr "德国各州天气地图"
 
@@ -420,6 +457,9 @@ msgstr "大不列颠及北爱尔兰"
 msgid "Greece"
 msgstr "希腊"
 
+msgid "Green"
+msgstr "绿"
+
 msgid "Green - Favorite 1"
 msgstr "绿色-收藏 1"
 
@@ -429,11 +469,17 @@ msgstr ""
 msgid "Gust: {:.1f} {}"
 msgstr ""
 
+msgid "HTML"
+msgstr "HTML"
+
 msgid "Hamburg"
 msgstr "德国汉堡"
 
 msgid "Header - not selectable"
 msgstr "页眉-不可选择"
+
+msgid "Heavy rain"
+msgstr ""
 
 msgid "Help"
 msgstr ""
@@ -446,6 +492,9 @@ msgstr "高"
 
 msgid "Home"
 msgstr "首页"
+
+msgid "Hot (30-40°C)"
+msgstr ""
 
 msgid "Hour Details"
 msgstr "小时详情"
@@ -462,6 +511,9 @@ msgstr "空气湿度: {}%"
 
 msgid "Hungary"
 msgstr "匈牙利"
+
+msgid "Ice / frost"
+msgstr ""
 
 msgid "Illumination"
 msgstr "光照"
@@ -516,6 +568,9 @@ msgstr "键盘设置"
 msgid "Last Quarter"
 msgstr "下弦月"
 
+msgid "Last update"
+msgstr "最近更新时间"
+
 msgid "Latvia"
 msgstr "拉脱维亚"
 
@@ -527,6 +582,15 @@ msgstr "左-前一天"
 
 msgid "Left arrow - Previous day"
 msgstr "左箭头-前一天"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr "正在加载可用地图..."
@@ -561,6 +625,10 @@ msgstr "卢森堡"
 msgid "Map & Tiles Loaded"
 msgstr "已加载地图图块"
 
+#, fuzzy
+msgid "Map loaded"
+msgstr "已加载地图图块"
+
 msgid "Map {} selected"
 msgstr "已选择地图{}"
 
@@ -571,6 +639,9 @@ msgid "Menu"
 msgstr "菜单"
 
 msgid "Menu - Settings"
+msgstr ""
+
+msgid "Merge failed"
 msgstr ""
 
 msgid "Meteogram"
@@ -588,7 +659,17 @@ msgstr "中亚"
 msgid "Middle East"
 msgstr "中东"
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
+msgstr "适中"
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
 msgstr "适中"
 
 msgid "Month"
@@ -611,6 +692,10 @@ msgstr "下移一行"
 
 msgid "Move up"
 msgstr "上移一行"
+
+#, fuzzy
+msgid "N/A"
+msgstr "紫外线 N/A"
 
 msgid "Netherlands"
 msgstr "荷兰"
@@ -641,6 +726,9 @@ msgstr "下一张图片"
 msgid "No Internet connection detected."
 msgstr "未检测到互联网连接."
 
+msgid "No OSM tiles"
+msgstr ""
+
 msgid "No cities found locally for '%s'"
 msgstr "未找到“%s”的本地城市"
 
@@ -656,6 +744,10 @@ msgstr "无数据"
 msgid "No location selected"
 msgstr "未选择位置"
 
+#, fuzzy
+msgid "No specific legend available."
+msgstr "没有可用的图块"
+
 msgid "No station data"
 msgstr "没有可用的预测数据"
 
@@ -664,9 +756,6 @@ msgstr "没有可用的预测数据"
 
 msgid "No stations found"
 msgstr "未找到站点"
-
-msgid "No tiles available"
-msgstr "没有可用的图块"
 
 #, fuzzy
 msgid "No tiles downloaded"
@@ -880,6 +969,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "气象雷达"
 
+msgid "Red"
+msgstr "红色"
+
 msgid "Red - Color select"
 msgstr "红色-颜色选择"
 
@@ -979,6 +1071,9 @@ msgstr "较慢： {}秒"
 msgid "Snow"
 msgstr ""
 
+msgid "Snow / ice"
+msgstr ""
+
 msgid "Snow prob. {}%"
 msgstr ""
 
@@ -1002,6 +1097,9 @@ msgstr "工作站观测"
 
 msgid "Station: {}"
 msgstr "观测点: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr ""
 
 msgid "Sunrise"
 msgstr "日出"
@@ -1062,6 +1160,10 @@ msgstr "0-今日"
 msgid "Today/Tomorrow details"
 msgstr "今天/明天详情"
 
+#, fuzzy
+msgid "Toggle legend"
+msgstr "颜色选择"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -1071,8 +1173,8 @@ msgstr "透明度设置"
 msgid "Transparency level"
 msgstr "透明度水平"
 
-msgid "Try again later"
-msgstr "请稍后重试"
+msgid "UV"
+msgstr "紫外线"
 
 msgid "UV Index"
 msgstr "紫外线指数"
@@ -1122,14 +1224,24 @@ msgstr ""
 msgid "Use ← → to change time | OK to exit"
 msgstr "用于← → 更改时间|确定退出"
 
+#, fuzzy
+msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgstr "用于← → 更改时间|确定退出"
+
 msgid "Use ▲/▼ to change, OK to select"
 msgstr "使用▲/▼更改，确定选择"
+
+msgid "Using current time"
+msgstr "使用当前时间"
+
+msgid "Very heavy rain"
+msgstr ""
 
 msgid "Very high"
 msgstr "很高"
 
-msgid "Visibility"
-msgstr "能见度"
+msgid "Very hot (>40°C)"
+msgstr ""
 
 #, fuzzy
 msgid "Visibility: %s m"
@@ -1143,6 +1255,9 @@ msgstr "残月"
 
 msgid "Waning Gibbous"
 msgstr "亏凸月"
+
+msgid "Warm (20-30°C)"
+msgstr ""
 
 msgid "Waxing Crescent"
 msgstr "盈凸月"
@@ -1179,6 +1294,10 @@ msgstr "明天的天气"
 
 msgid "Weekly Forecast"
 msgstr "每周预测"
+
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "菜单-天气图"
 
 msgid "Wind"
 msgstr "风速"
@@ -1275,33 +1394,30 @@ msgstr "黄色-分配给收藏夹2\n"
 msgid "← Frame"
 msgstr ""
 
-#~ msgid "7 Day Forecast"
-#~ msgstr "未来七天天气预报"
+#, fuzzy
+#~ msgid "Map Color Legend"
+#~ msgstr "已加载地图图块"
 
-#~ msgid "Blue"
-#~ msgstr "蓝色"
-
-#~ msgid "Distance"
-#~ msgstr "距离"
-
-#~ msgid "Green"
-#~ msgstr "绿"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "最近更新时间"
-
-#~ msgid "Red"
-#~ msgstr "红色"
-
-#~ msgid "UV"
-#~ msgstr "紫外线"
+#~ msgid "No tiles available"
+#~ msgstr "没有可用的图块"
 
 #, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "菜单-天气图"
+#~ msgid "Precipitation intensity:"
+#~ msgstr "沉积物："
+
+#, fuzzy
+#~ msgid "Temperature:"
+#~ msgstr "CPU温度"
+
+#~ msgid "Try again later"
+#~ msgstr "请稍后重试"
+
+#~ msgid "Visibility"
+#~ msgstr "能见度"
+
+#, fuzzy
+#~ msgid "Wind speed:"
+#~ msgstr "風速"
 
 #~ msgid "Error displaying map"
 #~ msgstr "显示预测时出错"
@@ -1312,16 +1428,9 @@ msgstr ""
 #~ msgid "Try different zoom or region"
 #~ msgstr "尝试其他缩放比例或区域"
 
-#~ msgid "Using current time"
-#~ msgstr "使用当前时间"
-
 #, fuzzy
 #~ msgid "Loading tiles..."
 #~ msgstr "正在下载..."
-
-#, fuzzy
-#~ msgid "Map loaded"
-#~ msgstr "已加载地图图块"
 
 #~ msgid "Image %(current)d/%(total)d"
 #~ msgstr "图片% (当前) d/% (总计) d"
@@ -1361,9 +1470,6 @@ msgstr ""
 
 #~ msgid "Precip"
 #~ msgstr "降雨量"
-
-#~ msgid "Precipitations:"
-#~ msgstr "沉积物："
 
 #~ msgid "Rain"
 #~ msgstr "雨"

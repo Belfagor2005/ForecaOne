@@ -8,7 +8,7 @@ import requests
 from datetime import datetime
 from threading import Thread
 from os.path import exists, join
-from os import makedirs
+from os import makedirs, listdir, remove
 from math import log, tan, pi, radians, cos
 
 from enigma import getDesktop
@@ -22,13 +22,14 @@ from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from PIL import Image
 
+from .map_legend import MapLegendOverlay  # MapLegend
 from .google_translate import trans
 from . import (
     _,
-    # DEBUG,
+    DEBUG,
+    # THUMB_PATH,
     load_skin_for_class,
     apply_global_theme,
-    THUMB_PATH,
     TEMP_DIR,
     HEADERS
 )
@@ -101,7 +102,6 @@ class RainViewerMaps(Screen, HelpableScreen):
         self.map_w = self.grid_cols * TILE_SIZE
         self.map_h = self.grid_rows * TILE_SIZE
 
-        # Widgets
         self["map"] = Pixmap()
         self["title"] = Label(_("RainViewer Radar"))
         self["time_label"] = Label("")
@@ -113,14 +113,18 @@ class RainViewerMaps(Screen, HelpableScreen):
         self['key_left'] = StaticText(_("← Frame"))
         self['key_right'] = StaticText(_("Frame →"))
         self['zoom_label'] = Label(_("Zoom: ") + str(self.zoom_level))
-
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
+
+        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+        self.legend_active = False
+
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
             {
-                "cancel": (self.exit, _("Exit")),
-                "red": (self.exit, _("Exit")),
+                "cancel": (self.handle_cancel, _("Exit / Close legend")),
+                "red": (self.handle_red, _("Exit / Close legend")),
+                "ok": (self.handle_ok, _("Close legend")),
                 "green": (self.zoom_in, _("Zoom+")),
                 "yellow": (self.zoom_out, _("Zoom-")),
                 "left": (self.pan_left, _("Left")),
@@ -129,11 +133,14 @@ class RainViewerMaps(Screen, HelpableScreen):
                 "down": (self.pan_down, _("Down")),
                 "pageUp": (self.prev_frame, _("Previous frame")),
                 "pageDown": (self.next_frame, _("Next frame")),
+                "showEventInfo": (self.toggle_legend, _("Toggle legend")),
             },
             -1
         )
+        self.clear_cache()
         self.onLayoutFinish.append(self._apply_theme)
         self.onLayoutFinish.append(self.load_frame_list)
+        self.onClose.append(self.clear_cache)
 
     def _apply_theme(self):
         apply_global_theme(self)
@@ -142,6 +149,45 @@ class RainViewerMaps(Screen, HelpableScreen):
         """Download the JSON and get the list of available frames"""
         self["info"].setText(trans("Fetching radar data..."))
         Thread(target=self._fetch_frames).start()
+
+    def toggle_legend(self):
+        if self.legend_active:
+            self.legend.hide()
+        else:
+            self.legend.show()
+        self.legend_active = not self.legend_active
+
+    def handle_cancel(self):
+        if self.legend_active:
+            self.legend.hide()
+            self.legend_active = False
+        else:
+            self.exit()
+
+    def handle_red(self):
+        self.handle_cancel()
+
+    def handle_ok(self):
+        if self.legend_active:
+            self.legend.hide()
+            self.legend_active = False
+
+    def exit(self):
+        if self.legend:
+            self.session.deleteDialog(self.legend)
+            self.legend = None
+        self.close()
+
+    def clear_cache(self):
+        try:
+            if exists(RAIN_MAPS_DIR):
+                for f in listdir(RAIN_MAPS_DIR):
+                    if f.endswith('.png') or f.endswith('.jpg'):
+                        remove(join(RAIN_MAPS_DIR, f))
+                if DEBUG:
+                    print("[RainViewerMaps] Cache cleaned")
+        except Exception as e:
+            print(f"[RainViewerMaps] Error cleaning cache: {e}")
 
     def _fetch_frames(self):
         try:
@@ -344,22 +390,19 @@ class RainViewerMaps(Screen, HelpableScreen):
     def pan_left(self):
         step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
         self.center_lon -= step
-        self.load_current_tile()
+        self.update_frame_display()
 
     def pan_right(self):
         step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
         self.center_lon += step
-        self.load_current_tile()
+        self.update_frame_display()
 
     def pan_up(self):
         step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
         self.center_lat += step
-        self.load_current_tile()
+        self.update_frame_display()
 
     def pan_down(self):
         step = 0.5 / (2 ** (self.zoom_level - self.min_zoom))
         self.center_lat -= step
-        self.load_current_tile()
-
-    def exit(self):
-        self.close()
+        self.update_frame_display()

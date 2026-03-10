@@ -136,10 +136,6 @@ class DailyForecast(Screen, HelpableScreen):
             icon = LoadPixmap(cached=True, path=icon_path)
         else:
             icon = None
-        # icon_path = join(PLUGIN_PATH, "thumb", f"{day.condition}.png")
-        # if not exists(icon_path):
-            # icon_path = join(PLUGIN_PATH, "thumb", "d000.png")
-        # icon = LoadPixmap(cached=True, path=icon_path)
 
         # Precipitation
         if hasattr(self.api, 'unit_manager') and self.api.unit_manager:

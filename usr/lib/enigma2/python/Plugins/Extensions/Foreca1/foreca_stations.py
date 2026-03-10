@@ -66,7 +66,7 @@ class ForecaStations(Screen, HelpableScreen):
             {
                 "cancel": (self.close, _("Exit")),
                 "red": (self.close, _("Exit")),
-                "ok": (self.show_station_popup, _("Details")),   # <-- cambiato
+                "ok": (self.show_station_popup, _("Details")),
                 "up": (self.list_up, _("Move Up")),
                 "down": (self.list_down, _("Move Down")),
                 "left": (self.key_left, _("Move Up")),
@@ -152,10 +152,10 @@ class ForecaStations(Screen, HelpableScreen):
         """Format station details with correct units"""
         lines = []
 
-        # Name and distance - formattazione pulita senza tag
+        # Name and distance
         station_name = station.get('station', 'Unknown')
-        lines.append(station_name.upper())  # Nome in maiuscolo per evidenziare
-        lines.append("─" * 40)  # Linea separatrice
+        lines.append(station_name.upper())
+        lines.append("─" * 40)
         lines.append(f"{_('Distance')}: {station.get('distance', 'N/A')}")
         lines.append("")
 

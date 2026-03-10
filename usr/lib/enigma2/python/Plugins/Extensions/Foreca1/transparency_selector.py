@@ -7,7 +7,6 @@ from Screens.Screen import Screen
 from Components.ActionMap import HelpableActionMap
 from Components.Label import Label
 from Components.MenuList import MenuList
-# from enigma import gRGB
 from skin import parseColor
 from Screens.HelpMenu import HelpableScreen
 

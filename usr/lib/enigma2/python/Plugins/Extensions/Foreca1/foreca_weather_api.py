@@ -202,9 +202,10 @@ def _symbol_to_description(symbol_code):
         'd500': _('Thin upper cloud'),
         'n500': _('Thin upper cloud'),
         'd600': _('Fog'),
-        'n600': _('Fog')
+        'n600': _('Fog'),
+        'na': _('N/A')
     }
-    return descriptions.get(symbol_code, 'Unknown')
+    return descriptions.get(symbol_code, 'na')
 
 
 class ForecaFreeAPI:

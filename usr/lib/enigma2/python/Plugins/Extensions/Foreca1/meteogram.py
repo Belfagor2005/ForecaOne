@@ -305,62 +305,6 @@ class MeteogramView(Screen, HelpableScreen):
         self._draw_hourly(forecast)
         self._draw_dates(forecast)
 
-    """
-    def _draw_temperature_simple(self, forecast, ranges):
-        unit_flag = 'c'
-        if self.units:
-            unit_flag = 'c' if self.units.get_simple_system() == 'metric' else 'f'
-
-        temp_block = ranges.get('temp', {})
-        if unit_flag == 'c':
-            conf = temp_block.get('metric', {'start': -20, 'end': 40, 'step': 5})
-        else:
-            conf = temp_block.get('us', {'start': -4, 'end': 104, 'step': 9})
-
-        tmin = conf['start']
-        tmax = conf['end']
-        dots = []
-        xpos = 0
-
-        for idx, row in enumerate(forecast[:PERIODS]):   # only the first 35 periods
-            value = row.get('temp') if unit_flag == 'c' else row.get('tempf')
-            if value is None:
-                value = 0
-            # Calculate Y position: 0 = maximum temperature (tmax),
-            # GRAPH_HEIGHT = minimum temperature (tmin)
-            perc = 1 - (value - tmin) / (tmax - tmin)
-            ypos = int(GRAPH_HEIGHT * perc)
-            dots.append((xpos, ypos))
-            xpos += HOUR_STEP
-
-        curve = smooth_curve_path(dots, k=3)
-
-        svg_data = f'''<?xml version="1.0" encoding="utf-8"?>
-            <svg xmlns="http://www.w3.org/2000/svg" width="{GRAPH_WIDTH}" height="{GRAPH_HEIGHT}">
-              <path d="{curve}" stroke="#FF3333" stroke-width="2" fill="none" />
-            </svg>
-        '''
-
-        tmp_svg = '/tmp/Foreca1/foreca_temp_curve.svg'
-        try:
-            with open(tmp_svg, 'w') as f:
-                f.write(svg_data)
-            self["temp_curve"].instance.setPixmapFromFile(tmp_svg)
-        except Exception as e:
-            print(f"[Meteogram] Error saving SVG temperature: {e}")
-
-        # Left scale (temperature)
-        step = conf['step']
-        temps = []
-        v = tmin
-        while v <= tmax:
-            temps.append(str(int(v)))
-            v += step
-        for i, txt in enumerate(temps[:8]):
-            self[f"temp_scale_{i}"].setText(txt)
-        self["temp_scale_0"].setText("°C" if unit_flag == 'c' else "°F")
-    """
-
     def _draw_temperature_color(self, forecast, ranges):
         """
         Draws the temperature curve as coloured segments.
@@ -602,27 +546,6 @@ class MeteogramView(Screen, HelpableScreen):
                 fallback = get_icon_path("wN.png")  # o na.png
                 if fallback:
                     self[f"winddir_{n}"].instance.setPixmapFromFile(fallback)
-
-            # # Weather icon
-            # symb = row.get('symb', 'd000')
-            # fpath = join(PLUGIN_PATH, "thumb", f"{symb}.png")
-            # if exists(fpath):
-                # self[f"weather_{n}"].instance.setPixmapFromFile(fpath)
-            # else:
-                # fallback = join(PLUGIN_PATH, "thumb", "d000.png")
-                # if exists(fallback):
-                    # self[f"weather_{n}"].instance.setPixmapFromFile(fallback)
-
-            # # Wind direction icon
-            # deg = row.get('windd', 0)
-            # card = wind_arrow(deg)
-            # wfile = join(PLUGIN_PATH, "thumb", f"w{card}.png")
-            # if exists(wfile):
-                # self[f"winddir_{n}"].instance.setPixmapFromFile(wfile)
-            # else:
-                # fb = join(PLUGIN_PATH, "thumb", "wN.png")
-                # if exists(fb):
-                    # self[f"winddir_{n}"].instance.setPixmapFromFile(fb)
 
     def _draw_dates(self, forecast):
         """Add date labels and vertical lines (up to 10 days)."""

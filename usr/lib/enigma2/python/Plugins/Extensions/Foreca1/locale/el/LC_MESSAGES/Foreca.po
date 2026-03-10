@@ -40,6 +40,9 @@ msgstr "6 - Σήμερα + 6 ημέρες"
 msgid "7 - Today + 7 days"
 msgstr "7 - Σήμερα + 7 ημέρες"
 
+msgid "7 Day Forecast"
+msgstr "Πρόγνωση 7 ημερών"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Σήμερα + 8 ημέρες"
 
@@ -50,7 +53,7 @@ msgid "API credentials not configured."
 msgstr "Τα διαπιστευτήρια API δεν έχουν ρυθμιστεί."
 
 msgid "API error"
-msgstr ""
+msgstr "Σφάλμα API"
 
 msgid "AQI {}"
 msgstr "AQI {}"
@@ -97,6 +100,9 @@ msgstr "Βέλγιο"
 msgid "Berlin"
 msgstr "Βερολίνο"
 
+msgid "Blue"
+msgstr "Μπλε"
+
 msgid "Blue - Home"
 msgstr "Μπλε - Αρχική"
 
@@ -139,8 +145,11 @@ msgstr "Αίθριος"
 msgid "Close"
 msgstr "Κλείσιμο"
 
+msgid "Close legend"
+msgstr "Κλείσιμο υπομνήματος"
+
 msgid "Cloud Cover"
-msgstr ""
+msgstr "Νεφοκάλυψη"
 
 msgid "Cloudy"
 msgstr "Συννεφιασμένος"
@@ -166,14 +175,23 @@ msgstr "Συννεφιασμένος και μπόρες υγρού χιονιο
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Συννεφιασμένος, καταιγίδες με βροχή"
 
+msgid "Cold (< 0°C)"
+msgstr "Κρύο (< 0°C)"
+
 msgid "Color"
 msgstr "Χρώμα"
+
+msgid "Color Legend"
+msgstr "Υπόμνημα χρώματος"
 
 msgid "Color Selector"
 msgstr "Επιλογή χρώματος"
 
 msgid "Color data"
 msgstr "Δεδομένα χρώματος"
+
+msgid "Color legend"
+msgstr "Υπόμνημα χρώματος"
 
 msgid "Color name"
 msgstr "Όνομα χρώματος"
@@ -186,6 +204,9 @@ msgstr "Κατάσταση: {}"
 
 msgid "Continents Weather Maps"
 msgstr "Χάρτες καιρού ηπείρων"
+
+msgid "Cool (0-10°C)"
+msgstr "Δροσερό (0-10°C)"
 
 msgid "Could not fetch update information."
 msgstr "Δεν ήταν δυνατή η λήψη πληροφοριών ενημέρωσης."
@@ -236,22 +257,25 @@ msgid "Dewpoint {}°C"
 msgstr "Σημείο δρόσου {}°C"
 
 msgid "Dewpoint: %d%s"
-msgstr ""
+msgstr "Σημείο δρόσου: %d%s"
 
 msgid "Dewpoint: %s°C"
-msgstr ""
+msgstr "Σημείο δρόσου: %s°C"
 
 msgid "Dewpoint: N/A"
-msgstr ""
+msgstr "Σημείο δρόσου: Δ/Α"
+
+msgid "Distance"
+msgstr "Απόσταση"
 
 msgid "Distance {} km"
 msgstr "Απόσταση {} χλμ"
 
 msgid "Distance: %s"
-msgstr ""
+msgstr "Απόσταση: %s"
 
 msgid "Distance: {}"
-msgstr ""
+msgstr "Απόσταση: {}"
 
 msgid "Do you want to install it now?"
 msgstr "Θέλετε να εγκατασταθεί τώρα;"
@@ -275,7 +299,7 @@ msgid "Error checking for updates."
 msgstr "Σφάλμα κατά τον έλεγχο για ενημερώσεις."
 
 msgid "Error loading data"
-msgstr ""
+msgstr "Σφάλμα κατά τη φόρτωση δεδομένων"
 
 msgid "Error loading maps. Check connection."
 msgstr "Σφάλμα φόρτωσης χαρτών. Ελέγξτε τη σύνδεση."
@@ -298,8 +322,14 @@ msgstr "Έξοδος"
 msgid "Exit - End"
 msgstr "Έξοδος - Τέλος"
 
+msgid "Exit / Close legend"
+msgstr "Έξοδος / Κλείσιμο υπομνήματος"
+
 msgid "Extreme"
 msgstr "Ακραίο"
+
+msgid "Extreme / thunderstorms"
+msgstr "Ακραίες / καταιγίδες"
 
 msgid "Fahrenheit, mph, inHg"
 msgstr "Φαρενάιτ, μίλια/ώρα, inHg"
@@ -329,13 +359,13 @@ msgid "Feels like {}{}"
 msgstr "Αίσθηση ως {}{}"
 
 msgid "Feels like: %d%s"
-msgstr ""
+msgstr "Αίσθηση σαν: %d%s"
 
 msgid "Feels like: %s°C"
-msgstr ""
+msgstr "Αίσθηση σαν: %s°C"
 
 msgid "Feels like: N/A"
-msgstr ""
+msgstr "Αίσθηση σαν: Δ/Υ"
 
 msgid "Feels like: {}"
 msgstr "Αίσθηση ως: {}"
@@ -374,7 +404,7 @@ msgid "Foreca One Weather Forecast"
 msgstr "Πρόγνωση καιρού Foreca One"
 
 msgid "Foreca One Weather and Forecast ver. %s"
-msgstr ""
+msgstr "Καιρός και Πρόγνωση Foreca One έκδ. %s"
 
 msgid "Foreca One | Map {}"
 msgstr "Foreca One | Χάρτης {}"
@@ -386,16 +416,19 @@ msgid "Found %d cities online for '%s'"
 msgstr "Βρέθηκαν %d πόλεις online για '%s'"
 
 msgid "Frame →"
-msgstr ""
+msgstr "Πλαίσιο →"
 
 msgid "Frame: {}"
-msgstr ""
+msgstr "Πλαίσιο: {}"
 
 msgid "France"
 msgstr "Γαλλία"
 
 msgid "Full Moon"
 msgstr "Πανσέληνος"
+
+msgid "Gale force (>60 km/h)"
+msgstr "Ισχύς θυέλλης (>60 km/h)"
 
 msgid "German States Weather Maps"
 msgstr "Χάρτες καιρού Γερμανικών κρατιδίων"
@@ -409,6 +442,9 @@ msgstr "Μεγάλη Βρετανία"
 msgid "Greece"
 msgstr "Ελλάδα"
 
+msgid "Green"
+msgstr "Πράσινος"
+
 msgid "Green - Favorite 1"
 msgstr "Πράσινο - Αγαπημένο 1"
 
@@ -418,11 +454,17 @@ msgstr "Ριπές ανέμου {}"
 msgid "Gust: {:.1f} {}"
 msgstr "Ριπές ανέμου: {:.1f} {}"
 
+msgid "HTML"
+msgstr ""
+
 msgid "Hamburg"
 msgstr "Αμβούργο"
 
 msgid "Header - not selectable"
 msgstr "Κεφαλίδα - μη επιλέξιμο"
+
+msgid "Heavy rain"
+msgstr "Δυνατή βροχή"
 
 msgid "Help"
 msgstr "Help"
@@ -436,6 +478,9 @@ msgstr "Υψηλό"
 msgid "Home"
 msgstr "Αρχική"
 
+msgid "Hot (30-40°C)"
+msgstr "Ζεστό (30-40°C)"
+
 msgid "Hour Details"
 msgstr "Λεπτομέρειες ώρας"
 
@@ -443,7 +488,7 @@ msgid "Humidity"
 msgstr "Υγρασία"
 
 msgid "Humidity: %s%%"
-msgstr ""
+msgstr "Υγρασία: %s%%"
 
 msgid "Humidity: {}%"
 msgstr "Υγρασία: {}%"
@@ -451,14 +496,17 @@ msgstr "Υγρασία: {}%"
 msgid "Hungary"
 msgstr "Ουγγαρία"
 
+msgid "Ice / frost"
+msgstr "Πάγος / παγετός"
+
 msgid "Illumination"
 msgstr "Φωτισμός"
 
 msgid "Image %(current)d/%(total)d – %(day)s"
-msgstr ""
+msgstr "Εικόνα %(current)d/%(total)d – %(day)s"
 
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
-msgstr ""
+msgstr "Εικόνα %(current)d/%(σύνολο)d – %(day)s (Σε παύση)"
 
 msgid "Image Downloaded"
 msgstr "Η εικόνα λήφθηκε"
@@ -502,17 +550,29 @@ msgstr "Πληκτρολόγιο"
 msgid "Last Quarter"
 msgstr "Τελευταίο τέταρτο"
 
+msgid "Last update"
+msgstr "Τελευταία ενημέρωση"
+
 msgid "Latvia"
 msgstr "Λετονία"
 
 msgid "Left"
-msgstr ""
+msgstr "Αριστερά"
 
 msgid "Left - Previous day"
 msgstr "Αριστερά - Προηγούμενη ημέρα"
 
 msgid "Left arrow - Previous day"
 msgstr "Βέλος αριστερά - Προηγούμενη ημέρα"
+
+msgid "Light (0-20 km/h)"
+msgstr "Ελαφρύ (0-20 χλμ/ώρα)"
+
+msgid "Light rain / drizzle"
+msgstr "Ελαφριά βροχή / ψιλόβροχο"
+
+msgid "Light to moderate"
+msgstr "Ελαφρύ έως μέτριο"
 
 msgid "Loading available maps..."
 msgstr "Φόρτωση διαθέσιμων χαρτών..."
@@ -547,6 +607,9 @@ msgstr "Λουξεμβούργο"
 msgid "Map & Tiles Loaded"
 msgstr "Ο χάρτης & τα πλακίδια φορτώθηκαν"
 
+msgid "Map loaded"
+msgstr "Ο χάρτης φορτώθηκε"
+
 msgid "Map {} selected"
 msgstr "Επιλέχθηκε ο χάρτης {}"
 
@@ -558,6 +621,9 @@ msgstr "Menu"
 
 msgid "Menu - Settings"
 msgstr "Μενού - Ρυθμίσεις"
+
+msgid "Merge failed"
+msgstr "Η συγχώνευση απέτυχε"
 
 msgid "Meteogram"
 msgstr "Μετεωρογράφημα"
@@ -574,11 +640,20 @@ msgstr "Κεντρική Ασία"
 msgid "Middle East"
 msgstr "Μέση Ανατολή"
 
+msgid "Mild (10-20°C)"
+msgstr "Ήπιο (10-20°C)"
+
 msgid "Moderate"
 msgstr "Μέτριο"
 
+msgid "Moderate (20-40 km/h)"
+msgstr "Μέτρια (20-40 χλμ./ώρα)"
+
+msgid "Moderate rain"
+msgstr "Μέτρια βροχή"
+
 msgid "Month"
-msgstr ""
+msgstr "Μήνας"
 
 msgid "Morning"
 msgstr "Πρωί"
@@ -598,6 +673,9 @@ msgstr "Μετακίνηση κάτω"
 msgid "Move up"
 msgstr "Μετακίνηση πάνω"
 
+msgid "N/A"
+msgstr "Μ/Δ"
+
 msgid "Netherlands"
 msgstr "Ολλανδία"
 
@@ -614,16 +692,19 @@ msgid "Next Image"
 msgstr "Επόμενη εικόνα"
 
 msgid "Next frame"
-msgstr ""
+msgstr "Επόμενο καρέ"
 
 msgid "Next page"
 msgstr "Επόμενη σελίδα"
 
 msgid "Next time"
-msgstr ""
+msgstr "Την επόμενη φορά"
 
 msgid "No Internet connection detected."
 msgstr "Δεν εντοπίστηκε σύνδεση στο διαδίκτυο."
+
+msgid "No OSM tiles"
+msgstr "Δεν υπάρχουν πλακίδια OSM"
 
 msgid "No cities found locally for '%s'"
 msgstr "Δεν βρέθηκαν πόλεις τοπικά για '%s'"
@@ -640,6 +721,9 @@ msgstr "Δεν υπάρχει διαθέσιμη ημερομηνία"
 msgid "No location selected"
 msgstr "Δεν επιλέχθηκε τοποθεσία"
 
+msgid "No specific legend available."
+msgstr "Δεν υπάρχει συγκεκριμένος υπόμνημα."
+
 msgid "No station data"
 msgstr "Δεν υπάρχουν δεδομένα σταθμού"
 
@@ -649,11 +733,8 @@ msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα σταθμο
 msgid "No stations found"
 msgstr "Δεν βρέθηκαν σταθμοί"
 
-msgid "No tiles available"
-msgstr "Δεν υπάρχουν διαθέσιμα πλακάκια"
-
 msgid "No tiles downloaded"
-msgstr ""
+msgstr "Δεν έχουν ληφθεί πλακίδια. Δεν έχουν ληφθεί πλακίδια"
 
 msgid "North Africa"
 msgstr "Βόρεια Αφρική"
@@ -686,7 +767,7 @@ msgid "Open Map"
 msgstr "Άνοιγμα χάρτη"
 
 msgid "Original design and idea by %s"
-msgstr ""
+msgstr "Πρωτότυπο σχέδιο και ιδέα από %s"
 
 msgid "Overcast"
 msgstr "Νεφελώδης"
@@ -773,7 +854,7 @@ msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Μερικώς συννεφιασμένος, πιθανές καταιγίδες με βροχή"
 
 msgid "Phase"
-msgstr ""
+msgstr "Φάση"
 
 msgid "Play/Pause"
 msgstr "Εκτέλ/Παύση"
@@ -806,13 +887,13 @@ msgid "Pressure"
 msgstr "Πίεση"
 
 msgid "Pressure: %s"
-msgstr ""
+msgstr "Πίεση: %s"
 
 msgid "Pressure: %s hPa"
-msgstr ""
+msgstr "Πίεση: %s hPa"
 
 msgid "Pressure: N/A"
-msgstr ""
+msgstr "Πίεση: Δεν ισχύει"
 
 msgid "Pressure: {}"
 msgstr "Πίεση: {}"
@@ -830,16 +911,16 @@ msgid "Previous Image"
 msgstr "Προηγούμενη εικόνα"
 
 msgid "Previous frame"
-msgstr ""
+msgstr "Προηγούμενο καρέ"
 
 msgid "Previous page"
 msgstr "Προηγούμενη σελίδα"
 
 msgid "Previous time"
-msgstr ""
+msgstr "Προηγούμενη φορά"
 
 msgid "Radar"
-msgstr ""
+msgstr "Ραντάρ"
 
 msgid "Rain Prob."
 msgstr "Πιθανότ. βροχής."
@@ -854,7 +935,10 @@ msgid "Rain: {:.1f} {}"
 msgstr "Βροχή: {:.1f} {}"
 
 msgid "RainViewer Radar"
-msgstr ""
+msgstr "Ραντάρ RainViewer"
+
+msgid "Red"
+msgstr "Κόκκινος"
 
 msgid "Red - Color select"
 msgstr "Κόκκινο - Επιλογή χρώματος"
@@ -866,7 +950,7 @@ msgid "Rhineland-Palatine"
 msgstr "Ρηνανία-Παλατινάτο"
 
 msgid "Right"
-msgstr ""
+msgstr "Δικαίωμα"
 
 msgid "Right - Next day"
 msgstr "Δεξιά - Επόμενη ημέρα"
@@ -953,7 +1037,10 @@ msgid "Slower: {}s"
 msgstr "Αργότερα: {}δ"
 
 msgid "Snow"
-msgstr ""
+msgstr "Χιόνι"
+
+msgid "Snow / ice"
+msgstr "Χιόνι / πάγος"
 
 msgid "Snow prob. {}%"
 msgstr "Πιθανότ. χιονιού {}%"
@@ -979,6 +1066,9 @@ msgstr "Παρατηρήσεις σταθμού"
 msgid "Station: {}"
 msgstr "Σταθμός: {}"
 
+msgid "Strong (40-60 km/h)"
+msgstr "Ισχυρό (40-60 χλμ./ώρα)"
+
 msgid "Sunrise"
 msgstr "Ανατολή ηλίου"
 
@@ -998,13 +1088,13 @@ msgid "Temperature"
 msgstr "Θερμοκρασία"
 
 msgid "Temperature: %d%s"
-msgstr ""
+msgstr "Θερμοκρασία: %d%s"
 
 msgid "Temperature: %s°C"
-msgstr ""
+msgstr "Θερμοκρασία: %s°C"
 
 msgid "Temperature: N/A"
-msgstr ""
+msgstr "Θερμοκρασία: Δ/Υ"
 
 msgid "Temperature: {}"
 msgstr "Θερμοκρασία: {}"
@@ -1016,7 +1106,7 @@ msgid "Temperature: {}°C"
 msgstr "Θερμοκρασία: {}°C"
 
 msgid "Thanks {thanks} and other friends for suggestions and testing"
-msgstr ""
+msgstr "Ευχαριστώ {thanks} και άλλους φίλους για τις προτάσεις και τις δοκιμές"
 
 msgid "Thin upper cloud"
 msgstr "Λεπτή ανώτερη νέφωση"
@@ -1025,20 +1115,23 @@ msgid "Thuringia"
 msgstr "Θουριγγία"
 
 msgid "Time"
-msgstr ""
+msgstr "Φορά"
 
 # Foreca4 translations
 # Copyright (C) 2025 Lululla Team
 # This file is distributed under the same license as the Lululla package.
 # [lululla] <ekekaz@gmail.com>, 2025.
 msgid "Today"
-msgstr ""
+msgstr "Σήμερα"
 
 msgid "Today/Tomorrow details"
 msgstr "Λεπτομέρειες για Σήμερα/Αύριο"
 
+msgid "Toggle legend"
+msgstr "Εναλλαγή υπομνήματος"
+
 msgid "Tomorrow"
-msgstr ""
+msgstr "Αύριο"
 
 msgid "Transparency Settings"
 msgstr "Ρυθμίσεις διαφάνειας"
@@ -1046,8 +1139,8 @@ msgstr "Ρυθμίσεις διαφάνειας"
 msgid "Transparency level"
 msgstr "Επίπεδο διαφάνειας"
 
-msgid "Try again later"
-msgstr "Δοκιμάστε ξανά αργότερα"
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr "Δείκτης UV"
@@ -1097,17 +1190,26 @@ msgstr "Χρησιμοποιήστε τα βέλη για κύλιση"
 msgid "Use ← → to change time | OK to exit"
 msgstr "Χρησιμοποιήστε ← → για αλλαγή ώρας | OK για έξοδο"
 
+msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgstr "Χρησιμοποιήστε ←/→/↑/↓ για μετακίνηση | OK για έξοδο"
+
 msgid "Use ▲/▼ to change, OK to select"
 msgstr "Χρησιμοποιήστε τα ▲/▼ για αλλαγή, OK για επιλογή"
+
+msgid "Using current time"
+msgstr "Χρήση τρέχουσας ώρας"
+
+msgid "Very heavy rain"
+msgstr "Πολύ δυνατή βροχή"
 
 msgid "Very high"
 msgstr "Πολύ υψηλή"
 
-msgid "Visibility"
-msgstr "Ορατότητα"
+msgid "Very hot (>40°C)"
+msgstr "Πολύ ζεστό (>40°C)"
 
 msgid "Visibility: %s m"
-msgstr ""
+msgstr "Ορατότητα: %s μ"
 
 msgid "Visibility: {} m"
 msgstr "Ορατότητα: {} μ"
@@ -1117,6 +1219,9 @@ msgstr "Φθίνουσα ημισέληνος"
 
 msgid "Waning Gibbous"
 msgstr "Φθίνουσα αμφίκυρτη"
+
+msgid "Warm (20-30°C)"
+msgstr "Ζεστό (20-30°C)"
 
 msgid "Waxing Crescent"
 msgstr "Αύξουσα ημισέληνος"
@@ -1154,6 +1259,9 @@ msgstr "Καιρός αύριο"
 msgid "Weekly Forecast"
 msgstr "Εβδομαδιαία πρόγνωση"
 
+msgid "Wetter.de Maps Test"
+msgstr "Δοκιμή χαρτών Wetter.de"
+
 msgid "Wind"
 msgstr "Άνεμος"
 
@@ -1176,13 +1284,13 @@ msgid "Wind speed: {:.1f} {}"
 msgstr "Ταχύτητα ανέμου: {:.1f} {}"
 
 msgid "Wind: %d %s %s"
-msgstr ""
+msgstr "Άνεμος: %d %s %s"
 
 msgid "Wind: %s km/h %s"
-msgstr ""
+msgstr "Άνεμος: %s χλμ/ώρα %s"
 
 msgid "Wind: N/A"
-msgstr ""
+msgstr "Άνεμος: Δ/Α"
 
 msgid "Wind: {}"
 msgstr "Άνεμος: {}"
@@ -1245,22 +1353,32 @@ msgid "• YELLOW to save as Favorite 2\n"
 msgstr "• ΚΙΤΡΙΝΟ για αποθήκευση ως Αγαπημένο 2\n"
 
 msgid "← Frame"
-msgstr ""
+msgstr "← Πλαίσιο"
 
-#~ msgid "7 Day Forecast"
-#~ msgstr "Πρόγνωση 7 ημερών"
+#, fuzzy
+#~ msgid "Map Color Legend"
+#~ msgstr "Ο χάρτης & τα πλακίδια φορτώθηκαν"
 
-#~ msgid "Blue"
-#~ msgstr "Μπλε"
+#~ msgid "No tiles available"
+#~ msgstr "Δεν υπάρχουν διαθέσιμα πλακάκια"
 
-#~ msgid "Green"
-#~ msgstr "Πράσινος"
+#, fuzzy
+#~ msgid "Precipitation intensity:"
+#~ msgstr "Βροχοπτώσεις"
 
-#~ msgid "Last update"
-#~ msgstr "Τελευταία ενημέρωση"
+#, fuzzy
+#~ msgid "Temperature:"
+#~ msgstr "Θερμοκρασία"
 
-#~ msgid "Red"
-#~ msgstr "Κόκκινος"
+#~ msgid "Try again later"
+#~ msgstr "Δοκιμάστε ξανά αργότερα"
+
+#~ msgid "Visibility"
+#~ msgstr "Ορατότητα"
+
+#, fuzzy
+#~ msgid "Wind speed:"
+#~ msgstr "Ταχύτητα ανέμου"
 
 #~ msgid "Error displaying map"
 #~ msgstr "Σφάλμα εμφάνισης χάρτη"
@@ -1271,16 +1389,9 @@ msgstr ""
 #~ msgid "Try different zoom or region"
 #~ msgstr "Δοκιμάστε διαφορετικό ζουμ ή περιοχή"
 
-#~ msgid "Using current time"
-#~ msgstr "Χρήση τρέχουσας ώρας"
-
 #, fuzzy
 #~ msgid "Loading tiles..."
 #~ msgstr "Λήψη πλακιδίων..."
-
-#, fuzzy
-#~ msgid "Map loaded"
-#~ msgstr "Ο χάρτης & τα πλακίδια φορτώθηκαν"
 
 #~ msgid "Image %(current)d/%(total)d"
 #~ msgstr "Εικόνα %(current)d/%(total)d"

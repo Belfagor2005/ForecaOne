@@ -42,6 +42,10 @@ msgstr "6 - Hoy + 6 días"
 msgid "7 - Today + 7 days"
 msgstr "7 - Hoy + 7 días"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Pronóstico"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Hoy + 8 días"
 
@@ -101,6 +105,9 @@ msgstr "Bélgica"
 msgid "Berlin"
 msgstr "Berlín"
 
+msgid "Blue"
+msgstr "Azul"
+
 msgid "Blue - Home"
 msgstr "Azul - Inicio"
 
@@ -145,6 +152,10 @@ msgid "Close"
 msgstr ""
 
 #, fuzzy
+msgid "Close legend"
+msgstr "Selección de color"
+
+#, fuzzy
 msgid "Cloud Cover"
 msgstr "Nublado y chubascos"
 
@@ -172,9 +183,16 @@ msgstr "Nublado y chubascos de aguanieve"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Nublado, tormentas con lluvia"
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 #, fuzzy
 msgid "Color"
 msgstr "Datos de color"
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "Selección de color"
 
 #, fuzzy
 msgid "Color Selector"
@@ -182,6 +200,10 @@ msgstr "Selección de color"
 
 msgid "Color data"
 msgstr "Datos de color"
+
+#, fuzzy
+msgid "Color legend"
+msgstr "Selección de color"
 
 msgid "Color name"
 msgstr "Nombre del color"
@@ -195,6 +217,9 @@ msgstr "Más rápido: {}s"
 
 msgid "Continents Weather Maps"
 msgstr "Mapas meteorológicos de continentes"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr ""
@@ -255,6 +280,9 @@ msgstr ""
 
 msgid "Dewpoint: N/A"
 msgstr ""
+
+msgid "Distance"
+msgstr "Distancia"
 
 #, fuzzy
 msgid "Distance {} km"
@@ -317,8 +345,15 @@ msgid "Exit - End"
 msgstr "Salir - Fin"
 
 #, fuzzy
+msgid "Exit / Close legend"
+msgstr "Selección de color"
+
+#, fuzzy
 msgid "Extreme"
 msgstr "Bremen"
+
+msgid "Extreme / thunderstorms"
+msgstr ""
 
 msgid "Fahrenheit, mph, inHg"
 msgstr "Fahrenheit, mph, inHg"
@@ -437,6 +472,9 @@ msgstr "Francia"
 msgid "Full Moon"
 msgstr ""
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 msgid "German States Weather Maps"
 msgstr "Mapas meteorológicos de estados alemanes"
 
@@ -449,6 +487,9 @@ msgstr "Gran Bretaña"
 msgid "Greece"
 msgstr "Grecia"
 
+msgid "Green"
+msgstr "Verde"
+
 msgid "Green - Favorite 1"
 msgstr "Verde - Favorito 1"
 
@@ -458,11 +499,17 @@ msgstr ""
 msgid "Gust: {:.1f} {}"
 msgstr ""
 
+msgid "HTML"
+msgstr "HTML"
+
 msgid "Hamburg"
 msgstr "Hamburgo"
 
 msgid "Header - not selectable"
 msgstr "Encabezado - no seleccionable"
+
+msgid "Heavy rain"
+msgstr ""
 
 msgid "Help"
 msgstr ""
@@ -475,6 +522,9 @@ msgstr ""
 
 msgid "Home"
 msgstr "Inicio"
+
+msgid "Hot (30-40°C)"
+msgstr ""
 
 msgid "Hour Details"
 msgstr ""
@@ -492,6 +542,9 @@ msgstr "Humedad"
 
 msgid "Hungary"
 msgstr "Hungría"
+
+msgid "Ice / frost"
+msgstr ""
 
 msgid "Illumination"
 msgstr ""
@@ -545,6 +598,9 @@ msgstr "Teclado"
 msgid "Last Quarter"
 msgstr "Última actualización"
 
+msgid "Last update"
+msgstr "Última actualización"
+
 msgid "Latvia"
 msgstr "Letonia"
 
@@ -556,6 +612,15 @@ msgstr "Izquierda - Día anterior"
 
 msgid "Left arrow - Previous day"
 msgstr "Flecha izquierda - Día anterior"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr "Cargando mapas disponibles..."
@@ -591,6 +656,9 @@ msgstr "Luxemburgo"
 msgid "Map & Tiles Loaded"
 msgstr ""
 
+msgid "Map loaded"
+msgstr ""
+
 #, fuzzy
 msgid "Map {} selected"
 msgstr "Ninguna ciudad seleccionada"
@@ -603,6 +671,9 @@ msgstr ""
 
 msgid "Menu - Settings"
 msgstr "Menú - Configuración"
+
+msgid "Merge failed"
+msgstr ""
 
 msgid "Meteogram"
 msgstr "Meteograma"
@@ -619,8 +690,18 @@ msgstr "Asia Central"
 msgid "Middle East"
 msgstr "Oriente Medio"
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
 msgstr ""
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
+msgstr "Cubierto y lluvia"
 
 msgid "Month"
 msgstr ""
@@ -641,6 +722,9 @@ msgid "Move down"
 msgstr ""
 
 msgid "Move up"
+msgstr ""
+
+msgid "N/A"
 msgstr ""
 
 msgid "Netherlands"
@@ -675,6 +759,9 @@ msgstr "Página siguiente"
 msgid "No Internet connection detected."
 msgstr "No se detectó conexión a Internet. Por favor, verifique su red."
 
+msgid "No OSM tiles"
+msgstr ""
+
 msgid "No cities found locally for '%s'"
 msgstr ""
 
@@ -692,6 +779,10 @@ msgid "No location selected"
 msgstr "Ninguna ubicación seleccionada"
 
 #, fuzzy
+msgid "No specific legend available."
+msgstr "No hay fecha disponible"
+
+#, fuzzy
 msgid "No station data"
 msgstr "No hay datos de estación disponibles"
 
@@ -700,10 +791,6 @@ msgstr "No hay datos de estación disponibles"
 
 msgid "No stations found"
 msgstr "No se encontraron estaciones"
-
-#, fuzzy
-msgid "No tiles available"
-msgstr "No hay fecha disponible"
 
 #, fuzzy
 msgid "No tiles downloaded"
@@ -925,6 +1012,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Radar meteorológico"
 
+msgid "Red"
+msgstr "Rojo"
+
 msgid "Red - Color select"
 msgstr "Rojo - Selección de color"
 
@@ -1028,6 +1118,9 @@ msgstr "Más lento: {}s"
 msgid "Snow"
 msgstr ""
 
+msgid "Snow / ice"
+msgstr ""
+
 msgid "Snow prob. {}%"
 msgstr ""
 
@@ -1052,6 +1145,9 @@ msgstr "Observaciones de estación"
 #, fuzzy
 msgid "Station: {}"
 msgstr "Más rápido: {}s"
+
+msgid "Strong (40-60 km/h)"
+msgstr ""
 
 msgid "Sunrise"
 msgstr "Amanecer"
@@ -1114,6 +1210,10 @@ msgstr "0 - Hoy"
 msgid "Today/Tomorrow details"
 msgstr ""
 
+#, fuzzy
+msgid "Toggle legend"
+msgstr "Selección de color"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -1123,7 +1223,7 @@ msgstr "Configuración de transparencia"
 msgid "Transparency level"
 msgstr "Nivel de transparencia"
 
-msgid "Try again later"
+msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1179,13 +1279,22 @@ msgstr "Use las teclas de flecha para desplazarse"
 msgid "Use ← → to change time | OK to exit"
 msgstr ""
 
+msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgstr ""
+
 msgid "Use ▲/▼ to change, OK to select"
+msgstr ""
+
+msgid "Using current time"
+msgstr ""
+
+msgid "Very heavy rain"
 msgstr ""
 
 msgid "Very high"
 msgstr ""
 
-msgid "Visibility"
+msgid "Very hot (>40°C)"
 msgstr ""
 
 #, fuzzy
@@ -1200,6 +1309,9 @@ msgid "Waning Crescent"
 msgstr ""
 
 msgid "Waning Gibbous"
+msgstr ""
+
+msgid "Warm (20-30°C)"
 msgstr ""
 
 msgid "Waxing Crescent"
@@ -1238,6 +1350,10 @@ msgstr "Clima mañana"
 
 msgid "Weekly Forecast"
 msgstr "Pronóstico semanal"
+
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "Mapas meteorológicos"
 
 msgid "Wind"
 msgstr "Viento"
@@ -1340,30 +1456,20 @@ msgid "← Frame"
 msgstr ""
 
 #, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Pronóstico"
-
-#~ msgid "Blue"
-#~ msgstr "Azul"
-
-#~ msgid "Distance"
-#~ msgstr "Distancia"
-
-#~ msgid "Green"
-#~ msgstr "Verde"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Última actualización"
-
-#~ msgid "Red"
-#~ msgstr "Rojo"
+#~ msgid "No tiles available"
+#~ msgstr "No hay fecha disponible"
 
 #, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Mapas meteorológicos"
+#~ msgid "Precipitation intensity:"
+#~ msgstr "Precipitación"
+
+#, fuzzy
+#~ msgid "Temperature:"
+#~ msgstr "Temperatura"
+
+#, fuzzy
+#~ msgid "Wind speed:"
+#~ msgstr "Viento"
 
 #, fuzzy
 #~ msgid "Error displaying map"

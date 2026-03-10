@@ -9,7 +9,7 @@
     <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
   </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
-    <img src="https://img.shields.io/badge/Version-1.0.9-blue.svg" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.1.0-blue.svg" alt="Version">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.html">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
@@ -87,6 +87,7 @@
   - Zoom and pan with arrow keys (step scales with zoom)
   - Geographic background from OpenStreetMap tiles
   - Ideal for tracking precipitation worldwide
+  – Three viewers (Wetterkontor slideshow, Foreca Live, RainViewer) with zoom, pan, and time control. Each now features a **dedicated color legend overlay**, togglable via the INFO button, for instant reference of map data.
 
 ### ⚙️ Advanced Unit Management
 - Choose between **metric** and **imperial** systems
@@ -262,6 +263,7 @@ Requires valid credentials. Shows list of available layers (temperature, wind, p
 - **PAGE UP/PAGE DOWN** – change forecast time (if available)
 - **GREEN** – zoom in
 - **YELLOW** – zoom out
+- **INFO** – **toggle the color legend overlay** for the active map layer
 - **RED/EXIT** – close
 
 **Note:** without credentials, this menu item is hidden.
@@ -273,6 +275,7 @@ Free, no API key required. Shows the last 2 hours of weather radar data with 10�
 - **PAGE UP/PAGE DOWN** – change time frame
 - **GREEN** – zoom in
 - **YELLOW** – zoom out
+- **INFO** – **toggle the color legend overlay** (for precipitation intensity)
 - **RED/EXIT** – close
 - Geographic background from OpenStreetMap tiles for perfect alignment.
 

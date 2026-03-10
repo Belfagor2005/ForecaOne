@@ -6,6 +6,7 @@
 from __future__ import absolute_import
 
 from os.path import exists, join
+from os import listdir, remove
 import requests
 from threading import Thread
 
@@ -143,11 +144,24 @@ class ForecaSlideshow(Screen, HelpableScreen):
         )
         self.picload = ePicLoad()
         self.picload.PictureData.get().append(self.pic_data)
+        self.clear_cache()
         self.onLayoutFinish.append(self.start_download)
         self.onLayoutFinish.append(self._apply_theme)
+        self.onClose.append(self.clear_cache)
 
     def _apply_theme(self):
         apply_global_theme(self)
+
+    def clear_cache(self):
+        if exists(WETTERKONTOR_CACHE):
+            try:
+                for f in listdir(WETTERKONTOR_CACHE):
+                    remove(join(WETTERKONTOR_CACHE, f))
+                if DEBUG:
+                    print(
+                        f"[WetterKontor] Cleaned temporary files from {WETTERKONTOR_CACHE}")
+            except Exception as e:
+                print(f"[WetterKontor] Error cleaning temp files: {e}")
 
     def start_download(self):
         """Start image download after screen is ready"""
@@ -203,11 +217,11 @@ class ForecaSlideshow(Screen, HelpableScreen):
 
                 # Determine the day text
                 if index == 0:
-                    day_str = _("Today") + " " + target_date.strftime("%a")
+                    day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
                 elif index == 1:
-                    day_str = _("Tomorrow") + " " + target_date.strftime("%a")
+                    day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
                 else:
-                    day_str = target_date.strftime("%a %Y/%m/%d")
+                    day_str = target_date.strftime("%a %d.%m.%Y")
 
                 # Update the info label
                 self["info"].setText(
@@ -248,11 +262,11 @@ class ForecaSlideshow(Screen, HelpableScreen):
             # Recalculate the date for the current image
             target_date = datetime.now() + timedelta(days=self.current_image)
             if self.current_image == 0:
-                day_str = _("Today")
+                day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
             elif self.current_image == 1:
-                day_str = _("Tomorrow")
+                day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
             else:
-                day_str = target_date.strftime("%d.%m")
+                day_str = target_date.strftime("%a %d.%m.%Y")
 
             self["info"].setText(
                 _("Image %(current)d/%(total)d – %(day)s (Paused)") % {
@@ -269,11 +283,11 @@ class ForecaSlideshow(Screen, HelpableScreen):
             # When playback resumes, restore the normal text
             target_date = datetime.now() + timedelta(days=self.current_image)
             if self.current_image == 0:
-                day_str = _("Today")
+                day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
             elif self.current_image == 1:
-                day_str = _("Tomorrow")
+                day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
             else:
-                day_str = target_date.strftime("%d.%m")
+                day_str = target_date.strftime("%a %d.%m.%Y")
 
             self["info"].setText(
                 _("Image %(current)d/%(total)d – %(day)s") % {

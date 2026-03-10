@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.0.9'
-changelog='\nAdd rainmap\nPan directions\nMinor fix details\nOffer coffee if you like this plugin'
+version='1.1.0'
+changelog='\nAdd Overlay Helps on Map\nAdd rainmap\nPan directions\nMinor fix details\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz

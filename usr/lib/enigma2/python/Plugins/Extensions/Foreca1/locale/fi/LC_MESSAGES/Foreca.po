@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Foreca4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-05 17:54+0100\n"
-"PO-Revision-Date: 2026-03-09 14:50+0100\n"
+"PO-Revision-Date: 2026-03-10 14:33+0100\n"
 "Last-Translator: Orlandox\n"
 "Language-Team: Orlandox\n"
 "Language: fi\n"
@@ -41,6 +41,9 @@ msgstr "6 - Tänään + 6 päivää"
 
 msgid "7 - Today + 7 days"
 msgstr "7 - Tänään + 7 päivää"
+
+msgid "7 Day Forecast"
+msgstr "7 päivän ennuste"
 
 msgid "8 - Today + 8 days"
 msgstr "8 - Tänään + 8 päivää"
@@ -99,6 +102,9 @@ msgstr "Belgia"
 msgid "Berlin"
 msgstr "Berliini"
 
+msgid "Blue"
+msgstr "Sininen"
+
 msgid "Blue - Home"
 msgstr "Sininen - Koti"
 
@@ -141,6 +147,9 @@ msgstr "Selkeää"
 msgid "Close"
 msgstr "Sulje"
 
+msgid "Close legend"
+msgstr "Värin valinta"
+
 msgid "Cloud Cover"
 msgstr "Pilvisyys"
 
@@ -168,14 +177,23 @@ msgstr "Melko pilvistä, ajoittaista räntäsadetta"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Melko pilvistä, ukkosta"
 
+msgid "Cold (< 0°C)"
+msgstr "Kylmä (< 0 °C)"
+
 msgid "Color"
 msgstr "Väri"
+
+msgid "Color Legend"
+msgstr "VärienSelitteet"
 
 msgid "Color Selector"
 msgstr "Värin valitsin"
 
 msgid "Color data"
 msgstr "Väritiedot"
+
+msgid "Color legend"
+msgstr "Värien selitteet"
 
 msgid "Color name"
 msgstr "Värin nimi"
@@ -188,6 +206,9 @@ msgstr "Tila: {}"
 
 msgid "Continents Weather Maps"
 msgstr "Mantereiden sääkartat"
+
+msgid "Cool (0-10°C)"
+msgstr "Viileä (0–10 °C)"
 
 msgid "Could not fetch update information."
 msgstr "Päivitystietoja ei voitu hakea."
@@ -246,6 +267,9 @@ msgstr "Kastepiste: %s °C"
 msgid "Dewpoint: N/A"
 msgstr "Kastepiste: N/A"
 
+msgid "Distance"
+msgstr "Etäisyys"
+
 msgid "Distance {} km"
 msgstr "Etäisyys {} km"
 
@@ -300,8 +324,14 @@ msgstr "Poistu"
 msgid "Exit - End"
 msgstr "EXIT - Lopeta"
 
+msgid "Exit / Close legend"
+msgstr "Poistu / Sulje selite"
+
 msgid "Extreme"
 msgstr "Äärimmäinen"
+
+msgid "Extreme / thunderstorms"
+msgstr "Äärimmäiset / ukkosmyrskyt"
 
 msgid "Fahrenheit, mph, inHg"
 msgstr "Fahrenheit, mph, inHg"
@@ -399,6 +429,9 @@ msgstr "Ranska"
 msgid "Full Moon"
 msgstr "Täysikuu"
 
+msgid "Gale force (>60 km/h)"
+msgstr "Myrskyn voimakkuus (>60 km/h)"
+
 msgid "German States Weather Maps"
 msgstr "Saksan osavaltioiden sääkartat"
 
@@ -411,6 +444,9 @@ msgstr "Iso-Britannia"
 msgid "Greece"
 msgstr "Kreikka"
 
+msgid "Green"
+msgstr "Vihreä"
+
 msgid "Green - Favorite 1"
 msgstr "Vihreä - Suosikki 1"
 
@@ -420,11 +456,17 @@ msgstr "Tuulen puuska {}"
 msgid "Gust: {:.1f} {}"
 msgstr "Tuulen puuska: {:.1f} {}"
 
+msgid "HTML"
+msgstr "HTML"
+
 msgid "Hamburg"
 msgstr "Hampuri"
 
 msgid "Header - not selectable"
 msgstr "Otsikko - ei valittavissa"
+
+msgid "Heavy rain"
+msgstr "Rankkasade"
 
 msgid "Help"
 msgstr "HELP"
@@ -437,6 +479,9 @@ msgstr "Korkea"
 
 msgid "Home"
 msgstr "Koti"
+
+msgid "Hot (30-40°C)"
+msgstr "Kuuma (30–40 °C)"
 
 msgid "Hour Details"
 msgstr "Tuntikohtaiset tiedot"
@@ -452,6 +497,9 @@ msgstr "Kosteus: {}%"
 
 msgid "Hungary"
 msgstr "Unkari"
+
+msgid "Ice / frost"
+msgstr "Jää / huurre"
 
 msgid "Illumination"
 msgstr "Valaistus"
@@ -504,6 +552,9 @@ msgstr "Näppäimistö"
 msgid "Last Quarter"
 msgstr "Viimeinen neljännes"
 
+msgid "Last update"
+msgstr "Viimeisin päivitys"
+
 msgid "Latvia"
 msgstr "Latvia"
 
@@ -515,6 +566,15 @@ msgstr "Vasen - edellinen päivä"
 
 msgid "Left arrow - Previous day"
 msgstr "Vasen nuoli - Edellinen päivä"
+
+msgid "Light (0-20 km/h)"
+msgstr "Light (0-20 km/h)"
+
+msgid "Light rain / drizzle"
+msgstr "Kevyttä sadetta / tihkusadetta"
+
+msgid "Light to moderate"
+msgstr "Lievä tai kohtalainen"
 
 msgid "Loading available maps..."
 msgstr "Ladataan saatavilla olevia karttoja..."
@@ -549,6 +609,9 @@ msgstr "Luxemburg"
 msgid "Map & Tiles Loaded"
 msgstr "Kartta ja ruudut ladattu"
 
+msgid "Map loaded"
+msgstr "Kartta ladattu"
+
 msgid "Map {} selected"
 msgstr "Kartta {} valittu"
 
@@ -560,6 +623,9 @@ msgstr "MENU"
 
 msgid "Menu - Settings"
 msgstr "MENU - Asetukset"
+
+msgid "Merge failed"
+msgstr "Yhdistäminen epäonnistui"
 
 msgid "Meteogram"
 msgstr "Meteogrammi"
@@ -576,8 +642,17 @@ msgstr "Keski-Aasia"
 msgid "Middle East"
 msgstr "Lähi-itä"
 
+msgid "Mild (10-20°C)"
+msgstr "Lievä (10–20 °C)"
+
 msgid "Moderate"
 msgstr "Kohtalainen"
+
+msgid "Moderate (20-40 km/h)"
+msgstr "Keskitasoinen (20–40 km/h)"
+
+msgid "Moderate rain"
+msgstr "Kohtalaista sadetta"
 
 msgid "Month"
 msgstr "Kuukausi"
@@ -599,6 +674,9 @@ msgstr "Siirrä alas"
 
 msgid "Move up"
 msgstr "Siirrä ylös"
+
+msgid "N/A"
+msgstr "N/A"
 
 msgid "Netherlands"
 msgstr "Alankomaat"
@@ -627,6 +705,9 @@ msgstr "Seuraavalla kerralla"
 msgid "No Internet connection detected."
 msgstr "Internet-yhteyttä ei havaittu."
 
+msgid "No OSM tiles"
+msgstr "Ei OSM-laattoja"
+
 msgid "No cities found locally for '%s'"
 msgstr "Ei löytynyt kaupunkeja paikallisesti hakusanalla '%s'"
 
@@ -642,6 +723,9 @@ msgstr "Päivämäärää ei ole saatavilla"
 msgid "No location selected"
 msgstr "Sijaintia ei ole valittu"
 
+msgid "No specific legend available."
+msgstr "Ei erityistä legendaa saatavilla."
+
 msgid "No station data"
 msgstr "Asemadataa ei ole"
 
@@ -650,9 +734,6 @@ msgstr "Asemadataa ei ole saatavilla"
 
 msgid "No stations found"
 msgstr "Asemia ei löytynyt"
-
-msgid "No tiles available"
-msgstr "Ruutuja ei ole saatavilla"
 
 msgid "No tiles downloaded"
 msgstr "Ei ladattuja ruutuja"
@@ -858,6 +939,9 @@ msgstr "Sade: {:.1f} {}"
 msgid "RainViewer Radar"
 msgstr "RainViewer-tutka"
 
+msgid "Red"
+msgstr "Punainen"
+
 msgid "Red - Color select"
 msgstr "Punainen - Valitse väri"
 
@@ -957,6 +1041,9 @@ msgstr "Hitaammin: {}s"
 msgid "Snow"
 msgstr "Lumisade"
 
+msgid "Snow / ice"
+msgstr "Lumi / jää"
+
 msgid "Snow prob. {}%"
 msgstr "Lumisateen todennäk. {}%"
 
@@ -980,6 +1067,9 @@ msgstr "Aseman havainnot"
 
 msgid "Station: {}"
 msgstr "Asema: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr "Voimakas (40–60 km/h)"
 
 msgid "Sunrise"
 msgstr "Auringonnousu"
@@ -1035,6 +1125,9 @@ msgstr "Tänään"
 msgid "Today/Tomorrow details"
 msgstr "Tämän päivän/huomisen tiedot"
 
+msgid "Toggle legend"
+msgstr "Näytä/piilota selite"
+
 msgid "Tomorrow"
 msgstr "Huomenna"
 
@@ -1044,8 +1137,8 @@ msgstr "Läpinäkyvyysasetukset"
 msgid "Transparency level"
 msgstr "Läpinäkyvyystaso"
 
-msgid "Try again later"
-msgstr "Yritä myöhemmin uudelleen"
+msgid "UV"
+msgstr "UV"
 
 msgid "UV Index"
 msgstr "UV-indeksi"
@@ -1095,14 +1188,23 @@ msgstr "Käytä nuolinäppäimiä vierittääksesi"
 msgid "Use ← → to change time | OK to exit"
 msgstr "Muuta aikaa painamalla ← → | Poistu OK-näppäimellä"
 
+msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgstr "Siirry painamalla ←/→/↑/↓ | Poistu painamalla OK"
+
 msgid "Use ▲/▼ to change, OK to select"
 msgstr "Käytä ▲/▼ vaihtaaksesi, OK valitaksesi"
+
+msgid "Using current time"
+msgstr "Käytetään nykyistä aikaa"
+
+msgid "Very heavy rain"
+msgstr "Erittäin rankkasade"
 
 msgid "Very high"
 msgstr "Erittäin korkea"
 
-msgid "Visibility"
-msgstr "Näkyvyys"
+msgid "Very hot (>40°C)"
+msgstr "Erittäin kuuma (>40 °C)"
 
 msgid "Visibility: %s m"
 msgstr "Näkyvyys: %s m"
@@ -1115,6 +1217,9 @@ msgstr "Vähenevä sirppi"
 
 msgid "Waning Gibbous"
 msgstr "Vähenevä kupera kuu"
+
+msgid "Warm (20-30°C)"
+msgstr "Lämmin (20–30 °C)"
 
 msgid "Waxing Crescent"
 msgstr "Kasvava sirppi"
@@ -1151,6 +1256,9 @@ msgstr "Sää huomenna"
 
 msgid "Weekly Forecast"
 msgstr "Viikon ennuste"
+
+msgid "Wetter.de Maps Test"
+msgstr "Wetter.de-karttatesti"
 
 msgid "Wind"
 msgstr "Tuuli"
@@ -1245,32 +1353,30 @@ msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 msgid "← Frame"
 msgstr "← Kehys"
 
-#~ msgid "7 Day Forecast"
-#~ msgstr "7 päivän ennuste"
+#, fuzzy
+#~ msgid "Map Color Legend"
+#~ msgstr "Kartta ja ruudut ladattu"
 
-#~ msgid "Blue"
-#~ msgstr "Sininen"
+#~ msgid "No tiles available"
+#~ msgstr "Ruutuja ei ole saatavilla"
 
-#~ msgid "Distance"
-#~ msgstr "Etäisyys"
+#, fuzzy
+#~ msgid "Precipitation intensity:"
+#~ msgstr "Jatkuva sade"
 
-#~ msgid "Green"
-#~ msgstr "Vihreä"
+#, fuzzy
+#~ msgid "Temperature:"
+#~ msgstr "Lämpötila"
 
-#~ msgid "HTML"
-#~ msgstr "HTML"
+#~ msgid "Try again later"
+#~ msgstr "Yritä myöhemmin uudelleen"
 
-#~ msgid "Last update"
-#~ msgstr "Viimeisin päivitys"
+#~ msgid "Visibility"
+#~ msgstr "Näkyvyys"
 
-#~ msgid "Red"
-#~ msgstr "Punainen"
-
-#~ msgid "UV"
-#~ msgstr "UV"
-
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Wetter.de-karttatesti"
+#, fuzzy
+#~ msgid "Wind speed:"
+#~ msgstr "Tuulen nopeus"
 
 #~ msgid "Error displaying map"
 #~ msgstr "Virhe kartan näyttämisessä"
@@ -1281,16 +1387,9 @@ msgstr "← Kehys"
 #~ msgid "Try different zoom or region"
 #~ msgstr "Kokeile eri zoomausta tai aluetta"
 
-#~ msgid "Using current time"
-#~ msgstr "Käytetään nykyistä aikaa"
-
 #, fuzzy
 #~ msgid "Loading tiles..."
 #~ msgstr "Ladataan ruutuja..."
-
-#, fuzzy
-#~ msgid "Map loaded"
-#~ msgstr "Kartta ja ruudut ladattu"
 
 #~ msgid "Image %(current)d/%(total)d"
 #~ msgstr "Kuva %(current)d/%(total)d"

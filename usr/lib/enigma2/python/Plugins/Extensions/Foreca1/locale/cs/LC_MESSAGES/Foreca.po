@@ -42,6 +42,10 @@ msgstr "6 - Dnes + 6 dnů"
 msgid "7 - Today + 7 days"
 msgstr "7 - Dnes + 7 dnů"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Předpověď"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Dnes + 8 dnů"
 
@@ -101,6 +105,9 @@ msgstr "Belgie"
 msgid "Berlin"
 msgstr "Berlín"
 
+msgid "Blue"
+msgstr "Modrá"
+
 msgid "Blue - Home"
 msgstr "Modrá - Domov"
 
@@ -145,6 +152,10 @@ msgid "Close"
 msgstr ""
 
 #, fuzzy
+msgid "Close legend"
+msgstr "Výběr barvy"
+
+#, fuzzy
 msgid "Cloud Cover"
 msgstr "Oblačno a přeháňky"
 
@@ -172,9 +183,16 @@ msgstr "Oblačno a přeháňky mokrého sněhu"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Oblačno, bouřky s deštěm"
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 #, fuzzy
 msgid "Color"
 msgstr "Data barev"
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "Výběr barvy"
 
 #, fuzzy
 msgid "Color Selector"
@@ -182,6 +200,10 @@ msgstr "Výběr barvy"
 
 msgid "Color data"
 msgstr "Data barev"
+
+#, fuzzy
+msgid "Color legend"
+msgstr "Výběr barvy"
 
 msgid "Color name"
 msgstr "Název barvy"
@@ -195,6 +217,9 @@ msgstr "Rychleji: {}s"
 
 msgid "Continents Weather Maps"
 msgstr "Mapy počasí kontinentů"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr ""
@@ -255,6 +280,9 @@ msgstr ""
 
 msgid "Dewpoint: N/A"
 msgstr ""
+
+msgid "Distance"
+msgstr "Vzdálenost"
 
 #, fuzzy
 msgid "Distance {} km"
@@ -317,8 +345,15 @@ msgid "Exit - End"
 msgstr "Konec - Ukončit"
 
 #, fuzzy
+msgid "Exit / Close legend"
+msgstr "Výběr barvy"
+
+#, fuzzy
 msgid "Extreme"
 msgstr "Brémy"
+
+msgid "Extreme / thunderstorms"
+msgstr ""
 
 msgid "Fahrenheit, mph, inHg"
 msgstr "Fahrenheit, mph, inHg"
@@ -437,6 +472,9 @@ msgstr "Francie"
 msgid "Full Moon"
 msgstr ""
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 msgid "German States Weather Maps"
 msgstr "Mapy počasí německých spolkových zemí"
 
@@ -449,6 +487,9 @@ msgstr "Velká Británie"
 msgid "Greece"
 msgstr "Řecko"
 
+msgid "Green"
+msgstr "Zelená"
+
 msgid "Green - Favorite 1"
 msgstr "Zelená - Oblíbené 1"
 
@@ -458,11 +499,17 @@ msgstr ""
 msgid "Gust: {:.1f} {}"
 msgstr ""
 
+msgid "HTML"
+msgstr "HTML"
+
 msgid "Hamburg"
 msgstr "Hamburk"
 
 msgid "Header - not selectable"
 msgstr "Záhlaví - nelze vybrat"
+
+msgid "Heavy rain"
+msgstr ""
 
 msgid "Help"
 msgstr ""
@@ -475,6 +522,9 @@ msgstr ""
 
 msgid "Home"
 msgstr "Domov"
+
+msgid "Hot (30-40°C)"
+msgstr ""
 
 msgid "Hour Details"
 msgstr ""
@@ -492,6 +542,9 @@ msgstr "Vlhkost"
 
 msgid "Hungary"
 msgstr "Maďarsko"
+
+msgid "Ice / frost"
+msgstr ""
 
 msgid "Illumination"
 msgstr ""
@@ -545,6 +598,9 @@ msgstr "Klávesnice"
 msgid "Last Quarter"
 msgstr "Poslední aktualizace"
 
+msgid "Last update"
+msgstr "Poslední aktualizace"
+
 msgid "Latvia"
 msgstr "Lotyšsko"
 
@@ -556,6 +612,15 @@ msgstr "Doleva - Předchozí den"
 
 msgid "Left arrow - Previous day"
 msgstr "Šipka doleva - Předchozí den"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr "Načítání dostupných map..."
@@ -591,6 +656,9 @@ msgstr "Lucembursko"
 msgid "Map & Tiles Loaded"
 msgstr ""
 
+msgid "Map loaded"
+msgstr ""
+
 #, fuzzy
 msgid "Map {} selected"
 msgstr "Není vybráno město"
@@ -603,6 +671,9 @@ msgstr ""
 
 msgid "Menu - Settings"
 msgstr "Menu - Nastavení"
+
+msgid "Merge failed"
+msgstr ""
 
 msgid "Meteogram"
 msgstr "Meteogram"
@@ -619,8 +690,18 @@ msgstr "Střední Asie"
 msgid "Middle East"
 msgstr "Střední východ"
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
 msgstr ""
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
+msgstr "Zataženo a déšť"
 
 msgid "Month"
 msgstr ""
@@ -641,6 +722,9 @@ msgid "Move down"
 msgstr ""
 
 msgid "Move up"
+msgstr ""
+
+msgid "N/A"
 msgstr ""
 
 msgid "Netherlands"
@@ -675,6 +759,9 @@ msgstr "Další strana"
 msgid "No Internet connection detected."
 msgstr "Nebylo zjištěno připojení k internetu. Zkontrolujte svou síť."
 
+msgid "No OSM tiles"
+msgstr ""
+
 msgid "No cities found locally for '%s'"
 msgstr ""
 
@@ -692,6 +779,10 @@ msgid "No location selected"
 msgstr "Není vybráno místo"
 
 #, fuzzy
+msgid "No specific legend available."
+msgstr "Žádné dostupné datum"
+
+#, fuzzy
 msgid "No station data"
 msgstr "Nejsou k dispozici žádná data ze stanice"
 
@@ -700,10 +791,6 @@ msgstr "Nejsou k dispozici žádná data ze stanice"
 
 msgid "No stations found"
 msgstr "Nebyly nalezeny žádné stanice"
-
-#, fuzzy
-msgid "No tiles available"
-msgstr "Žádné dostupné datum"
 
 #, fuzzy
 msgid "No tiles downloaded"
@@ -925,6 +1012,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Meteorologický radar"
 
+msgid "Red"
+msgstr "Červená"
+
 msgid "Red - Color select"
 msgstr "Červená - Výběr barvy"
 
@@ -1028,6 +1118,9 @@ msgstr "Pomaleji: {}s"
 msgid "Snow"
 msgstr ""
 
+msgid "Snow / ice"
+msgstr ""
+
 msgid "Snow prob. {}%"
 msgstr ""
 
@@ -1052,6 +1145,9 @@ msgstr "Pozorování ze stanic"
 #, fuzzy
 msgid "Station: {}"
 msgstr "Rychleji: {}s"
+
+msgid "Strong (40-60 km/h)"
+msgstr ""
 
 msgid "Sunrise"
 msgstr "Východ slunce"
@@ -1114,6 +1210,10 @@ msgstr "0 - Dnes"
 msgid "Today/Tomorrow details"
 msgstr ""
 
+#, fuzzy
+msgid "Toggle legend"
+msgstr "Výběr barvy"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -1123,7 +1223,7 @@ msgstr "Nastavení průhlednosti"
 msgid "Transparency level"
 msgstr "Úroveň průhlednosti"
 
-msgid "Try again later"
+msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1179,13 +1279,22 @@ msgstr "Pro posouvání použijte šipky"
 msgid "Use ← → to change time | OK to exit"
 msgstr ""
 
+msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgstr ""
+
 msgid "Use ▲/▼ to change, OK to select"
+msgstr ""
+
+msgid "Using current time"
+msgstr ""
+
+msgid "Very heavy rain"
 msgstr ""
 
 msgid "Very high"
 msgstr ""
 
-msgid "Visibility"
+msgid "Very hot (>40°C)"
 msgstr ""
 
 #, fuzzy
@@ -1200,6 +1309,9 @@ msgid "Waning Crescent"
 msgstr ""
 
 msgid "Waning Gibbous"
+msgstr ""
+
+msgid "Warm (20-30°C)"
 msgstr ""
 
 msgid "Waxing Crescent"
@@ -1238,6 +1350,10 @@ msgstr "Počasí zítra"
 
 msgid "Weekly Forecast"
 msgstr "Týdenní předpověď"
+
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "Mapy počasí"
 
 msgid "Wind"
 msgstr "Vítr"
@@ -1340,30 +1456,20 @@ msgid "← Frame"
 msgstr ""
 
 #, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Předpověď"
-
-#~ msgid "Blue"
-#~ msgstr "Modrá"
-
-#~ msgid "Distance"
-#~ msgstr "Vzdálenost"
-
-#~ msgid "Green"
-#~ msgstr "Zelená"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Poslední aktualizace"
-
-#~ msgid "Red"
-#~ msgstr "Červená"
+#~ msgid "No tiles available"
+#~ msgstr "Žádné dostupné datum"
 
 #, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Mapy počasí"
+#~ msgid "Precipitation intensity:"
+#~ msgstr "Srážky"
+
+#, fuzzy
+#~ msgid "Temperature:"
+#~ msgstr "Teplota"
+
+#, fuzzy
+#~ msgid "Wind speed:"
+#~ msgstr "Vítr"
 
 #, fuzzy
 #~ msgid "Error displaying map"

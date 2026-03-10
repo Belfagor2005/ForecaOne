@@ -24,7 +24,6 @@ from . import (
     DEBUG,
     load_skin_for_class,
     apply_global_theme,
-    PLUGIN_PATH,
     HEADERS,
     SYSTEM_DIR
 )

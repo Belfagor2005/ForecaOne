@@ -52,7 +52,7 @@ CACHE_FILE = join(SYSTEM_DIR, "translation_cache.json")
 _translation_cache = {}
 _cache_hits = 0
 _cache_misses = 0
-_cache_dirty = False          # flag to know if there are changes to save
+_cache_dirty = False    # flag to know if there are changes to save
 
 # Enable logging
 ENABLE_LOGGING = True

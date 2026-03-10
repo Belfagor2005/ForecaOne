@@ -12,6 +12,7 @@ from enigma import gRGB
 from skin import parseColor
 from Screens.HelpMenu import HelpableScreen
 from os.path import exists, join
+from os import makedirs
 import requests
 from threading import Thread, Lock
 from twisted.internet import reactor
@@ -24,6 +25,10 @@ from . import (
     TEMP_DIR,
     HEADERS
 )
+
+RADAR_MAPS_DIR = join(TEMP_DIR, "pngfold")
+if not exists(RADAR_MAPS_DIR):
+    makedirs(RADAR_MAPS_DIR)
 
 
 class RadarMapView(Screen, HelpableScreen):
@@ -85,7 +90,7 @@ class RadarMapView(Screen, HelpableScreen):
         apply_global_theme(self)
 
     def _load_static_content(self):
-        radar_path = join(TEMP_DIR, '385.png')
+        radar_path = join(RADAR_MAPS_DIR, '385.png')
         if exists(radar_path):
             self['radar_map'].instance.setPixmapFromFile(radar_path)
 
@@ -133,7 +138,7 @@ class RadarMapView(Screen, HelpableScreen):
         with self._download_lock:
             if self._current_download and self._current_download.is_alive():
                 return
-            output_file = join(TEMP_DIR, f'radar_map_{self.zoom_level}.png')
+            output_file = join(RADAR_MAPS_DIR, f'radar_map_{self.zoom_level}.png')
             url = f"https://map-cf.foreca.net/teaser/map/light/rain/{self.zoom_level}/{self.lon}/{self.lat}/380/598.png?names&units=mm"
             self._current_download = Thread(
                 target=self._download_map, args=(

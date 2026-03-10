@@ -4,6 +4,7 @@
 # foreca_svg_map_viewer.py - SVG Map Viewer
 
 from os.path import exists, join
+from os import listdir, remove
 from math import log, tan, pi, radians, cos
 from datetime import datetime
 
@@ -20,6 +21,8 @@ from Components.Pixmap import Pixmap
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 
+from .google_translate import trans
+from .map_legend import MapLegendOverlay  # MapLegend
 from . import (
     _,
     DEBUG,
@@ -55,12 +58,17 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self.unit_system = unit_system
         self.region = region.lower()
 
+        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+        self.legend_active = False
+
         if self.region in REGION_CENTERS:
             self.center_lat, self.center_lon = REGION_CENTERS[self.region]
         else:
             self.center_lat, self.center_lon = 50.0, 10.0
 
         self.tile_size = TILE_SIZE
+        # Compute initial zoom level based on latitude (if possible)
+        self.zoom_level = 5
         try:
             lat_float = float(self.center_lat)
             self.zoom_level = max(4, min(6, int(8 - abs(lat_float) / 15)))
@@ -72,7 +80,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
 
         self.timestamps = layer.get('times', {}).get('available', [])
         self.current_time_index = layer.get('times', {}).get('current', 0)
-
         self.setTitle(f"Foreca One: {self.layer_title}")
         self["background"] = Pixmap()
         self["background"].hide()
@@ -86,31 +93,80 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self['key_green'] = StaticText(_("Zoom+"))
         self['key_yellow'] = StaticText(_("Zoom-"))
         self['key_blue'] = StaticText()
-
         self['zoom_label'] = Label(_("Zoom: ") + str(self.zoom_level))
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
-
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
             {
                 "cancel": (self.exit, _("Exit")),
                 "red": (self.exit, _("Exit")),
-                "left": (self.prev_time, _("Prev")),
-                "right": (self.next_time, _("Next")),
+                "left": (self.prev_time, _("Previous time")),
+                "right": (self.next_time, _("Next time")),
                 "green": (self.zoom_in, _("Zoom+")),
                 "yellow": (self.zoom_out, _("Zoom-")),
                 "nextBouquet": (self.zoom_in, _("Zoom+")),
-                "prevBouquet": (self.zoom_out, _("Zoom-"))
+                "prevBouquet": (self.zoom_out, _("Zoom-")),
+                "showEventInfo": (self.toggle_legend, _("Color legend")),
             },
             -1
         )
         self.on_first_layout = True
+        self.clear_cache()
         self.onLayoutFinish.append(self._apply_theme)
         self.onLayoutFinish.append(self.on_first_layout_cb)
+        self.onClose.append(self.clear_cache)
 
     def _apply_theme(self):
         apply_global_theme(self)
+
+    def toggle_legend(self):
+        if self.legend_active:
+            self.legend.hide()
+        else:
+            self.legend.show()
+        self.legend_active = not self.legend_active
+
+    def handle_cancel(self):
+        if self.legend_active:
+            self.legend.hide()
+            self.legend_active = False
+        else:
+            self.exit()
+
+    def handle_red(self):
+        self.handle_cancel()
+
+    def handle_ok(self):
+        if self.legend_active:
+            self.legend.hide()
+            self.legend_active = False
+
+    def exit(self):
+        if self.legend:
+            self.session.deleteDialog(self.legend)
+            self.legend = None
+        self.close()
+
+    def get_widget_size(self):
+        if "map" in self and self["map"].instance:
+            size = self["map"].instance.size()
+            self.widget_width = size.width()
+            self.widget_height = size.height()
+            if DEBUG:
+                print(
+                    f"[ForecaSVGMapViewer] Widget size: {self.widget_width}x{self.widget_height}")
+
+    def clear_cache(self):
+        try:
+            if exists(CACHE_BASE):
+                for f in listdir(CACHE_BASE):
+                    if f.endswith('.png') or f.endswith('.jpg'):
+                        remove(join(CACHE_BASE, f))
+                if DEBUG:
+                    print("[ForecaSVGMapViewer] Cache cleaned")
+        except Exception as e:
+            print(f"[ForecaSVGMapViewer] Error cleaning cache: {e}")
 
     def on_first_layout_cb(self):
         if self.on_first_layout:
@@ -118,8 +174,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             reactor.callLater(0.1, self.do_layout)
 
     def do_layout(self):
-        # Get position and size of the "map" widget (which will contain the
-        # composite)
+        # Get position and size of the "map" widget
+        # (which will contain thecomposite)
         map_widget = self["map"]
         if map_widget and map_widget.instance:
             pos = map_widget.getPosition()
@@ -169,9 +225,12 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             now = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             self.timestamps = [now]
             self.current_time_index = 0
+            self["time"].setText(trans("Using current time"))
+
+        if self.current_time_index >= len(self.timestamps):
+            self.current_time_index = 0
 
         timestamp = self.timestamps[self.current_time_index]
-
         try:
             dt = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
             display_time = dt.strftime("%d/%m %H:%M UTC")
@@ -179,6 +238,7 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             display_time = timestamp
 
         self["time"].setText(f"{display_time}")
+        self["zoom_label"].setText(f"Zoom: {self.zoom_level}")
         self["info"].setText(_("Downloading tiles..."))
 
         from threading import Thread
@@ -217,6 +277,15 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
                 reactor.callFromThread(self.show_error)
         else:
             reactor.callFromThread(self.show_error)
+
+    def get_foreca_tile(self, x, y, z, timestamp):
+        return self.api.get_tile(
+            self.layer_id,
+            timestamp,
+            z,
+            x, y,
+            self.unit_system
+        )
 
     def display_background(self, bg_path):
         """Display the background PNG directly, without intermediate SVG."""
@@ -343,8 +412,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             self["layerinfo"].setText(self.layer_title)
 
     def show_error(self):
-        self["time"].setText(_("No tiles available"))
-        self["info"].setText(_("Try again later"))
+        self["time"].setText(trans("No tiles available"))
+        self["info"].setText(trans("Try different zoom or region"))
 
     def _adjust_grid_to_widget(self):
         if "map" in self and self["map"].instance:
@@ -378,6 +447,3 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             self.current_time_index = (
                 self.current_time_index + 1) % len(self.timestamps)
             self.load_current_tile()
-
-    def exit(self):
-        self.close()

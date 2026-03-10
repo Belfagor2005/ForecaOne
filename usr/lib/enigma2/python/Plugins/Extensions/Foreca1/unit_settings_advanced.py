@@ -27,7 +27,6 @@ class UnitSettingsAdvanced(Screen, HelpableScreen):
         self.unit_manager = unit_manager
         self.setTitle(_("Advanced Unit Settings"))
 
-        # Available options
         self.wind_options = [
             ("km/h", unit_manager.WIND_KMH),
             ("m/s", unit_manager.WIND_MS),
@@ -54,7 +53,6 @@ class UnitSettingsAdvanced(Screen, HelpableScreen):
         self["key_green"] = StaticText(_("Save"))
         self["key_yellow"] = StaticText(_("Next"))
         self["key_blue"] = StaticText(_("Prev"))
-
         self["title"] = Label(_("Select wind unit"))
         self["info"] = Label(_("Use ▲/▼ to change, OK to select"))
         self["current"] = Label("")

@@ -15,7 +15,13 @@ from threading import Thread
 import requests
 from PIL import Image
 
-from . import DEBUG, CACHE_BASE, TOKEN_FILE, CONFIG_FILE, CACHE_EXPIRE
+from . import (
+    DEBUG,
+    CACHE_BASE,
+    TOKEN_FILE,
+    CONFIG_FILE,
+    CACHE_EXPIRE
+)
 
 
 class ForecaMapAPI:
@@ -35,9 +41,9 @@ class ForecaMapAPI:
         server_map = {
             'eu': 'map-eu.foreca.com',
             'europe': 'map-eu.foreca.com',
-            # <-- Forza l'uso del server europeo anche per USA
+            # <-- Force use of European server for USA too
             'us': 'map-eu.foreca.com',
-            # <-- Forza l'uso del server europeo anche per USA
+            # <-- Force use of European server for USA too
             'usa': 'map-eu.foreca.com',
         }
         self.map_server = server_map.get(region, 'map-eu.foreca.com')
@@ -51,6 +57,7 @@ class ForecaMapAPI:
         if DEBUG:
             print(
                 f"[Foreca1MapAPI] Initialized for user: {self.user}, region: {region}")
+        self.clear_cache()
 
     def load_config(self):
         """Load configuration from file"""
@@ -106,33 +113,33 @@ class ForecaMapAPI:
 
     def _get_colorscheme_for_layer(self, layer_id, unit_system='metric'):
         """
-        Restituisce lo schema colore appropriato per il layer e il sistema di unità.
-        Basato sulle capabilities reali.
+        Returns the appropriate color scheme for the layer and unit system.
+        Based on the actual capabilities.
         """
-        # Mappatura completa dai dati reali di capabilities.json
+        # Complete mapping from the real data in capabilities.json
         colorschemes = {
             # Temperature (ID 2)
             2: {
-                'metric': 'default',           # default è Celsius
+                'metric': 'default',           # default is Celsius
                 'imperial': 'temp-fahrenheit-noalpha'
             },
-            # Wind symbol (ID 3) - usa solo default
+            # Wind symbol (ID 3) - uses only default
             3: {
                 'metric': 'default',
-                'imperial': 'default'           # i simboli non dipendono dalle unità
+                'imperial': 'default'          # symbols do not depend on units
             },
-            # Wind speed (ID 8) - se presente
+            # Wind speed (ID 8) - if present
             8: {
                 'metric': 'winds-noalpha',
                 'imperial': 'winds-mph-noalpha'
             },
-            # Precipitazioni (ID 5) - se necessario
+            # Precipitation (ID 5) - if needed
             5: {
                 'metric': 'default',
                 'imperial': 'precip-in-noalpha'
             }
         }
-        # Default a 'default' se il layer non è mappato
+        # Default to 'default' if the layer is not mapped
         return colorschemes.get(layer_id, {}).get(unit_system, 'default')
 
     def create_example_config(self):
@@ -300,15 +307,15 @@ class ForecaMapAPI:
             return []
 
     def _convert_svg_to_png(self, svg_data, output_png):
-        """Converte dati SVG in PNG usando rsvg-convert."""
+        """Converts SVG data to PNG using rsvg-convert."""
         try:
-            # Verifica se rsvg-convert è disponibile
+            # Check if rsvg-convert is available
             subprocess.run(['rsvg-convert', '--version'],
                            capture_output=True, check=True)
         except (subprocess.CalledProcessError, FileNotFoundError):
             if DEBUG:
                 print(
-                    "[Foreca1MapAPI] rsvg-convert non trovato, impossibile convertire SVG")
+                    "[Foreca1MapAPI] rsvg-convert not found, unable to convert SVG")
             return False
 
         try:
@@ -321,7 +328,7 @@ class ForecaMapAPI:
             unlink(svg_path)
             return True
         except Exception as e:
-            print(f"[Foreca1MapAPI] Conversione SVG fallita: {e}")
+            print(f"[Foreca1MapAPI] SVG conversion failed: {e}")
             if exists(svg_path):
                 unlink(svg_path)
             return False
@@ -335,7 +342,7 @@ class ForecaMapAPI:
         cache_key = f"{layer_id}_{timestamp}_{zoom}_{x}_{y}_{colorscheme}"
         cache_hash = hashlib.md5(cache_key.encode()).hexdigest()
 
-        # Determiniamo l'estensione in base al layer
+        # We determine the extent based on the layer
         if layer_id == 3:  # windsvg
             cache_file = join(CACHE_BASE, f"{cache_hash}.svg")
         else:

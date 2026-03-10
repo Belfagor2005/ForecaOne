@@ -51,7 +51,6 @@ class HourDetailView(Screen, HelpableScreen):
 
         self.setTitle(_("Hour Details"))
 
-        # Widgets (to be defined in skin)
         self["title_location"] = Label()
         self["title_datetime"] = Label()
         self["condition_icon"] = Pixmap()

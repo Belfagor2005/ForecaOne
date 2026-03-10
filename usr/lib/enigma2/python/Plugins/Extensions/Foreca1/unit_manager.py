@@ -5,11 +5,9 @@
 # unit_settings_simple - Simplified unit settings screen
 # unit_settings_advanced.py - Advanced unit of measurement settings
 
-
 from os.path import join, exists
 from Screens.Screen import Screen
 from Screens.HelpMenu import HelpableScreen
-
 from Components.ActionMap import HelpableActionMap
 from Components.Label import Label
 from Components.Pixmap import Pixmap
