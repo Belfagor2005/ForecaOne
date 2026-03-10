@@ -59,8 +59,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
         # Get layer extent if available
         extent = layer.get('extent', {})
         if extent and 'minLat' in extent and 'maxLat' in extent and 'minLon' in extent and 'maxLon' in extent:
-            self.center_lat = (extent['minLat'] + extent['maxLat']) / 2.0
-            self.center_lon = (extent['minLon'] + extent['maxLon']) / 2.0
+            self.center_lat = (
+                extent['minLat'] + extent['maxLat']) / 2.0
+            self.center_lon = (
+                extent['minLon'] + extent['maxLon']) / 2.0
             self.min_zoom = extent.get('minZoom', 2)
             self.max_zoom = extent.get('maxZoom', 21)
             if DEBUG:
@@ -92,15 +94,15 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.map_h = self.grid_rows * TILE_SIZE
 
         # Initial Zoom
-        self.zoom_level = 5
+        self.zoom_level = 4
         self.zoom_level = max(self.min_zoom, min(self.max_zoom, self.zoom_level))
+
         # Timestamps layer
         self.timestamps = layer.get('times', {}).get('available', [])
         self.current_time_index = layer.get('times', {}).get('current', 0)
 
         self._downloading = False
 
-        # Widget
         self["map"] = Pixmap()
         self["title"] = Label(self.layer_title)
         self["layerinfo"] = Label("")
@@ -288,7 +290,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
                     else:
                         print(f"[ForecaMapViewer] Foreca tile missing: ({x},{y})")
 
-            if osm_tiles:
+            if osm_tiles and foreca_tiles:
                 print(f"[ForecaMapViewer] {len(osm_tiles)} OSM tiles, {len(foreca_tiles)} Foreca tiles")
                 merged = self.merge_tile_grid(osm_tiles, foreca_tiles)
                 if merged:

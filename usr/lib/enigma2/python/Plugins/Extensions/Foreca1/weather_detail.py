@@ -82,7 +82,7 @@ class WeatherDetailView(Screen, HelpableScreen):
             lat_float = float(self.lat)
             self.zoom_level = max(4, min(5, int(10 - abs(lat_float) / 20)))
         except (ValueError, TypeError):
-            self.zoom_level = 5
+            self.zoom_level = 4
         self.min_zoom = 1
         self.max_zoom = 12
 

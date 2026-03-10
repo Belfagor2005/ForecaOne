@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# foreca_svg_map_viewer.py - SVG Map Viewer
+# foreca_svg_map_viewer.py - SVG Map Viewer with pan and zoom
 
 from os.path import exists, join
-from os import listdir, remove
+from os import makedirs, listdir, remove
 from math import log, tan, pi, radians, cos
 from datetime import datetime
 
 from PIL import Image
 from twisted.internet import reactor
-
 from enigma import ePoint, eSize
 
 from Screens.Screen import Screen
@@ -21,17 +20,21 @@ from Components.Pixmap import Pixmap
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 
+from .map_legend import MapLegendOverlay
 from .google_translate import trans
-from .map_legend import MapLegendOverlay  # MapLegend
 from . import (
     _,
     DEBUG,
-    CACHE_BASE,
     THUMB_PATH,
     load_skin_for_class,
     apply_global_theme,
+    TEMP_DIR
 )
 from .foreca_map_viewer import REGION_CENTERS, get_background_for_layer
+
+SVG_MAPS_DIR = join(TEMP_DIR, "svgmapviewer")
+if not exists(SVG_MAPS_DIR):
+    makedirs(SVG_MAPS_DIR)
 
 TILE_SIZE = 256
 
@@ -57,6 +60,7 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self.layer_title = layer.get('title', 'SVG Map')
         self.unit_system = unit_system
         self.region = region.lower()
+        self.setTitle(f"Foreca One: {self.layer_title}")
 
         self.legend = self.session.instantiateDialog(
             MapLegendOverlay, 'precip')
@@ -69,19 +73,21 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
 
         self.tile_size = TILE_SIZE
         # Compute initial zoom level based on latitude (if possible)
-        self.zoom_level = 5
+        self.zoom_level = 4
         try:
             lat_float = float(self.center_lat)
             self.zoom_level = max(4, min(6, int(8 - abs(lat_float) / 15)))
         except (ValueError, TypeError):
-            self.zoom_level = 5
+            self.zoom_level = 4
 
         self.min_zoom = 2
         self.max_zoom = 21
 
         self.timestamps = layer.get('times', {}).get('available', [])
         self.current_time_index = layer.get('times', {}).get('current', 0)
-        self.setTitle(f"Foreca One: {self.layer_title}")
+
+        self._downloading = False
+
         self["background"] = Pixmap()
         self["background"].hide()
         self["map"] = Pixmap()
@@ -103,8 +109,12 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
                 "cancel": (self.handle_cancel, _("Exit / Close legend")),
                 "red": (self.handle_red, _("Exit / Close legend")),
                 "ok": (self.handle_ok, _("Close legend")),
-                "left": (self.prev_time, _("Previous time")),
-                "right": (self.next_time, _("Next time")),
+                "left": (self.pan_left, _("Pan left")),
+                "right": (self.pan_right, _("Pan right")),
+                "up": (self.pan_up, _("Pan up")),
+                "down": (self.pan_down, _("Pan down")),
+                "pageUp": (self.prev_time, _("Previous time")),
+                "pageDown": (self.next_time, _("Next time")),
                 "green": (self.zoom_in, _("Zoom+")),
                 "yellow": (self.zoom_out, _("Zoom-")),
                 "nextBouquet": (self.zoom_in, _("Zoom+")),
@@ -161,10 +171,10 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
 
     def clear_cache(self):
         try:
-            if exists(CACHE_BASE):
-                for f in listdir(CACHE_BASE):
+            if exists(SVG_MAPS_DIR):
+                for f in listdir(SVG_MAPS_DIR):
                     if f.endswith('.png') or f.endswith('.jpg'):
-                        remove(join(CACHE_BASE, f))
+                        remove(join(SVG_MAPS_DIR, f))
                 if DEBUG:
                     print("[ForecaSVGMapViewer] Cache cleaned")
         except Exception as e:
@@ -176,8 +186,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             reactor.callLater(0.1, self.do_layout)
 
     def do_layout(self):
-        # Get position and size of the "map" widget
-        # (which will contain thecomposite)
         map_widget = self["map"]
         if map_widget and map_widget.instance:
             pos = map_widget.getPosition()
@@ -189,19 +197,15 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
                 self.bg_width = size.width()
                 self.bg_height = size.height()
             else:
-                # Fallback (FHD skin values)
                 self.bg_x, self.bg_y = 49, 127
                 self.bg_width, self.bg_height = 1819, 853
         else:
             self.bg_x, self.bg_y = 49, 127
             self.bg_width, self.bg_height = 1819, 853
 
-        # Calculate scaling factors for tiles (from 256x256 to cell size)
         self.scale_x = self.bg_width / float(self.grid_cols * 256)
         self.scale_y = self.bg_height / float(self.grid_rows * 256)
 
-        # Position the background (if present) – optional, the skin already
-        # does it
         if "background" in self and self["background"].instance:
             self["background"].instance.move(ePoint(self.bg_x, self.bg_y))
             self["background"].instance.resize(
@@ -209,7 +213,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             self["background"].instance.setZPosition(2)
             self["background"].show()
 
-        # Tile widgets are no longer used; hide them all
         for row, col, name in self.tile_widgets:
             self[name].hide()
 
@@ -223,6 +226,11 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         return x, y
 
     def load_current_tile(self):
+        if self._downloading:
+            print("[ForecaSVGMapViewer] Already downloading, skipping")
+            return
+        self._downloading = True
+
         if not self.timestamps:
             now = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
             self.timestamps = [now]
@@ -247,38 +255,47 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         Thread(target=self.download_tiles, args=(timestamp,)).start()
 
     def download_tiles(self, timestamp):
-        cx, cy = self.latlon_to_tile(
-            self.center_lat, self.center_lon, self.zoom_level)
-        offset_cols = self.grid_cols // 2
-        offset_rows = self.grid_rows // 2
-        tile_files = []
-        for dx in range(-offset_cols, offset_cols + 1):
-            for dy in range(-offset_rows, offset_rows + 1):
-                tx = cx + dx
-                ty = cy + dy
-                path = self.api.get_tile(
-                    self.layer_id,
-                    timestamp,
-                    self.zoom_level,
-                    tx, ty,
-                    self.unit_system
-                )
-                if path and exists(path):
-                    col = dx + offset_cols
-                    row = dy + offset_rows
-                    tile_files.append((col, row, path))
-        if DEBUG:
-            print(f"[DEBUG] Downloaded SVG tiles: {len(tile_files)}")
-        if tile_files:
-            self.tile_files = tile_files
-            bg_path = self.create_background_image()
-            if bg_path:
-                svg_path = self.create_composite_svg(tile_files)
-                reactor.callFromThread(self.display_svg, svg_path, bg_path)
+        try:
+            cx, cy = self.latlon_to_tile(
+                self.center_lat, self.center_lon, self.zoom_level)
+            offset_cols = self.grid_cols // 2
+            offset_rows = self.grid_rows // 2
+            tile_files = []
+            for dx in range(-offset_cols, offset_cols + 1):
+                for dy in range(-offset_rows, offset_rows + 1):
+                    tx = cx + dx
+                    ty = cy + dy
+                    path = self.api.get_tile(
+                        self.layer_id,
+                        timestamp,
+                        self.zoom_level,
+                        tx, ty,
+                        self.unit_system
+                    )
+                    if path and exists(path):
+                        col = dx + offset_cols
+                        row = dy + offset_rows
+                        tile_files.append((col, row, path))
+            if DEBUG:
+                print(f"[DEBUG] Downloaded SVG tiles: {len(tile_files)}")
+            if tile_files:
+                self.tile_files = tile_files
+                bg_path = self.create_background_image()
+                if bg_path:
+                    svg_path = self.create_composite_svg(tile_files)
+                    reactor.callFromThread(self.display_svg, svg_path, bg_path)
+                else:
+                    reactor.callFromThread(self.show_error)
             else:
                 reactor.callFromThread(self.show_error)
-        else:
+        except Exception as e:
+            print(f"[ForecaSVGMapViewer] Exception in download_tiles: {e}")
             reactor.callFromThread(self.show_error)
+        finally:
+            reactor.callFromThread(self._reset_download_flag)
+
+    def _reset_download_flag(self):
+        self._downloading = False
 
     def get_foreca_tile(self, x, y, z, timestamp):
         return self.api.get_tile(
@@ -322,13 +339,9 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
                 bg_img = bg_img.resize(
                     (self.bg_width, self.bg_height), Image.Resampling.LANCZOS)
                 temp_bg = join(
-                    CACHE_BASE,
+                    SVG_MAPS_DIR,
                     f"background_{self.region}_{self.zoom_level}.png")
                 bg_img.save(temp_bg, 'PNG')
-                # bg_img = Image.open(bg_path).convert("RGBA")
-                # bg_img = bg_img.resize((self.bg_width, self.bg_height), Image.Resampling.LANCZOS)
-                # temp_bg = join(CACHE_BASE, f"background_{self.region}_{self.zoom_level}.png")
-                # bg_img.save(temp_bg, 'PNG')
                 if DEBUG:
                     print(
                         f"[DEBUG] Background generated: {temp_bg} size {self.bg_width}x{self.bg_height}")
@@ -362,7 +375,7 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         svg_content += '</svg>'
 
         temp_svg = join(
-            CACHE_BASE,
+            SVG_MAPS_DIR,
             f"composite_{self.layer_id}_{self.zoom_level}.svg")
         with open(temp_svg, 'w', encoding='utf-8') as f:
             f.write(svg_content)
@@ -372,7 +385,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         return temp_svg
 
     def display_svg(self, svg_path, bg_path):
-        # Load the background into the background widget
         if bg_path and exists(bg_path):
             if DEBUG:
                 print('bg_path:', str(bg_path))
@@ -383,7 +395,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         else:
             self["background"].hide()
 
-        # Load the SVG with symbols into the map widget
         if svg_path and exists(svg_path):
             self["map"].instance.setPixmapFromFile(svg_path)
             self["map"].show()
@@ -392,7 +403,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         else:
             self["map"].hide()
 
-        # Update labels
         current_time = self.timestamps[self.current_time_index]
         try:
             dt = datetime.strptime(current_time, "%Y-%m-%dT%H:%M:%SZ")
@@ -449,3 +459,47 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
             self.current_time_index = (
                 self.current_time_index + 1) % len(self.timestamps)
             self.load_current_tile()
+
+    def _get_pan_step(self):
+        """Calcola il passo di spostamento in gradi in base allo zoom corrente."""
+        tile_size_lon = 360.0 / (2 ** self.zoom_level)
+        step = tile_size_lon * 0.8  # 80% of tile
+        if DEBUG:
+            print(f"[ForecaSVGMapViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
+        return step
+
+    def pan_left(self):
+        step = self._get_pan_step()
+        new_lon = self.center_lon - step
+        old_lon = self.center_lon
+        self.center_lon = max(-180, min(180, new_lon))
+        if DEBUG:
+            print(f"[ForecaSVGMapViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+        self.load_current_tile()
+
+    def pan_right(self):
+        step = self._get_pan_step()
+        new_lon = self.center_lon + step
+        old_lon = self.center_lon
+        self.center_lon = max(-180, min(180, new_lon))
+        if DEBUG:
+            print(f"[ForecaSVGMapViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+        self.load_current_tile()
+
+    def pan_up(self):
+        step = self._get_pan_step() * 2
+        new_lat = self.center_lat + step
+        old_lat = self.center_lat
+        self.center_lat = min(90, new_lat)
+        if DEBUG:
+            print(f"[ForecaSVGMapViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+        self.load_current_tile()
+
+    def pan_down(self):
+        step = self._get_pan_step() * 2
+        new_lat = self.center_lat - step
+        old_lat = self.center_lat
+        self.center_lat = max(-90, new_lat)
+        if DEBUG:
+            print(f"[ForecaSVGMapViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+        self.load_current_tile()

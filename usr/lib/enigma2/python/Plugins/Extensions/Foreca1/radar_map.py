@@ -48,7 +48,7 @@ class RadarMapView(Screen, HelpableScreen):
             self.zoom_level = max(4, min(5, int(10 - abs(lat_float) / 20)))
         except (ValueError, TypeError):
             # Default value if latitude is unavailable or not numeric
-            self.zoom_level = 5
+            self.zoom_level = 4
         self.min_zoom = 1
         self.max_zoom = 12
 
@@ -138,9 +138,7 @@ class RadarMapView(Screen, HelpableScreen):
         with self._download_lock:
             if self._current_download and self._current_download.is_alive():
                 return
-            output_file = join(
-                RADAR_MAPS_DIR,
-                f'radar_map_{self.zoom_level}.png')
+            output_file = join(RADAR_MAPS_DIR, f'radar_map_{self.zoom_level}.png')
             url = f"https://map-cf.foreca.net/teaser/map/light/rain/{self.zoom_level}/{self.lon}/{self.lat}/380/598.png?names&units=mm"
             self._current_download = Thread(
                 target=self._download_map, args=(
