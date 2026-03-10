@@ -282,6 +282,10 @@ msgstr "Virhe päivitysten tarkistuksessa."
 msgid "Error loading data"
 msgstr "Virhe kartan näyttämisessä"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Virhe kartan näyttämisessä"
+
 msgid "Error loading maps. Check connection."
 msgstr "Virhe ladattaessa karttoja. Tarkista yhteys."
 

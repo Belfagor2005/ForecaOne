@@ -280,6 +280,10 @@ msgstr "Σφάλμα κατά τον έλεγχο για ενημερώσεις.
 msgid "Error loading data"
 msgstr "Σφάλμα κατά τη φόρτωση δεδομένων"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Σφάλμα κατά τη φόρτωση δεδομένων"
+
 msgid "Error loading maps. Check connection."
 msgstr "Σφάλμα φόρτωσης χαρτών. Ελέγξτε τη σύνδεση."
 

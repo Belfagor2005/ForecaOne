@@ -299,6 +299,10 @@ msgstr "Error en desar el favorit!"
 msgid "Error loading data"
 msgstr "Error en desar el favorit!"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Error en desar el favorit!"
+
 msgid "Error loading maps. Check connection."
 msgstr "Error en carregar mapes. Comprova la connexió."
 

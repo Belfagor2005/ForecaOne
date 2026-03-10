@@ -299,6 +299,10 @@ msgstr "Chyba při ukládání oblíbené položky!"
 msgid "Error loading data"
 msgstr "Chyba při ukládání oblíbené položky!"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Chyba při ukládání oblíbené položky!"
+
 msgid "Error loading maps. Check connection."
 msgstr "Chyba při načítání map. Zkontrolujte připojení."
 

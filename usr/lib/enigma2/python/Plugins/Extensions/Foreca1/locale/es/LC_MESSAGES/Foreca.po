@@ -299,6 +299,10 @@ msgstr "¡Error al guardar favorito!"
 msgid "Error loading data"
 msgstr "¡Error al guardar favorito!"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "¡Error al guardar favorito!"
+
 msgid "Error loading maps. Check connection."
 msgstr "Error al cargar mapas. Verifique la conexión."
 

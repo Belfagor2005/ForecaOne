@@ -299,6 +299,10 @@ msgstr "Erreur lors de l'enregistrement du favori !"
 msgid "Error loading data"
 msgstr "Erreur lors de l'enregistrement du favori !"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Erreur lors de l'enregistrement du favori !"
+
 msgid "Error loading maps. Check connection."
 msgstr "Erreur lors du chargement des cartes. Vérifiez la connexion."
 

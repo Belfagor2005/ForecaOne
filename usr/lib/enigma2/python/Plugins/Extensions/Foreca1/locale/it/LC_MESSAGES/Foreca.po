@@ -282,6 +282,10 @@ msgstr "Errore durante il controllo degli aggiornamenti."
 msgid "Error loading data"
 msgstr "Errore durante il caricamento dei dati"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Errore durante il caricamento dei dati"
+
 msgid "Error loading maps. Check connection."
 msgstr "Errore durante il caricamento delle mappe. Controllare la connessione."
 
