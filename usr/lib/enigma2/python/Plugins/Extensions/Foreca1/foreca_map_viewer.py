@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# foreca_map_viewer.py - Foreca map viewer with OSM background and Foreca tiles overlay
+# foreca_map_viewer.py - Foreca map viewer with OSM background and Foreca
+# tiles overlay
 
 import hashlib
 import requests
@@ -54,7 +55,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.unit_system = unit_system
         self.region = region.lower()
 
-        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+        self.legend = self.session.instantiateDialog(
+            MapLegendOverlay, 'precip')
         self.legend_active = False
 
         # Get layer extent if available
@@ -94,7 +96,9 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
         # Initial Zoom
         self.zoom_level = 5
-        self.zoom_level = max(self.min_zoom, min(self.max_zoom, self.zoom_level))
+        self.zoom_level = max(
+            self.min_zoom, min(
+                self.max_zoom, self.zoom_level))
         # Timestamps layer
         self.timestamps = layer.get('times', {}).get('available', [])
         self.current_time_index = layer.get('times', {}).get('current', 0)
@@ -179,7 +183,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
             self.widget_width = size.width()
             self.widget_height = size.height()
             if DEBUG:
-                print(f"[ForecaMapViewer] Widget size: {self.widget_width}x{self.widget_height}")
+                print(
+                    f"[ForecaMapViewer] Widget size: {self.widget_width}x{self.widget_height}")
 
     def clear_cache(self):
         try:
@@ -201,7 +206,9 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
     def download_tile(self, url, cache_dir, prefix=''):
         cache_key = prefix + url
-        cache_file = join(cache_dir, hashlib.md5(cache_key.encode()).hexdigest() + '.png')
+        cache_file = join(
+            cache_dir, hashlib.md5(
+                cache_key.encode()).hexdigest() + '.png')
         if exists(cache_file):
             return cache_file
         try:
@@ -212,7 +219,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
                 return cache_file
             else:
                 if DEBUG:
-                    print(f"[ForecaMapViewer] Tile download error {r.status_code}: {url}")
+                    print(
+                        f"[ForecaMapViewer] Tile download error {r.status_code}: {url}")
         except Exception as e:
             print(f"[ForecaMapViewer] download exception: {e}")
         return None
@@ -240,7 +248,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
         try:
             dt = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
             display_time = dt.strftime("%d/%m %H:%M UTC")
-        except:
+        except BaseException:
             display_time = timestamp
 
         self["time"].setText(f"{display_time}")
@@ -250,7 +258,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
     def download_tile_grid_async(self, timestamp):
         def download_thread():
-            cx, cy = self.latlon_to_tile(self.center_lat, self.center_lon, self.zoom_level)
+            cx, cy = self.latlon_to_tile(
+                self.center_lat, self.center_lon, self.zoom_level)
             offset_cols = self.grid_cols // 2
             offset_rows = self.grid_rows // 2
 
@@ -263,27 +272,36 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
                     # Tile OSM
                     osm_url = OSM_URL.format(z=self.zoom_level, x=x, y=y)
-                    osm_path = self.download_tile(osm_url, OSM_CACHE_DIR, prefix='osm')
+                    osm_path = self.download_tile(
+                        osm_url, OSM_CACHE_DIR, prefix='osm')
                     if osm_path:
-                        osm_tiles.append((dx + offset_cols, dy + offset_rows, osm_path))
+                        osm_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, osm_path))
                     else:
                         print(f"[ForecaMapViewer] OSM tile missing: ({x},{y})")
 
                     # Tile Foreca
-                    foreca_path = self.get_foreca_tile(x, y, self.zoom_level, timestamp)
+                    foreca_path = self.get_foreca_tile(
+                        x, y, self.zoom_level, timestamp)
                     if foreca_path and exists(foreca_path):
-                        foreca_tiles.append((dx + offset_cols, dy + offset_rows, foreca_path))
+                        foreca_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, foreca_path))
                     else:
-                        print(f"[ForecaMapViewer] Foreca tile missing: ({x},{y})")
+                        print(
+                            f"[ForecaMapViewer] Foreca tile missing: ({x},{y})")
 
             if osm_tiles:
                 merged = self.merge_tile_grid(osm_tiles, foreca_tiles)
                 if merged:
                     reactor.callFromThread(self.show_map, merged)
                 else:
-                    reactor.callFromThread(lambda: self["info"].setText(_("Merge failed")))
+                    reactor.callFromThread(
+                        lambda: self["info"].setText(
+                            _("Merge failed")))
             else:
-                reactor.callFromThread(lambda: self["info"].setText(_("No OSM tiles")))
+                reactor.callFromThread(
+                    lambda: self["info"].setText(
+                        _("No OSM tiles")))
 
         Thread(target=download_thread).start()
 
@@ -303,7 +321,9 @@ class ForecaMapViewer(Screen, HelpableScreen):
                 bg.paste(tile, (x, y), tile)
 
             bg_rgb = bg.convert('RGB')
-            out_path = join(CACHE_BASE, f"merged_{self.layer_id}_{self.zoom_level}.jpg")
+            out_path = join(
+                CACHE_BASE,
+                f"merged_{self.layer_id}_{self.zoom_level}.jpg")
             bg_rgb.save(out_path, 'JPEG', quality=90)
             return out_path
         except Exception as e:
@@ -314,7 +334,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
         from PIL import Image
         img = Image.open(path)
         if hasattr(self, 'widget_width') and self.widget_width > 0:
-            img = img.resize((self.widget_width, self.widget_height), Image.Resampling.LANCZOS)
+            img = img.resize(
+                (self.widget_width,
+                 self.widget_height),
+                Image.Resampling.LANCZOS)
             resized_path = path.replace('.jpg', '_widget.jpg')
             img.save(resized_path)
             self["map"].instance.setPixmapFromFile(resized_path)

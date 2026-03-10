@@ -58,7 +58,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self.unit_system = unit_system
         self.region = region.lower()
 
-        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+        self.legend = self.session.instantiateDialog(
+            MapLegendOverlay, 'precip')
         self.legend_active = False
 
         if self.region in REGION_CENTERS:
