@@ -465,7 +465,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         tile_size_lon = 360.0 / (2 ** self.zoom_level)
         step = tile_size_lon * 0.8  # 80% of tile
         if DEBUG:
-            print(f"[ForecaSVGMapViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
+            print(
+                f"[ForecaSVGMapViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
         return step
 
     def pan_left(self):
@@ -474,7 +475,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         old_lon = self.center_lon
         self.center_lon = max(-180, min(180, new_lon))
         if DEBUG:
-            print(f"[ForecaSVGMapViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaSVGMapViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_right(self):
@@ -483,7 +485,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         old_lon = self.center_lon
         self.center_lon = max(-180, min(180, new_lon))
         if DEBUG:
-            print(f"[ForecaSVGMapViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaSVGMapViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_up(self):
@@ -492,7 +495,8 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = min(90, new_lat)
         if DEBUG:
-            print(f"[ForecaSVGMapViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaSVGMapViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_down(self):
@@ -501,5 +505,6 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = max(-90, new_lat)
         if DEBUG:
-            print(f"[ForecaSVGMapViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaSVGMapViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.load_current_tile()

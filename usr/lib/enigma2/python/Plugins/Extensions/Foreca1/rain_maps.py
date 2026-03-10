@@ -109,7 +109,7 @@ class RainViewerMaps(Screen, HelpableScreen):
         self.map_h = self.grid_rows * TILE_SIZE
 
         # Initial Zoom
-        self.zoom_level =4
+        self.zoom_level = 4
 
         self._downloading = False
         self["map"] = Pixmap()
@@ -193,7 +193,8 @@ class RainViewerMaps(Screen, HelpableScreen):
             self.widget_width = size.width()
             self.widget_height = size.height()
             if DEBUG:
-                print(f"[RainViewer] Widget size: {self.widget_width}x{self.widget_height}")
+                print(
+                    f"[RainViewer] Widget size: {self.widget_width}x{self.widget_height}")
 
     def clear_cache(self):
         try:
@@ -296,7 +297,8 @@ class RainViewerMaps(Screen, HelpableScreen):
             reactor.callFromThread(self._reset_download_flag)
 
         try:
-            cx, cy = self.latlon_to_tile(self.center_lat, self.center_lon, self.zoom_level)
+            cx, cy = self.latlon_to_tile(
+                self.center_lat, self.center_lon, self.zoom_level)
             offset_cols = self.grid_cols // 2
             offset_rows = self.grid_rows // 2
 
@@ -311,30 +313,40 @@ class RainViewerMaps(Screen, HelpableScreen):
                     osm_url = OSM_URL.format(z=self.zoom_level, x=x, y=y)
                     osm_path = self.download_tile(osm_url, prefix='osm')
                     if osm_path:
-                        osm_tiles.append((dx + offset_cols, dy + offset_rows, osm_path))
+                        osm_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, osm_path))
                     else:
                         print(f"[RainViewer] OSM tile missing: ({x},{y})")
 
                     # Tile Radar
-                    radar_url = self.build_tile_url(frame_path, x, y, self.zoom_level)
+                    radar_url = self.build_tile_url(
+                        frame_path, x, y, self.zoom_level)
                     radar_path = self.download_tile(radar_url, prefix='radar')
                     if radar_path:
-                        radar_tiles.append((dx + offset_cols, dy + offset_rows, radar_path))
+                        radar_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, radar_path))
                     else:
                         print(f"[RainViewer] Radar tile missing: ({x},{y})")
             if osm_tiles and radar_tiles:
-                print(f"[RainViewer] {len(osm_tiles)} OSM tiles, {len(radar_tiles)} Radar tiles")
+                print(
+                    f"[RainViewer] {len(osm_tiles)} OSM tiles, {len(radar_tiles)} Radar tiles")
                 merged = self.merge_tiles(osm_tiles, radar_tiles)
                 if merged:
                     print("[RainViewer] download_thread running")
                     reactor.callFromThread(self.show_map, merged)
                 else:
-                    reactor.callFromThread(lambda: self["info"].setText(_("Merge failed")))
+                    reactor.callFromThread(
+                        lambda: self["info"].setText(
+                            _("Merge failed")))
             else:
-                reactor.callFromThread(lambda: self["info"].setText(_("No tiles downloaded")))
+                reactor.callFromThread(
+                    lambda: self["info"].setText(
+                        _("No tiles downloaded")))
         except Exception as e:
             print(f"[RainViewer] Exception in _download_thread: {e}")
-            reactor.callFromThread(lambda: self["info"].setText(_("Download error")))
+            reactor.callFromThread(
+                lambda: self["info"].setText(
+                    _("Download error")))
         finally:
             reset()
 
@@ -374,7 +386,10 @@ class RainViewerMaps(Screen, HelpableScreen):
             from PIL import Image
             img = Image.open(path)
             if hasattr(self, 'widget_width') and self.widget_width > 0:
-                img = img.resize((self.widget_width, self.widget_height), Image.Resampling.LANCZOS)
+                img = img.resize(
+                    (self.widget_width,
+                     self.widget_height),
+                    Image.Resampling.LANCZOS)
                 resized_path = path.replace('.jpg', '_widget.jpg')
                 img.save(resized_path)
                 self["map"].instance.setPixmapFromFile(resized_path)
@@ -421,7 +436,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         tile_size_lon = 360.0 / (2 ** self.zoom_level)
         step = tile_size_lon * 0.8
         if DEBUG:
-            print(f"[RainViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
+            print(
+                f"[RainViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
         return step
 
     def pan_left(self):
@@ -430,7 +446,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         old_lon = self.center_lon
         self.center_lon = max(-180, min(180, new_lon))
         if DEBUG:
-            print(f"[RainViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[RainViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.update_frame_display()
 
     def pan_right(self):
@@ -439,7 +456,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         old_lon = self.center_lon
         self.center_lon = max(-180, min(180, new_lon))
         if DEBUG:
-            print(f"[RainViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[RainViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.update_frame_display()
 
     def pan_up(self):
@@ -448,7 +466,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = min(90, new_lat)
         if DEBUG:
-            print(f"[RainViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[RainViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.update_frame_display()
 
     def pan_down(self):
@@ -457,5 +476,6 @@ class RainViewerMaps(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = max(-90, new_lat)
         if DEBUG:
-            print(f"[RainViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[RainViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.update_frame_display()
