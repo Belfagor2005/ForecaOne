@@ -116,7 +116,8 @@ class RainViewerMaps(Screen, HelpableScreen):
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
 
-        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+        self.legend = self.session.instantiateDialog(
+            MapLegendOverlay, 'precip')
         self.legend_active = False
 
         self["actions"] = HelpableActionMap(
