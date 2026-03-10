@@ -33,6 +33,7 @@
 
 
 
+
 msgid "0 - Today"
 msgstr ""
 
@@ -295,6 +296,9 @@ msgid "Error checking for updates."
 msgstr ""
 
 msgid "Error loading data"
+msgstr ""
+
+msgid "Error loading map"
 msgstr ""
 
 msgid "Error loading maps. Check connection."

@@ -289,6 +289,10 @@ msgstr "خطأ في حفظ المفضلة!"
 msgid "Error loading data"
 msgstr "خطأ في عرض الخريطة"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "خطأ في عرض الخريطة"
+
 msgid "Error loading maps. Check connection."
 msgstr "خطأ في تحميل الخرائط. تحقق من الاتصال."
 

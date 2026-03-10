@@ -297,6 +297,10 @@ msgstr "Ошибка сохранения избранного!"
 msgid "Error loading data"
 msgstr "Ошибка сохранения избранного!"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "Ошибка сохранения избранного!"
+
 msgid "Error loading maps. Check connection."
 msgstr "Ошибка загрузки карт. Проверьте соединение."
 

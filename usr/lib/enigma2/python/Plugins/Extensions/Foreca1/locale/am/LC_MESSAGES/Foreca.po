@@ -280,6 +280,9 @@ msgstr ""
 msgid "Error loading data"
 msgstr ""
 
+msgid "Error loading map"
+msgstr ""
+
 msgid "Error loading maps. Check connection."
 msgstr ""
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# foreca_map_viewer.py - Foreca map viewer with OSM background and Foreca tiles overlay
+# foreca_map_viewer.py - Foreca map viewer with OSM background and Foreca
+# tiles overlay
 
 import hashlib
 import requests
@@ -94,8 +95,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.map_h = self.grid_rows * TILE_SIZE
 
         # Initial Zoom
-        self.zoom_level = 4
-        self.zoom_level = max(self.min_zoom, min(self.max_zoom, self.zoom_level))
+        self.zoom_level = 5
+        self.zoom_level = max(
+            self.min_zoom, min(
+                self.max_zoom, self.zoom_level))
 
         # Timestamps layer
         self.timestamps = layer.get('times', {}).get('available', [])
@@ -184,7 +187,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
             self.widget_width = size.width()
             self.widget_height = size.height()
             if DEBUG:
-                print(f"[ForecaMapViewer] Widget size: {self.widget_width}x{self.widget_height}")
+                print(
+                    f"[ForecaMapViewer] Widget size: {self.widget_width}x{self.widget_height}")
 
     def clear_cache(self):
         try:
@@ -251,7 +255,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
         try:
             dt = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
             display_time = dt.strftime("%d/%m %H:%M UTC")
-        except:
+        except BaseException:
             display_time = timestamp
 
         self["time"].setText(f"{display_time}")
@@ -264,7 +268,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
         def download_thread():
             print("[ForecaMapViewer] download_thread running")
-            cx, cy = self.latlon_to_tile(self.center_lat, self.center_lon, self.zoom_level)
+            cx, cy = self.latlon_to_tile(
+                self.center_lat, self.center_lon, self.zoom_level)
             offset_cols = self.grid_cols // 2
             offset_rows = self.grid_rows // 2
 
@@ -279,27 +284,35 @@ class ForecaMapViewer(Screen, HelpableScreen):
                     osm_url = OSM_URL.format(z=self.zoom_level, x=x, y=y)
                     osm_path = self.download_tile(osm_url, prefix='osm')
                     if osm_path:
-                        osm_tiles.append((dx + offset_cols, dy + offset_rows, osm_path))
+                        osm_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, osm_path))
                     else:
                         print(f"[ForecaMapViewer] OSM tile missing: ({x},{y})")
 
                     # Tile Foreca
-                    foreca_path = self.get_foreca_tile(x, y, self.zoom_level, timestamp)
+                    foreca_path = self.get_foreca_tile(
+                        x, y, self.zoom_level, timestamp)
                     if foreca_path and exists(foreca_path):
-                        foreca_tiles.append((dx + offset_cols, dy + offset_rows, foreca_path))
+                        foreca_tiles.append(
+                            (dx + offset_cols, dy + offset_rows, foreca_path))
                     else:
-                        print(f"[ForecaMapViewer] Foreca tile missing: ({x},{y})")
-
-            if osm_tiles and foreca_tiles:
-                print(f"[ForecaMapViewer] {len(osm_tiles)} OSM tiles, {len(foreca_tiles)} Foreca tiles")
+                        print(
+                            f"[ForecaMapViewer] Foreca tile missing: ({x},{y})")
+            if osm_tiles:
+                print(
+                    f"[ForecaMapViewer] {len(osm_tiles)} OSM tiles, {len(foreca_tiles)} Foreca tiles")
                 merged = self.merge_tile_grid(osm_tiles, foreca_tiles)
                 if merged:
                     reactor.callFromThread(self.show_map, merged)
                 else:
-                    reactor.callFromThread(lambda: self["info"].setText(_("Merge failed")))
+                    reactor.callFromThread(
+                        lambda: self["info"].setText(
+                            _("Merge failed")))
             else:
                 print("[ForecaMapViewer] No OSM tiles")
-                reactor.callFromThread(lambda: self["info"].setText(_("No OSM tiles")))
+                reactor.callFromThread(
+                    lambda: self["info"].setText(
+                        _("No OSM tiles")))
 
             # Reset flag quando il thread termina
             reactor.callFromThread(self._reset_download_flag)
@@ -327,7 +340,9 @@ class ForecaMapViewer(Screen, HelpableScreen):
                 bg.paste(tile, (x, y), tile)
 
             bg_rgb = bg.convert('RGB')
-            out_path = join(OSM_CACHE_DIR, f"merged_{self.layer_id}_{self.zoom_level}.jpg")
+            out_path = join(
+                OSM_CACHE_DIR,
+                f"merged_{self.layer_id}_{self.zoom_level}.jpg")
             bg_rgb.save(out_path, 'JPEG', quality=90)
             return out_path
         except Exception as e:
@@ -342,7 +357,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
             from PIL import Image
             img = Image.open(path)
             if hasattr(self, 'widget_width') and self.widget_width > 0:
-                img = img.resize((self.widget_width, self.widget_height), Image.Resampling.LANCZOS)
+                img = img.resize(
+                    (self.widget_width,
+                     self.widget_height),
+                    Image.Resampling.LANCZOS)
                 resized_path = path.replace('.jpg', '_widget.jpg')
                 img.save(resized_path)
                 self["map"].instance.setPixmapFromFile(resized_path)
@@ -391,7 +409,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
         tile_size_lon = 360.0 / (2 ** self.zoom_level)
         step = tile_size_lon * 0.8
         if DEBUG:
-            print(f"[ForecaMapViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
+            print(
+                f"[ForecaMapViewer] _get_pan_step: zoom={self.zoom_level}, step={step:.4f}°")
         return step
 
     def pan_left(self):
@@ -406,7 +425,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
             self.center_lon = max(-180, min(180, new_lon))
 
         if DEBUG:
-            print(f"[ForecaMapViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaMapViewer] pan_left: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_right(self):
@@ -421,7 +441,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
             self.center_lon = max(-180, min(180, new_lon))
 
         if DEBUG:
-            print(f"[ForecaMapViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaMapViewer] pan_right: old={old_lon:.4f}, new={self.center_lon:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_up(self):
@@ -430,7 +451,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = min(90, new_lat)
         if DEBUG:
-            print(f"[ForecaMapViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaMapViewer] pan_up: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.load_current_tile()
 
     def pan_down(self):
@@ -439,5 +461,6 @@ class ForecaMapViewer(Screen, HelpableScreen):
         old_lat = self.center_lat
         self.center_lat = max(-90, new_lat)
         if DEBUG:
-            print(f"[ForecaMapViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
+            print(
+                f"[ForecaMapViewer] pan_down: old={old_lat:.4f}, new={self.center_lat:.4f}, step={step:.4f}")
         self.load_current_tile()

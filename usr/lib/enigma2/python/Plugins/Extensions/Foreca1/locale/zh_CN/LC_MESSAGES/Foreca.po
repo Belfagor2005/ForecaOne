@@ -286,6 +286,10 @@ msgstr "检查更新时出错。"
 msgid "Error loading data"
 msgstr "显示预测时出错"
 
+#, fuzzy
+msgid "Error loading map"
+msgstr "显示预测时出错"
+
 msgid "Error loading maps. Check connection."
 msgstr "加载地图时出错.请检查连接."
 
