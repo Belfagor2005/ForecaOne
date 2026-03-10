@@ -168,8 +168,14 @@ msgstr "Melko pilvistä, ajoittaista räntäsadetta"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Melko pilvistä, ukkosta"
 
+msgid "Cold (< 0°C)"
+msgstr "Kylmä (< 0 °C)"
+
 msgid "Color"
 msgstr "Väri"
+
+msgid "Color Legend"
+msgstr "VärienSelitteet"
 
 msgid "Color Selector"
 msgstr "Värin valitsin"
@@ -191,6 +197,9 @@ msgstr "Tila: {}"
 
 msgid "Continents Weather Maps"
 msgstr "Mantereiden sääkartat"
+
+msgid "Cool (0-10°C)"
+msgstr "Viileä (0–10 °C)"
 
 msgid "Could not fetch update information."
 msgstr "Päivitystietoja ei voitu hakea."
@@ -317,6 +326,9 @@ msgstr "Poistu / Sulje selite"
 msgid "Extreme"
 msgstr "Äärimmäinen"
 
+msgid "Extreme / thunderstorms"
+msgstr "Äärimmäiset / ukkosmyrskyt"
+
 msgid "Fahrenheit, mph, inHg"
 msgstr "Fahrenheit, mph, inHg"
 
@@ -413,6 +425,9 @@ msgstr "Ranska"
 msgid "Full Moon"
 msgstr "Täysikuu"
 
+msgid "Gale force (>60 km/h)"
+msgstr "Myrskyn voimakkuus (>60 km/h)"
+
 msgid "German States Weather Maps"
 msgstr "Saksan osavaltioiden sääkartat"
 
@@ -440,6 +455,9 @@ msgstr "Hampuri"
 msgid "Header - not selectable"
 msgstr "Otsikko - ei valittavissa"
 
+msgid "Heavy rain"
+msgstr "Rankkasade"
+
 msgid "Help"
 msgstr "HELP"
 
@@ -451,6 +469,9 @@ msgstr "Korkea"
 
 msgid "Home"
 msgstr "Koti"
+
+msgid "Hot (30-40°C)"
+msgstr "Kuuma (30–40 °C)"
 
 msgid "Hour Details"
 msgstr "Tuntikohtaiset tiedot"
@@ -466,6 +487,9 @@ msgstr "Kosteus: {}%"
 
 msgid "Hungary"
 msgstr "Unkari"
+
+msgid "Ice / frost"
+msgstr "Jää / huurre"
 
 msgid "Illumination"
 msgstr "Valaistus"
@@ -523,6 +547,15 @@ msgstr "Vasen - edellinen päivä"
 
 msgid "Left arrow - Previous day"
 msgstr "Vasen nuoli - Edellinen päivä"
+
+msgid "Light (0-20 km/h)"
+msgstr "Light (0-20 km/h)"
+
+msgid "Light rain / drizzle"
+msgstr "Kevyttä sadetta / tihkusadetta"
+
+msgid "Light to moderate"
+msgstr "Lievä tai kohtalainen"
 
 msgid "Loading available maps..."
 msgstr "Ladataan saatavilla olevia karttoja..."
@@ -590,8 +623,17 @@ msgstr "Keski-Aasia"
 msgid "Middle East"
 msgstr "Lähi-itä"
 
+msgid "Mild (10-20°C)"
+msgstr "Lievä (10–20 °C)"
+
 msgid "Moderate"
 msgstr "Kohtalainen"
+
+msgid "Moderate (20-40 km/h)"
+msgstr "Keskitasoinen (20–40 km/h)"
+
+msgid "Moderate rain"
+msgstr "Kohtalaista sadetta"
 
 msgid "Month"
 msgstr "Kuukausi"
@@ -661,6 +703,9 @@ msgstr "Päivämäärää ei ole saatavilla"
 
 msgid "No location selected"
 msgstr "Sijaintia ei ole valittu"
+
+msgid "No specific legend available."
+msgstr "Ei erityistä legendaa saatavilla."
 
 msgid "No station data"
 msgstr "Asemadataa ei ole"
@@ -965,6 +1010,9 @@ msgstr "Slovakia"
 msgid "Slower: {}s"
 msgstr "Hitaammin: {}s"
 
+msgid "Snow / ice"
+msgstr "Lumi / jää"
+
 msgid "Snow prob. {}%"
 msgstr "Lumisateen todennäk. {}%"
 
@@ -988,6 +1036,9 @@ msgstr "Aseman havainnot"
 
 msgid "Station: {}"
 msgstr "Asema: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr "Voimakas (40–60 km/h)"
 
 msgid "Sunrise"
 msgstr "Auringonnousu"
@@ -1112,8 +1163,14 @@ msgstr "Käytä ▲/▼ vaihtaaksesi, OK valitaksesi"
 msgid "Using current time"
 msgstr "Käytetään nykyistä aikaa"
 
+msgid "Very heavy rain"
+msgstr "Erittäin rankkasade"
+
 msgid "Very high"
 msgstr "Erittäin korkea"
+
+msgid "Very hot (>40°C)"
+msgstr "Erittäin kuuma (>40 °C)"
 
 msgid "Visibility: %s m"
 msgstr "Näkyvyys: %s m"
@@ -1126,6 +1183,9 @@ msgstr "Vähenevä sirppi"
 
 msgid "Waning Gibbous"
 msgstr "Vähenevä kupera kuu"
+
+msgid "Warm (20-30°C)"
+msgstr "Lämmin (20–30 °C)"
 
 msgid "Waxing Crescent"
 msgstr "Kasvava sirppi"
@@ -1271,23 +1331,8 @@ msgstr "← Kehys"
 #~ msgid "Cloud Cover"
 #~ msgstr "Pilvisyys"
 
-#~ msgid "Cold (< 0°C)"
-#~ msgstr "Kylmä (< 0 °C)"
-
-#~ msgid "Color Legend"
-#~ msgstr "VärienSelitteet"
-
-#~ msgid "Cool (0-10°C)"
-#~ msgstr "Viileä (0–10 °C)"
-
 #~ msgid "Distance"
 #~ msgstr "Etäisyys"
-
-#~ msgid "Extreme / thunderstorms"
-#~ msgstr "Äärimmäiset / ukkosmyrskyt"
-
-#~ msgid "Gale force (>60 km/h)"
-#~ msgstr "Myrskyn voimakkuus (>60 km/h)"
 
 #~ msgid "Green"
 #~ msgstr "Vihreä"
@@ -1295,38 +1340,8 @@ msgstr "← Kehys"
 #~ msgid "HTML"
 #~ msgstr "HTML"
 
-#~ msgid "Heavy rain"
-#~ msgstr "Rankkasade"
-
-#~ msgid "Hot (30-40°C)"
-#~ msgstr "Kuuma (30–40 °C)"
-
-#~ msgid "Ice / frost"
-#~ msgstr "Jää / huurre"
-
 #~ msgid "Last update"
 #~ msgstr "Viimeisin päivitys"
-
-#~ msgid "Light (0-20 km/h)"
-#~ msgstr "Light (0-20 km/h)"
-
-#~ msgid "Light rain / drizzle"
-#~ msgstr "Kevyttä sadetta / tihkusadetta"
-
-#~ msgid "Light to moderate"
-#~ msgstr "Lievä tai kohtalainen"
-
-#~ msgid "Mild (10-20°C)"
-#~ msgstr "Lievä (10–20 °C)"
-
-#~ msgid "Moderate (20-40 km/h)"
-#~ msgstr "Keskitasoinen (20–40 km/h)"
-
-#~ msgid "Moderate rain"
-#~ msgstr "Kohtalaista sadetta"
-
-#~ msgid "No specific legend available."
-#~ msgstr "Ei erityistä legendaa saatavilla."
 
 #~ msgid "Radar"
 #~ msgstr "Tutka"
@@ -1337,23 +1352,8 @@ msgstr "← Kehys"
 #~ msgid "Snow"
 #~ msgstr "Lumisade"
 
-#~ msgid "Snow / ice"
-#~ msgstr "Lumi / jää"
-
-#~ msgid "Strong (40-60 km/h)"
-#~ msgstr "Voimakas (40–60 km/h)"
-
 #~ msgid "UV"
 #~ msgstr "UV"
-
-#~ msgid "Very heavy rain"
-#~ msgstr "Erittäin rankkasade"
-
-#~ msgid "Very hot (>40°C)"
-#~ msgstr "Erittäin kuuma (>40 °C)"
-
-#~ msgid "Warm (20-30°C)"
-#~ msgstr "Lämmin (20–30 °C)"
 
 #~ msgid "Wetter.de Maps Test"
 #~ msgstr "Wetter.de-karttatesti"

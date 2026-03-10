@@ -169,8 +169,15 @@ msgstr "غائم وزخات ثلج رطب"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "غائم، عواصف رعدية مع أمطار"
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 msgid "Color"
 msgstr "اللون"
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "اختيار اللون"
 
 msgid "Color Selector"
 msgstr "محدد اللون"
@@ -194,6 +201,9 @@ msgstr "الحالة: {}"
 #, fuzzy
 msgid "Continents Weather Maps"
 msgstr "خرائط الطقس الأوروبية"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr ""
@@ -325,6 +335,9 @@ msgstr "اختيار اللون"
 msgid "Extreme"
 msgstr "شديد"
 
+msgid "Extreme / thunderstorms"
+msgstr ""
+
 msgid "Fahrenheit, mph, inHg"
 msgstr "فهرنهايت، ميل/س، بوصة زئبقية"
 
@@ -435,6 +448,9 @@ msgstr "فرنسا"
 msgid "Full Moon"
 msgstr "البدر"
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 msgid "German States Weather Maps"
 msgstr "خرائط طقس الولايات الألمانية"
 
@@ -463,6 +479,10 @@ msgstr "هامبورغ"
 msgid "Header - not selectable"
 msgstr "رأس - غير قابل للتحديد"
 
+#, fuzzy
+msgid "Heavy rain"
+msgstr "معتدل"
+
 msgid "Help"
 msgstr "مساعدة"
 
@@ -474,6 +494,9 @@ msgstr "مرتفع"
 
 msgid "Home"
 msgstr "الصفحة الرئيسية"
+
+msgid "Hot (30-40°C)"
+msgstr ""
 
 msgid "Hour Details"
 msgstr "تفاصيل الساعة"
@@ -490,6 +513,9 @@ msgstr "الرطوبة: {}%"
 
 msgid "Hungary"
 msgstr "المجر"
+
+msgid "Ice / frost"
+msgstr ""
 
 msgid "Illumination"
 msgstr ""
@@ -549,6 +575,15 @@ msgstr "يسار - اليوم السابق"
 
 msgid "Left arrow - Previous day"
 msgstr "السهم الأيسر - اليوم السابق"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr "جاري تحميل الخرائط المتاحة..."
@@ -618,7 +653,17 @@ msgstr "آسيا الوسطى"
 msgid "Middle East"
 msgstr "الشرق الأوسط"
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
+msgstr "معتدل"
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
 msgstr "معتدل"
 
 msgid "Month"
@@ -693,6 +738,10 @@ msgstr "لا يوجد تاريخ متاح"
 
 msgid "No location selected"
 msgstr "لم يتم اختيار موقع"
+
+#, fuzzy
+msgid "No specific legend available."
+msgstr "لا يوجد بلاط متاح"
 
 msgid "No station data"
 msgstr "لا توجد بيانات محطة"
@@ -1009,6 +1058,9 @@ msgstr "سلوفاكيا"
 msgid "Slower: {}s"
 msgstr "أبطأ: {}ث"
 
+msgid "Snow / ice"
+msgstr ""
+
 #, fuzzy
 msgid "Snow prob. {}%"
 msgstr "احتمالية الثلج: غير متوفرة"
@@ -1033,6 +1085,9 @@ msgstr "ملاحظات المحطة"
 
 msgid "Station: {}"
 msgstr "المحطة: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr ""
 
 msgid "Sunrise"
 msgstr "شروق الشمس"
@@ -1167,8 +1222,14 @@ msgstr "استخدم ▲/▼ للتغيير، موافق للاختيار"
 msgid "Using current time"
 msgstr "استخدام الوقت الحالي"
 
+msgid "Very heavy rain"
+msgstr ""
+
 msgid "Very high"
 msgstr "مرتفع جدًا"
+
+msgid "Very hot (>40°C)"
+msgstr ""
 
 #, fuzzy
 msgid "Visibility: %s m"
@@ -1182,6 +1243,9 @@ msgstr "الهلال المتضائل"
 
 msgid "Waning Gibbous"
 msgstr "الأحدب المتضائل"
+
+msgid "Warm (20-30°C)"
+msgstr ""
 
 msgid "Waxing Crescent"
 msgstr "الهلال المتزايد"
@@ -1326,10 +1390,6 @@ msgstr ""
 #~ msgstr "غائم وزخات مطر"
 
 #, fuzzy
-#~ msgid "Color Legend"
-#~ msgstr "اختيار اللون"
-
-#, fuzzy
 #~ msgid "Distance"
 #~ msgstr "المسافة {} كم"
 
@@ -1340,14 +1400,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Last update"
 #~ msgstr "الربع الأخير"
-
-#, fuzzy
-#~ msgid "Moderate rain"
-#~ msgstr "معتدل"
-
-#, fuzzy
-#~ msgid "No specific legend available."
-#~ msgstr "لا يوجد بلاط متاح"
 
 #, fuzzy
 #~ msgid "Wetter.de Maps Test"

@@ -163,8 +163,15 @@ msgstr "多云和潮湿的降雪"
 msgid "Cloudy, thunderstorms with rain"
 msgstr "多云、有雨的雷暴"
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 msgid "Color"
 msgstr "颜色"
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "颜色选择"
 
 msgid "Color Selector"
 msgstr "预定分组更新"
@@ -187,6 +194,9 @@ msgstr "天气状况: {}"
 
 msgid "Continents Weather Maps"
 msgstr "大陆天气地图"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr "无法获取更新信息。"
@@ -322,6 +332,9 @@ msgstr "颜色选择"
 msgid "Extreme"
 msgstr "极度"
 
+msgid "Extreme / thunderstorms"
+msgstr ""
+
 msgid "Fahrenheit, mph, inHg"
 msgstr "华氏度，英里/小时，英寸汞柱"
 
@@ -424,6 +437,9 @@ msgstr "法国"
 msgid "Full Moon"
 msgstr "满月"
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 msgid "German States Weather Maps"
 msgstr "德国各州天气地图"
 
@@ -451,6 +467,10 @@ msgstr "德国汉堡"
 msgid "Header - not selectable"
 msgstr "页眉-不可选择"
 
+#, fuzzy
+msgid "Heavy rain"
+msgstr "适中"
+
 msgid "Help"
 msgstr ""
 
@@ -462,6 +482,9 @@ msgstr "高"
 
 msgid "Home"
 msgstr "首页"
+
+msgid "Hot (30-40°C)"
+msgstr ""
 
 msgid "Hour Details"
 msgstr "小时详情"
@@ -478,6 +501,9 @@ msgstr "空气湿度: {}%"
 
 msgid "Hungary"
 msgstr "匈牙利"
+
+msgid "Ice / frost"
+msgstr ""
 
 msgid "Illumination"
 msgstr "光照"
@@ -537,6 +563,15 @@ msgstr "左-前一天"
 
 msgid "Left arrow - Previous day"
 msgstr "左箭头-前一天"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr "正在加载可用地图..."
@@ -605,7 +640,17 @@ msgstr "中亚"
 msgid "Middle East"
 msgstr "中东"
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
+msgstr "适中"
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
 msgstr "适中"
 
 msgid "Month"
@@ -679,6 +724,10 @@ msgstr "无数据"
 
 msgid "No location selected"
 msgstr "未选择位置"
+
+#, fuzzy
+msgid "No specific legend available."
+msgstr "没有可用的图块"
 
 msgid "No station data"
 msgstr "没有可用的预测数据"
@@ -991,6 +1040,9 @@ msgstr "斯洛伐克"
 msgid "Slower: {}s"
 msgstr "较慢： {}秒"
 
+msgid "Snow / ice"
+msgstr ""
+
 msgid "Snow prob. {}%"
 msgstr ""
 
@@ -1014,6 +1066,9 @@ msgstr "工作站观测"
 
 msgid "Station: {}"
 msgstr "观测点: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr ""
 
 msgid "Sunrise"
 msgstr "日出"
@@ -1145,8 +1200,14 @@ msgstr "使用▲/▼更改，确定选择"
 msgid "Using current time"
 msgstr "使用当前时间"
 
+msgid "Very heavy rain"
+msgstr ""
+
 msgid "Very high"
 msgstr "很高"
+
+msgid "Very hot (>40°C)"
+msgstr ""
 
 #, fuzzy
 msgid "Visibility: %s m"
@@ -1160,6 +1221,9 @@ msgstr "残月"
 
 msgid "Waning Gibbous"
 msgstr "亏凸月"
+
+msgid "Warm (20-30°C)"
+msgstr ""
 
 msgid "Waxing Crescent"
 msgstr "盈凸月"
@@ -1302,10 +1366,6 @@ msgstr ""
 #~ msgid "Cloud Cover"
 #~ msgstr "多云和阵雨"
 
-#, fuzzy
-#~ msgid "Color Legend"
-#~ msgstr "颜色选择"
-
 #~ msgid "Distance"
 #~ msgstr "距离"
 
@@ -1317,14 +1377,6 @@ msgstr ""
 
 #~ msgid "Last update"
 #~ msgstr "最近更新时间"
-
-#, fuzzy
-#~ msgid "Moderate rain"
-#~ msgstr "适中"
-
-#, fuzzy
-#~ msgid "No specific legend available."
-#~ msgstr "没有可用的图块"
 
 #~ msgid "Red"
 #~ msgstr "红色"

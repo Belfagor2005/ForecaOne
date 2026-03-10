@@ -174,8 +174,15 @@ msgstr ""
 msgid "Cloudy, thunderstorms with rain"
 msgstr ""
 
+msgid "Cold (< 0°C)"
+msgstr ""
+
 msgid "Color"
 msgstr ""
+
+#, fuzzy
+msgid "Color Legend"
+msgstr "Color selection"
 
 #, fuzzy
 msgid "Color Selector"
@@ -203,6 +210,9 @@ msgstr ""
 #, fuzzy
 msgid "Continents Weather Maps"
 msgstr "Foreca Weather Forecast"
+
+msgid "Cool (0-10°C)"
+msgstr ""
 
 msgid "Could not fetch update information."
 msgstr ""
@@ -331,6 +341,9 @@ msgstr "Color selection"
 msgid "Extreme"
 msgstr ""
 
+msgid "Extreme / thunderstorms"
+msgstr ""
+
 msgid "Fahrenheit, mph, inHg"
 msgstr ""
 
@@ -446,6 +459,9 @@ msgstr ""
 msgid "Full Moon"
 msgstr ""
 
+msgid "Gale force (>60 km/h)"
+msgstr ""
+
 #, fuzzy
 msgid "German States Weather Maps"
 msgstr "Foreca Weather Forecast"
@@ -475,6 +491,10 @@ msgstr ""
 msgid "Header - not selectable"
 msgstr "Red - Color select"
 
+#, fuzzy
+msgid "Heavy rain"
+msgstr "Foreca 4"
+
 msgid "Help"
 msgstr ""
 
@@ -485,6 +505,9 @@ msgid "High"
 msgstr ""
 
 msgid "Home"
+msgstr ""
+
+msgid "Hot (30-40°C)"
 msgstr ""
 
 msgid "Hour Details"
@@ -503,6 +526,9 @@ msgid "Humidity: {}%"
 msgstr "Humidity:"
 
 msgid "Hungary"
+msgstr ""
+
+msgid "Ice / frost"
 msgstr ""
 
 msgid "Illumination"
@@ -561,6 +587,15 @@ msgstr "Left - Previous day"
 
 msgid "Left arrow - Previous day"
 msgstr "Left arrow - Previous day"
+
+msgid "Light (0-20 km/h)"
+msgstr ""
+
+msgid "Light rain / drizzle"
+msgstr ""
+
+msgid "Light to moderate"
+msgstr ""
 
 msgid "Loading available maps..."
 msgstr ""
@@ -632,8 +667,18 @@ msgstr ""
 msgid "Middle East"
 msgstr ""
 
+msgid "Mild (10-20°C)"
+msgstr ""
+
 msgid "Moderate"
 msgstr ""
+
+msgid "Moderate (20-40 km/h)"
+msgstr ""
+
+#, fuzzy
+msgid "Moderate rain"
+msgstr "Foreca 4"
 
 msgid "Month"
 msgstr ""
@@ -712,6 +757,9 @@ msgstr ""
 #, fuzzy
 msgid "No location selected"
 msgstr "Color selection"
+
+msgid "No specific legend available."
+msgstr ""
 
 msgid "No station data"
 msgstr ""
@@ -1038,6 +1086,9 @@ msgstr ""
 msgid "Slower: {}s"
 msgstr ""
 
+msgid "Snow / ice"
+msgstr ""
+
 msgid "Snow prob. {}%"
 msgstr ""
 
@@ -1060,6 +1111,9 @@ msgid "Station Observations"
 msgstr ""
 
 msgid "Station: {}"
+msgstr ""
+
+msgid "Strong (40-60 km/h)"
 msgstr ""
 
 msgid "Sunrise"
@@ -1192,7 +1246,13 @@ msgstr ""
 msgid "Using current time"
 msgstr ""
 
+msgid "Very heavy rain"
+msgstr ""
+
 msgid "Very high"
+msgstr ""
+
+msgid "Very hot (>40°C)"
 msgstr ""
 
 msgid "Visibility: %s m"
@@ -1205,6 +1265,9 @@ msgid "Waning Crescent"
 msgstr ""
 
 msgid "Waning Gibbous"
+msgstr ""
+
+msgid "Warm (20-30°C)"
 msgstr ""
 
 msgid "Waxing Crescent"
@@ -1353,16 +1416,8 @@ msgstr ""
 #~ msgstr "Foreca 4"
 
 #, fuzzy
-#~ msgid "Color Legend"
-#~ msgstr "Color selection"
-
-#, fuzzy
 #~ msgid "Distance"
 #~ msgstr "Wind"
-
-#, fuzzy
-#~ msgid "Moderate rain"
-#~ msgstr "Foreca 4"
 
 #, fuzzy
 #~ msgid "Wetter.de Maps Test"

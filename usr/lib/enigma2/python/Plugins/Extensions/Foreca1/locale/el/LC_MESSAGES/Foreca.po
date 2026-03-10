@@ -166,8 +166,14 @@ msgstr "Συννεφιασμένος και μπόρες υγρού χιονιο
 msgid "Cloudy, thunderstorms with rain"
 msgstr "Συννεφιασμένος, καταιγίδες με βροχή"
 
+msgid "Cold (< 0°C)"
+msgstr "Κρύο (< 0°C)"
+
 msgid "Color"
 msgstr "Χρώμα"
+
+msgid "Color Legend"
+msgstr "Υπόμνημα χρώματος"
 
 msgid "Color Selector"
 msgstr "Επιλογή χρώματος"
@@ -189,6 +195,9 @@ msgstr "Κατάσταση: {}"
 
 msgid "Continents Weather Maps"
 msgstr "Χάρτες καιρού ηπείρων"
+
+msgid "Cool (0-10°C)"
+msgstr "Δροσερό (0-10°C)"
 
 msgid "Could not fetch update information."
 msgstr "Δεν ήταν δυνατή η λήψη πληροφοριών ενημέρωσης."
@@ -315,6 +324,9 @@ msgstr "Έξοδος / Κλείσιμο υπομνήματος"
 msgid "Extreme"
 msgstr "Ακραίο"
 
+msgid "Extreme / thunderstorms"
+msgstr "Ακραίες / καταιγίδες"
+
 msgid "Fahrenheit, mph, inHg"
 msgstr "Φαρενάιτ, μίλια/ώρα, inHg"
 
@@ -411,6 +423,9 @@ msgstr "Γαλλία"
 msgid "Full Moon"
 msgstr "Πανσέληνος"
 
+msgid "Gale force (>60 km/h)"
+msgstr "Ισχύς θυέλλης (>60 km/h)"
+
 msgid "German States Weather Maps"
 msgstr "Χάρτες καιρού Γερμανικών κρατιδίων"
 
@@ -438,6 +453,9 @@ msgstr "Αμβούργο"
 msgid "Header - not selectable"
 msgstr "Κεφαλίδα - μη επιλέξιμο"
 
+msgid "Heavy rain"
+msgstr "Δυνατή βροχή"
+
 msgid "Help"
 msgstr "Help"
 
@@ -449,6 +467,9 @@ msgstr "Υψηλό"
 
 msgid "Home"
 msgstr "Αρχική"
+
+msgid "Hot (30-40°C)"
+msgstr "Ζεστό (30-40°C)"
 
 msgid "Hour Details"
 msgstr "Λεπτομέρειες ώρας"
@@ -464,6 +485,9 @@ msgstr "Υγρασία: {}%"
 
 msgid "Hungary"
 msgstr "Ουγγαρία"
+
+msgid "Ice / frost"
+msgstr "Πάγος / παγετός"
 
 msgid "Illumination"
 msgstr "Φωτισμός"
@@ -521,6 +545,15 @@ msgstr "Αριστερά - Προηγούμενη ημέρα"
 
 msgid "Left arrow - Previous day"
 msgstr "Βέλος αριστερά - Προηγούμενη ημέρα"
+
+msgid "Light (0-20 km/h)"
+msgstr "Ελαφρύ (0-20 χλμ/ώρα)"
+
+msgid "Light rain / drizzle"
+msgstr "Ελαφριά βροχή / ψιλόβροχο"
+
+msgid "Light to moderate"
+msgstr "Ελαφρύ έως μέτριο"
 
 msgid "Loading available maps..."
 msgstr "Φόρτωση διαθέσιμων χαρτών..."
@@ -588,8 +621,17 @@ msgstr "Κεντρική Ασία"
 msgid "Middle East"
 msgstr "Μέση Ανατολή"
 
+msgid "Mild (10-20°C)"
+msgstr "Ήπιο (10-20°C)"
+
 msgid "Moderate"
 msgstr "Μέτριο"
+
+msgid "Moderate (20-40 km/h)"
+msgstr "Μέτρια (20-40 χλμ./ώρα)"
+
+msgid "Moderate rain"
+msgstr "Μέτρια βροχή"
 
 msgid "Month"
 msgstr "Μήνας"
@@ -659,6 +701,9 @@ msgstr "Δεν υπάρχει διαθέσιμη ημερομηνία"
 
 msgid "No location selected"
 msgstr "Δεν επιλέχθηκε τοποθεσία"
+
+msgid "No specific legend available."
+msgstr "Δεν υπάρχει συγκεκριμένος υπόμνημα."
 
 msgid "No station data"
 msgstr "Δεν υπάρχουν δεδομένα σταθμού"
@@ -963,6 +1008,9 @@ msgstr "Σλοβακία"
 msgid "Slower: {}s"
 msgstr "Αργότερα: {}δ"
 
+msgid "Snow / ice"
+msgstr "Χιόνι / πάγος"
+
 msgid "Snow prob. {}%"
 msgstr "Πιθανότ. χιονιού {}%"
 
@@ -986,6 +1034,9 @@ msgstr "Παρατηρήσεις σταθμού"
 
 msgid "Station: {}"
 msgstr "Σταθμός: {}"
+
+msgid "Strong (40-60 km/h)"
+msgstr "Ισχυρό (40-60 χλμ./ώρα)"
 
 msgid "Sunrise"
 msgstr "Ανατολή ηλίου"
@@ -1114,8 +1165,14 @@ msgstr "Χρησιμοποιήστε τα ▲/▼ για αλλαγή, OK για
 msgid "Using current time"
 msgstr "Χρήση τρέχουσας ώρας"
 
+msgid "Very heavy rain"
+msgstr "Πολύ δυνατή βροχή"
+
 msgid "Very high"
 msgstr "Πολύ υψηλή"
+
+msgid "Very hot (>40°C)"
+msgstr "Πολύ ζεστό (>40°C)"
 
 msgid "Visibility: %s m"
 msgstr "Ορατότητα: %s μ"
@@ -1128,6 +1185,9 @@ msgstr "Φθίνουσα ημισέληνος"
 
 msgid "Waning Gibbous"
 msgstr "Φθίνουσα αμφίκυρτη"
+
+msgid "Warm (20-30°C)"
+msgstr "Ζεστό (20-30°C)"
 
 msgid "Waxing Crescent"
 msgstr "Αύξουσα ημισέληνος"
@@ -1273,59 +1333,14 @@ msgstr "← Πλαίσιο"
 #~ msgid "Cloud Cover"
 #~ msgstr "Νεφοκάλυψη"
 
-#~ msgid "Cold (< 0°C)"
-#~ msgstr "Κρύο (< 0°C)"
-
-#~ msgid "Color Legend"
-#~ msgstr "Υπόμνημα χρώματος"
-
-#~ msgid "Cool (0-10°C)"
-#~ msgstr "Δροσερό (0-10°C)"
-
 #~ msgid "Distance"
 #~ msgstr "Απόσταση"
-
-#~ msgid "Extreme / thunderstorms"
-#~ msgstr "Ακραίες / καταιγίδες"
-
-#~ msgid "Gale force (>60 km/h)"
-#~ msgstr "Ισχύς θυέλλης (>60 km/h)"
 
 #~ msgid "Green"
 #~ msgstr "Πράσινος"
 
-#~ msgid "Heavy rain"
-#~ msgstr "Δυνατή βροχή"
-
-#~ msgid "Hot (30-40°C)"
-#~ msgstr "Ζεστό (30-40°C)"
-
-#~ msgid "Ice / frost"
-#~ msgstr "Πάγος / παγετός"
-
 #~ msgid "Last update"
 #~ msgstr "Τελευταία ενημέρωση"
-
-#~ msgid "Light (0-20 km/h)"
-#~ msgstr "Ελαφρύ (0-20 χλμ/ώρα)"
-
-#~ msgid "Light rain / drizzle"
-#~ msgstr "Ελαφριά βροχή / ψιλόβροχο"
-
-#~ msgid "Light to moderate"
-#~ msgstr "Ελαφρύ έως μέτριο"
-
-#~ msgid "Mild (10-20°C)"
-#~ msgstr "Ήπιο (10-20°C)"
-
-#~ msgid "Moderate (20-40 km/h)"
-#~ msgstr "Μέτρια (20-40 χλμ./ώρα)"
-
-#~ msgid "Moderate rain"
-#~ msgstr "Μέτρια βροχή"
-
-#~ msgid "No specific legend available."
-#~ msgstr "Δεν υπάρχει συγκεκριμένος υπόμνημα."
 
 #~ msgid "Radar"
 #~ msgstr "Ραντάρ"
@@ -1335,21 +1350,6 @@ msgstr "← Πλαίσιο"
 
 #~ msgid "Snow"
 #~ msgstr "Χιόνι"
-
-#~ msgid "Snow / ice"
-#~ msgstr "Χιόνι / πάγος"
-
-#~ msgid "Strong (40-60 km/h)"
-#~ msgstr "Ισχυρό (40-60 χλμ./ώρα)"
-
-#~ msgid "Very heavy rain"
-#~ msgstr "Πολύ δυνατή βροχή"
-
-#~ msgid "Very hot (>40°C)"
-#~ msgstr "Πολύ ζεστό (>40°C)"
-
-#~ msgid "Warm (20-30°C)"
-#~ msgstr "Ζεστό (20-30°C)"
 
 #~ msgid "Wetter.de Maps Test"
 #~ msgstr "Δοκιμή χαρτών Wetter.de"
