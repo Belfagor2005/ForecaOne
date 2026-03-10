@@ -58,8 +58,7 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self.unit_system = unit_system
         self.region = region.lower()
 
-        self.legend = self.session.instantiateDialog(
-            MapLegendOverlay, 'precip')
+        self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
         self.legend_active = False
 
         if self.region in REGION_CENTERS:
@@ -100,8 +99,9 @@ class ForecaSVGMapViewer(Screen, HelpableScreen):
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
             {
-                "cancel": (self.exit, _("Exit")),
-                "red": (self.exit, _("Exit")),
+                "cancel": (self.handle_cancel, _("Exit / Close legend")),
+                "red": (self.handle_red, _("Exit / Close legend")),
+                "ok": (self.handle_ok, _("Close legend")),
                 "left": (self.prev_time, _("Previous time")),
                 "right": (self.next_time, _("Next time")),
                 "green": (self.zoom_in, _("Zoom+")),
