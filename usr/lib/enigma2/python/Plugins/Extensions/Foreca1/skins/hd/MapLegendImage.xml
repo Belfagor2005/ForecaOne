@@ -1,0 +1,7 @@
+<screen name="MapLegendImage" position="67,67" size="267,300" title="Color Legend" flags="wfNoBorder" zPosition="12" backgroundColor="#80000000">
+    <widget name="title" position="7,17" size="253,27" font="Regular;19" foregroundColor="#ffffff" backgroundColor="#ff000000" halign="center" zPosition="103" />
+    <widget name="legend_image" position="21,45" size="219,220" zPosition="110" scale="1" alphatest="blend" />
+    <!-- Background plates -->    
+    <widget name="background_plate" size="239,272" zPosition="1" position="14,14" backgroundColor="#ff9632" cornerRadius="33" />
+    <widget name="selection_overlay" size="227,273" zPosition="2" position="20,20" backgroundColor="#00000000" cornerRadius="33" />
+</screen>

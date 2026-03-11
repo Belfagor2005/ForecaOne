@@ -1,0 +1,10 @@
+<screen name="SolarRadiationGraph" position="center,center" size="2560,1440" title="Solar Radiation" flags="wfNoBorder" backgroundColor="#ff000000">
+    <widget name="city_label" position="67,67" size="2427,80" font="Regular;56" foregroundColor="#53a9ff" halign="center" zPosition="3" />
+    <widget name="day_label" position="67,160" size="2427,53" font="Regular;43" foregroundColor="#53a9ff" halign="center" zPosition="3" />
+    <widget name="graph" position="133,247" size="2293,1067" zPosition="4" scale="1" />
+    <!-- Background plates -->
+    <widget name="background_plate" size="2504,1384" zPosition="1" position="28,28" backgroundColor="#ff9632" cornerRadius="67" />
+    <widget name="selection_overlay" size="2440,1320" zPosition="2" position="60,59" backgroundColor="#000000" cornerRadius="67" />
+    <!-- Button icons -->
+    <eLabel text="▲/▼ ◄/► ≡ ℹ ❓ ✖ ⬤" position="1039,1319" size="533,56" font="Regular;51" halign="center" valign="center" zPosition="10" transparent="1" foregroundColor="#aaaaaa" />
+</screen>
