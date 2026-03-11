@@ -36,9 +36,6 @@ msgstr "6-今天+ 6天"
 msgid "7 - Today + 7 days"
 msgstr "7-今天+ 7天"
 
-msgid "7 Day Forecast"
-msgstr "未来七天天气预报"
-
 msgid "8 - Today + 8 days"
 msgstr "8-今天+ 8天"
 
@@ -96,9 +93,6 @@ msgstr "比利时"
 msgid "Berlin"
 msgstr "柏林"
 
-msgid "Blue"
-msgstr "蓝色"
-
 msgid "Blue - Home"
 msgstr "蓝色-主页"
 
@@ -144,10 +138,6 @@ msgstr "关闭"
 #, fuzzy
 msgid "Close legend"
 msgstr "颜色选择"
-
-#, fuzzy
-msgid "Cloud Cover"
-msgstr "多云和阵雨"
 
 msgid "Cloudy"
 msgstr "多云"
@@ -219,12 +209,6 @@ msgstr ""
 msgid "Could not load forecast data"
 msgstr "没有可用的预测数据"
 
-#, fuzzy
-msgid "Could not open temperature map."
-msgstr ""
-"无法初始化地图API.\n"
-"检查配置."
-
 msgid "Could not parse version information."
 msgstr "无法解析版本信息。"
 
@@ -276,9 +260,6 @@ msgstr "露点温度"
 msgid "Dewpoint: N/A"
 msgstr "露点温度"
 
-msgid "Distance"
-msgstr "距离"
-
 msgid "Distance {} km"
 msgstr "距离: {}千米"
 
@@ -299,6 +280,10 @@ msgstr "下"
 msgid "Down - Next page"
 msgstr "向下-下一页"
 
+#, fuzzy
+msgid "Download error"
+msgstr "图片已下载"
+
 msgid "Downloading images..."
 msgstr "正在下载图像..."
 
@@ -313,6 +298,10 @@ msgstr "检查更新时出错。"
 
 #, fuzzy
 msgid "Error loading data"
+msgstr "显示预测时出错"
+
+#, fuzzy
+msgid "Error loading map"
 msgstr "显示预测时出错"
 
 msgid "Error loading maps. Check connection."
@@ -463,9 +452,6 @@ msgstr "大不列颠及北爱尔兰"
 msgid "Greece"
 msgstr "希腊"
 
-msgid "Green"
-msgstr "绿"
-
 msgid "Green - Favorite 1"
 msgstr "绿色-收藏 1"
 
@@ -474,9 +460,6 @@ msgstr ""
 
 msgid "Gust: {:.1f} {}"
 msgstr ""
-
-msgid "HTML"
-msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "德国汉堡"
@@ -532,9 +515,6 @@ msgstr "图片% (当前) d/% (总计) d （已暂停）"
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr "图片% (当前) d/% (总计) d （已暂停）"
 
-msgid "Image Downloaded"
-msgstr "图片已下载"
-
 msgid "Image not available"
 msgstr "图片不可用"
 
@@ -574,14 +554,8 @@ msgstr "键盘设置"
 msgid "Last Quarter"
 msgstr "下弦月"
 
-msgid "Last update"
-msgstr "最近更新时间"
-
 msgid "Latvia"
 msgstr "拉脱维亚"
-
-msgid "Left"
-msgstr ""
 
 msgid "Left - Previous day"
 msgstr "左-前一天"
@@ -956,9 +930,6 @@ msgstr "转到上一页的事件"
 msgid "Previous time"
 msgstr "上张图像"
 
-msgid "Radar"
-msgstr ""
-
 msgid "Rain Prob."
 msgstr ""
 
@@ -975,9 +946,6 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "气象雷达"
 
-msgid "Red"
-msgstr "红色"
-
 msgid "Red - Color select"
 msgstr "红色-颜色选择"
 
@@ -986,9 +954,6 @@ msgstr "刷新"
 
 msgid "Rhineland-Palatine"
 msgstr "莱茵兰-帕拉丁"
-
-msgid "Right"
-msgstr ""
 
 msgid "Right - Next day"
 msgstr "右-第二天"
@@ -1074,9 +1039,6 @@ msgstr "斯洛伐克"
 msgid "Slower: {}s"
 msgstr "较慢： {}秒"
 
-msgid "Snow"
-msgstr ""
-
 msgid "Snow / ice"
 msgstr ""
 
@@ -1085,9 +1047,6 @@ msgstr ""
 
 msgid "Snow prob.: N/A"
 msgstr "降雪概率:N/A"
-
-msgid "Solar Radiation Graph"
-msgstr ""
 
 msgid "South Africa"
 msgstr "南非"
@@ -1127,13 +1086,6 @@ msgstr "温度"
 
 msgid "Temperature"
 msgstr "CPU温度"
-
-msgid "Temperature Map (Official Legend)"
-msgstr ""
-
-#, fuzzy
-msgid "Temperature layer not available."
-msgstr "图片不可用"
 
 #, fuzzy
 msgid "Temperature: %d%s"
@@ -1188,9 +1140,6 @@ msgstr "透明度设置"
 
 msgid "Transparency level"
 msgstr "透明度水平"
-
-msgid "UV"
-msgstr "紫外线"
 
 msgid "UV Index"
 msgstr "紫外线指数"
@@ -1311,10 +1260,6 @@ msgstr "明天的天气"
 msgid "Weekly Forecast"
 msgstr "每周预测"
 
-#, fuzzy
-msgid "Wetter.de Maps Test"
-msgstr "菜单-天气图"
-
 msgid "Wind"
 msgstr "风速"
 
@@ -1409,6 +1354,48 @@ msgstr "黄色-分配给收藏夹2\n"
 
 msgid "← Frame"
 msgstr ""
+
+#~ msgid "7 Day Forecast"
+#~ msgstr "未来七天天气预报"
+
+#~ msgid "Blue"
+#~ msgstr "蓝色"
+
+#, fuzzy
+#~ msgid "Cloud Cover"
+#~ msgstr "多云和阵雨"
+
+#, fuzzy
+#~ msgid "Could not open temperature map."
+#~ msgstr ""
+#~ "无法初始化地图API.\n"
+#~ "检查配置."
+
+#~ msgid "Distance"
+#~ msgstr "距离"
+
+#~ msgid "Green"
+#~ msgstr "绿"
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Last update"
+#~ msgstr "最近更新时间"
+
+#~ msgid "Red"
+#~ msgstr "红色"
+
+#, fuzzy
+#~ msgid "Temperature layer not available."
+#~ msgstr "图片不可用"
+
+#~ msgid "UV"
+#~ msgstr "紫外线"
+
+#, fuzzy
+#~ msgid "Wetter.de Maps Test"
+#~ msgstr "菜单-天气图"
 
 #, fuzzy
 #~ msgid "Map Color Legend"

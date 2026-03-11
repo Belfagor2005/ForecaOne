@@ -41,9 +41,6 @@ msgstr ""
 msgid "7 - Today + 7 days"
 msgstr ""
 
-msgid "7 Day Forecast"
-msgstr ""
-
 msgid "8 - Today + 8 days"
 msgstr ""
 
@@ -101,9 +98,6 @@ msgstr ""
 msgid "Berlin"
 msgstr ""
 
-msgid "Blue"
-msgstr ""
-
 msgid "Blue - Home"
 msgstr ""
 
@@ -147,9 +141,6 @@ msgid "Close"
 msgstr ""
 
 msgid "Close legend"
-msgstr ""
-
-msgid "Cloud Cover"
 msgstr ""
 
 msgid "Cloudy"
@@ -218,9 +209,6 @@ msgstr ""
 msgid "Could not load forecast data"
 msgstr ""
 
-msgid "Could not open temperature map."
-msgstr ""
-
 msgid "Could not parse version information."
 msgstr ""
 
@@ -269,9 +257,6 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
-msgid "Distance"
-msgstr ""
-
 msgid "Distance {} km"
 msgstr ""
 
@@ -290,6 +275,9 @@ msgstr ""
 msgid "Down - Next page"
 msgstr ""
 
+msgid "Download error"
+msgstr ""
+
 msgid "Downloading images..."
 msgstr ""
 
@@ -303,6 +291,9 @@ msgid "Error checking for updates."
 msgstr ""
 
 msgid "Error loading data"
+msgstr ""
+
+msgid "Error loading map"
 msgstr ""
 
 msgid "Error loading maps. Check connection."
@@ -446,9 +437,6 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
-msgid "Green"
-msgstr ""
-
 msgid "Green - Favorite 1"
 msgstr ""
 
@@ -456,9 +444,6 @@ msgid "Gust {}"
 msgstr ""
 
 msgid "Gust: {:.1f} {}"
-msgstr ""
-
-msgid "HTML"
 msgstr ""
 
 msgid "Hamburg"
@@ -512,9 +497,6 @@ msgstr ""
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
-msgid "Image Downloaded"
-msgstr ""
-
 msgid "Image not available"
 msgstr ""
 
@@ -554,13 +536,7 @@ msgstr ""
 msgid "Last Quarter"
 msgstr ""
 
-msgid "Last update"
-msgstr ""
-
 msgid "Latvia"
-msgstr ""
-
-msgid "Left"
 msgstr ""
 
 msgid "Left - Previous day"
@@ -923,9 +899,6 @@ msgstr ""
 msgid "Previous time"
 msgstr ""
 
-msgid "Radar"
-msgstr ""
-
 msgid "Rain Prob."
 msgstr ""
 
@@ -941,9 +914,6 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr ""
 
-msgid "Red"
-msgstr ""
-
 msgid "Red - Color select"
 msgstr ""
 
@@ -951,9 +921,6 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Rhineland-Palatine"
-msgstr ""
-
-msgid "Right"
 msgstr ""
 
 msgid "Right - Next day"
@@ -1040,9 +1007,6 @@ msgstr ""
 msgid "Slower: {}s"
 msgstr ""
 
-msgid "Snow"
-msgstr ""
-
 msgid "Snow / ice"
 msgstr ""
 
@@ -1050,9 +1014,6 @@ msgid "Snow prob. {}%"
 msgstr ""
 
 msgid "Snow prob.: N/A"
-msgstr ""
-
-msgid "Solar Radiation Graph"
 msgstr ""
 
 msgid "South Africa"
@@ -1092,12 +1053,6 @@ msgid "Temp"
 msgstr ""
 
 msgid "Temperature"
-msgstr ""
-
-msgid "Temperature Map (Official Legend)"
-msgstr ""
-
-msgid "Temperature layer not available."
 msgstr ""
 
 msgid "Temperature: %d%s"
@@ -1146,9 +1101,6 @@ msgid "Transparency Settings"
 msgstr ""
 
 msgid "Transparency level"
-msgstr ""
-
-msgid "UV"
 msgstr ""
 
 msgid "UV Index"
@@ -1266,9 +1218,6 @@ msgid "Weather tomorrow"
 msgstr ""
 
 msgid "Weekly Forecast"
-msgstr ""
-
-msgid "Wetter.de Maps Test"
 msgstr ""
 
 msgid "Wind"

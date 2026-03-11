@@ -40,10 +40,6 @@ msgstr "6 – Heute + 6 Tage"
 msgid "7 - Today + 7 days"
 msgstr "7 - Heute + 7 Tage"
 
-#, fuzzy
-msgid "7 Day Forecast"
-msgstr "Vorhersage"
-
 msgid "8 - Today + 8 days"
 msgstr "8 – Heute + 8 Tage"
 
@@ -103,9 +99,6 @@ msgstr "Belgien"
 msgid "Berlin"
 msgstr "Berlin"
 
-msgid "Blue"
-msgstr "Blau"
-
 msgid "Blue - Home"
 msgstr "Blau – Startseite"
 
@@ -152,10 +145,6 @@ msgstr ""
 #, fuzzy
 msgid "Close legend"
 msgstr "Farbe auswählen"
-
-#, fuzzy
-msgid "Cloud Cover"
-msgstr "Bewölkt und Schauer"
 
 msgid "Cloudy"
 msgstr "Bewölkt"
@@ -228,9 +217,6 @@ msgstr ""
 msgid "Could not load forecast data"
 msgstr "Vorhersagedaten konnten nicht geladen werden"
 
-msgid "Could not open temperature map."
-msgstr ""
-
 msgid "Could not parse version information."
 msgstr ""
 
@@ -282,9 +268,6 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
-msgid "Distance"
-msgstr "Entfernung"
-
 #, fuzzy
 msgid "Distance {} km"
 msgstr "Entfernung"
@@ -306,6 +289,9 @@ msgstr ""
 msgid "Down - Next page"
 msgstr "Nach unten – Nächste Seite"
 
+msgid "Download error"
+msgstr ""
+
 msgid "Downloading images..."
 msgstr "Bilder werden heruntergeladen..."
 
@@ -322,6 +308,10 @@ msgstr "Fehler beim Speichern des Favoriten!"
 
 #, fuzzy
 msgid "Error loading data"
+msgstr "Fehler beim Speichern des Favoriten!"
+
+#, fuzzy
+msgid "Error loading map"
 msgstr "Fehler beim Speichern des Favoriten!"
 
 msgid "Error loading maps. Check connection."
@@ -488,9 +478,6 @@ msgstr "Großbritannien"
 msgid "Greece"
 msgstr "Griechenland"
 
-msgid "Green"
-msgstr "Grün"
-
 msgid "Green - Favorite 1"
 msgstr "Grün – Favorit 1"
 
@@ -499,9 +486,6 @@ msgstr ""
 
 msgid "Gust: {:.1f} {}"
 msgstr ""
-
-msgid "HTML"
-msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Hamburg"
@@ -556,9 +540,6 @@ msgstr ""
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
-msgid "Image Downloaded"
-msgstr ""
-
 msgid "Image not available"
 msgstr "Bild nicht verfügbar"
 
@@ -599,14 +580,8 @@ msgstr "Tastatur"
 msgid "Last Quarter"
 msgstr "Letzte Aktualisierung"
 
-msgid "Last update"
-msgstr "Letzte Aktualisierung"
-
 msgid "Latvia"
 msgstr "Lettland"
-
-msgid "Left"
-msgstr ""
 
 msgid "Left - Previous day"
 msgstr "Links – Vortag"
@@ -994,9 +969,6 @@ msgstr "Vorherige Seite"
 msgid "Previous time"
 msgstr "Vorherige Seite"
 
-msgid "Radar"
-msgstr ""
-
 msgid "Rain Prob."
 msgstr ""
 
@@ -1013,9 +985,6 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Wetterradar"
 
-msgid "Red"
-msgstr "Rot"
-
 msgid "Red - Color select"
 msgstr "Rot – Farbe auswählen"
 
@@ -1024,9 +993,6 @@ msgstr ""
 
 msgid "Rhineland-Palatine"
 msgstr "Rheinland-Pfalz"
-
-msgid "Right"
-msgstr ""
 
 msgid "Right - Next day"
 msgstr "Rechts – Nächster Tag"
@@ -1116,9 +1082,6 @@ msgstr "Slowakei"
 msgid "Slower: {}s"
 msgstr "Langsamer: {}s"
 
-msgid "Snow"
-msgstr ""
-
 msgid "Snow / ice"
 msgstr ""
 
@@ -1126,9 +1089,6 @@ msgid "Snow prob. {}%"
 msgstr ""
 
 msgid "Snow prob.: N/A"
-msgstr ""
-
-msgid "Solar Radiation Graph"
 msgstr ""
 
 msgid "South Africa"
@@ -1170,13 +1130,6 @@ msgstr ""
 
 msgid "Temperature"
 msgstr "Temperatur"
-
-msgid "Temperature Map (Official Legend)"
-msgstr ""
-
-#, fuzzy
-msgid "Temperature layer not available."
-msgstr "Bild nicht verfügbar"
 
 #, fuzzy
 msgid "Temperature: %d%s"
@@ -1233,9 +1186,6 @@ msgstr "Transparenzeinstellungen"
 
 msgid "Transparency level"
 msgstr "Transparenzgrad"
-
-msgid "UV"
-msgstr ""
 
 msgid "UV Index"
 msgstr ""
@@ -1362,10 +1312,6 @@ msgstr "Wetter morgen"
 msgid "Weekly Forecast"
 msgstr "Wochenvorhersage"
 
-#, fuzzy
-msgid "Wetter.de Maps Test"
-msgstr "Wetterkarten"
-
 msgid "Wind"
 msgstr "Wind"
 
@@ -1465,6 +1411,40 @@ msgstr "• GELB zum Speichern als Favorit 2\n"
 
 msgid "← Frame"
 msgstr ""
+
+#, fuzzy
+#~ msgid "7 Day Forecast"
+#~ msgstr "Vorhersage"
+
+#~ msgid "Blue"
+#~ msgstr "Blau"
+
+#, fuzzy
+#~ msgid "Cloud Cover"
+#~ msgstr "Bewölkt und Schauer"
+
+#~ msgid "Distance"
+#~ msgstr "Entfernung"
+
+#~ msgid "Green"
+#~ msgstr "Grün"
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Last update"
+#~ msgstr "Letzte Aktualisierung"
+
+#~ msgid "Red"
+#~ msgstr "Rot"
+
+#, fuzzy
+#~ msgid "Temperature layer not available."
+#~ msgstr "Bild nicht verfügbar"
+
+#, fuzzy
+#~ msgid "Wetter.de Maps Test"
+#~ msgstr "Wetterkarten"
 
 #, fuzzy
 #~ msgid "No tiles available"
