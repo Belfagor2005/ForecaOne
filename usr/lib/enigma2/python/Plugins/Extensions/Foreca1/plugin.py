@@ -98,7 +98,8 @@ from .unit_manager import UnitManager, UnitSettingsSimple
 from .weather_detail import WeatherDetailView
 from .MoonPhase import MoonPhase
 from .hour_detail import HourDetailView
-
+from .solar_radiation_graph import SolarRadiationGraph
+from .temperature_map_viewer import TemperatureMapViewer
 
 # ---------- Utility functions ----------
 TARGET_LANG = _get_system_language()
@@ -353,6 +354,10 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["uvi_value"] = Label("N/A")
         self["icon_uvi"] = Pixmap()
         self["uvi_desc"] = Label("")
+
+        # ========== SOLAR INDEX ==========
+        self["icon_solar"] = Pixmap()
+        self["solar_value"] = Label("N/A")
 
         # ========== AIR QUALITY INDEX (AQI) ==========
         self["icon_aqi"] = Pixmap()
@@ -609,10 +614,12 @@ class Foreca_Preview(Screen, HelpableScreen):
             (_("RainViewer Radar"), "rainviewer"),
             (_("Weekly Forecast"), "daily_forecast"),
             (_("Meteogram"), "meteogram"),
+            (_("Solar Radiation Graph"), "solar_graph"),
+            (_("Temperature Map (Official Legend)"), "temp_map"),
+            (_("Lunar Calendar"), "moon_calendar"),
             (_("Station Observations"), "stations"),
             (_("Unit Settings (Simple)"), "units_simple"),
             (_("Unit Settings (Advanced)"), "units_advanced"),
-            (_("Lunar Calendar"), "moon_calendar"),
             (_("Color select"), "colorselector"),
             (_("Transparency Settings"), "transparency"),
             (_("Check for updates"), "update"),
@@ -666,6 +673,39 @@ class Foreca_Preview(Screen, HelpableScreen):
                     MessageBox,
                     _("No location selected"),
                     MessageBox.TYPE_INFO)
+        elif key == "solar_graph":
+            location_id = [self.path_loc0, self.path_loc1, self.path_loc2][self.myloc].split('/')[0]
+            location_name = self.town
+            if location_id:
+                self.session.openWithCallback(
+                    self.after_main_menu,
+                    SolarRadiationGraph,
+                    self.weather_api,
+                    location_id,
+                    location_name,
+                    self.unit_manager,
+                    getattr(self, 'tz', None),
+                    getattr(self, 'tz_offset', None)
+                )
+            else:
+                self.session.open(MessageBox, _("No location selected"), MessageBox.TYPE_INFO)
+        elif key == "temp_map":
+            location_id = [self.path_loc0, self.path_loc1, self.path_loc2][self.myloc].split('/')[0]
+            if location_id:
+                region = self.determine_region_from_location(location_id=location_id, country_name=self.country, lon=self.lon, lat=self.lat)
+                map_api = ForecaMapAPI(region=region)  # usa le credenziali dal file
+                self.session.open(
+                    TemperatureMapViewer,
+                    map_api,  # <-- passa la map API
+                    location_id,
+                    self.town,
+                    self.unit_manager,
+                    getattr(self, 'tz', None),
+                    getattr(self, 'tz_offset', None)
+                )
+        elif key == "moon_calendar":
+            self.session.openWithCallback(
+                self.after_main_menu, MoonCalendar, self.moon)
         elif key == "stations":
             location_id = [self.path_loc0, self.path_loc1,
                            self.path_loc2][self.myloc].split('/')[0]
@@ -696,9 +736,6 @@ class Foreca_Preview(Screen, HelpableScreen):
                 self.after_units,
                 UnitSettingsAdvanced,
                 self.unit_manager)
-        elif key == "moon_calendar":
-            self.session.openWithCallback(
-                self.after_main_menu, MoonCalendar, self.moon)
         elif key == "colorselector":
             self.session.openWithCallback(
                 self.after_main_menu, ColorSelector, self)
@@ -763,6 +800,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         self.myloc = fav_index
         day_index = self.tag
         location_id = path_loc.split('/')[0] if '/' in path_loc else path_loc
+        current = self.weather_api.get_current_weather(location_id)
 
         # Get location details
         place = self.weather_api.get_location_by_id(location_id)
@@ -847,10 +885,14 @@ class Foreca_Preview(Screen, HelpableScreen):
                 _write_favorite_debug("# DEBUG: Current weather data is None")
             self.cur_temp = self.fl_temp = self.pic = self.wind = self.wind_speed = self.wind_gust = self.rain_mm = self.hum = self.pressure = self.dewpoint = self.uvi = 'N/A'
 
-        # Daily forecast
+        # Daily forecast (try auth, fallback to free)
         days_needed = max(self.tag + 1, 1)
-        daily_all = self.weather_api.get_daily_forecast(
-            location_id, days=days_needed)
+        daily_all = None
+        if self.weather_api_auth:
+            daily_all = self.weather_api_auth.get_daily_forecast(location_id, days=days_needed)
+        if not daily_all:
+            daily_all = self.weather_api.get_daily_forecast(location_id, days=days_needed)
+
         if daily_all and len(daily_all) > self.tag:
             day_selected = daily_all[self.tag]
 
@@ -900,9 +942,23 @@ class Foreca_Preview(Screen, HelpableScreen):
                 f"(current values preserved: uvi={self.uvi}, rainp={self.rainp}, snowp={self.snowp}, updated={self.updated})")
             _write_favorite_debug(debug_msg)
 
-        # Hourly forecast
-        hourly = self.weather_api.get_hourly_forecast(
-            location_id, day=day_index)
+        # Hourly forecast (try auth, fallback to free)
+        hourly = None
+        if self.weather_api_auth:
+            try:
+                hourly = self.weather_api_auth.get_hourly_forecast(location_id, day=day_index)
+                if DEBUG:
+                    print(f"[Foreca1] Using authenticated API for hourly, got {len(hourly) if hourly else 0} records")
+            except Exception as e:
+                if DEBUG:
+                    print(f"[Foreca1] Auth hourly failed, falling back: {e}")
+                hourly = None
+
+        if not hourly:
+            hourly = self.weather_api.get_hourly_forecast(location_id, day=day_index)
+            if DEBUG:
+                print(f"[Foreca1] Using free API (scraper) for hourly, got {len(hourly) if hourly else 0} records")
+
         if hourly:
             self.f_time = [h.time.strftime("%H:%M") for h in hourly]
             self.f_cur_temp = [str(h.temp) for h in hourly]
@@ -918,6 +974,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             self.f_rel_hum = [str(h.humidity) for h in hourly]
             self.f_uvi = [str(h.uvi) if hasattr(h, 'uvi')
                           and h.uvi is not None else 'N/A' for h in hourly]
+            self.f_solar = [str(h.solar_radiation) if h.solar_radiation is not None else '0' for h in hourly]
             target_date = datetime.date.today() + datetime.timedelta(days=day_index)
             self.f_date = [target_date.strftime("%Y-%m-%d")] * len(hourly)
             self.f_day = target_date.strftime("%A")
@@ -939,6 +996,10 @@ class Foreca_Preview(Screen, HelpableScreen):
                 _write_favorite_debug(debug_msg)
             self.f_time = self.f_cur_temp = self.f_flike_temp = self.f_symb = self.f_wind = self.f_wind_speed = self.f_precipitation = self.f_rel_hum = self.f_date = self.f_uvi = []
             self.f_day = 'N/A'
+
+        if DEBUG:
+            print(f"[DEBUG] Current weather raw: temp={self.cur_temp}, feels={self.fl_temp}, pressure={self.pressure}, ...")
+            print(f"[DEBUG] Daily forecast for day {self.tag}: {day_selected.__dict__ if day_selected else 'None'}")
 
         # Update UI
         self._update_moon()
@@ -1195,6 +1256,16 @@ class Foreca_Preview(Screen, HelpableScreen):
             self["uvi_desc"].setText(uvi_desc)
             self["uvi_desc"].instance.setForegroundColor(uv_color)
             self["uvi_desc"].instance.show()
+
+        # --- SOLAR RADIATIONS ---
+        if hasattr(self, 'f_solar') and self.f_solar and len(self.f_solar) > 0:
+            solar_val = self.f_solar[0]
+            self["solar_value"].setText(f"{solar_val} W/m²")
+            color = self.solar_to_color(solar_val)
+            self["solar_value"].instance.setForegroundColor(color)
+        else:
+            self["solar_value"].setText("N/A")
+            self["solar_value"].instance.setForegroundColor(parseColor("#ffffff"))
 
         # --- AQI ---
         if hasattr(self, 'aqi') and self.aqi != 'N/A':
@@ -1806,6 +1877,46 @@ class Foreca_Preview(Screen, HelpableScreen):
         if DEBUG:
             write_meteogram_debug("[DEBUG] MeteogramView opened successfully")
 
+    def open_temperature_map(self):
+        if not exists(CONFIG_FILE):
+            self.session.open(
+                MessageBox,
+                _("API configuration file not found!\n\nPlease create file:\n{0}\n\nwith your Foreca API credentials.").format(CONFIG_FILE),
+                MessageBox.TYPE_ERROR,
+                timeout=10)
+            return
+        try:
+            region = self.determine_region_from_location(
+                location_id=self.loc_id,
+                country_name=self.country,
+                lon=self.lon,
+                lat=self.lat
+            )
+            api = ForecaMapAPI(region=region)
+            if not api.check_credentials():
+                self.session.open(MessageBox, _("API credentials not configured."), MessageBox.TYPE_ERROR)
+                return
+
+            caps = api.get_capabilities()
+            temp_layer = None
+            for layer in caps:
+                if layer['id'] == 2:
+                    temp_layer = layer
+                    break
+            if not temp_layer:
+                self.session.open(MessageBox, _("Temperature layer not available."), MessageBox.TYPE_ERROR)
+                return
+            self.session.open(
+                TemperatureMapViewer,
+                api,
+                temp_layer,
+                self.unit_manager.get_simple_system(),
+                region
+            )
+        except Exception as e:
+            print(f"[Foreca1] Error opening temperature map: {e}")
+            self.session.open(MessageBox, _("Could not open temperature map."), MessageBox.TYPE_ERROR)
+
     def open_station_observations(self):
         location_id = [self.path_loc0, self.path_loc1,
                        self.path_loc2][self.myloc].split('/')[0]
@@ -1956,6 +2067,21 @@ class Foreca_Preview(Screen, HelpableScreen):
             return parseColor("#ff0000")  # red
         else:
             return parseColor("#9900ff")  # purple
+
+    def solar_to_color(self, radiance):
+        """Return a color based on solar radiation intensity (W/m²)."""
+        try:
+            val = float(radiance)
+        except:
+            return parseColor("#ffffff")  # white default
+        if val < 200:
+            return parseColor("#00ff00")  # green
+        elif val < 400:
+            return parseColor("#ffff00")  # yellow
+        elif val < 600:
+            return parseColor("#ff9900")  # orange
+        else:
+            return parseColor("#ff0000")  # red
 
     def _get_timezone_offset(self, tz_name):
         """Calculate the current UTC offset for a given timezone (in hours)."""

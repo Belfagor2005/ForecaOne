@@ -7,9 +7,12 @@ from Screens.HelpMenu import HelpableScreen
 from Components.ActionMap import HelpableActionMap
 from Components.Label import Label
 from enigma import gRGB
-from Components.Sources.StaticText import StaticText
 
-from . import _, load_skin_for_class, apply_global_theme
+from . import (
+    _,
+    load_skin_for_class,
+    apply_global_theme
+)
 
 
 class MapLegend(Screen, HelpableScreen):
@@ -26,7 +29,6 @@ class MapLegend(Screen, HelpableScreen):
         self.layer_type = layer_type.lower()
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
-        self["key_red"] = StaticText(_("Close"))
         self["title"] = Label(_("Color Legend"))
         for i in range(1, 8):
             self[f"color{i}"] = Label("")
@@ -108,12 +110,7 @@ class MapLegend(Screen, HelpableScreen):
 
 
 class MapLegendOverlay(MapLegend):
-    def __init__(
-            self,
-            session,
-            layer_type="precip",
-            mode='text',
-            image_path=None):
+    def __init__(self, session, layer_type="precip", mode='text', image_path=None):
         self.mode = mode
         self.image_path = image_path
         # Choose the skin based on the mode
@@ -125,6 +122,7 @@ class MapLegendOverlay(MapLegend):
 
     def populate_legend(self):
         if self.mode == 'image' and self.image_path:
+            print(f"[MapLegend] Showing image legend: {self.image_path}")
             # Hide all color row widgets
             for i in range(1, 8):
                 if f"color{i}" in self:
@@ -133,8 +131,7 @@ class MapLegendOverlay(MapLegend):
                     self[f"desc{i}"].hide()
             # Show Image
             if "legend_image" in self and self["legend_image"].instance:
-                self["legend_image"].instance.setPixmapFromFile(
-                    self.image_path)
+                self["legend_image"].instance.setPixmapFromFile(self.image_path)
                 self["legend_image"].show()
         else:
             # Normal behavior (textual)

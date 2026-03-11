@@ -133,7 +133,8 @@ def scrape_hourly_forecast(place: Place, day: int = 0) -> List[HourForecast]:
                 wind_speed=wind_speed,
                 wind_direction=wind_direction,
                 precipitation=precip,
-                precip_prob=precip_prob
+                precip_prob=precip_prob,
+                solar_radiation=None
             )
 
             result.append(hf)
