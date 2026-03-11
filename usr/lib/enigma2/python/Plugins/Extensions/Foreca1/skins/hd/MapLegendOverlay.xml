@@ -29,9 +29,6 @@
     <widget name="color7" position="13,200" size="20,20" backgroundColor="white" zPosition="104" cornerRadius="13" transparent="0" />
     <widget name="desc7" position="40,200" size="213,20" font="Regular;15" foregroundColor="#ffffff" valign="center" zPosition="103" />
 
-    <!-- Button icons -->
-    <widget source="key_red" render="Label" position="100,240" size="67,20" font="Regular;15" backgroundColor="#ff0000" foregroundColor="#ffffff" halign="center" valign="center" text="Close" zPosition="105" cornerRadius="10" />
-
     <!-- Background plates -->
     <widget name="background_plate" position="0,0" size="267,300" backgroundColor="#c0000000" zPosition="101" cornerRadius="13" />
     <widget name="selection_overlay" position="3,3" size="260,293" backgroundColor="#00000000" zPosition="102" cornerRadius="10" />

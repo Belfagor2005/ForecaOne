@@ -1,6 +1,4 @@
 <screen name="MapLegendOverlay" position="100,100" size="400,450" title="Color Legend" flags="wfNoBorder">
-    <widget name="background_plate" position="0,0" size="400,450" backgroundColor="#80000000" zPosition="1" cornerRadius="20" />
-    <widget name="selection_overlay" position="5,5" size="390,440" backgroundColor="#00000000" zPosition="2" cornerRadius="15" />
 
     <widget name="title" position="10,10" size="380,40" font="Regular;28" foregroundColor="#ffffff" halign="center" zPosition="3" />
 
@@ -31,6 +29,9 @@
     <!-- Riga 7 -->
     <widget name="color7" position="20,300" size="30,30" backgroundColor="white" zPosition="4" cornerRadius="15" transparent="0" />
     <widget name="desc7" position="60,300" size="320,30" font="Regular;22" foregroundColor="#ffffff" valign="center" zPosition="3" />
+    
+    <!-- Background plates -->
+    <widget name="background_plate" position="0,0" size="400,450" backgroundColor="#80000000" zPosition="1" cornerRadius="20" />
+    <widget name="selection_overlay" position="5,5" size="390,440" backgroundColor="#00000000" zPosition="2" cornerRadius="15" />
 
-    <widget source="key_red" render="Label" position="150,360" size="100,30" font="Regular;22" backgroundColor="#ff0000" foregroundColor="#ffffff" halign="center" valign="center" text="Close" zPosition="3" cornerRadius="10" />
 </screen>
