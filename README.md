@@ -44,8 +44,8 @@
     <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/12.jpeg" width="200"></td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/13.jpg" width="200"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/14.jpg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/13.jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/14.jpeg" width="200"></td>
   </tr>
 </table>
 
