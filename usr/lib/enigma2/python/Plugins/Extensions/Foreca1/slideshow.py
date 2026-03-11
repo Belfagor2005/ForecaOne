@@ -217,11 +217,9 @@ class ForecaSlideshow(Screen, HelpableScreen):
 
                 # Determine the day text
                 if index == 0:
-                    day_str = _("Today") + " " + \
-                        target_date.strftime("%a %d.%m.%Y")
+                    day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
                 elif index == 1:
-                    day_str = _("Tomorrow") + " " + \
-                        target_date.strftime("%a %d.%m.%Y")
+                    day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
                 else:
                     day_str = target_date.strftime("%a %d.%m.%Y")
 
@@ -264,11 +262,9 @@ class ForecaSlideshow(Screen, HelpableScreen):
             # Recalculate the date for the current image
             target_date = datetime.now() + timedelta(days=self.current_image)
             if self.current_image == 0:
-                day_str = _("Today") + " " + \
-                    target_date.strftime("%a %d.%m.%Y")
+                day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
             elif self.current_image == 1:
-                day_str = _("Tomorrow") + " " + \
-                    target_date.strftime("%a %d.%m.%Y")
+                day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
             else:
                 day_str = target_date.strftime("%a %d.%m.%Y")
 
@@ -287,11 +283,9 @@ class ForecaSlideshow(Screen, HelpableScreen):
             # When playback resumes, restore the normal text
             target_date = datetime.now() + timedelta(days=self.current_image)
             if self.current_image == 0:
-                day_str = _("Today") + " " + \
-                    target_date.strftime("%a %d.%m.%Y")
+                day_str = _("Today") + " " + target_date.strftime("%a %d.%m.%Y")
             elif self.current_image == 1:
-                day_str = _("Tomorrow") + " " + \
-                    target_date.strftime("%a %d.%m.%Y")
+                day_str = _("Tomorrow") + " " + target_date.strftime("%a %d.%m.%Y")
             else:
                 day_str = target_date.strftime("%a %d.%m.%Y")
 

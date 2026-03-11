@@ -42,6 +42,10 @@ msgstr "6 - Dnes + 6 dnů"
 msgid "7 - Today + 7 days"
 msgstr "7 - Dnes + 7 dnů"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Předpověď"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Dnes + 8 dnů"
 
@@ -101,6 +105,9 @@ msgstr "Belgie"
 msgid "Berlin"
 msgstr "Berlín"
 
+msgid "Blue"
+msgstr "Modrá"
+
 msgid "Blue - Home"
 msgstr "Modrá - Domov"
 
@@ -147,6 +154,10 @@ msgstr ""
 #, fuzzy
 msgid "Close legend"
 msgstr "Výběr barvy"
+
+#, fuzzy
+msgid "Cloud Cover"
+msgstr "Oblačno a přeháňky"
 
 msgid "Cloudy"
 msgstr "Oblačno"
@@ -270,6 +281,9 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
+msgid "Distance"
+msgstr "Vzdálenost"
+
 #, fuzzy
 msgid "Distance {} km"
 msgstr "Vzdálenost"
@@ -291,9 +305,6 @@ msgstr ""
 msgid "Down - Next page"
 msgstr "Dolů - Další strana"
 
-msgid "Download error"
-msgstr ""
-
 msgid "Downloading images..."
 msgstr "Stahování obrázků..."
 
@@ -310,10 +321,6 @@ msgstr "Chyba při ukládání oblíbené položky!"
 
 #, fuzzy
 msgid "Error loading data"
-msgstr "Chyba při ukládání oblíbené položky!"
-
-#, fuzzy
-msgid "Error loading map"
 msgstr "Chyba při ukládání oblíbené položky!"
 
 msgid "Error loading maps. Check connection."
@@ -480,6 +487,9 @@ msgstr "Velká Británie"
 msgid "Greece"
 msgstr "Řecko"
 
+msgid "Green"
+msgstr "Zelená"
+
 msgid "Green - Favorite 1"
 msgstr "Zelená - Oblíbené 1"
 
@@ -489,15 +499,17 @@ msgstr ""
 msgid "Gust: {:.1f} {}"
 msgstr ""
 
+msgid "HTML"
+msgstr "HTML"
+
 msgid "Hamburg"
 msgstr "Hamburk"
 
 msgid "Header - not selectable"
 msgstr "Záhlaví - nelze vybrat"
 
-#, fuzzy
 msgid "Heavy rain"
-msgstr "Zataženo a déšť"
+msgstr ""
 
 msgid "Help"
 msgstr ""
@@ -543,6 +555,9 @@ msgstr ""
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
+msgid "Image Downloaded"
+msgstr ""
+
 msgid "Image not available"
 msgstr "Obrázek není k dispozici"
 
@@ -583,8 +598,14 @@ msgstr "Klávesnice"
 msgid "Last Quarter"
 msgstr "Poslední aktualizace"
 
+msgid "Last update"
+msgstr "Poslední aktualizace"
+
 msgid "Latvia"
 msgstr "Lotyšsko"
+
+msgid "Left"
+msgstr ""
 
 msgid "Left - Previous day"
 msgstr "Doleva - Předchozí den"
@@ -972,6 +993,9 @@ msgstr "Předchozí strana"
 msgid "Previous time"
 msgstr "Předchozí strana"
 
+msgid "Radar"
+msgstr ""
+
 msgid "Rain Prob."
 msgstr ""
 
@@ -988,6 +1012,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Meteorologický radar"
 
+msgid "Red"
+msgstr "Červená"
+
 msgid "Red - Color select"
 msgstr "Červená - Výběr barvy"
 
@@ -996,6 +1023,9 @@ msgstr ""
 
 msgid "Rhineland-Palatine"
 msgstr "Porýní-Falc"
+
+msgid "Right"
+msgstr ""
 
 msgid "Right - Next day"
 msgstr "Doprava - Následující den"
@@ -1084,6 +1114,9 @@ msgstr "Slovensko"
 
 msgid "Slower: {}s"
 msgstr "Pomaleji: {}s"
+
+msgid "Snow"
+msgstr ""
 
 msgid "Snow / ice"
 msgstr ""
@@ -1189,6 +1222,9 @@ msgstr "Nastavení průhlednosti"
 
 msgid "Transparency level"
 msgstr "Úroveň průhlednosti"
+
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr ""
@@ -1315,6 +1351,10 @@ msgstr "Počasí zítra"
 msgid "Weekly Forecast"
 msgstr "Týdenní předpověď"
 
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "Mapy počasí"
+
 msgid "Wind"
 msgstr "Vítr"
 
@@ -1414,36 +1454,6 @@ msgstr "• ŽLUTÁ pro uložení jako Oblíbené 2\n"
 
 msgid "← Frame"
 msgstr ""
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Předpověď"
-
-#~ msgid "Blue"
-#~ msgstr "Modrá"
-
-#, fuzzy
-#~ msgid "Cloud Cover"
-#~ msgstr "Oblačno a přeháňky"
-
-#~ msgid "Distance"
-#~ msgstr "Vzdálenost"
-
-#~ msgid "Green"
-#~ msgstr "Zelená"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Last update"
-#~ msgstr "Poslední aktualizace"
-
-#~ msgid "Red"
-#~ msgstr "Červená"
-
-#, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Mapy počasí"
 
 #, fuzzy
 #~ msgid "No tiles available"

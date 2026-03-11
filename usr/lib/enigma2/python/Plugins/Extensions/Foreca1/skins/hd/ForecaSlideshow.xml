@@ -1,4 +1,4 @@
-<screen name="ForecaSlideshow" position="center,center" backgroundColor="#ff000000" size="853,720" flags="wfNoBorder">
+<screen name="ForecaSlideshow" position="center,center" backgroundColor="#ff000000" size="1280,720" flags="wfNoBorder">
     <!-- Description -->
     <widget name="title" position="33,29" size="593,29" font="Regular; 28" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" halign="right" zPosition="10" />
     <widget name="info" position="653,29" size="593,29" font="Regular; 28" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" halign="left" zPosition="10" />

@@ -41,6 +41,10 @@ msgstr "6 - Today + 6 days"
 msgid "7 - Today + 7 days"
 msgstr "7 - Today + 7 days"
 
+#, fuzzy
+msgid "7 Day Forecast"
+msgstr "Foreca 4"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Today + 8 days"
 
@@ -102,6 +106,9 @@ msgstr ""
 msgid "Berlin"
 msgstr ""
 
+msgid "Blue"
+msgstr ""
+
 msgid "Blue - Home"
 msgstr "Blue - Home"
 
@@ -149,6 +156,9 @@ msgstr ""
 #, fuzzy
 msgid "Close legend"
 msgstr "Color selection"
+
+msgid "Cloud Cover"
+msgstr ""
 
 msgid "Cloudy"
 msgstr ""
@@ -272,6 +282,10 @@ msgstr ""
 msgid "Dewpoint: N/A"
 msgstr ""
 
+#, fuzzy
+msgid "Distance"
+msgstr "Wind"
+
 msgid "Distance {} km"
 msgstr ""
 
@@ -291,9 +305,6 @@ msgstr ""
 msgid "Down - Next page"
 msgstr "Down - Next page"
 
-msgid "Download error"
-msgstr ""
-
 msgid "Downloading images..."
 msgstr ""
 
@@ -307,9 +318,6 @@ msgid "Error checking for updates."
 msgstr ""
 
 msgid "Error loading data"
-msgstr ""
-
-msgid "Error loading map"
 msgstr ""
 
 msgid "Error loading maps. Check connection."
@@ -475,6 +483,9 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
+msgid "Green"
+msgstr ""
+
 msgid "Green - Favorite 1"
 msgstr "Green - Favorite 1"
 
@@ -484,6 +495,9 @@ msgstr ""
 msgid "Gust: {:.1f} {}"
 msgstr ""
 
+msgid "HTML"
+msgstr ""
+
 msgid "Hamburg"
 msgstr ""
 
@@ -491,9 +505,8 @@ msgstr ""
 msgid "Header - not selectable"
 msgstr "Red - Color select"
 
-#, fuzzy
 msgid "Heavy rain"
-msgstr "Foreca 4"
+msgstr ""
 
 msgid "Help"
 msgstr ""
@@ -540,6 +553,9 @@ msgstr ""
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr ""
 
+msgid "Image Downloaded"
+msgstr ""
+
 msgid "Image not available"
 msgstr ""
 
@@ -579,7 +595,13 @@ msgstr ""
 msgid "Last Quarter"
 msgstr ""
 
+msgid "Last update"
+msgstr ""
+
 msgid "Latvia"
+msgstr ""
+
+msgid "Left"
 msgstr ""
 
 msgid "Left - Previous day"
@@ -970,6 +992,9 @@ msgstr "Up - Previous page"
 msgid "Previous time"
 msgstr "Up - Previous page"
 
+msgid "Radar"
+msgstr ""
+
 msgid "Rain Prob."
 msgstr ""
 
@@ -986,6 +1011,9 @@ msgstr ""
 msgid "RainViewer Radar"
 msgstr "Weather Radar"
 
+msgid "Red"
+msgstr ""
+
 msgid "Red - Color select"
 msgstr "Red - Color select"
 
@@ -993,6 +1021,9 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Rhineland-Palatine"
+msgstr ""
+
+msgid "Right"
 msgstr ""
 
 msgid "Right - Next day"
@@ -1084,6 +1115,9 @@ msgid "Slovakia"
 msgstr ""
 
 msgid "Slower: {}s"
+msgstr ""
+
+msgid "Snow"
 msgstr ""
 
 msgid "Snow / ice"
@@ -1185,6 +1219,9 @@ msgstr "Transparency level"
 
 msgid "Transparency level"
 msgstr "Transparency level"
+
+msgid "UV"
+msgstr ""
 
 msgid "UV Index"
 msgstr ""
@@ -1311,6 +1348,10 @@ msgstr "Weather tomorrow"
 msgid "Weekly Forecast"
 msgstr "Foreca 4"
 
+#, fuzzy
+msgid "Wetter.de Maps Test"
+msgstr "Weather Radar"
+
 msgid "Wind"
 msgstr "Wind"
 
@@ -1410,18 +1451,6 @@ msgstr ""
 
 msgid "← Frame"
 msgstr ""
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "Foreca 4"
-
-#, fuzzy
-#~ msgid "Distance"
-#~ msgstr "Wind"
-
-#, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Weather Radar"
 
 #, fuzzy
 #~ msgid "Precipitation intensity:"

@@ -123,8 +123,8 @@
     <widget name="rainp_value" position="95,880" size="330,40" font="Regular; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_snowp" position="40,945" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="snowp_value" position="95,950" size="330,40" font="Regular; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
-    <widget name="icon_updated" position="185,1004" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
-    <widget name="updated_label" position="235,1010" size="330,40" font="Regular; 24" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
+    <widget name="icon_updated" position="220,1004" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
+    <widget name="updated_label" position="277,1010" size="330,40" font="Regular; 24" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <!-- Station -->
     <widget name="icon_observation" position="41,535" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     

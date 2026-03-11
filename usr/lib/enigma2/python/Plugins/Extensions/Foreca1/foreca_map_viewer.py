@@ -23,7 +23,7 @@ from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from PIL import Image
 
-from .map_legend import MapLegendOverlay  # MapLegend
+from .map_legend import MapLegendOverlay, MapLegendOverlayImage
 from . import (
     _,
     DEBUG,
@@ -95,7 +95,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.map_h = self.grid_rows * TILE_SIZE
 
         # Initial Zoom
-        self.zoom_level = 5
+        self.zoom_level = 4
         self.zoom_level = max(
             self.min_zoom, min(
                 self.max_zoom, self.zoom_level))
@@ -118,8 +118,10 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self['zoom_label'] = Label(_("Zoom: ") + str(self.zoom_level))
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
-        self.legend = self.session.instantiateDialog(
-            MapLegendOverlay, 'precip')
+        # self.legend = self.session.instantiateDialog(
+            # MapLegendOverlay, 'precip')
+        # self.legend_active = False
+        self.legend = None
         self.legend_active = False
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
@@ -150,15 +152,14 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self.onLayoutFinish.append(self.load_current_tile)
         self.onClose.append(self.clear_cache)
 
+        self.onLayoutFinish.append(self._create_legend)
+
+    def _create_legend(self):
+        if self.legend is None:
+            self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+
     def _apply_theme(self):
         apply_global_theme(self)
-
-    def toggle_legend(self):
-        if self.legend_active:
-            self.legend.hide()
-        else:
-            self.legend.show()
-        self.legend_active = not self.legend_active
 
     def handle_cancel(self):
         if self.legend_active:
@@ -262,6 +263,71 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self["zoom_label"].setText(f"Zoom: {self.zoom_level}")
         self["info"].setText(_("Downloading tiles..."))
         self.download_tile_grid_async(timestamp)
+
+    def download_legend(self):
+        """
+        Download the legend image for the current layer.
+        Returns path to the downloaded image, or None if failed.
+        """
+        token = self.api.get_token()
+        if not token:
+            return None
+
+        # Determine color scheme based on unit system
+        if hasattr(self, 'unit_system'):
+            if self.unit_system == 'metric':
+                colorscheme = 'default'
+            else:
+                # For temperature layer (id=2), use fahrenheit scheme
+                if self.layer_id == 2:
+                    colorscheme = 'temp-fahrenheit-noalpha'
+                else:
+                    colorscheme = 'default'
+        else:
+            colorscheme = 'default'
+
+        # Build URL
+        url = f"https://{self.api.map_server}/api/v1/legend/{colorscheme}/{self.layer_id}"
+        params = {"token": token}
+
+        # Cache file
+        cache_key = f"legend_{self.layer_id}_{colorscheme}.png"
+        cache_file = join(CACHE_BASE, cache_key)
+
+        if exists(cache_file):
+            return cache_file
+
+        try:
+            response = requests.get(url, params=params, headers=HEADERS, timeout=10)
+            if response.status_code == 200:
+                with open(cache_file, 'wb') as f:
+                    f.write(response.content)
+                return cache_file
+            else:
+                if DEBUG:
+                    print(f"[ForecaMapViewer] Legend download error: {response.status_code}")
+        except Exception as e:
+            print(f"[ForecaMapViewer] Legend exception: {e}")
+        return None
+
+    def toggle_legend(self):
+        if self.legend_active:
+            self.legend.hide()
+        else:
+            legend_path = self.download_legend()
+            if legend_path:
+                self.legend = self.session.instantiateDialog(
+                    MapLegendOverlayImage,
+                    layer_type='temp',
+                    image_path=legend_path
+                )
+            else:
+                self.legend = self.session.instantiateDialog(
+                    MapLegendOverlay,
+                    layer_type='temp'
+                )
+            self.legend.show()
+        self.legend_active = not self.legend_active
 
     def download_tile_grid_async(self, timestamp):
         print("[ForecaMapViewer] download_tile_grid_async started")

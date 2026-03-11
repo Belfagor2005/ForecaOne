@@ -98,8 +98,6 @@ from .unit_manager import UnitManager, UnitSettingsSimple
 from .weather_detail import WeatherDetailView
 from .MoonPhase import MoonPhase
 from .hour_detail import HourDetailView
-from .solar_radiation_graph import SolarRadiationGraph
-from .temperature_map_viewer import TemperatureMapViewer
 
 # ---------- Utility functions ----------
 TARGET_LANG = _get_system_language()
@@ -614,8 +612,6 @@ class Foreca_Preview(Screen, HelpableScreen):
             (_("RainViewer Radar"), "rainviewer"),
             (_("Weekly Forecast"), "daily_forecast"),
             (_("Meteogram"), "meteogram"),
-            (_("Solar Radiation Graph"), "solar_graph"),
-            (_("Temperature Map (Official Legend)"), "temp_map"),
             (_("Lunar Calendar"), "moon_calendar"),
             (_("Station Observations"), "stations"),
             (_("Unit Settings (Simple)"), "units_simple"),
@@ -673,36 +669,6 @@ class Foreca_Preview(Screen, HelpableScreen):
                     MessageBox,
                     _("No location selected"),
                     MessageBox.TYPE_INFO)
-        elif key == "solar_graph":
-            location_id = [self.path_loc0, self.path_loc1, self.path_loc2][self.myloc].split('/')[0]
-            location_name = self.town
-            if location_id:
-                self.session.openWithCallback(
-                    self.after_main_menu,
-                    SolarRadiationGraph,
-                    self.weather_api,
-                    location_id,
-                    location_name,
-                    self.unit_manager,
-                    getattr(self, 'tz', None),
-                    getattr(self, 'tz_offset', None)
-                )
-            else:
-                self.session.open(MessageBox, _("No location selected"), MessageBox.TYPE_INFO)
-        elif key == "temp_map":
-            location_id = [self.path_loc0, self.path_loc1, self.path_loc2][self.myloc].split('/')[0]
-            if location_id:
-                region = self.determine_region_from_location(location_id=location_id, country_name=self.country, lon=self.lon, lat=self.lat)
-                map_api = ForecaMapAPI(region=region)  # usa le credenziali dal file
-                self.session.open(
-                    TemperatureMapViewer,
-                    map_api,  # <-- passa la map API
-                    location_id,
-                    self.town,
-                    self.unit_manager,
-                    getattr(self, 'tz', None),
-                    getattr(self, 'tz_offset', None)
-                )
         elif key == "moon_calendar":
             self.session.openWithCallback(
                 self.after_main_menu, MoonCalendar, self.moon)
@@ -1876,46 +1842,6 @@ class Foreca_Preview(Screen, HelpableScreen):
         )
         if DEBUG:
             write_meteogram_debug("[DEBUG] MeteogramView opened successfully")
-
-    def open_temperature_map(self):
-        if not exists(CONFIG_FILE):
-            self.session.open(
-                MessageBox,
-                _("API configuration file not found!\n\nPlease create file:\n{0}\n\nwith your Foreca API credentials.").format(CONFIG_FILE),
-                MessageBox.TYPE_ERROR,
-                timeout=10)
-            return
-        try:
-            region = self.determine_region_from_location(
-                location_id=self.loc_id,
-                country_name=self.country,
-                lon=self.lon,
-                lat=self.lat
-            )
-            api = ForecaMapAPI(region=region)
-            if not api.check_credentials():
-                self.session.open(MessageBox, _("API credentials not configured."), MessageBox.TYPE_ERROR)
-                return
-
-            caps = api.get_capabilities()
-            temp_layer = None
-            for layer in caps:
-                if layer['id'] == 2:
-                    temp_layer = layer
-                    break
-            if not temp_layer:
-                self.session.open(MessageBox, _("Temperature layer not available."), MessageBox.TYPE_ERROR)
-                return
-            self.session.open(
-                TemperatureMapViewer,
-                api,
-                temp_layer,
-                self.unit_manager.get_simple_system(),
-                region
-            )
-        except Exception as e:
-            print(f"[Foreca1] Error opening temperature map: {e}")
-            self.session.open(MessageBox, _("Could not open temperature map."), MessageBox.TYPE_ERROR)
 
     def open_station_observations(self):
         location_id = [self.path_loc0, self.path_loc1,

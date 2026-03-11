@@ -816,6 +816,7 @@ class ForecaWeatherAPI:
         if not token:
             return []
 
+
         url = f"{self.base_url}/api/v1/forecast/hourly/{location_id}"
         headers = {"Authorization": f"Bearer {token}"}
         params = {
@@ -841,6 +842,7 @@ class ForecaWeatherAPI:
                 else:
                     print("[DEBUG] solarRadiation NOT present")
             # -------------------------------------------------
+
 
             target_date = (datetime.date.today() + datetime.timedelta(days=day)).isoformat()
             result = []
