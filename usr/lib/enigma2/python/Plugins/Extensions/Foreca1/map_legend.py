@@ -21,7 +21,12 @@ from . import (
 
 
 class MapLegend(Screen, HelpableScreen):
-    def __init__(self, session, layer_type="precip", overlay=False, image_path=None):
+    def __init__(
+            self,
+            session,
+            layer_type="precip",
+            overlay=False,
+            image_path=None):
         self.overlay = overlay
         self.image_path = image_path
 
@@ -77,7 +82,8 @@ class MapLegend(Screen, HelpableScreen):
                 ratio = min(target_w / img.width, target_h / img.height)
                 new_w = int(img.width * ratio)
                 new_h = int(img.height * ratio)
-                img_resized = img.resize((new_w, new_h), Image.Resampling.LANCZOS)
+                img_resized = img.resize(
+                    (new_w, new_h), Image.Resampling.LANCZOS)
 
                 canvas = Image.new('RGBA', (target_w, target_h), (0, 0, 0, 0))
                 paste_x = (target_w - new_w) // 2
@@ -93,7 +99,8 @@ class MapLegend(Screen, HelpableScreen):
                 self["legend_image"].instance.invalidate()
             except Exception as e:
                 print(f"[MapLegend] Error processing image: {e}")
-                self["legend_image"].instance.setPixmapFromFile(self.image_path)
+                self["legend_image"].instance.setPixmapFromFile(
+                    self.image_path)
                 self["legend_image"].show()
             return
         else:
@@ -143,7 +150,8 @@ class MapLegend(Screen, HelpableScreen):
                     g = (color >> 8) & 0xFF
                     b = color & 0xFF
                     print(f"[MapLegend] Setting color{i} to RGB({r},{g},{b})")
-                    self[f"color{i}"].instance.setBackgroundColor(gRGB(r, g, b))
+                    self[f"color{i}"].instance.setBackgroundColor(
+                        gRGB(r, g, b))
                     self[f"color{i}"].instance.setTransparent(False)
                     self[f"color{i}"].instance.invalidate()
                 else:
@@ -158,6 +166,7 @@ class MapLegend(Screen, HelpableScreen):
 
 class MapLegendOverlayText(MapLegend):
     """Textual legend overlay (small skin)."""
+
     def __init__(self, session, layer_type="precip", **kwargs):
         self.skin = load_skin_for_class(MapLegendOverlayText)
         super().__init__(session, layer_type, overlay=True, image_path=None)
@@ -165,7 +174,13 @@ class MapLegendOverlayText(MapLegend):
 
 class MapLegendOverlayImage(MapLegend):
     """Image legend overlay (large skin)."""
-    def __init__(self, session, layer_type="precip", image_path=None, **kwargs):
+
+    def __init__(
+            self,
+            session,
+            layer_type="precip",
+            image_path=None,
+            **kwargs):
         self.skin = load_skin_for_class(MapLegendOverlayImage)
         super().__init__(session, layer_type, overlay=True, image_path=image_path)
 

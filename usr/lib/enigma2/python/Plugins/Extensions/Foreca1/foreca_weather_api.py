@@ -781,7 +781,6 @@ class ForecaWeatherAPI:
         if not token:
             return []
 
-
         url = f"{self.base_url}/api/v1/forecast/hourly/{location_id}"
         headers = {"Authorization": f"Bearer {token}"}
         params = {

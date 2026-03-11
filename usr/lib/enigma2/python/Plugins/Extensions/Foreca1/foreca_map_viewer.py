@@ -119,7 +119,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
         # self.legend = self.session.instantiateDialog(
-            # MapLegendOverlay, 'precip')
+        # MapLegendOverlay, 'precip')
         # self.legend_active = False
         self.legend = None
         self.legend_active = False
@@ -156,7 +156,8 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
     def _create_legend(self):
         if self.legend is None:
-            self.legend = self.session.instantiateDialog(MapLegendOverlay, 'precip')
+            self.legend = self.session.instantiateDialog(
+                MapLegendOverlay, 'precip')
 
     def _apply_theme(self):
         apply_global_theme(self)
@@ -298,14 +299,16 @@ class ForecaMapViewer(Screen, HelpableScreen):
             return cache_file
 
         try:
-            response = requests.get(url, params=params, headers=HEADERS, timeout=10)
+            response = requests.get(
+                url, params=params, headers=HEADERS, timeout=10)
             if response.status_code == 200:
                 with open(cache_file, 'wb') as f:
                     f.write(response.content)
                 return cache_file
             else:
                 if DEBUG:
-                    print(f"[ForecaMapViewer] Legend download error: {response.status_code}")
+                    print(
+                        f"[ForecaMapViewer] Legend download error: {response.status_code}")
         except Exception as e:
             print(f"[ForecaMapViewer] Legend exception: {e}")
         return None

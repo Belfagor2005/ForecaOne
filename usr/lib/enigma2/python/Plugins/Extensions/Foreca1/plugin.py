@@ -914,18 +914,22 @@ class Foreca_Preview(Screen, HelpableScreen):
         hourly = None
         if self.weather_api_auth:
             try:
-                hourly = self.weather_api_auth.get_hourly_forecast(location_id, day=day_index)
+                hourly = self.weather_api_auth.get_hourly_forecast(
+                    location_id, day=day_index)
                 if DEBUG:
-                    print(f"[Foreca1] Using authenticated API for hourly, got {len(hourly) if hourly else 0} records")
+                    print(
+                        f"[Foreca1] Using authenticated API for hourly, got {len(hourly) if hourly else 0} records")
             except Exception as e:
                 if DEBUG:
                     print(f"[Foreca1] Auth hourly failed, falling back: {e}")
                 hourly = None
 
         if not hourly:
-            hourly = self.weather_api.get_hourly_forecast(location_id, day=day_index)
+            hourly = self.weather_api.get_hourly_forecast(
+                location_id, day=day_index)
             if DEBUG:
-                print(f"[Foreca1] Using free API (scraper) for hourly, got {len(hourly) if hourly else 0} records")
+                print(
+                    f"[Foreca1] Using free API (scraper) for hourly, got {len(hourly) if hourly else 0} records")
 
         if hourly:
             self.f_time = [h.time.strftime("%H:%M") for h in hourly]
