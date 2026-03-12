@@ -1174,6 +1174,9 @@ msgstr "Πολύ υψηλή"
 msgid "Very hot (>40°C)"
 msgstr "Πολύ ζεστό (>40°C)"
 
+msgid "Very low"
+msgstr ""
+
 msgid "Visibility: %s m"
 msgstr "Ορατότητα: %s μ"
 

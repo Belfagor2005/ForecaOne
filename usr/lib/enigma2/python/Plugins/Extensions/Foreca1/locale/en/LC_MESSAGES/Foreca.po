@@ -1254,6 +1254,9 @@ msgstr ""
 msgid "Very hot (>40°C)"
 msgstr ""
 
+msgid "Very low"
+msgstr ""
+
 msgid "Visibility: %s m"
 msgstr ""
 

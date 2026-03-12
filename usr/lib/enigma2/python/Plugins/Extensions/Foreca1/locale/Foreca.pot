@@ -41,6 +41,7 @@
 
 
 
+
 msgid "0 - Today"
 msgstr ""
 
@@ -1191,6 +1192,9 @@ msgid "Very high"
 msgstr ""
 
 msgid "Very hot (>40°C)"
+msgstr ""
+
+msgid "Very low"
 msgstr ""
 
 msgid "Visibility: %s m"

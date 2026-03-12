@@ -1172,6 +1172,9 @@ msgstr "Erittäin korkea"
 msgid "Very hot (>40°C)"
 msgstr "Erittäin kuuma (>40 °C)"
 
+msgid "Very low"
+msgstr ""
+
 msgid "Visibility: %s m"
 msgstr "Näkyvyys: %s m"
 
