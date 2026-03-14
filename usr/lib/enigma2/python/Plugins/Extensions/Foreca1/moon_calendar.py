@@ -34,6 +34,10 @@ class MoonCalendar(Screen, HelpableScreen):
         self["background_plate"] = Label("")
         self["selection_overlay"] = Label("")
         self["info"] = Label(_("Loading lunar phases..."))
+        self["Phase"] = Label(_("Phase"))
+        self["Day"] = Label(_("Day"))
+        self["Month"] = Label(_("Month"))
+        self["Time"] = Label(_("Time"))
         self["title"] = Label(_("Lunar phases from next month"))
         self["actions"] = HelpableActionMap(
             self, "ForecaActions",
@@ -81,13 +85,13 @@ class MoonCalendar(Screen, HelpableScreen):
 
         # Build the list for the Listbox
         self.list = []
-        self.list.append((
-            _("Month"),        # 0
-            None,              # 1: no icon
-            _("Phase"),        # 2
-            _("Day"),          # 3
-            _("Time")          # 4
-        ))
+        # self.list.append((
+            # _("Month"),        # 0
+            # None,              # 1: no icon
+            # _("Phase"),        # 2
+            # _("Day"),          # 3
+            # _("Time")          # 4
+        # ))
         for p in self.phases:
             self.list.append(self._create_entry(p))
         self["menu"].setList(self.list)
@@ -114,7 +118,7 @@ class MoonCalendar(Screen, HelpableScreen):
             end_of_month = datetime(year + 1, 1, 1) - timedelta(days=1)
         else:
             end_of_month = datetime(year, month + 1, 1) - timedelta(days=1)
-        
+
         jd_start = self._date_to_jd(start_of_month)
         jd_end = self._date_to_jd(end_of_month)
 
@@ -206,9 +210,9 @@ class MoonCalendar(Screen, HelpableScreen):
 
     def show_details(self):
         idx = self["menu"].getSelectedIndex()
-        if idx <= 0 or idx > len(self.phases):
+        if idx < 0 or idx > len(self.phases):
             return
-        phase = self.phases[idx - 1]
+        phase = self.phases[idx]
         details = trans("Phase: {}").format(phase['phase_name']) + "\n"
         details += trans("Date: {}").format(
             phase['date'].strftime("%d.%m.%Y")) + "\n"

@@ -2,22 +2,26 @@
     <widget name="title" position="45,45" size="1820,50" font="Regular; 42" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" halign="center" zPosition="4" />
     <widget name="info" position="45,95" size="1820,40" font="Regular; 38" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" valign="center" zPosition="10" halign="center" />
     <ePixmap position="1632,983" size="135,35" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1" />
-
-    <widget source="menu" render="Listbox" position="55,149" size="1800,800" scrollbarMode="showOnDemand" zPosition="3" transparent="1" backgroundColor="#000000">
+	<widget name="Phase" position="230,156" size="200,40" font="Regular;33" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+	<widget name="Day" position="840,156" size="200,40" font="Regular;33" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+	<widget name="Month" position="980,156" size="200,40" font="Regular;33" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+	<widget name="Time" position="1270,156" size="200,40" font="Regular;33" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+	<eLabel position="55,197" size="1800,2" zPosition="50" backgroundColor="#FFFFFF" />
+    <widget source="menu" render="Listbox" position="55,200" size="1800,720" scrollbarMode="showOnDemand" zPosition="3" transparent="1" backgroundColor="#000000">
         <convert type="TemplatedMultiContent">
             {"template": [
-                MultiContentEntryPixmapAlphaBlend(pos = (50, 5), size = (90, 90), png = 1),
-                MultiContentEntryText(pos = (160, 32), size = (620, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-                MultiContentEntryText(pos = (800, 32), size = (250, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
-                MultiContentEntryText(pos = (1080, 32), size = (100, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
-                MultiContentEntryText(pos = (1210, 32), size = (100, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
+                MultiContentEntryPixmapAlphaBlend(pos = (50, 0), size = (90, 90), png = 1),
+                MultiContentEntryText(pos = (160, 30), size = (620, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+                MultiContentEntryText(pos = (800, 30), size = (90, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
+                MultiContentEntryText(pos = (910, 30), size = (250, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+                MultiContentEntryText(pos = (1210, 30), size = (100, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
             ],
             "fonts": [gFont("Regular", 32)],
-            "itemHeight": 100
+            "itemHeight": 90
         }
         </convert>
     </widget>
     <widget name="background_plate" size="1878,1038" zPosition="1" position="21,21" backgroundColor="#ff9632" cornerRadius="50" />
     <widget name="selection_overlay" size="1830,990" zPosition="2" position="45,44" backgroundColor="#000000" cornerRadius="50" />
-    <eLabel text="▲/▼ ◄/► ≡ OK ℹ ❓ ✖ ⬤" position="534,983" size="980,50" font="Regular;38" halign="center" valign="center" zPosition="3" transparent="1" foregroundColor="#aaaaaa" />
+    <eLabel text="▲/▼ ◄/► ≡ OK ℹ ❓ ✖ ⬤" position="534,983" size="980,50" font="Regular;38" halign="center" valign="center" zPosition="3" transparent="1" foregroundColor="#aaaaaa" alphatest="blend" />
 </screen>

@@ -1,21 +1,27 @@
 <screen name="MoonCalendar" position="center,center" size="1280,720" title="Lunar Calendar" flags="wfNoBorder" backgroundColor="#ff000000">
-    <widget name="title" position="30,30" size="1220,34" font="Regular;28" foregroundColor="#a0ff" transparent="1" halign="center" valign="center" zPosition="3" />
-    <widget name="info" position="30,66" size="1220,27" font="Regular;21" foregroundColor="#a0ff" transparent="1" halign="center" zPosition="3" />
-    <widget source="menu" render="Listbox" position="37,99" size="1200,533" scrollbarMode="showOnDemand" zPosition="3" transparent="1" backgroundColor="#000000">
+    <widget name="title" position="30,30" size="1213,33" font="Regular; 28" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" halign="center" zPosition="4" />
+    <widget name="info" position="30,63" size="1213,27" font="Regular; 25" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" valign="center" zPosition="10" halign="center" />
+    <ePixmap position="1088,655" size="90,23" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/forecalogo.png" zPosition="10" scale="1" />
+    <widget name="Phase" position="153,104" size="133,27" font="Regular;22" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+    <widget name="Day" position="560,104" size="133,27" font="Regular;22" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+    <widget name="Month" position="653,104" size="133,27" font="Regular;22" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+    <widget name="Time" position="847,104" size="133,27" font="Regular;22" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" alphatest="blend" zPosition="3" />
+    <eLabel position="37,131" size="1200,2" zPosition="50" backgroundColor="#FFFFFF" />
+    <widget source="menu" render="Listbox" position="37,133" size="1200,480" scrollbarMode="showOnDemand" zPosition="3" transparent="1" backgroundColor="#000000">
         <convert type="TemplatedMultiContent">
             {"template": [
-                MultiContentEntryPixmapAlphaBlend(pos = (33, 3), size = (60, 60), png = 1),
-                MultiContentEntryText(pos = (107, 21), size = (413, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-                MultiContentEntryText(pos = (533, 21), size = (167, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
-                MultiContentEntryText(pos = (720, 21), size = (67, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
-                MultiContentEntryText(pos = (807, 21), size = (67, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
+                MultiContentEntryPixmapAlphaBlend(pos = (33, 0), size = (60, 60), png = 1),
+                MultiContentEntryText(pos = (107, 20), size = (413, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+                MultiContentEntryText(pos = (533, 20), size = (60, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
+                MultiContentEntryText(pos = (607, 20), size = (167, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+                MultiContentEntryText(pos = (807, 20), size = (67, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
             ],
             "fonts": [gFont("Regular", 21)],
-            "itemHeight": 67
+            "itemHeight": 60
         }
         </convert>
     </widget>
-    <widget name="background_plate" size="1252,692" zPosition="1" position="14,14" backgroundColor="#ff9632" cornerRadius="34" />
-    <widget name="selection_overlay" size="1220,660" zPosition="2" position="30,29" backgroundColor="#000000" cornerRadius="34" />
-    <eLabel text="▲/▼ ◄/► ≡ OK ℹ ❓ ✖ ⬤" position="356,655" size="653,33" font="Regular;17" halign="center" valign="center" zPosition="3" transparent="1" foregroundColor="#aaaaaa" />
+    <widget name="background_plate" size="1252,692" zPosition="1" position="14,14" backgroundColor="#ff9632" cornerRadius="50" />
+    <widget name="selection_overlay" size="1220,660" zPosition="2" position="30,29" backgroundColor="#000000" cornerRadius="50" />
+    <eLabel text="▲/▼ ◄/► ≡ OK ℹ ❓ ✖ ⬤" position="356,655" size="653,33" font="Regular;25" halign="center" valign="center" zPosition="3" transparent="1" foregroundColor="#aaaaaa" alphatest="blend" />
 </screen>
