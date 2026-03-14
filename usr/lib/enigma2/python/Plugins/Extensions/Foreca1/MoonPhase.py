@@ -98,17 +98,18 @@ class MoonPhase:
     # Precise lunar calculations (based on Meeus / external code)
     # -------------------------------------------------------------------------
 
+    def _date_to_jd(self, dt):
+        """
+        Convert a datetime object to Julian Day (approximate).
+        Usa lo stesso metodo di MoonCalendar per coerenza.
+        """
+        return dt.toordinal() + 1721424.5
+
     def _compute_lunar_data(self, jd):
         """
         Computes precise lunar data for a given Julian Day (geocentric).
-
-        Returns a dictionary with:
-            - illumination: percentage (0-100)
-            - phase_name: string (e.g. "Waxing Crescent")
-            - distance: Earth-Moon distance in km
-            - trend: +1 (waxing) or -1 (waning)
+        Returns a dictionary with illumination, phase_name, distance, trend.
         """
-
         T = (jd - 2451545.0) / 36525.0
 
         # Mean elements (degrees)
@@ -192,8 +193,7 @@ class MoonPhase:
         # Distance in km
         distance = int(385000.56 + ER * 1000)
 
-        # Trend (waxing/waning) by comparing illumination with a slightly later
-        # time
+        # Trend (waxing/waning) by comparing illumination with a slightly later time
         jd2 = jd + 0.5
         T2 = (jd2 - 2451545.0) / 36525.0
 
@@ -250,28 +250,27 @@ class MoonPhase:
 
         trend = 1 if illum2 > illumination else -1
 
-        # Phase name based on IM (more precise)
-        if IM < 20 or IM >= 340:
+        # --- DETERMINING PHASE NAME BASED ON AGE ---
+        from datetime import datetime
+        # Calculate the age in days since the last reference new moon (6 Jan 2000 00:00 UTC)
+        ref_jd = self._date_to_jd(datetime(2000, 1, 6, 0, 0, 0))
+        days_since_ref = jd - ref_jd
+        age = days_since_ref % self.SYNODIC_MONTH
+
+        if age < 1.5:
             phase_name = "New Moon"
-
-        elif IM < 70:
+        elif age < 6.5:
             phase_name = "Waxing Crescent"
-
-        elif IM < 110:
-            phase_name = "First Quarter" if trend == 1 else "Last Quarter"
-
-        elif IM < 160:
+        elif age < 8.5:
+            phase_name = "First Quarter"
+        elif age < 13.5:
             phase_name = "Waxing Gibbous"
-
-        elif IM < 200:
+        elif age < 15.5:
             phase_name = "Full Moon"
-
-        elif IM < 250:
+        elif age < 20.5:
             phase_name = "Waning Gibbous"
-
-        elif IM < 290:
-            phase_name = "Last Quarter" if trend == -1 else "First Quarter"
-
+        elif age < 22.5:
+            phase_name = "Last Quarter"
         else:
             phase_name = "Waning Crescent"
 
@@ -281,10 +280,6 @@ class MoonPhase:
             "distance": distance,
             "trend": trend,
         }
-
-    # -------------------------------------------------------------------------
-    # Original methods (simplified, now replaced by precise one for fallback)
-    # -------------------------------------------------------------------------
 
     def _get_current_phase_value(self):
         # This method is kept for compatibility but not used in precise mode
