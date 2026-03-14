@@ -96,15 +96,9 @@ class MoonCalendar(Screen, HelpableScreen):
 
     def _get_month_phases(self, year, month):
         """
-        Return a list of dictionaries for the 4 main phases of the month.
+        Returns a list of dictionaries for the 4 main phases of the month.
+        Searches within a ±5 day range around the month to avoid boundary errors.
         """
-        # Reference date: January 6, 2000 00:00 UTC (known new moon)
-        ref_date = datetime(2000, 1, 6, 0, 0, 0)
-        jd_ref = self._date_to_jd(ref_date)
-
-        start_of_month = datetime(year, month, 1)
-        jd_start = self._date_to_jd(start_of_month)
-
         target_phases = [0.0, 0.25, 0.5, 0.75]
         names = {
             0.0: _("New Moon"),
@@ -113,22 +107,42 @@ class MoonCalendar(Screen, HelpableScreen):
             0.75: _("Last Quarter")
         }
 
+        # Start and end of the month in Julian Day
+        from datetime import datetime, timedelta
+        start_of_month = datetime(year, month, 1)
+        if month == 12:
+            end_of_month = datetime(year + 1, 1, 1) - timedelta(days=1)
+        else:
+            end_of_month = datetime(year, month + 1, 1) - timedelta(days=1)
+        
+        jd_start = self._date_to_jd(start_of_month)
+        jd_end = self._date_to_jd(end_of_month)
+
+        # Extend search ±5 days for safety
+        search_start = jd_start - 5
+        search_end = jd_end + 5
+
+        jd_ref = self._date_to_jd(datetime(2000, 1, 6, 0, 0, 0))
         month_phases = []
-        for phase_target in target_phases:
-            jd_phase = self._find_next_phase_after(
-                jd_start, phase_target, jd_ref)
-            dt = self._jd_to_date(jd_phase)
-            # If the date is still in the same month, add it
-            if dt.year == year and dt.month == month:
-                info = self.moon.get_phase_info_for_jd(jd_phase)
-                month_phases.append({
-                    'date': dt,
-                    'phase_name': names[phase_target],
-                    'icon_path': info['icon_path'],
-                    'jd': jd_phase,
-                    'illumination': info['illumination'],
-                    'distance': info['distance']
-                })
+
+        for target in target_phases:
+            # Find the first target phase after search_start
+            jd_phase = self._find_next_phase_after(search_start, target, jd_ref)
+            while jd_phase <= search_end:
+                dt_phase = self._jd_to_date(jd_phase)
+                if dt_phase.year == year and dt_phase.month == month:
+                    info = self.moon.get_phase_info_for_jd(jd_phase)
+                    month_phases.append({
+                        'date': dt_phase,
+                        'phase_name': names[target],
+                        'icon_path': info['icon_path'],
+                        'jd': jd_phase,
+                        'illumination': info['illumination'],
+                        'distance': info['distance']
+                    })
+                # Move to the next phase (using the constant from the moon object)
+                jd_phase += self.moon.SYNODIC_MONTH
+
         month_phases.sort(key=lambda x: x['date'])
         return month_phases
 
