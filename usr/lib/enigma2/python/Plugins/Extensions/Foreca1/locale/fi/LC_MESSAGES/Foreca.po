@@ -285,6 +285,9 @@ msgstr "Ladataan kuvia..."
 msgid "Downloading tiles..."
 msgstr "Ladataan ruutuja..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "Itä-Aasia"
 
@@ -657,6 +660,9 @@ msgstr "Siirrä alas"
 msgid "Move up"
 msgstr "Siirrä ylös"
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr "N/A"
 
@@ -939,6 +945,9 @@ msgstr "Nousu"
 msgid "Russia"
 msgstr "Venäjä"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "Saarland"
 
@@ -1181,6 +1190,9 @@ msgstr "Näkyvyys: %s m"
 
 msgid "Visibility: {} m"
 msgstr "Näkyvyys: {} m"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr "Vähenevä sirppi"

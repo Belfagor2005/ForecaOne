@@ -292,6 +292,9 @@ msgstr "جاري تحميل الصور..."
 msgid "Downloading tiles..."
 msgstr "جاري تحميل البلاط..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "شرق آسيا"
 
@@ -690,6 +693,9 @@ msgstr "تحريك لأسفل"
 msgid "Move up"
 msgstr "تحريك لأعلى"
 
+msgid "N"
+msgstr ""
+
 #, fuzzy
 msgid "N/A"
 msgstr "مؤشر الأشعة فوق البنفسجية: غير متوفر"
@@ -989,6 +995,9 @@ msgstr "الشروق"
 msgid "Russia"
 msgstr "روسيا"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "سارلاند"
 
@@ -1243,6 +1252,9 @@ msgstr "الرؤية: {} م"
 
 msgid "Visibility: {} m"
 msgstr "الرؤية: {} م"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr "الهلال المتضائل"

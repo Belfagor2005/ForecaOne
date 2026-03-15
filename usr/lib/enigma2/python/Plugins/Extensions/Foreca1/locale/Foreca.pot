@@ -1,6 +1,7 @@
 #, fuzzy
 
 
+
 msgid "0 - Today"
 msgstr ""
 
@@ -266,6 +267,9 @@ msgid "Downloading images..."
 msgstr ""
 
 msgid "Downloading tiles..."
+msgstr ""
+
+msgid "E"
 msgstr ""
 
 msgid "East Asia"
@@ -640,6 +644,9 @@ msgstr ""
 msgid "Move up"
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr ""
 
@@ -922,6 +929,9 @@ msgstr ""
 msgid "Russia"
 msgstr ""
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr ""
 
@@ -1163,6 +1173,9 @@ msgid "Visibility: %s m"
 msgstr ""
 
 msgid "Visibility: {} m"
+msgstr ""
+
+msgid "W"
 msgstr ""
 
 msgid "Waning Crescent"

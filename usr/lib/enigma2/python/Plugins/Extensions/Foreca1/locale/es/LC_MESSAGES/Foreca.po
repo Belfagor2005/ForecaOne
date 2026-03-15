@@ -301,6 +301,9 @@ msgstr "Descargando imágenes..."
 msgid "Downloading tiles..."
 msgstr "Descargando imágenes..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "Asia Oriental"
 
@@ -706,6 +709,9 @@ msgstr ""
 msgid "Move up"
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr ""
 
@@ -1012,6 +1018,9 @@ msgstr ""
 msgid "Russia"
 msgstr "Rusia"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "Sarre"
 
@@ -1274,6 +1283,9 @@ msgstr "Distancia"
 #, fuzzy
 msgid "Visibility: {} m"
 msgstr "Distancia"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr ""

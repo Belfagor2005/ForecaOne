@@ -290,6 +290,9 @@ msgstr "正在下载图像..."
 msgid "Downloading tiles..."
 msgstr "正在下载..."
 
+msgid "E"
+msgstr "东"
+
 msgid "East Asia"
 msgstr "东亚"
 
@@ -677,6 +680,9 @@ msgstr "下移一行"
 msgid "Move up"
 msgstr "上移一行"
 
+msgid "N"
+msgstr "北"
+
 #, fuzzy
 msgid "N/A"
 msgstr "紫外线 N/A"
@@ -971,6 +977,9 @@ msgstr "月出"
 msgid "Russia"
 msgstr "俄罗斯"
 
+msgid "S"
+msgstr "南"
+
 msgid "Saarland"
 msgstr "萨尔州"
 
@@ -1222,6 +1231,9 @@ msgstr "能见度： {}米"
 msgid "Visibility: {} m"
 msgstr "能见度： {}米"
 
+msgid "W"
+msgstr "西"
+
 msgid "Waning Crescent"
 msgstr "残月"
 
@@ -1448,9 +1460,6 @@ msgstr ""
 #~ msgid "AQI"
 #~ msgstr "AQI值"
 
-#~ msgid "E"
-#~ msgstr "东"
-
 #~ msgid "Foreca 1 Live Maps (API)"
 #~ msgstr "Foreca 1实时地图(API)"
 
@@ -1475,23 +1484,14 @@ msgstr ""
 #~ msgid "Min: {}°C, Max: {}°C"
 #~ msgstr "最小：{} °C ，最大：{} °C"
 
-#~ msgid "N"
-#~ msgstr "北"
-
 #~ msgid "Precip"
 #~ msgstr "降雨量"
 
 #~ msgid "Rain"
 #~ msgstr "雨"
 
-#~ msgid "S"
-#~ msgstr "南"
-
 #~ msgid "Updated"
 #~ msgstr " 更新时间"
-
-#~ msgid "W"
-#~ msgstr "西"
 
 #~ msgid "▲/▼ ◄/► CH+ CH- ≡ ℹ ❓ ✖ ⬤"
 #~ msgstr "▲/▼ ◄/► 频道+ 频道- ≡ ℹ ❓ ✖ ⬤"

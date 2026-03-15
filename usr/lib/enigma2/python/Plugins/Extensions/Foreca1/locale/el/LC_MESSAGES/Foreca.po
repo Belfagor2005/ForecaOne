@@ -279,6 +279,9 @@ msgstr "Λήψη εικόνων..."
 msgid "Downloading tiles..."
 msgstr "Λήψη πλαισίων..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "Ανατολική Ασία"
 
@@ -652,6 +655,9 @@ msgstr "Μετακίνηση κάτω"
 msgid "Move up"
 msgstr "Μετακίνηση πάνω"
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr "Μ/Δ"
 
@@ -934,6 +940,9 @@ msgstr "Ανατολή"
 msgid "Russia"
 msgstr "Ρωσία"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "Σάαρλαντ"
 
@@ -1176,6 +1185,9 @@ msgstr "Ορατότητα: %s μ"
 
 msgid "Visibility: {} m"
 msgstr "Ορατότητα: {} μ"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr "Φθίνουσα ημισέληνος"

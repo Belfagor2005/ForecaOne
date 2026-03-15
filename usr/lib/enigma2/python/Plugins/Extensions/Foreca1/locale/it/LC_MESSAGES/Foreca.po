@@ -285,6 +285,9 @@ msgstr "Download immagini in corso..."
 msgid "Downloading tiles..."
 msgstr "Download schemi..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "Asia Orientale"
 
@@ -657,6 +660,9 @@ msgstr "Sposta giù"
 msgid "Move up"
 msgstr "Sposta giù"
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr ""
 
@@ -939,6 +945,9 @@ msgstr "Leva"
 msgid "Russia"
 msgstr "Russia"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "Saarland"
 
@@ -1181,6 +1190,9 @@ msgstr "Visibilità: %s m"
 
 msgid "Visibility: {} m"
 msgstr "Visibilità: {} m"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr "Mezzaluna Calante"

@@ -301,6 +301,9 @@ msgstr "Stahování obrázků..."
 msgid "Downloading tiles..."
 msgstr "Stahování obrázků..."
 
+msgid "E"
+msgstr ""
+
 msgid "East Asia"
 msgstr "Východní Asie"
 
@@ -706,6 +709,9 @@ msgstr ""
 msgid "Move up"
 msgstr ""
 
+msgid "N"
+msgstr ""
+
 msgid "N/A"
 msgstr ""
 
@@ -1012,6 +1018,9 @@ msgstr ""
 msgid "Russia"
 msgstr "Rusko"
 
+msgid "S"
+msgstr ""
+
 msgid "Saarland"
 msgstr "Sársko"
 
@@ -1274,6 +1283,9 @@ msgstr "Vzdálenost"
 #, fuzzy
 msgid "Visibility: {} m"
 msgstr "Vzdálenost"
+
+msgid "W"
+msgstr ""
 
 msgid "Waning Crescent"
 msgstr ""
