@@ -30,7 +30,8 @@ from . import (
     CACHE_BASE,
     load_skin_for_class,
     apply_global_theme,
-    HEADERS
+    HEADERS,
+    OSM_HEADERS
 )
 
 TILE_SIZE = 256
@@ -111,6 +112,9 @@ class ForecaMapViewer(Screen, HelpableScreen):
         self["layerinfo"] = Label("")
         self["time"] = Label(_("Loading..."))
         self["info"] = Label(_("Use ←/→/↑/↓ to move | OK to exit"))
+        self["osm_attribution"] = Label(
+            "© OpenStreetMap contributors, Style: OpenRailwayMap CC-BY-SA 2.0"
+        )
         self['key_red'] = StaticText(_("Exit"))
         self['key_green'] = StaticText(_("Zoom+"))
         self['key_yellow'] = StaticText(_("Zoom-"))
@@ -211,20 +215,43 @@ class ForecaMapViewer(Screen, HelpableScreen):
         return x, y
 
     def download_tile(self, url, prefix=''):
+        """Download a tile with appropriate headers"""
         key = (prefix + url).encode()
         cache_file = join(OSM_CACHE_DIR, hashlib.md5(key).hexdigest() + '.png')
+
+        # Return if already cached
         if exists(cache_file):
             return cache_file
+
+        # Choose headers based on tile type
+        if 'openstreetmap.org' in url or 'openrailwaymap.org' in url:
+            headers = OSM_HEADERS  # Use specific headers for OSM/ORM
+        else:
+            headers = HEADERS  # Use generic headers for other services
+
         try:
-            r = requests.get(url, headers=HEADERS, timeout=5)
+            if DEBUG:
+                print(f"[ForecaMapViewer] Downloading tile: {url}")
+                print(f"[ForecaMapViewer] Using headers: {headers}")
+
+            r = requests.get(url, headers=headers, timeout=5)
+
             if r.status_code == 200:
                 with open(cache_file, 'wb') as f:
                     f.write(r.content)
+                if DEBUG:
+                    print(f"[ForecaMapViewer] Tile downloaded: {cache_file}")
                 return cache_file
+            elif r.status_code == 429:
+                # Too many requests - log and wait
+                print(f"[ForecaMapViewer] Rate limited (429) for {url}")
+                return None
             else:
                 if DEBUG:
                     print(
                         f"[ForecaMapViewer] Tile download error {r.status_code}: {url}")
+                    if r.status_code == 403:
+                        print("[ForecaMapViewer] 403 Forbidden - Check headers")
         except Exception as e:
             print(f"[ForecaMapViewer] download exception: {e}")
         return None
@@ -300,7 +327,7 @@ class ForecaMapViewer(Screen, HelpableScreen):
 
         try:
             response = requests.get(
-                url, params=params, headers=HEADERS, timeout=10)
+                url, params=params, headers=OSM_HEADERS, timeout=10)
             if response.status_code == 200:
                 with open(cache_file, 'wb') as f:
                     f.write(response.content)

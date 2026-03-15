@@ -5,6 +5,7 @@
     <widget name="time" position="1575,1312" size="920,45" font="Regular;43" foregroundColor="#ffffff" backgroundColor="#40000000" transparent="1" halign="right" zPosition="4" />
     <widget name="layerinfo" position="62,115" size="2427,60" font="Regular;40" foregroundColor="#ffffff" backgroundColor="#40000000" transparent="1" halign="center" zPosition="4" />
     <widget name="zoom_label" position="2183,84" size="267,47" font="Regular;40" transparent="1" zPosition="5" halign="right" valign="center" backgroundColor="#40000000" foregroundColor="#49bbff" />
+    <widget name="osm_attribution" position="1646,1267" size="840,50" font="Regular; 32" foregroundColor="#888888" backgroundColor="#000000" transparent="1" halign="right" zPosition="20" />
     <!-- map image -->
     <widget name="map" position="66,170" size="2426,1138" zPosition="3" scale="1" backgroundColor="#40000000" />
     <!-- Button icons -->

@@ -65,6 +65,14 @@ HEADERS = {
     "Connection": "keep-alive",
 }
 
+OSM_HEADERS = {
+    "User-Agent": "ForecaPlugin/1.1.4 (Enigma2; OpenStreetMap; non-commercial; +https://github.com/Belfagor2005/ForecaOne/)",
+    "Referer": "https://www.foreca.com",
+    "Accept": "image/webp,image/png,image/*;q=0.8",
+    "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Connection": "keep-alive",
+}
+
 
 def localeInit():
     if isDreambox:
