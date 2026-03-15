@@ -125,8 +125,8 @@
     <widget name="rainp_value" position="127,1159" size="400,54" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_snowp" position="54,1240" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="snowp_value" position="127,1247" size="400,54" font="Regular;35" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
-    <widget name="icon_updated" position="330,1339" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
-    <widget name="updated_label" position="400,1347" size="440,54" font="Regular;32" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
+    <widget name="icon_updated" position="490,1289" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
+    <widget name="updated_label" position="290,1347" size="450,54" font="Regular;28" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" zPosition="10" />
 
     <!-- Station -->
     <widget name="icon_observation" position="55,720" size="67,67" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />

@@ -124,8 +124,8 @@
     <widget name="rainp_value" position="63,576" size="200,26" font="Regular; 17" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_snowp" position="26,615" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
     <widget name="snowp_value" position="63,618" size="200,26" font="Regular; 17" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
-    <widget name="icon_updated" position="145,654" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
-    <widget name="updated_label" position="185,658" size="220,26" font="Regular; 16" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="left" zPosition="10" />
+    <widget name="icon_updated" position="250,638" size="33,33" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
+    <widget name="updated_label" position="155,668" size="220,26" font="Regular; 16" foregroundColor="#ffffff" backgroundColor="#00000000" transparent="1" valign="center" halign="center" zPosition="10" />
 
     <!-- Compass directions -->
     <widget name="icon_wind" position="404,390" size="26,27" scale="1" zPosition="10" backgroundColor="#40000000" transparent="1" alphatest="on" />
