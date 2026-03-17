@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version='1.1.4'
+version='1.1.5'
 changelog='\nThis is Final Release for Now\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
