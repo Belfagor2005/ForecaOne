@@ -748,11 +748,63 @@ class Foreca_Preview(Screen, HelpableScreen):
     def Fav2(self):
         self._load_favorite(2, self.path_loc2)
 
+    def _update_fav_button_names(self):
+        """Update the buttons with city names (truncated to 11 characters)"""
+        fav_paths = [self.path_loc0, self.path_loc1, self.path_loc2]
+        button_names = []
+
+        for i, path in enumerate(fav_paths):
+            try:
+                if path:
+                    # Extract the ID (it can be numeric only or include '/')
+                    if '/' in path:
+                        location_id = path.split('/')[0]
+                    else:
+                        location_id = path  # path is already the ID
+
+                    print(f"[DEBUG] Fav {i}: location_id={location_id}")
+
+                    # Use the API to get the name
+                    place = self.weather_api.get_location_by_id(location_id)
+                    if place and place.name:
+                        name = place.name
+                        if len(name) > 11:
+                            name = name[:11] + "."
+                        button_names.append(name)
+                        print(f"[DEBUG] Fav {i} OK (API): {name}")
+                    else:
+                        # Fallback: if API fails, use the name from the path if available
+                        if '/' in path:
+                            name_part = path.split('/')[1].split('-')[0] if '-' in path else f"Fav{i}"
+                        else:
+                            name_part = f"Fav{i}"
+
+                        if len(name_part) > 11:
+                            name_part = name_part[:11] + "."
+                        button_names.append(name_part)
+                        print(f"[DEBUG] Fav {i} fallback: {name_part}")
+                else:
+                    button_names.append(f"Fav{i}")
+                    print(f"[DEBUG] Fav {i} empty path: Fav{i}")
+            except Exception as e:
+                print(f"[DEBUG] Error Fav {i}: {e}")
+                button_names.append(f"Fav{i}")
+
+        # Assign: 0=home(blue), 1=fav1(green), 2=fav2(yellow)
+        self["key_blue"].setText(_(button_names[0]))
+        self["key_green"].setText(_(button_names[1]))
+        self["key_yellow"].setText(_(button_names[2]))
+
+        print(f"[DEBUG] Final buttons: Blue={button_names[0]}, Green={button_names[1]}, Yellow={button_names[2]}")
+    
     def _load_favorite(self, fav_index, path_loc):
         """Load data for the specified favorite."""
         self.myloc = fav_index
         day_index = self.tag
         location_id = path_loc.split('/')[0] if '/' in path_loc else path_loc
+
+        print(f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
+        print(f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
 
         # Get location details
         place = self.weather_api.get_location_by_id(location_id)
@@ -985,8 +1037,20 @@ class Foreca_Preview(Screen, HelpableScreen):
         self.my_cur_weather()
         self.my_forecast_weather()
         self._update_titles()
+
+        print(f"[DEBUG] Chiamo _update_fav_button_names()")
+        self._update_fav_button_names()
+
         if self.lat != 'N/A' and self.lon != 'N/A':
             Thread(target=self.mypicload).start()
+
+        # # Update UI
+        # self._update_moon()
+        # self.my_cur_weather()
+        # self.my_forecast_weather()
+        # self._update_titles()
+        # if self.lat != 'N/A' and self.lon != 'N/A':
+            # Thread(target=self.mypicload).start()
 
     def _read_favorite(self, name):
         path = join(SYSTEM_DIR, f"{name}.cfg")
@@ -2128,6 +2192,22 @@ def main(session, **kwargs):
             _("No Internet connection detected."),
             MessageBox.TYPE_INFO)
         return
+
+    try:
+        from enigma import addFont
+
+        PLUGIN_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/Foreca1"
+        font_path = join(PLUGIN_PATH, "fonts", "LiberationSans-Regular.ttf")
+        print("[FONT] Checking path:", font_path)
+        print("[FONT] Exists?", exists(font_path))
+        if exists(font_path):
+            addFont(font_path, 'Liberation', 100, 0)
+            print("[FONT] ✓ Font 'Liberation' added!")
+        else:
+            print("[FONT] ✗ File not found!")
+    except Exception as e:
+        print("[FONT] ✗ Error:", e)
+
     session.open(Foreca_Preview)
 
 

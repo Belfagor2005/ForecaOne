@@ -13,7 +13,7 @@ from os import makedirs, listdir, environ
 import gettext
 import codecs
 
-VERSION = "1.1.5"
+VERSION = "1.1.6"
 _AUTHOR_ = "by Lululla - 2026"
 IDEAS = "@Bauernbub"
 THANKS = "@Orlandox"
@@ -172,16 +172,6 @@ def load_skin_by_class(class_name):
     if DEBUG:
         print("=" * 60 + "\n")
     return None
-
-
-def add_skin_font():
-    print('**********addFont')
-    from enigma import addFont
-    FNT_Path = join(PLUGIN_PATH, "fonts")
-    addFont(join(FNT_Path, 'LiberationSans-Regular.ttf'), 'Liberation', 100, 0)
-
-
-add_skin_font()
 
 
 def load_skin_for_class(cls):
