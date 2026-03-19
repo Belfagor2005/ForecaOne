@@ -773,9 +773,11 @@ class Foreca_Preview(Screen, HelpableScreen):
                         button_names.append(name)
                         print(f"[DEBUG] Fav {i} OK (API): {name}")
                     else:
-                        # Fallback: if API fails, use the name from the path if available
+                        # Fallback: if API fails, use the name from the path if
+                        # available
                         if '/' in path:
-                            name_part = path.split('/')[1].split('-')[0] if '-' in path else f"Fav{i}"
+                            name_part = path.split(
+                                '/')[1].split('-')[0] if '-' in path else f"Fav{i}"
                         else:
                             name_part = f"Fav{i}"
 
@@ -795,16 +797,19 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["key_green"].setText(_(button_names[1]))
         self["key_yellow"].setText(_(button_names[2]))
 
-        print(f"[DEBUG] Final buttons: Blue={button_names[0]}, Green={button_names[1]}, Yellow={button_names[2]}")
-    
+        print(
+            f"[DEBUG] Final buttons: Blue={button_names[0]}, Green={button_names[1]}, Yellow={button_names[2]}")
+
     def _load_favorite(self, fav_index, path_loc):
         """Load data for the specified favorite."""
         self.myloc = fav_index
         day_index = self.tag
         location_id = path_loc.split('/')[0] if '/' in path_loc else path_loc
 
-        print(f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
-        print(f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
+        print(
+            f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
+        print(
+            f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
 
         # Get location details
         place = self.weather_api.get_location_by_id(location_id)
