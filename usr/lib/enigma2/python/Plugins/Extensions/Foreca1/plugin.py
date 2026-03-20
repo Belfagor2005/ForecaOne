@@ -1043,6 +1043,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         self.my_forecast_weather()
         self._update_titles()
 
+        print("[DEBUG] Chiamo _update_fav_button_names()")
         self._update_fav_button_names()
 
         if self.lat != 'N/A' and self.lon != 'N/A':
