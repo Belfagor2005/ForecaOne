@@ -13,10 +13,7 @@ from os import makedirs, listdir, remove
 from math import log, tan, pi, radians, cos
 from PIL import Image
 from twisted.internet import reactor
-from enigma import ePoint, eSize
-
 from enigma import getDesktop
-
 
 from Screens.Screen import Screen
 from Screens.HelpMenu import HelpableScreen
@@ -34,7 +31,8 @@ from . import (
     load_skin_for_class,
     apply_global_theme,
     TEMP_DIR,
-    HEADERS
+    HEADERS,
+    OSM_HEADERS
 )
 
 
@@ -116,6 +114,9 @@ class RainViewerMaps(Screen, HelpableScreen):
         self["title"] = Label(_("RainViewer Radar"))
         self["time_label"] = Label("")
         self["info"] = Label(_("Loading..."))
+        self["osm_attribution"] = Label(
+            "© OpenStreetMap contributors, Style: OpenRailwayMap CC-BY-SA 2.0"
+        )
         self['key_red'] = StaticText(_("Exit"))
         self['key_green'] = StaticText(_("Zoom+"))
         self['key_yellow'] = StaticText(_("Zoom-"))
@@ -220,7 +221,11 @@ class RainViewerMaps(Screen, HelpableScreen):
         if exists(cache_file):
             return cache_file
         try:
-            r = requests.get(url, headers=HEADERS, timeout=5)
+            if 'openstreetmap.org' in url or 'openrailwaymap.org' in url:
+                headers = OSM_HEADERS  # Use specific headers for OSM/ORM
+            else:
+                headers = HEADERS  # Use generic headers for other services
+            r = requests.get(url, headers=headers, timeout=5)
             if r.status_code == 200:
                 with open(cache_file, 'wb') as f:
                     f.write(r.content)
@@ -245,7 +250,11 @@ class RainViewerMaps(Screen, HelpableScreen):
 
     def _fetch_frames(self):
         try:
-            resp = requests.get(API_URL, headers=HEADERS, timeout=10)
+            if 'openstreetmap.org' in API_URL or 'openrailwaymap.org' in API_URL:
+                headers = OSM_HEADERS  # Use specific headers for OSM/ORM
+            else:
+                headers = HEADERS  # Use generic headers for other services
+            resp = requests.get(API_URL, headers=headers, timeout=10)
             if resp.status_code != 200:
                 print(f"[RainViewer] API error: {resp.status_code}")
                 reactor.callFromThread(

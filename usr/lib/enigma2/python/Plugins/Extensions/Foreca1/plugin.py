@@ -41,6 +41,7 @@ from threading import Thread
 from Components.ActionMap import HelpableActionMap
 from Components.Label import Label
 from Components.Pixmap import Pixmap
+from Components.ProgressBar import ProgressBar
 from Components.Sources.List import List
 from Components.Sources.StaticText import StaticText
 from Components.Timezones import Timezones
@@ -380,6 +381,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["moon_label"] = Label()
         self["icon_moon_light"] = Pixmap()
         self["moon_illum"] = Label()
+        self["illum_bar"] = ProgressBar()
         self["icon_moon_dist"] = Pixmap()
         self["moon_distance"] = Label()
         self["moonrise_label"] = Label(_("Rise"))
@@ -724,8 +726,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             city_id, action = result[0], result[1]
             display_name = result[2] if len(result) > 2 else None
             if action == 'select':
-                self._load_favorite(
-                    self.myloc, city_id, forced_name=display_name)
+                self._load_favorite(self.myloc, city_id, forced_name=display_name)
                 self._save_favorite(self.myloc, city_id)
                 self.my_cur_weather()
                 self.my_forecast_weather()
@@ -779,10 +780,7 @@ class Foreca_Preview(Screen, HelpableScreen):
 
                     # Use the API to get the name
                     place = self.weather_api.get_location_by_id(location_id)
-                    print(
-                        "[DEBUG] Raw city name from get_location_by_id:",
-                        repr(
-                            self.town))
+                    print("[DEBUG] Raw city name from get_location_by_id:", repr(self.town))
                     if place and place.name:
                         name = place.name
                         if len(name) > 11:
@@ -865,10 +863,8 @@ class Foreca_Preview(Screen, HelpableScreen):
             self.town = 'N/A'
 
         # Debug prints
-        print(
-            f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
-        print(
-            f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
+        print(f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
+        print(f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
         if DEBUG:
             _write_favorite_debug(
                 f"# DEBUG: Location loaded: town={self.town}, country={self.country}, lon={self.lon}, lat={self.lat}")
@@ -1807,6 +1803,10 @@ class Foreca_Preview(Screen, HelpableScreen):
         if "moon_illum" in self:
             self["moon_illum"].setText(
                 _("Illumination") + f" {illumination:.1f}%")
+        if "illum_bar" in self:
+            self["illum_bar"].setValue(int(info["illumination"]))
+            # self["illum_bar"].setValue(int(illumination))
+
         if "moon_distance" in self:
             distance = self.moon.get_moon_distance()
             self["moon_distance"].setText(_("Distance {} km").format(distance))

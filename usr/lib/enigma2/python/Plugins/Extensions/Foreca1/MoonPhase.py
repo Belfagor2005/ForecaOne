@@ -105,6 +105,39 @@ class MoonPhase:
         """
         return dt.toordinal() + 1721424.5
 
+    def _jd_to_date(self, jd):
+        """Convert a Julian Day value to a datetime object.
+
+        Uses the same conversion formula as MoonCalendar.
+        """
+        from datetime import datetime
+
+        jd = jd + 0.5
+        z = int(jd)
+        f = jd - z
+
+        if z < 2299161:
+            a = z
+        else:
+            alpha = int((z - 1867216.25) / 36524.25)
+            a = z + 1 + alpha - int(alpha / 4)
+
+        b = a + 1524
+        c = int((b - 122.1) / 365.25)
+        d = int(365.25 * c)
+        e = int((b - d) / 30.6001)
+
+        day = int(b - d - int(30.6001 * e) + f)
+        month = int(e - 1 if e < 14 else e - 13)
+        year = int(c - 4716 if month > 2 else c - 4715)
+
+        total_seconds = int(f * 86400)
+        seconds = total_seconds % 60
+        minutes = (total_seconds // 60) % 60
+        hours = total_seconds // 3600
+
+        return datetime(year, month, day, hours, minutes, seconds)
+
     def _compute_lunar_data(self, jd):
         """
         Computes precise lunar data for a given Julian Day (geocentric).

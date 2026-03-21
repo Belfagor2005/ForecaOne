@@ -3,6 +3,7 @@
     <widget name="info" position="80,1193" size="1467,53" font="Liberation;37" foregroundColor="#53a9ff" backgroundColor="#000000" transparent="1" valign="center" zPosition="10" halign="left" />
     <widget name="time_label" position="1563,1193" size="923,53" font="Liberation;43" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" halign="right" zPosition="4" />
     <widget name="zoom_label" position="2183,84" size="267,47" font="Liberation;40" transparent="1" zPosition="5" halign="right" valign="center" backgroundColor="#000000" foregroundColor="#49bbff" />
+    <widget name="osm_attribution" position="1738,1149" size="740,30" font="Liberation; 24" foregroundColor="#888888" backgroundColor="#000000" transparent="1" halign="right" zPosition="25" />
     <!-- map image -->
     <widget name="map" position="60,132" size="2440,1055" zPosition="10" backgroundColor="#000000" />
     <!-- Button icons -->

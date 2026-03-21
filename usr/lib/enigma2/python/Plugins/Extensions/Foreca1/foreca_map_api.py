@@ -70,7 +70,6 @@ class ForecaMapAPI:
         }
 
         config_data = default_config.copy()
-
         if exists(CONFIG_FILE):
             try:
                 with open(CONFIG_FILE, 'r') as f:
@@ -83,6 +82,8 @@ class ForecaMapAPI:
                             key, value = line.split('=', 1)
                             key = key.strip()
                             value = value.strip()
+                            if '#' in value:
+                                value = value.split('#')[0].strip()
                             config_data[key] = value
                 if DEBUG:
                     print(

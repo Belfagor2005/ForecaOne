@@ -42,6 +42,9 @@ msgstr "6 - Bugün + 6 gün"
 msgid "7 - Today + 7 days"
 msgstr "7 - Bugün + 7 gün"
 
+msgid "7 Day Forecast"
+msgstr "7 Günlük Tahmin"
+
 msgid "8 - Today + 8 days"
 msgstr "8 - Bugün + 8 gün"
 
@@ -99,8 +102,19 @@ msgstr "Belçika"
 msgid "Berlin"
 msgstr "Berlin"
 
+#, fuzzy
+msgid "Black Moon"
+msgstr "Dolunay"
+
+msgid "Blue"
+msgstr "Mavi"
+
 msgid "Blue - Home"
 msgstr "Mavi - Ana Sayfa"
+
+#, fuzzy
+msgid "Blue Moon"
+msgstr "Yeni Ay"
 
 msgid "Brandenburg"
 msgstr "Brandenburg"
@@ -143,6 +157,9 @@ msgstr "Kapat"
 
 msgid "Close legend"
 msgstr "Göstergeyi kapat"
+
+msgid "Cloud Cover"
+msgstr "Bulut Örtüsü"
 
 msgid "Cloudy"
 msgstr "Bulutlu"
@@ -254,6 +271,9 @@ msgstr "Çiğ noktası: %s°C"
 
 msgid "Dewpoint: N/A"
 msgstr "Çiğ noktası: Yok"
+
+msgid "Distance"
+msgstr "Mesafe"
 
 msgid "Distance {} km"
 msgstr "Mesafe {} km"
@@ -442,6 +462,9 @@ msgstr "Büyük Britanya"
 msgid "Greece"
 msgstr "Yunanistan"
 
+msgid "Green"
+msgstr "Yeşil"
+
 msgid "Green - Favorite 1"
 msgstr "Yeşil - Sık Kullanılan 1"
 
@@ -450,6 +473,9 @@ msgstr "Rüzgar hamlesi {}"
 
 msgid "Gust: {:.1f} {}"
 msgstr "Rüzgar hamlesi: {:.1f} {}"
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "Hamburg"
 msgstr "Hamburg"
@@ -506,6 +532,9 @@ msgstr "Görsel %(current)d/%(total)d – %(day)s"
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
 msgstr "Görsel %(current)d/%(total)d – %(day)s (Duraklatıldı)"
 
+msgid "Image Downloaded"
+msgstr "Görsel İndirildi"
+
 msgid "Image not available"
 msgstr "Görsel mevcut değil"
 
@@ -544,6 +573,9 @@ msgstr "Klavye"
 
 msgid "Last Quarter"
 msgstr "Son Dördün"
+
+msgid "Last update"
+msgstr "Son güncelleme"
 
 msgid "Latvia"
 msgstr "Letonya"
@@ -848,6 +880,9 @@ msgstr "Parçalı bulutlu ve sulu sepken sağanaklı"
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Parçalı bulutlu, olası gök gürültülü sağanak yağışlı"
 
+msgid "Perigee"
+msgstr ""
+
 msgid "Phase"
 msgstr "Evre"
 
@@ -914,6 +949,9 @@ msgstr "Önceki sayfa"
 msgid "Previous time"
 msgstr "Önceki zaman"
 
+msgid "Radar"
+msgstr "Radar"
+
 msgid "Rain Prob."
 msgstr "Yağmur Olasılığı."
 
@@ -928,6 +966,9 @@ msgstr "Yağmur: {:.1f} {}"
 
 msgid "RainViewer Radar"
 msgstr "RainViewer Radarı"
+
+msgid "Red"
+msgstr "Kırmızı"
 
 msgid "Red - Color select"
 msgstr "Kırmızı - Renk seç"
@@ -1025,6 +1066,9 @@ msgstr "Slovakya"
 msgid "Slower: {}s"
 msgstr "Daha yavaş: {}s"
 
+msgid "Snow"
+msgstr "Kar"
+
 msgid "Snow / ice"
 msgstr "Kar / buz"
 
@@ -1060,6 +1104,10 @@ msgstr "Gün doğumu"
 
 msgid "Sunset"
 msgstr "Gün batımı"
+
+#, fuzzy
+msgid "Super Full Moon"
+msgstr "Dolunay"
 
 msgid "Sweden"
 msgstr "İsveç"
@@ -1123,6 +1171,9 @@ msgstr "Şeffaflık Ayarları"
 
 msgid "Transparency level"
 msgstr "Şeffaflık seviyesi"
+
+msgid "UV"
+msgstr "UV"
 
 msgid "UV Index"
 msgstr "UV İndeksi"
@@ -1247,6 +1298,9 @@ msgstr "Yarın hava durumu"
 msgid "Weekly Forecast"
 msgstr "Haftalık Tahmin"
 
+msgid "Wetter.de Maps Test"
+msgstr "Wetter.de Haritaları Testi"
+
 msgid "Wind"
 msgstr "Rüzgar"
 
@@ -1336,42 +1390,3 @@ msgstr "• Sık Kullanılan 2 olarak kaydetmek için SARI\n"
 
 msgid "← Frame"
 msgstr "← Kare"
-
-#~ msgid "7 Day Forecast"
-#~ msgstr "7 Günlük Tahmin"
-
-#~ msgid "Blue"
-#~ msgstr "Mavi"
-
-#~ msgid "Cloud Cover"
-#~ msgstr "Bulut Örtüsü"
-
-#~ msgid "Distance"
-#~ msgstr "Mesafe"
-
-#~ msgid "Green"
-#~ msgstr "Yeşil"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "Image Downloaded"
-#~ msgstr "Görsel İndirildi"
-
-#~ msgid "Last update"
-#~ msgstr "Son güncelleme"
-
-#~ msgid "Radar"
-#~ msgstr "Radar"
-
-#~ msgid "Red"
-#~ msgstr "Kırmızı"
-
-#~ msgid "Snow"
-#~ msgstr "Kar"
-
-#~ msgid "UV"
-#~ msgstr "UV"
-
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Wetter.de Haritaları Testi"
