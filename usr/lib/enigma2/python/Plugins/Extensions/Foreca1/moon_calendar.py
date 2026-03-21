@@ -196,14 +196,16 @@ class MoonCalendar(Screen, HelpableScreen):
 
         # 4) Perigees for each month
         perigees = []
-        for year, month in {(p["date"].year, p["date"].month) for p in self.phases}:
+        for year, month in {(p["date"].year, p["date"].month)
+                            for p in self.phases}:
             perigee_data = self._get_perigee_for_month(year, month)
             if perigee_data:
                 # Aggiungiamo anche l'event_type per riconoscerlo
                 perigee_data["event_type"] = "Perigee"
                 perigees.append(perigee_data)
 
-        # Add special events as new entries (copy to avoid altering original phases)
+        # Add special events as new entries (copy to avoid altering original
+        # phases)
         special_events = []
 
         for sm in supermoons:
@@ -247,10 +249,15 @@ class MoonCalendar(Screen, HelpableScreen):
         info = self.moon.get_phase_info()
 
         if info["icon_path"] and exists(info["icon_path"]):
-            self["current_phase_icon"].instance.setPixmapFromFile(info["icon_path"])
+            self["current_phase_icon"].instance.setPixmapFromFile(
+                info["icon_path"])
         self["current_phase_name"].setText(_(info["name"]))
-        self["current_illum"].setText(_("Illumination: {:.1f}%").format(info["illumination"]))
-        self["current_distance"].setText(_("Distance: {} km").format(info["distance"]))
+        self["current_illum"].setText(
+            _("Illumination: {:.1f}%").format(
+                info["illumination"]))
+        self["current_distance"].setText(
+            _("Distance: {} km").format(
+                info["distance"]))
         self["illum_bar"].setValue(int(info["illumination"]))
 
         self["menu"].setList(self.list)
@@ -361,9 +368,12 @@ class MoonCalendar(Screen, HelpableScreen):
         else:
             phase_name = _(phase['phase_name'])
         details = trans("Phase: {}").format(phase_name) + "\n"
-        details += trans("Date: {}").format(phase['date'].strftime("%d.%m.%Y")) + "\n"
-        details += trans("Time: {}").format(phase['date'].strftime("%H:%M")) + "\n"
-        details += trans("Illumination: {:.1f}%").format(phase['illumination']) + "\n"
+        details += trans("Date: {}").format(
+            phase['date'].strftime("%d.%m.%Y")) + "\n"
+        details += trans("Time: {}").format(
+            phase['date'].strftime("%H:%M")) + "\n"
+        details += trans("Illumination: {:.1f}%").format(
+            phase['illumination']) + "\n"
         details += trans("Distance: {} km").format(phase['distance'])
         self.session.open(MessageBox, details, MessageBox.TYPE_INFO)
 
