@@ -931,24 +931,26 @@ class Foreca_Preview(Screen, HelpableScreen):
             # location_id, days=days_needed)
         # if not daily_all and self.weather_api_auth:
             # daily_all = self.weather_api_auth.get_daily_forecast(
-                # location_id, days=days_needed)
+            # location_id, days=days_needed)
 
         # if daily_all and len(daily_all) > self.tag:
             # day_selected = daily_all[self.tag]
 
             # # --- SUNRISE/SUNSET ---
             # self.sunrise = day_selected.sunrise.strftime(
-                # "%H:%M") if day_selected.sunrise else 'N/A'
+            # "%H:%M") if day_selected.sunrise else 'N/A'
             # self.sunset = day_selected.sunset.strftime(
-                # "%H:%M") if day_selected.sunset else 'N/A'
+            # "%H:%M") if day_selected.sunset else 'N/A'
 
         # Daily forecast: prefer auth API if available, otherwise free
         days_needed = max(self.tag + 1, 1)
         daily_all = None
         if self.weather_api_auth:
-            daily_all = self.weather_api_auth.get_daily_forecast(location_id, days=days_needed)
+            daily_all = self.weather_api_auth.get_daily_forecast(
+                location_id, days=days_needed)
         if not daily_all:
-            daily_all = self.weather_api.get_daily_forecast(location_id, days=days_needed)
+            daily_all = self.weather_api.get_daily_forecast(
+                location_id, days=days_needed)
 
         if daily_all and len(daily_all) > self.tag:
             day_selected = daily_all[self.tag]
@@ -966,7 +968,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                 self.daylen = _("{hours} h {mins} min").format(
                     hours=hours, mins=mins)
             elif day_selected.sunrise and day_selected.sunset:
-                # Calculate the difference in minutes between sunset and sunrise
+                # Calculate the difference in minutes between sunset and
+                # sunrise
                 sunrise_min = day_selected.sunrise.hour * 60 + day_selected.sunrise.minute
                 sunset_min = day_selected.sunset.hour * 60 + day_selected.sunset.minute
                 daylen_min = sunset_min - sunrise_min

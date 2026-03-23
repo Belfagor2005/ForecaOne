@@ -139,7 +139,8 @@ class MoonCalendar(Screen, HelpableScreen):
 
         if best_jd:
             dt = self.moon._jd_to_date(best_jd)
-            info = self.moon.get_phase_info_for_jd(best_jd)   # ottiene tutti i dati
+            info = self.moon.get_phase_info_for_jd(
+                best_jd)   # ottiene tutti i dati
             return {
                 'date': dt,
                 'distance': best_dist,
@@ -194,7 +195,8 @@ class MoonCalendar(Screen, HelpableScreen):
 
         # 4) Perigees for each month
         perigees = []
-        for year, month in {(p["date"].year, p["date"].month) for p in self.phases}:
+        for year, month in {(p["date"].year, p["date"].month)
+                            for p in self.phases}:
             perigee_data = self._get_perigee_for_month(year, month)
             if perigee_data:
                 perigees.append(perigee_data)
