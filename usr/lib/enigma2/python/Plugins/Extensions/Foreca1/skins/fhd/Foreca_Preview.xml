@@ -63,7 +63,7 @@
     <widget name="icon_temp_perc" position="40,601" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="temperature_feelslike" position="95,605" size="330,40" zPosition="10" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" />
     <!-- Moon phase -->
-    <widget name="icon_moon" position="360,347" size="90,90" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/moon/moon0000.png" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
+    <widget name="icon_moon" position="358,345" size="90,90" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/moon/moon0000.png" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="moon_label" position="145,435" size="500,40" font="Liberation; 32" foregroundColor="#92f1fc" backgroundColor="#000000" transparent="1" valign="center" halign="center" zPosition="10" />
     <widget name="icon_moon_light" position="40,468" size="50,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/moon_light.png" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="moon_illum" position="95,470" size="250,40" font="Liberation; 26" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
@@ -72,15 +72,15 @@
     <widget name="moon_distance" position="360,470" size="330,40" zPosition="10" font="Liberation; 26" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="right" />
     <widget name="icon_moonrise" position="40,338" size="50,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/moonrise.png" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="moonrise_label" position="100,365" size="170,30" zPosition="10" font="Liberation; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="left" />
-    <widget name="moonrise_value" position="100,335" size="170,30" font="Liberation; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
+    <widget name="moonrise_value" position="100,335" size="170,30" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_moonset" position="730,338" size="50,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/moonset.png" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="moonset_label" position="490,365" size="230,30" zPosition="10" font="Liberation; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="right" />
-    <widget name="moonset_value" position="490,335" size="230,30" font="Liberation; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="moonset_value" position="490,335" size="230,30" font="Regular; 28" foregroundColor="#ff9632" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
     <!-- Station -->
     <widget name="station_name" position="95,543" size="491,40" font="Liberation; 26" halign="left" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" zPosition="10" />
     <!-- Weather description and details -->
     <widget name="weather_description" position="26,120" size="770,36" zPosition="10" font="Liberation; 32" foregroundColor="#fe00" backgroundColor="#000000" transparent="1" valign="center" halign="center" />
-    <widget name="icon_sun" position="240,177" size="325,250" zPosition="8" backgroundColor="#000000" transparent="1" alphatest="blend" scale="1" />
+    <widget name="icon_sun" position="230,167" size="345,260" zPosition="8" backgroundColor="#000000" transparent="1" alphatest="blend" scale="1" />
     <widget name="icon_dew_point" position="730,810" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="dewpoint_value" position="395,815" size="330,40" zPosition="10" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" />
     <widget name="icon_weather" position="345,215" size="120,120" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />

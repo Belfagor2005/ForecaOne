@@ -1838,6 +1838,14 @@ class Foreca_Preview(Screen, HelpableScreen):
             self["moon_distance"].setText(_("Distance {} km").format(distance))
 
         if self.lat != 'N/A' and self.lon != 'N/A':
+            try:
+                lat_f = float(self.lat)
+                lon_f = float(self.lon)
+                print(f"[Moon] _update_moon: lat={lat_f}, lon={lon_f}")
+            except ValueError:
+                print(f"[Moon] _update_moon: invalid lat/lon: {self.lat}, {self.lon}")
+                return
+
             # Calculate offset in hours for the location
             offset_hours = None
             if hasattr(self, 'tz_offset'):
@@ -1849,6 +1857,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             self.moon.get_moon_data_async(
                 float(self.lat), float(self.lon),
                 callback=self._moon_api_callback,
+                max_days=5,
                 offset_hours=offset_hours
             )
         else:
@@ -1862,27 +1871,30 @@ class Foreca_Preview(Screen, HelpableScreen):
             from twisted.internet import reactor
 
             def update_ui():
-                if "moonrise_value" in self and api_data.get(
-                        "rise", "N/A") != "N/A":
+                print(f"[Moon] update_ui called, api_data={api_data}")
+                if "moonrise_value" in self and api_data.get("rise", "N/A") != "N/A":
                     self["moonrise_value"].setText(api_data["rise"])
-                if "moonset_value" in self and api_data.get(
-                        "set", "N/A") != "N/A":
+                    self["moonrise_value"].instance.invalidate()
+                    print(f"[Moon] set moonrise_value to {api_data['rise']}")
+                if "moonset_value" in self and api_data.get("set", "N/A") != "N/A":
                     self["moonset_value"].setText(api_data["set"])
+                    self["moonset_value"].instance.invalidate()
+                    print(f"[Moon] set moonset_value to {api_data['set']}")
 
                 info = self.moon.get_phase_info()
                 if "icon_moon" in self and info["icon_path"]:
-                    self["icon_moon"].instance.setPixmapFromFile(
-                        info["icon_path"])
+                    self["icon_moon"].instance.setPixmapFromFile(info["icon_path"])
                 if "moon_label" in self:
                     self["moon_label"].setText(_(info["name"]))
+                    self["moon_label"].instance.invalidate()
                 if "moon_illum" in self:
-                    self["moon_illum"].setText(
-                        _("Illumination") + f" {info['illumination']:.1f}%")
+                    self["moon_illum"].setText(_("Illumination") + f" {info['illumination']:.1f}%")
+                    self["moon_illum"].instance.invalidate()
                 if "moon_distance" in self:
                     distance = self.moon.get_moon_distance()
-                    self["moon_distance"].setText(
-                        _("Distance {} km").format(distance))
-
+                    self["moon_distance"].setText(_("Distance {} km").format(distance))
+                    self["moon_distance"].instance.invalidate()
+                self.instance.invalidate()
             reactor.callFromThread(update_ui)
 
     def open_foreca_api_maps(self, callback=None):
