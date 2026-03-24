@@ -542,8 +542,11 @@ class MoonPhase:
                 # Acquisisci fase e illuminazione solo per oggi
                 if days_offset == 0:
                     phase_name = props.get("curphase", "N/A")
-                    illum_str = props.get("fracillum", "0%").replace("%", "").strip()
-                    illumination = float(illum_str) / 100.0 if illum_str != "N/A" else None
+                    illum_str = props.get(
+                        "fracillum", "0%").replace(
+                        "%", "").strip()
+                    illumination = float(illum_str) / \
+                        100.0 if illum_str != "N/A" else None
 
                 # Cerca alba e tramonto
                 for item in props.get("moondata", []):
