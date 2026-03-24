@@ -9,7 +9,7 @@
     <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
   </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
-    <img src="https://img.shields.io/badge/Version-1.1.6-blue.svg" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.1.8-blue.svg" alt="Version">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.html">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
@@ -78,7 +78,6 @@
     <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/27.jpeg" width="500"></td>
   </tr>
 </table>
-
 
 ## 📋 Table of Contents
 
@@ -166,6 +165,7 @@
 - **Full remote control navigation** – all screens accessible via keys
 - **Skins for FHD, HD, WQHD** – perfect on any screen
 - **Centralized icon fallback** – missing icons show `na.png` to avoid blank spaces
+- **🎨 Custom Skins (New)** – you can now create your own skins without modifying the built‑in ones. Place your custom XML files in `skins_user/<resolution>/` inside the plugin folder; the plugin will load them instead of the default skins. This keeps your changes safe during updates.
 
 ### 🔧 Technical Highlights
 - Python 3 compatible
@@ -419,7 +419,7 @@ An example file `api_config.txt.example` is created automatically.
 
 - **Original design and idea:** @Bauernbub
 - **Modifications and further development:** @Lululla
-- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements, **RainViewer integration**, **pan in live maps**, **centralized icon fallback**)
+- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements, **RainViewer integration**, **pan in live maps**, **centralized icon fallback**, **custom skins support**)
 
 Thanks to @Orlandox and all friends who provided suggestions and tested the plugin.
 

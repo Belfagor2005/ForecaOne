@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.1.7'
-changelog='\nAdd Details Moon\n,Final Release\nOffer coffee if you like this plugin'
+version='1.1.8'
+changelog='\nCustom Skins (New)** – you can now create your own skins without modifying the built‑in ones.\n,Final Release\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz

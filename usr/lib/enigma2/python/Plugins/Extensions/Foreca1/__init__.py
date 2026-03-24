@@ -13,7 +13,7 @@ from os import makedirs, listdir, environ
 import gettext
 import codecs
 
-VERSION = "1.1.7"
+VERSION = "1.1.8"
 _AUTHOR_ = "by Lululla - 2026"
 IDEAS = "@Bauernbub"
 THANKS = "@Orlandox"
@@ -22,6 +22,7 @@ TEMP_DIR = '/tmp/foreca'
 SYSTEM_DIR = '/etc/enigma2/foreca'
 PLUGIN_PATH = dirname(__file__)
 SKINS_PATH = join(PLUGIN_PATH, "skins")
+CUSTOM_SKINS_PATH = join(PLUGIN_PATH, "skins_user")
 MOON_ICON_PATH = join(PLUGIN_PATH, "moon")
 CONFIG_FILE = join(SYSTEM_DIR, "api_config.txt")
 DATA_FILE = join(SYSTEM_DIR, "color_database.txt")
@@ -125,44 +126,61 @@ def get_resolution_type():
 
 
 def load_skin_by_class(class_name):
-    """Load skin using class name and current resolution"""
+    """Load skin using class name and current resolution.
+    First tries custom skins (skins_user/), then built-in skins (skins/).
+    """
     if DEBUG:
         print("\n" + "=" * 60)
         print(f"[SKIN DEBUG] Looking for skin: '{class_name}'")
-        print(f"[SKIN DEBUG] SKINS_PATH = {SKINS_PATH}")
-        # List all skins folders
-        if exists(SKINS_PATH):
-            print(f"[SKIN DEBUG] Contents of {SKINS_PATH}:")
-            for item in listdir(SKINS_PATH):
-                print(f"  - {item}")
-        else:
-            print("[SKIN DEBUG] SKINS_PATH does NOT exist!")
+        print(f"[SKIN DEBUG] Built-in skins path = {SKINS_PATH}")
+        print(f"[SKIN DEBUG] Custom skins path = {CUSTOM_SKINS_PATH}")
 
     resolution = get_resolution_type()
     if DEBUG:
         print(f"[SKIN DEBUG] resolution = {resolution}")
 
-    skin_file = join(SKINS_PATH, resolution, f"{class_name}.xml")
-    if DEBUG:
-        print(f"[SKIN DEBUG] Trying: {skin_file}")
-        print(f"[SKIN DEBUG] Exists? {exists(skin_file)}")
-
-    if not exists(skin_file):
-        print("[SKIN DEBUG] NOT FOUND, trying HD fallback")
-        skin_file = join(SKINS_PATH, "hd", f"{class_name}.xml")
-        print(f"[SKIN DEBUG] Trying: {skin_file}")
-        print(f"[SKIN DEBUG] Exists? {exists(skin_file)}")
-
-    if exists(skin_file):
+    # 1) Try custom skins first
+    custom_skin_file = None
+    if exists(CUSTOM_SKINS_PATH):
+        custom_skin_file = join(CUSTOM_SKINS_PATH, resolution, f"{class_name}.xml")
         if DEBUG:
-            print("[SKIN DEBUG] ✓ FOUND! Loading file...")
+            print(f"[SKIN DEBUG] Trying custom: {custom_skin_file}")
+            print(f"[SKIN DEBUG] Exists? {exists(custom_skin_file)}")
+    else:
+        if DEBUG:
+            print("[SKIN DEBUG] Custom skins directory does not exist")
+
+    # 2) Built-in skins
+    builtin_skin_file = join(SKINS_PATH, resolution, f"{class_name}.xml")
+    fallback_skin_file = join(SKINS_PATH, "hd", f"{class_name}.xml")
+
+    # Determine which file to load
+    skin_file = None
+    if custom_skin_file and exists(custom_skin_file):
+        skin_file = custom_skin_file
+        if DEBUG:
+            print("[SKIN DEBUG] Using custom skin")
+    elif exists(builtin_skin_file):
+        skin_file = builtin_skin_file
+        if DEBUG:
+            print("[SKIN DEBUG] Using built-in skin for current resolution")
+    elif exists(fallback_skin_file):
+        skin_file = fallback_skin_file
+        if DEBUG:
+            print("[SKIN DEBUG] Using HD fallback skin")
+    else:
+        if DEBUG:
+            print("[SKIN DEBUG] No skin found at all")
+
+    if skin_file and exists(skin_file):
+        if DEBUG:
+            print(f"[SKIN DEBUG] ✓ FOUND! Loading file: {skin_file}")
         try:
             with codecs.open(skin_file, 'r', 'utf-8') as f:
                 content = f.read()
                 if DEBUG:
                     print(f"[SKIN DEBUG] ✓ Loaded {len(content)} bytes")
-                    print(
-                        f"[SKIN DEBUG] First 100 chars: {content[:100].replace(chr(10), ' ')}")
+                    print(f"[SKIN DEBUG] First 100 chars: {content[:100].replace(chr(10), ' ')}")
                     print("=" * 60 + "\n")
                 return content
         except Exception as e:
