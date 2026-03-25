@@ -289,7 +289,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["key_menu"] = StaticText(_("Menu"))
         self["key_info"] = StaticText(_("Info"))
         self["key_help"] = StaticText(_("Help"))
-        self["key_ok"] = StaticText(_("Ok - Zone"))
+        self["key_ok"] = StaticText(_("Ok - Details"))
 
         # ========== CURRENT WEATHER MAIN INFO ==========
         self["weather_description"] = Label('')
