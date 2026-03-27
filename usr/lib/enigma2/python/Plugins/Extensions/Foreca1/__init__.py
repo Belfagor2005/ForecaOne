@@ -9,9 +9,10 @@ from Components.Language import language
 from os.path import exists, join, dirname
 from enigma import getDesktop, gRGB
 from skin import parseColor
-from os import makedirs, environ
+from os import makedirs, environ, rmdir, walk, remove
 import gettext
 import codecs
+import shutil
 
 VERSION = "1.1.8"
 _AUTHOR_ = "by Lululla - 2026"
@@ -248,67 +249,42 @@ def get_icon_path(icon_name, fallback='na.png'):
     return fallback_path if exists(fallback_path) else None
 
 
-def cleanup_temp_files():
-    """Removes the temporary folder and all SVG files inside it."""
-    import shutil
-    if exists(TEMP_DIR):
-        try:
-            shutil.rmtree(TEMP_DIR)
-            if DEBUG:
-                print(f"[Meteogram] Cleaned folder {TEMP_DIR}")
-        except Exception as e:
-            print(f"[Meteogram] Error cleaning {TEMP_DIR}: {e}")
-
-    if exists(DBG_DIR):
-        try:
-            shutil.rmtree(DBG_DIR)
-            if DEBUG:
-                print(f"[Meteogram] Cleaned folder {DBG_DIR}")
-        except Exception as e:
-            print(f"[Meteogram] Error cleaning {DBG_DIR}: {e}")
-
-
-"""
-def apply_global_theme(screen):
-    '''
-    Apply background color (from set_color.conf) and transparency (from set_alpha.conf)
-    to all widgets of the screen that have meaningful names:
-    - Widgets with names starting with 'color_bg_' or 'background_plate' or 'selection_overlay' receive the color.
-    - Widgets with names starting with 'transp_bg_' receive the transparency.
-    '''
-    color_file = join(PLUGIN_PATH, "set_color.conf")
-    alpha_file = join(PLUGIN_PATH, "set_alpha.conf")
-
-    # Default color
-    r, g, b = 0, 80, 239
-    if exists(color_file):
-        try:
-            with open(color_file, "r") as f:
-                parts = f.read().strip().split()
-                if len(parts) >= 3:
-                    r, g, b = parts[0], parts[1], parts[2]
-        except Exception as e:
-            print("[Theme] Error loading color:", e)
-    bg_color = gRGB(int(r), int(g), int(b))
-
-    # Default transparency
-    alpha = '#40000000'
-    if exists(alpha_file):
-        try:
-            with open(alpha_file, "r") as f:
-                alpha = f.read().strip()
-        except Exception as e:
-            print("[Theme] Error loading alpha:", e)
-    transparent_color = parseColor(alpha)
-
-    # Apply to all widgets
-    for name, widget in screen.items():
-        if not hasattr(widget, 'instance') or not widget.instance:
+def cleanup_temp_files(keep_token=True):
+    """Remove temporary folders, optionally keep the token."""
+    # List of directories to clean
+    dirs_to_clean = [TEMP_DIR, DBG_DIR]
+    for d in dirs_to_clean:
+        if not exists(d):
             continue
-        if name.startswith("color_bg_") or name in ["background_plate", "selection_overlay"]:
-            widget.instance.setBackgroundColor(bg_color)
-            widget.instance.invalidate()
-        elif name.startswith("transp_bg_"):
-            widget.instance.setBackgroundColor(transparent_color)
-            widget.instance.invalidate()
-"""
+        try:
+            if keep_token and d == TEMP_DIR:
+                # Delete everything inside TEMP_DIR except the token file
+                token_path = join(TEMP_DIR, "foreca_map_cache", "token.json")
+                for root, dirs, files in walk(d, topdown=False):
+                    for name in files:
+                        file_path = join(root, name)
+                        if file_path != token_path:
+                            remove(file_path)
+                    for name in dirs:
+                        dir_path = join(root, name)
+                        # Skip the cache directory that contains token
+                        if dir_path == join(TEMP_DIR, "foreca_map_cache"):
+                            continue
+                        rmdir(dir_path)
+                # Recreate essential subdirs
+                for sub in ["meteogram", "weather_detail"]:
+                    subdir = join(d, sub)
+                    if not exists(subdir):
+                        makedirs(subdir)
+                if DEBUG:
+                    print(f"[Cleanup] Cleaned {d} (kept token)")
+            else:
+                shutil.rmtree(d)
+                if DEBUG:
+                    print(f"[Cleanup] Removed {d}")
+                if d == TEMP_DIR:
+                    makedirs(d)
+                elif d == DBG_DIR:
+                    makedirs(d)
+        except Exception as e:
+            print(f"[Cleanup] Error cleaning {d}: {e}")
