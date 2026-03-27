@@ -25,17 +25,21 @@ PLUGIN_PATH = dirname(__file__)
 SKINS_PATH = join(PLUGIN_PATH, "skins")
 CUSTOM_SKINS_PATH = join(PLUGIN_PATH, "skins_user")
 MOON_ICON_PATH = join(PLUGIN_PATH, "moon")
+THUMB_PATH = join(PLUGIN_PATH, "thumb/")
+DBG_DIR = join(PLUGIN_PATH, 'debug')
 CONFIG_FILE = join(SYSTEM_DIR, "api_config.txt")
 DATA_FILE = join(SYSTEM_DIR, "color_database.txt")
 CACHE_BASE = join(TEMP_DIR, "foreca_map_cache")
-THUMB_PATH = join(PLUGIN_PATH, "thumb/")
-DBG_DIR = join(PLUGIN_PATH, 'debug')
+METEOGRAM_CACHE = join(TEMP_DIR, "meteogram")
+WEATHER_DETAIL_CACHE = join(TEMP_DIR, "weather_detail")
 TOKEN_FILE = join(CACHE_BASE, "token.json")
 WETTERKONTOR_CACHE = join(CACHE_BASE, "wetterkontor/")
+
 INSTALLER_URL = "https://raw.githubusercontent.com/Belfagor2005/ForecaOne/main/installer.sh"
 
 DEBUG = True
 CACHE_EXPIRE = 3600
+
 
 if not exists(SYSTEM_DIR):
     makedirs(SYSTEM_DIR)
@@ -51,6 +55,12 @@ if not exists(CACHE_BASE):
 
 if not exists(WETTERKONTOR_CACHE):
     makedirs(WETTERKONTOR_CACHE)
+
+if not exists(METEOGRAM_CACHE):
+    makedirs(METEOGRAM_CACHE)
+
+if not exists(WEATHER_DETAIL_CACHE):
+    makedirs(WEATHER_DETAIL_CACHE)
 
 PluginLanguageDomain = "Foreca"
 PluginLanguagePath = "Extensions/Foreca1/locale"
@@ -251,7 +261,6 @@ def get_icon_path(icon_name, fallback='na.png'):
 
 def cleanup_temp_files(keep_token=True):
     """Remove temporary folders, optionally keep the token."""
-    # List of directories to clean
     dirs_to_clean = [TEMP_DIR, DBG_DIR]
     for d in dirs_to_clean:
         if not exists(d):
@@ -271,9 +280,10 @@ def cleanup_temp_files(keep_token=True):
                         if dir_path == join(TEMP_DIR, "foreca_map_cache"):
                             continue
                         rmdir(dir_path)
-                # Recreate essential subdirs
-                for sub in ["meteogram", "weather_detail"]:
-                    subdir = join(d, sub)
+                # Recreate essential subdirectories
+                subdirs = ["meteogram", "weather_detail", "foreca_map_cache/wetterkontor"]
+                for sub in subdirs:
+                    subdir = join(TEMP_DIR, sub)
                     if not exists(subdir):
                         makedirs(subdir)
                 if DEBUG:
@@ -284,6 +294,11 @@ def cleanup_temp_files(keep_token=True):
                     print(f"[Cleanup] Removed {d}")
                 if d == TEMP_DIR:
                     makedirs(d)
+                    # Also recreate subdirs if TEMP_DIR was completely removed
+                    for sub in ["meteogram", "weather_detail", "foreca_map_cache/wetterkontor"]:
+                        subdir = join(d, sub)
+                        if not exists(subdir):
+                            makedirs(subdir)
                 elif d == DBG_DIR:
                     makedirs(d)
         except Exception as e:
