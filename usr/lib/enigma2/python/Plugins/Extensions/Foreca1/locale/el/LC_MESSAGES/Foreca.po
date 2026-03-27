@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreca\n"
+"Project-Id-Version: Foreca1\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
@@ -136,10 +136,10 @@ msgid "City list file not found!"
 msgstr "Το αρχείο λίστας πόλεων δεν βρέθηκε!"
 
 msgid "Cleanup Foreca One Temp Files?"
-msgstr ""
+msgstr "Να γίνει καθαρισμός των προσωρινών αρχείων Foreca One;"
 
 msgid "Cleanup temp files"
-msgstr ""
+msgstr "Καθαρισμός προσωρινών αρχείων"
 
 msgid "Clear"
 msgstr "Αίθριος"
@@ -1346,35 +1346,3 @@ msgstr "• ΚΙΤΡΙΝΟ για αποθήκευση ως Αγαπημένο 2
 
 msgid "← Frame"
 msgstr "← Καρέ"
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "OK - Πρόγνωση"
-
-#, fuzzy
-#~ msgid "Blue"
-#~ msgstr "Μπλε σελήνη"
-
-#, fuzzy
-#~ msgid "Cloud Cover"
-#~ msgstr "Συννεφιασμένος και μπόρες"
-
-#, fuzzy
-#~ msgid "Distance"
-#~ msgstr "Απόσταση: %s"
-
-#, fuzzy
-#~ msgid "Green"
-#~ msgstr "Ελλάδα"
-
-#, fuzzy
-#~ msgid "Image Downloaded"
-#~ msgstr "Σελίδα κάτω"
-
-#, fuzzy
-#~ msgid "Last update"
-#~ msgstr "Τελευταίο τέταρτο"
-
-#, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Χάρτες καιρού"
