@@ -9,7 +9,7 @@ from Components.Language import language
 from os.path import exists, join, dirname
 from enigma import getDesktop, gRGB
 from skin import parseColor
-from os import makedirs, listdir, environ
+from os import makedirs, environ
 import gettext
 import codecs
 

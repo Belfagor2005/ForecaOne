@@ -594,6 +594,20 @@ class Foreca_Preview(Screen, HelpableScreen):
     def nextDay(self):
         self.right()
 
+    def ask_cleanup_temp_files(self):
+        self.session.openWithCallback(
+            self.cleanup_temp_files_cb,
+            MessageBox,
+            _("Cleanup Foreca One Temp Files?"),
+            MessageBox.TYPE_YESNO,
+            timeout=10,
+            default=True
+        )
+
+    def cleanup_temp_files_cb(self, result=None):
+        if result:
+            cleanup_temp_files()
+
     def info(self):
         self.session.open(InfoDialog, self)
 
@@ -611,6 +625,7 @@ class Foreca_Preview(Screen, HelpableScreen):
             (_("Color select"), "colorselector"),
             (_("Transparency Settings"), "transparency"),
             (_("Check for updates"), "update"),
+            (_("Cleanup temp files"), "cleanup"),
             (_("Info"), "info"),
             (_("Exit"), "exit")
         ]
@@ -712,6 +727,8 @@ class Foreca_Preview(Screen, HelpableScreen):
         elif key == "rainviewer":
             from .rain_maps import RainViewerMaps
             self.session.open(RainViewerMaps, self)
+        elif key == "cleanup":
+            self.ask_cleanup_temp_files()
         elif key == "info":
             self.session.openWithCallback(
                 self.after_main_menu, InfoDialog, self)
@@ -2235,7 +2252,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         """Exit and save configurations."""
         self._save_color()
         self._save_alpha()
-        cleanup_temp_files()
+        # cleanup_temp_files()
         self.close()
 
     def close(self):
