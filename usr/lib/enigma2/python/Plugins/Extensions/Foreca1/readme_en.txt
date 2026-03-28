@@ -9,7 +9,7 @@
     <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
   </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
-    <img src="https://img.shields.io/badge/Version-1.1.8-blue.svg" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.2.0-blue.svg" alt="Version">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.html">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
@@ -18,66 +18,6 @@
     <img src="https://img.shields.io/badge/Python-3.x-yellow.svg" alt="Python">
   </a>
 </p>
-
-## 📸 Screenshots
-
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/1.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/2.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/3.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/4.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/5.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/6.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/7.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/8.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/9.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/10.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/11.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/12.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/13.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/14.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/15.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/16.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/17.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/18.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/19.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/20.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/21.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/22.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/23.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/24.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/25.jpeg" width="500"></td>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/26.jpeg" width="500"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Belfagor2005/ForecaOne/refs/heads/main/screenshots/27.jpeg" width="500"></td>
-  </tr>
-</table>
 
 ## 📋 Table of Contents
 
@@ -165,7 +105,12 @@
 - **Full remote control navigation** – all screens accessible via keys
 - **Skins for FHD, HD, WQHD** – perfect on any screen
 - **Centralized icon fallback** – missing icons show `na.png` to avoid blank spaces
-- **🎨 Custom Skins (New)** – you can now create your own skins without modifying the built‑in ones. Place your custom XML files in `skins_user/<resolution>/` inside the plugin folder; the plugin will load them instead of the default skins. This keeps your changes safe during updates.
+
+### 🌈 Animated Weather Icons (NEW in v1.2.0)
+- Optional animated icons for weather conditions (e.g., clouds moving, sun pulsing)
+- Automatic detection: if a folder `animated_icons/<code>/` exists, the plugin will cycle through all `.png` frames
+- Customizable frame rate (delay) – currently set to 200 ms
+- Fallback to static icons if no animation folder is found
 
 ### 🔧 Technical Highlights
 - Python 3 compatible
@@ -419,13 +364,13 @@ An example file `api_config.txt.example` is created automatically.
 
 - **Original design and idea:** @Bauernbub
 - **Modifications and further development:** @Lululla
-- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements, **RainViewer integration**, **pan in live maps**, **centralized icon fallback**, **custom skins support**)
+- **Contributions:** Assistant (API refactoring, meteogram, new data integration, extensive debugging, menu navigation, station scraping, **lunar calendar**, advanced units, global theme, DailyForecast fixes, map improvements, **RainViewer integration**, **pan in live maps**, **centralized icon fallback**)
 
 Thanks to @Orlandox and all friends who provided suggestions and tested the plugin.
 
 ## License
 
-This project is licensed under the **GNU General Public License v3.0**.
+This project is licensed under the **GNU General Public License v3.0**.  
 See the [LICENSE](LICENSE) file for details.
 
 <p align="center">

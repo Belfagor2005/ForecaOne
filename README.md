@@ -9,7 +9,7 @@
     <img src="https://github.com/Belfagor2005/ForecaOne/actions/workflows/pylint.yml/badge.svg" alt="Python package">
   </a>
   <a href="https://github.com/Belfagor2005/ForecaOne">
-    <img src="https://img.shields.io/badge/Version-1.1.9-blue.svg" alt="Version">
+    <img src="https://img.shields.io/badge/Version-1.2.0-blue.svg" alt="Version">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0.html">
     <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License">
@@ -166,6 +166,12 @@
 - **Skins for FHD, HD, WQHD** – perfect on any screen
 - **Centralized icon fallback** – missing icons show `na.png` to avoid blank spaces
 - **🎨 Custom Skins (New)** – you can now create your own skins without modifying the built‑in ones. Place your custom XML files in `skins_user/<resolution>/` inside the plugin folder; the plugin will load them instead of the default skins. This keeps your changes safe during updates.
+
+### 🌈 Animated Weather Icons (NEW in v1.2.0)
+- Optional animated icons for weather conditions (e.g., clouds moving, sun pulsing)
+- Automatic detection: if a folder `animated_icons/<code>/` exists, the plugin will cycle through all `.png` frames
+- Customizable frame rate (delay) – currently set to 200 ms
+- Fallback to static icons if no animation folder is found
 
 ### 🔧 Technical Highlights
 - Python 3 compatible
