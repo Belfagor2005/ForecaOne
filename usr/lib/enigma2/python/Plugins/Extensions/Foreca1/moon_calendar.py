@@ -165,7 +165,7 @@ class MoonCalendar(Screen, HelpableScreen):
             start_month = 1
             start_year = today.year + 1
         else:
-            start_month = today.month + 1
+            start_month = today.month  # + 1
             start_year = today.year
 
         current = datetime(start_year, start_month, 1)
