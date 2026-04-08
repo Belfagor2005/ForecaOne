@@ -184,28 +184,27 @@ fi
 
 # Restore user configuration after installing new version
 restore_config
-
 sync
 
-echo "Verifying installation..."
-if [ -d "$PLUGINPATH" ] && [ -n "$(ls -A "$PLUGINPATH" 2>/dev/null)" ]; then
-    echo "Plugin directory found and not empty: $PLUGINPATH"
-    echo "Contents:"
-    ls -la "$PLUGINPATH/" | head -10
+# --- Début des modifications pour OpenPLi/OpenATV ---
+box_type=$(head -n 1 /etc/hostname 2>/dev/null || echo "Unknown")
+
+# Détection de la version de l'image
+if [ -f /usr/lib/enigma.info ]; then
+    # OpenPLi : on utilise /usr/lib/enigma.info
+    distro_value=$(grep '^distro=' /usr/lib/enigma.info 2>/dev/null | awk -F '=' '{print $2}')
+    distro_version=$(grep '^imageversion=' /usr/lib/enigma.info 2>/dev/null | awk -F '=' '{print $2}')
+elif [ -f /etc/image-version ]; then
+    # OpenATV : on utilise /etc/image-version
+    distro_value=$(grep '^distro=' /etc/image-version 2>/dev/null | awk -F '=' '{print $2}')
+    distro_version=$(grep '^version=' /etc/image-version 2>/dev/null | awk -F '=' '{print $2}')
 else
-    echo "Plugin installation failed or directory is empty!"
-    cleanup
-    exit 1
+    distro_value="Unknown"
+    distro_version="Unknown"
 fi
 
-cleanup
-sync
-
-FILE="/etc/image-version"
-box_type=$(head -n 1 /etc/hostname 2>/dev/null || echo "Unknown")
-distro_value=$(grep '^distro=' "$FILE" 2>/dev/null | awk -F '=' '{print $2}')
-distro_version=$(grep '^version=' "$FILE" 2>/dev/null | awk -F '=' '{print $2}')
 python_vers=$(python --version 2>&1)
+# --- Fin des modifications ---
 
 cat <<EOF
 
