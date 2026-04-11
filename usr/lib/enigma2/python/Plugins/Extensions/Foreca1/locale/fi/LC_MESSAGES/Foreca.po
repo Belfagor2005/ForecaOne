@@ -447,6 +447,9 @@ msgstr "Saksan osavaltioiden sääkartat"
 msgid "Germany"
 msgstr "Saksa"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Iso-Britannia"
 
@@ -464,6 +467,9 @@ msgstr "Tuulen puuska: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hampuri"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Otsikko - ei valittavissa"
@@ -1147,6 +1153,12 @@ msgstr "UV-indeksi"
 msgid "UV N/A"
 msgstr "UV: N/A"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Yksikköasetukset"
 
@@ -1209,6 +1221,10 @@ msgstr "Erittäin kuumaa (>40 °C)"
 
 msgid "Very low"
 msgstr "Hyvin matala"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Erittäin voimakasta sadetta"
 
 msgid "Visibility: %s m"
 msgstr "Näkyvyys: %s m"

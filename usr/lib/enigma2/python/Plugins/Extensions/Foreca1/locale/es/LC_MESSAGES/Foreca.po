@@ -450,6 +450,9 @@ msgstr "Mapas meteorológicos de estados alemanes"
 msgid "Germany"
 msgstr "Alemania"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Gran Bretaña"
 
@@ -467,6 +470,9 @@ msgstr "Ráfaga: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburgo"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Encabezado - no seleccionable"
@@ -1152,6 +1158,12 @@ msgstr "Índice UV"
 msgid "UV N/A"
 msgstr "UV: N/D"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Configuración de unidades"
 
@@ -1214,6 +1226,10 @@ msgstr "Muy caluroso (>40°C)"
 
 msgid "Very low"
 msgstr "Muy bajo"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Lluvia muy intensa"
 
 msgid "Visibility: %s m"
 msgstr "Visibilidad: %s m"

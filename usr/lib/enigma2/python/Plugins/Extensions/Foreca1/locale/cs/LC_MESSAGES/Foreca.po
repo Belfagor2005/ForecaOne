@@ -445,6 +445,9 @@ msgstr "Mapy počasí německých spolkových zemí"
 msgid "Germany"
 msgstr "Německo"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Velká Británie"
 
@@ -462,6 +465,9 @@ msgstr "Nárazy: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Záhlaví – nelze vybrat"
@@ -1146,6 +1152,12 @@ msgstr "UV index"
 msgid "UV N/A"
 msgstr "UV N/A"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Nastavení lekce"
 
@@ -1208,6 +1220,10 @@ msgstr "Velmi horko (>40 °C)"
 
 msgid "Very low"
 msgstr "Velmi nízké"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Velmi silný déšť"
 
 msgid "Visibility: %s m"
 msgstr "Viditelnost: %s m"

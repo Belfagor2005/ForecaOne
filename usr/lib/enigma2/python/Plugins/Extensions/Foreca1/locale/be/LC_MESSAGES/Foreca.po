@@ -450,6 +450,9 @@ msgstr "Карты надвор'я нямецкіх зямель"
 msgid "Germany"
 msgstr "Германія"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Вялікабрытанія"
 
@@ -467,6 +470,9 @@ msgstr "Парыў: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Гамбург"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Загаловак - не выбіраецца"
@@ -1152,6 +1158,12 @@ msgstr "УФ індэкс"
 msgid "UV N/A"
 msgstr "УФ: Н/Д"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Налады адзінак"
 
@@ -1216,6 +1228,10 @@ msgstr "Горача (30-40°C)"
 
 msgid "Very low"
 msgstr ""
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Моцны дождж"
 
 msgid "Visibility: %s m"
 msgstr ""

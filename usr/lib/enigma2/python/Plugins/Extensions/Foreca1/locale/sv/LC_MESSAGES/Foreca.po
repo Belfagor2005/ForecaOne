@@ -450,6 +450,9 @@ msgstr "Väderkartor över tyska delstater"
 msgid "Germany"
 msgstr "Tyskland"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Storbritannien"
 
@@ -467,6 +470,9 @@ msgstr "Vindby: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Rubrik - kan inte väljas"
@@ -1152,6 +1158,12 @@ msgstr "UV-index"
 msgid "UV N/A"
 msgstr "UV: Ej tillgängligt"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Enhetsinställningar"
 
@@ -1214,6 +1226,10 @@ msgstr "Mycket varmt (>40°C)"
 
 msgid "Very low"
 msgstr "Mycket låg"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Mycket kraftigt regn"
 
 msgid "Visibility: %s m"
 msgstr "Sikt: %s m"

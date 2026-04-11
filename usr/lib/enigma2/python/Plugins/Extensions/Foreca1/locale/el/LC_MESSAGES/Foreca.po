@@ -441,6 +441,9 @@ msgstr "Χάρτες καιρού Γερμανικών κρατιδίων"
 msgid "Germany"
 msgstr "Γερμανία"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Μεγάλη Βρετανία"
 
@@ -458,6 +461,9 @@ msgstr "Ριπές ανέμου: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Αμβούργο"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Κεφαλίδα - μη επιλέξιμο"
@@ -1140,6 +1146,12 @@ msgstr "Δείκτης UV"
 msgid "UV N/A"
 msgstr "UV Μ/Δ"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Ρυθμίσεις μονάδων"
 
@@ -1202,6 +1214,10 @@ msgstr "Πολύ ζέστη (>40°C)"
 
 msgid "Very low"
 msgstr "Πολύ χαμηλή"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Πολύ ισχυρή βροχή"
 
 msgid "Visibility: %s m"
 msgstr "Ορατότητα: %s μ"

@@ -446,6 +446,9 @@ msgstr "德国各州天气地图"
 msgid "Germany"
 msgstr "德国"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "大不列颠及北爱尔兰"
 
@@ -463,6 +466,9 @@ msgstr "阵风：{: .1f} {}"
 
 msgid "Hamburg"
 msgstr "德国汉堡"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "页眉-不可选择"
@@ -1148,6 +1154,12 @@ msgstr "紫外线指数"
 msgid "UV N/A"
 msgstr "紫外线 N/A"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "设置更改失败"
 
@@ -1210,6 +1222,10 @@ msgstr "非常热（ > 40°C ）"
 
 msgid "Very low"
 msgstr "非常低"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "大雨weather forecast"
 
 msgid "Visibility: %s m"
 msgstr "能见度： %s 米"

@@ -450,6 +450,9 @@ msgstr "Almanya Eyaletleri Hava Durumu Haritaları"
 msgid "Germany"
 msgstr "Almanya"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Büyük Britanya"
 
@@ -467,6 +470,9 @@ msgstr "Rüzgar hamlesi: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Başlık - seçilemez"
@@ -1152,6 +1158,12 @@ msgstr "UV İndeksi"
 msgid "UV N/A"
 msgstr "UV: Yok"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Birim Ayarları"
 
@@ -1214,6 +1226,10 @@ msgstr "Çok sıcak (>40°C)"
 
 msgid "Very low"
 msgstr "Çok düşük"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Çok şiddetli yağmur"
 
 msgid "Visibility: %s m"
 msgstr "Görüş mesafesi: %s m"

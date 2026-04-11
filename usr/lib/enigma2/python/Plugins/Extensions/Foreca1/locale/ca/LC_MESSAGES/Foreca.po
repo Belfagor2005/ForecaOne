@@ -490,6 +490,9 @@ msgstr "Mapes meteorològics dels estats alemanys"
 msgid "Germany"
 msgstr "Alemanya"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Gran Bretanya"
 
@@ -507,6 +510,9 @@ msgstr ""
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Capçalera - no seleccionable"
@@ -1233,6 +1239,12 @@ msgstr ""
 msgid "UV N/A"
 msgstr ""
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Configuració d'unitats"
 
@@ -1299,6 +1311,9 @@ msgid "Very hot (>40°C)"
 msgstr ""
 
 msgid "Very low"
+msgstr ""
+
+msgid "Very unhealthy"
 msgstr ""
 
 #, fuzzy

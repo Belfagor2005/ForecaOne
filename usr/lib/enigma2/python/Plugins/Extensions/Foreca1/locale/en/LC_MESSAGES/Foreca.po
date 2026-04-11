@@ -486,6 +486,9 @@ msgstr "Foreca Weather Forecast"
 msgid "Germany"
 msgstr ""
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr ""
 
@@ -502,6 +505,9 @@ msgid "Gust: {:.1f} {}"
 msgstr ""
 
 msgid "Hamburg"
+msgstr ""
+
+msgid "Hazardous"
 msgstr ""
 
 #, fuzzy
@@ -1230,6 +1236,12 @@ msgstr ""
 msgid "UV N/A"
 msgstr ""
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 #, fuzzy
 msgid "Unit Settings"
 msgstr "Menu - Select transparency"
@@ -1294,6 +1306,9 @@ msgid "Very hot (>40°C)"
 msgstr ""
 
 msgid "Very low"
+msgstr ""
+
+msgid "Very unhealthy"
 msgstr ""
 
 msgid "Visibility: %s m"

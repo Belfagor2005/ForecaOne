@@ -450,6 +450,9 @@ msgstr "Cartes météo des Länder allemands"
 msgid "Germany"
 msgstr "Allemagne"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Grande-Bretagne"
 
@@ -467,6 +470,9 @@ msgstr "Rafale : {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hambourg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "En-tête - non sélectionnable"
@@ -1152,6 +1158,12 @@ msgstr "Indice UV"
 msgid "UV N/A"
 msgstr "UV : N/D"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Paramètres d'unités"
 
@@ -1214,6 +1226,10 @@ msgstr "Très chaud (>40°C)"
 
 msgid "Very low"
 msgstr "Très bas"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Pluie très forte"
 
 msgid "Visibility: %s m"
 msgstr "Visibilité : %s m"

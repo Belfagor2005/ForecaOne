@@ -450,6 +450,9 @@ msgstr "Hărți meteo statele germane"
 msgid "Germany"
 msgstr "Germania"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Marea Britanie"
 
@@ -467,6 +470,9 @@ msgstr "Rafală: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Antet - nu poate fi selectat"
@@ -1152,6 +1158,12 @@ msgstr "Indice UV"
 msgid "UV N/A"
 msgstr "UV: N/D"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Setări unități"
 
@@ -1214,6 +1226,10 @@ msgstr "Foarte cald (>40°C)"
 
 msgid "Very low"
 msgstr "Foarte scăzut"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Ploaie foarte abundentă"
 
 msgid "Visibility: %s m"
 msgstr "Vizibilitate: %s m"

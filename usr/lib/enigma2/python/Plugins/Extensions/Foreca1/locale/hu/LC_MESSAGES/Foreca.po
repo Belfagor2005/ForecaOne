@@ -445,6 +445,9 @@ msgstr "Német tartományok időjárási térképei"
 msgid "Germany"
 msgstr "Németország"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Nagy-Britannia"
 
@@ -462,6 +465,9 @@ msgstr "Széllökés: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Fejléc – nem választható"
@@ -1147,6 +1153,12 @@ msgstr "UV-index"
 msgid "UV N/A"
 msgstr "UV: N/A"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Tantárgy beállításai"
 
@@ -1209,6 +1221,10 @@ msgstr "Nagyon meleg (>40°C)"
 
 msgid "Very low"
 msgstr "Nagyon alacsony"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Nagyon heves eső"
 
 msgid "Visibility: %s m"
 msgstr "Látótávolság: %s m"

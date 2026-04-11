@@ -449,6 +449,9 @@ msgstr "خرائط طقس الولايات الألمانية"
 msgid "Germany"
 msgstr "ألمانيا"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "بريطانيا العظمى"
 
@@ -466,6 +469,9 @@ msgstr "عاصفة: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "هامبورغ"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "رأس - غير قابل للتحديد"
@@ -1151,6 +1157,12 @@ msgstr "مؤشر الأشعة فوق البنفسجية"
 msgid "UV N/A"
 msgstr "مؤشر الأشعة فوق البنفسجية: غير متوفر"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "إعدادات الوحدات"
 
@@ -1213,6 +1225,10 @@ msgstr "حار جدًا (>40°م)"
 
 msgid "Very low"
 msgstr "منخفض جدًا"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "أمطار غزيرة جدًا"
 
 msgid "Visibility: %s m"
 msgstr "الرؤية: %s م"

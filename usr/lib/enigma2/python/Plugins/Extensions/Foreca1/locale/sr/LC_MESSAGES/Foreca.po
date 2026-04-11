@@ -450,6 +450,9 @@ msgstr "Временске карте немачких држава"
 msgid "Germany"
 msgstr "Немачка"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Велика Британија"
 
@@ -467,6 +470,9 @@ msgstr "Удари ветра: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Хамбург"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Заглавље - није избирљиво"
@@ -1152,6 +1158,12 @@ msgstr "УВ индекс"
 msgid "UV N/A"
 msgstr "УВ: Н/Д"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Подешавања јединица"
 
@@ -1214,6 +1226,10 @@ msgstr "Веома вруће (>40°C)"
 
 msgid "Very low"
 msgstr "Веома ниско"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Веома јака киша"
 
 msgid "Visibility: %s m"
 msgstr "Видљивост: %s м"

@@ -448,6 +448,9 @@ msgstr "Deutsche Bundesländer Wetterkarten"
 msgid "Germany"
 msgstr "Deutschland"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Großbritannien"
 
@@ -465,6 +468,9 @@ msgstr "Bö: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Kopfzeile – nicht auswählbar"
@@ -1150,6 +1156,12 @@ msgstr "UV-Index"
 msgid "UV N/A"
 msgstr "UV: N/A"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Einheiteneinstellungen"
 
@@ -1212,6 +1224,10 @@ msgstr "Sehr heiß (>40°C)"
 
 msgid "Very low"
 msgstr "Sehr niedrig"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Sehr starker Regen"
 
 msgid "Visibility: %s m"
 msgstr "Sichtweite: %s m"

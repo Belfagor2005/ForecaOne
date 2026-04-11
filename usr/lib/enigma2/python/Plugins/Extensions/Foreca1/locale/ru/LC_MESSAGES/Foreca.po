@@ -450,6 +450,9 @@ msgstr "Погодные карты федеральных земель Герм
 msgid "Germany"
 msgstr "Германия"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Великобритания"
 
@@ -467,6 +470,9 @@ msgstr "Порыв: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Гамбург"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Заголовок — не выбирается"
@@ -1151,6 +1157,12 @@ msgstr "UV индекс"
 msgid "UV N/A"
 msgstr "УФ: Н/Д"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Настройки лекции"
 
@@ -1213,6 +1225,10 @@ msgstr "Очень жарко (>40°C)"
 
 msgid "Very low"
 msgstr "Очень низкий"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Очень сильный дождь"
 
 msgid "Visibility: %s m"
 msgstr "Видимость: %s м"

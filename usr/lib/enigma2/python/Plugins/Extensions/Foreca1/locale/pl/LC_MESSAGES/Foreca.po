@@ -450,6 +450,9 @@ msgstr "Mapy pogody krajów związkowych Niemiec"
 msgid "Germany"
 msgstr "Niemcy"
 
+msgid "Good"
+msgstr ""
+
 msgid "Great Britain"
 msgstr "Wielka Brytania"
 
@@ -467,6 +470,9 @@ msgstr "Poryw: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
+
+msgid "Hazardous"
+msgstr ""
 
 msgid "Header - not selectable"
 msgstr "Nagłówek - nie do wybrania"
@@ -1152,6 +1158,12 @@ msgstr "Indeks UV"
 msgid "UV N/A"
 msgstr "UV: N/D"
 
+msgid "Unhealthy"
+msgstr ""
+
+msgid "Unhealthy for sensitives"
+msgstr ""
+
 msgid "Unit Settings"
 msgstr "Ustawienia jednostek"
 
@@ -1214,6 +1226,10 @@ msgstr "Bardzo gorąco (>40°C)"
 
 msgid "Very low"
 msgstr "Bardzo niski"
+
+#, fuzzy
+msgid "Very unhealthy"
+msgstr "Bardzo ulewny deszcz"
 
 msgid "Visibility: %s m"
 msgstr "Widoczność: %s m"
