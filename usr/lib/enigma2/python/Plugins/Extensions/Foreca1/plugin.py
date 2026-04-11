@@ -365,6 +365,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         # ========== AIR QUALITY INDEX (AQI) ==========
         self["icon_aqi"] = Pixmap()
         self["aqi_value"] = Label("N/A")
+        self["aqi_desc"] = Label("")
 
         # ========== RAIN PROBABILITY ==========
         self["icon_rainp"] = Pixmap()
@@ -1352,9 +1353,24 @@ class Foreca_Preview(Screen, HelpableScreen):
                 self["solar_desc"].setText("")
         # AQI
         if hasattr(self, 'aqi') and self.aqi != 'N/A':
-            self["aqi_value"].setText(_("AQI {}").format(self.aqi))
+            try:
+                aqi_val = int(self.aqi)
+            except BaseException:
+                aqi_val = None
+            if aqi_val is not None:
+                aqi_desc = self.aqiToDescription(aqi_val)
+                aqi_color = self.aqiToColor(aqi_val)
+                self["aqi_value"].setText(_("AQI {}").format(aqi_val))
+                self["aqi_value"].instance.setForegroundColor(aqi_color)
+                if "aqi_desc" in self:
+                    self["aqi_desc"].setText(aqi_desc)
+                    self["aqi_desc"].instance.setForegroundColor(aqi_color)
+            else:
+                self["aqi_value"].setText(_('AQI: N/A'))
+                self["aqi_value"].instance.setForegroundColor(parseColor("#ffffff"))
         else:
             self["aqi_value"].setText(_('AQI: N/A'))
+            self["aqi_value"].instance.setForegroundColor(parseColor("#ffffff"))
         # RAIN PROB
         if hasattr(self, 'rainp') and self.rainp != 'N/A':
             self["rainp_value"].setText(_("Rain prob. {}%").format(self.rainp))
@@ -1387,7 +1403,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["day_length"].setText(
             self.daylen if self.daylen != 'N/A' else 'N/A')
 
-        # --- INVALIDA TUTTI I WIDGET (tranne icon_weather) ---
+        # --- INVALIDATE ALL WIDGETS (except icon_weather) ---
         self["city_name"].instance.invalidate()
         self["temperature_current"].instance.invalidate()
         self["temperature_feelslike"].instance.invalidate()
@@ -1406,14 +1422,15 @@ class Foreca_Preview(Screen, HelpableScreen):
             self["solar_value"].instance.invalidate()
         if "solar_desc" in self:
             self["solar_desc"].instance.invalidate()
-        self["aqi_value"].instance.invalidate()
+        if "aqi_value" in self:
+            self["aqi_value"].instance.invalidate()
         self["rainp_value"].instance.invalidate()
         self["snowp_value"].instance.invalidate()
         self["updated_label"].instance.invalidate()
         self["sunrise_value"].instance.invalidate()
         self["sunset_value"].instance.invalidate()
         self["day_length"].instance.invalidate()
-        # Wind icon (non fa parte dell'animazione)
+        # Wind icon (not part of the animation)
         if is_valid(self.wind):
             wind_icon_path = join(PLUGIN_PATH, "thumb", f"{self.wind}.png")
             if exists(wind_icon_path):
@@ -2178,70 +2195,109 @@ class Foreca_Preview(Screen, HelpableScreen):
             return "wN"
 
     def uviToDescription(self, uvi):
-        """Convert UV index to descriptive category."""
         try:
-            uvi_val = int(uvi)
+            val = int(uvi)
         except BaseException:
             return _("Unknown")
-        if uvi_val <= 2:
-            return _("Low")
-        elif uvi_val <= 5:
-            return _("Moderate")
-        elif uvi_val <= 7:
-            return _("High")
-        elif uvi_val <= 10:
-            return _("Very high")
-        else:
-            return _("Extreme")
+        levels = [
+            (2, _("Low")),
+            (5, _("Moderate")),
+            (7, _("High")),
+            (10, _("Very high")),
+        ]
+        for limit, text in levels:
+            if val <= limit:
+                return text
+        return _("Extreme")
 
     def uviToColor(self, uvi):
-        """Return a color based on UV index intensity."""
         try:
-            uvi_val = int(uvi)
+            val = int(uvi)
         except BaseException:
             return parseColor("#ffffff")
-        if uvi_val <= 2:
-            return parseColor("#00ff00")  # green
-        elif uvi_val <= 5:
-            return parseColor("#ffff00")  # yellow
-        elif uvi_val <= 7:
-            return parseColor("#ff9900")  # orange
-        elif uvi_val <= 10:
-            return parseColor("#ff0000")  # red
-        else:
-            return parseColor("#9900ff")  # purple
-
-    def solar_to_color(self, radiance):
-        """Return a color based on solar radiation intensity (W/m²)."""
-        try:
-            val = float(radiance)
-        except BaseException:
-            return parseColor("#ffffff")  # white default
-        if val < 200:
-            return parseColor("#00ff00")  # green
-        elif val < 400:
-            return parseColor("#ffff00")  # yellow
-        elif val < 600:
-            return parseColor("#ff9900")  # orange
-        else:
-            return parseColor("#ff0000")  # red
+        colors = [
+            (2, "#00ff00"),   # green
+            (5, "#ffff00"),   # yellow
+            (7, "#ff9900"),   # orange
+            (10, "#ff0000"),  # red
+        ]
+        for limit, color in colors:
+            if val <= limit:
+                return parseColor(color)
+        return parseColor("#9900ff")  # purple
 
     def solarToDescription(self, radiance):
-        """Convert solar radiation (W/m²) to descriptive category."""
         try:
             val = float(radiance)
         except BaseException:
             return _("N/A")
-        if val < 100:
-            return _("Very low")
-        elif val < 300:
-            return _("Low")
-        elif val < 500:
-            return _("Moderate")
-        elif val < 700:
-            return _("High")
-        else:
-            return _("Very high")
+        levels = [
+            (100, _("Very low")),
+            (300, _("Low")),
+            (500, _("Moderate")),
+            (700, _("High")),
+        ]
+        for limit, text in levels:
+            if val < limit:
+                return text
+        return _("Very high")
+
+    def solar_to_color(self, radiance):
+        try:
+            val = float(radiance)
+        except BaseException:
+            return parseColor("#ffffff")
+        colors = [
+            (200, "#00ff00"),   # green
+            (400, "#ffff00"),   # yellow
+            (600, "#ff9900"),   # orange
+        ]
+        for limit, color in colors:
+            if val < limit:
+                return parseColor(color)
+        return parseColor("#ff0000")  # red
+
+    def aqiToDescription(self, aqi):
+        """Convert AQI value to descriptive category."""
+        try:
+            val = int(aqi)
+        except BaseException:
+            return _("Unknown")
+
+        levels = [
+            (50, _("Good")),
+            (100, _("Moderate")),
+            (150, _("Unhealthy for sensitives")),
+            (200, _("Unhealthy")),
+            (300, _("Very unhealthy")),
+        ]
+
+        for limit, text in levels:
+            if val <= limit:
+                return text
+
+        return _("Hazardous")
+
+    def aqiToColor(self, aqi):
+        """Return a color based on AQI value (0-500)."""
+        try:
+            val = int(aqi)
+        except BaseException:
+            return parseColor("#ffffff")  # default white
+
+        colors = [
+            (50, "#00ff00"),   # green
+            (100, "#ffff00"),  # yellow
+            (150, "#ff9900"),  # orange
+            (200, "#ff0000"),  # red
+            (300, "#9900ff"),  # purple
+        ]
+
+        for limit, color in colors:
+            if val <= limit:
+                return parseColor(color)
+
+        return parseColor("#C32148")  # maroon
 
     def _get_timezone_offset(self, tz_name):
         """Calculate the current UTC offset for a given timezone (in hours)."""

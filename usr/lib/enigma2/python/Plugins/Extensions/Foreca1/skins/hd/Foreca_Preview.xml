@@ -116,7 +116,9 @@
     <widget name="icon_solar" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/rdsun.png" position="487,580" size="33,33" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <!-- AQI, probabilità pioggia/neve, aggiornamento -->
     <widget name="icon_aqi" position="487,543" size="33,33" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
-    <widget name="aqi_value" position="263,547" size="220,27" font="Liberation; 17" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="aqi_value" position="263,557" size="220,27" font="Liberation; 17" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="aqi_desc" position="263,536" size="220,23" zPosition="10" font="Liberation; 17" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" />
+
     <widget name="icon_rainp" position="27,533" size="33,33" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="rainp_value" position="63,537" size="233,27" font="Liberation; 17" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
     <widget name="icon_snowp" position="27,570" size="33,33" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />

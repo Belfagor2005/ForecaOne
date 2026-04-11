@@ -116,11 +116,15 @@
     <widget name="icon_solar" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/rdsun.png" position="730,870" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <!-- AQI, probabilità pioggia/neve, aggiornamento -->
     <widget name="icon_aqi" position="730,815" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
-    <widget name="aqi_value" position="395,820" size="330,40" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="aqi_value" position="395,835" size="330,40" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" zPosition="10" />
+    <widget name="aqi_desc" position="395,806" size="330,35" zPosition="10" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="right" />
+
     <widget name="icon_rainp" position="40,800" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="rainp_value" position="95,805" size="350,40" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
+
     <widget name="icon_snowp" position="40,855" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="snowp_value" position="95,860" size="350,40" font="Liberation; 26" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="left" zPosition="10" />
+
     <widget name="icon_updated" position="1337,989" size="50,50" scale="1" zPosition="10" backgroundColor="#000000" transparent="1" alphatest="blend" />
     <widget name="updated_label" position="1393,997" size="330,32" font="Liberation; 24" foregroundColor="#ffffff" backgroundColor="#000000" transparent="1" valign="center" halign="center" zPosition="10" />
     <!-- Station -->
