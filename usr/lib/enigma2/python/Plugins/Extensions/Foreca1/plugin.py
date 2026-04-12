@@ -37,7 +37,7 @@ from . import (
     load_skin_for_class,
     DEBUG,
     TEMP_DIR,
-    DBG_DIR,
+    # DBG_DIR,
     CONFIG_FILE,
     SYSTEM_DIR,
     get_icon_path,
@@ -129,49 +129,48 @@ def my_speed_wind(indata, metka):
 
 
 def _write_favorite_debug(text):
-    """Write debug info to favorite_debug.txt in the plugin's debug folder."""
     try:
-        if not exists(DBG_DIR):
-            makedirs(DBG_DIR, exist_ok=True)
-        dbg_path = join(DBG_DIR, "favorite_debug.txt")
-        chmod(dbg_path, 0o655)
+        debug_dir = join(PLUGIN_PATH, "debug")
+        if not exists(debug_dir):
+            makedirs(debug_dir, exist_ok=True)
+        dbg_path = join(debug_dir, "favorite_debug.txt")
         with open(dbg_path, "a", encoding="utf-8") as dbg:
             dbg.write(text + "\n")
     except Exception as e:
         print(f"[Favorite Debug] Error writing debug file: {e}")
 
 
-def write_forecast_weather_debug(text):
-    try:
-        if not exists(DBG_DIR):
-            makedirs(DBG_DIR, exist_ok=True)
-        dbg_path = join(DBG_DIR, "forecast_weather_debug.txt")
-        chmod(dbg_path, 0o655)
-        with open(dbg_path, "a") as dbg:
-            dbg.write(text + "\n")
-    except Exception as e:
-        print(f"[Foreca1] Forecast debug write error: {e}")
-
-
 def write_current_weather_debug(text):
     try:
-        if not exists(DBG_DIR):
-            makedirs(DBG_DIR, exist_ok=True)
-        dbg_path = join(DBG_DIR, "current_weather_debug.txt")
-        chmod(dbg_path, 0o655)
-        with open(dbg_path, "a") as dbg:
+        debug_dir = join(PLUGIN_PATH, "debug")
+        if not exists(debug_dir):
+            makedirs(debug_dir, exist_ok=True)
+        dbg_path = join(debug_dir, "current_weather_debug.txt")
+        with open(dbg_path, "a", encoding="utf-8") as dbg:
             dbg.write(text + "\n")
     except Exception as e:
         print(f"[Foreca1] Current debug write error: {e}")
 
 
+def write_forecast_weather_debug(text):
+    try:
+        debug_dir = join(PLUGIN_PATH, "debug")
+        if not exists(debug_dir):
+            makedirs(debug_dir, exist_ok=True)
+        dbg_path = join(debug_dir, "forecast_weather_debug.txt")
+        with open(dbg_path, "a", encoding="utf-8") as dbg:
+            dbg.write(text + "\n")
+    except Exception as e:
+        print(f"[Foreca1] Forecast debug write error: {e}")
+
+
 def write_meteogram_debug(text):
     try:
-        if not exists(DBG_DIR):
-            makedirs(DBG_DIR, exist_ok=True)
-        dbg_path = join(DBG_DIR, "meteogram_debug.txt")
-        chmod(dbg_path, 0o655)
-        with open(dbg_path, "a") as dbg:
+        debug_dir = join(PLUGIN_PATH, "debug")
+        if not exists(debug_dir):
+            makedirs(debug_dir, exist_ok=True)
+        dbg_path = join(debug_dir, "meteogram_debug.txt")
+        with open(dbg_path, "a", encoding="utf-8") as dbg:
             dbg.write(text + "\n")
     except Exception as e:
         print(f"[Meteogram] Debug write error: {e}")

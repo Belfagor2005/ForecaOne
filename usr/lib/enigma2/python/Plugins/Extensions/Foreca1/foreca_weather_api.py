@@ -428,14 +428,8 @@ class ForecaFreeAPI:
             return []
 
     def get_today_tomorrow_details(self, location_id: str) -> dict:
-        """
-        Returns detailed weather for today and tomorrow divided into periods:
-        morning (6-12), afternoon (12-18), evening (18-24), overnight (0-6).
-        Uses hourly forecast (scraping) and daily data.
-        """
         result = {'today': {}, 'tomorrow': {}}
 
-        # Get daily forecast for today and tomorrow
         daily_all = self.get_daily_forecast(location_id, days=2)
         if len(daily_all) < 2:
             return result
@@ -446,11 +440,7 @@ class ForecaFreeAPI:
         def _process_day(day_index):
             hourly = self.get_hourly_forecast(location_id, day=day_index)
             if not hourly:
-                print(f"[DEBUG] _process_day: no data for day {day_index}")
                 return None
-            print(
-                f"[DEBUG] _process_day: received {len(hourly)} objects for day {day_index}")
-
             periods = {
                 'overnight': [],  # 0-6
                 'morning': [],    # 6-12
@@ -467,44 +457,44 @@ class ForecaFreeAPI:
                     periods['afternoon'].append(h)
                 elif 18 <= hour < 24:
                     periods['evening'].append(h)
-
             day_data = {}
             for period, hours_list in periods.items():
                 if not hours_list:
                     day_data[period] = {'temp': 'N/A', 'symbol': 'na'}
-                    continue
-                # Average temperature
-                avg_temp = sum(h.temp for h in hours_list) / len(hours_list)
-                # Most frequent symbol (or median)
-                symbols = [h.condition for h in hours_list]
-                symbol = symbols[len(symbols) // 2] if symbols else 'na'
-                day_data[period] = {
-                    'temp': round(avg_temp),
-                    'symbol': symbol
-                }
+                else:
+                    avg_temp = sum(h.temp for h in hours_list) / len(hours_list)
+                    symbols = [h.condition for h in hours_list]
+                    symbol = symbols[len(symbols) // 2] if symbols else 'na'
+                    day_data[period] = {'temp': round(avg_temp), 'symbol': symbol}
             return day_data
 
-        # Process today
+        # Process tomorrow first (needed for today's overnight fallback)
+        tomorrow_periods = _process_day(1)
         today_periods = _process_day(0)
-        if today_periods:
-            result['today'].update(today_periods)
+
+        if not today_periods:
+            today_periods = {}
+        if not tomorrow_periods:
+            tomorrow_periods = {}
+
+        # If today's overnight slot is empty, use tomorrow's.
+        if today_periods.get('overnight', {}).get('temp') == 'N/A' and tomorrow_periods.get('overnight'):
+            today_periods['overnight'] = tomorrow_periods['overnight']
+
+        result['today'].update(today_periods)
+        result['tomorrow'].update(tomorrow_periods)
+
         result['today']['text'] = today_daily.condition
         result['today']['max_temp'] = today_daily.max_temp
         result['today']['min_temp'] = today_daily.min_temp
         result['today']['rain_mm'] = today_daily.precipitation
+        result['today']['wind_dir'] = today_daily.wind_direction
+        result['today']['wind_speed'] = today_daily.wind_speed
 
-        # Process tomorrow
-        tomorrow_periods = _process_day(1)
-        if tomorrow_periods:
-            result['tomorrow'].update(tomorrow_periods)
         result['tomorrow']['text'] = tomorrow_daily.condition
         result['tomorrow']['max_temp'] = tomorrow_daily.max_temp
         result['tomorrow']['min_temp'] = tomorrow_daily.min_temp
         result['tomorrow']['rain_mm'] = tomorrow_daily.precipitation
-
-        # Add wind data
-        result['today']['wind_dir'] = today_daily.wind_direction
-        result['today']['wind_speed'] = today_daily.wind_speed
         result['tomorrow']['wind_dir'] = tomorrow_daily.wind_direction
         result['tomorrow']['wind_speed'] = tomorrow_daily.wind_speed
 

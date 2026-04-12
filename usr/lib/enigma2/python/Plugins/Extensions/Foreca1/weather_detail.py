@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# weather_detail.py - Detailed weather view (today/tomorrow)
+# weather_detail.py - Detailed weather view (today/tomorrow) with animated symbols
 
+import glob
 from os.path import exists, join
 from os import makedirs
 import requests
 
 from twisted.internet import reactor
 
-from enigma import gRGB
+from enigma import gRGB, eTimer
 from skin import parseColor
 
 from Screens.Screen import Screen
@@ -87,6 +88,11 @@ class WeatherDetailView(Screen, HelpableScreen):
         self.max_zoom = 12
 
         self.weather_data = self._fetch_data()
+        # --- Animation support ---
+        self.anim_timer = eTimer()
+        self.anim_timer.callback.append(self._next_animation_frame)
+        self._animations = {}  # {widget_name: {"frames": [], "current": 0, "running": False}}
+
         """
         print("[DEBUG] weather_data keys:", self.weather_data.keys())
         if self.weather_data.get('today'):
@@ -98,6 +104,7 @@ class WeatherDetailView(Screen, HelpableScreen):
             for period in ['morning', 'afternoon', 'evening', 'overnight']:
                 print(f"[DEBUG] tomorrow[{period}]:", self.weather_data['tomorrow'].get(period, {}))
         """
+
         self['title_main'] = Label(_('Weather Radar'))
         self['title_location'] = Label()
         self['title_today'] = Label(_('Weather today'))
@@ -168,6 +175,62 @@ class WeatherDetailView(Screen, HelpableScreen):
         self.onLayoutFinish.append(self._on_layout_finished)
         self.onShow.append(self._on_screen_shown)
         self.onLayoutFinish.append(self._apply_theme)
+        self.onClose.append(self._stop_all_animations)
+
+    # ---------- Animation methods ----------
+    def _start_animation(self, widget_name, frames):
+        if DEBUG:
+            print(f"[WeatherDetail] Starting animation for {widget_name}, {len(frames)} frames")
+        if widget_name not in self._animations:
+            self._animations[widget_name] = {"frames": [], "current": 0, "running": False}
+        anim = self._animations[widget_name]
+        if anim["running"]:
+            anim["running"] = False
+        anim["frames"] = frames
+        anim["current"] = 0
+        anim["running"] = True
+        if not self.anim_timer.isActive():
+            self.anim_timer.start(200)
+
+    def _next_animation_frame(self):
+        any_running = False
+        for widget_name, anim in self._animations.items():
+            if not anim["running"]:
+                continue
+            frames = anim["frames"]
+            if not frames:
+                anim["running"] = False
+                continue
+            any_running = True
+            current = anim["current"]
+            frame_path = frames[current]
+            widget = self[widget_name]
+            if widget and widget.instance:
+                widget.instance.setPixmapFromFile(frame_path)
+                widget.show()
+            anim["current"] = (current + 1) % len(frames)
+        if not any_running and self.anim_timer.isActive():
+            self.anim_timer.stop()
+
+    def _stop_animation(self, widget_name):
+        if widget_name in self._animations:
+            self._animations[widget_name]["running"] = False
+            self._animations[widget_name]["frames"] = []
+
+    def _stop_all_animations(self):
+        if self.anim_timer.isActive():
+            self.anim_timer.stop()
+        self._animations.clear()
+
+    def _load_animated_frames(self, folder_name):
+        """Look for frames in: PLUGIN_PATH/animated_icons/{folder_name}/*.png"""
+        anim_dir = join(PLUGIN_PATH, "animated_icons", folder_name)
+        if exists(anim_dir):
+            frames = sorted(glob.glob(join(anim_dir, "*.png")))
+            if DEBUG:
+                print(f"[WeatherDetail] Found {len(frames)} frames in {anim_dir}")
+            return frames
+        return []
 
     def _apply_theme(self):
         apply_global_theme(self)
@@ -211,12 +274,15 @@ class WeatherDetailView(Screen, HelpableScreen):
     def _download_map_thread(self):
         """Performs the download in a separate thread."""
         try:
-            url = f"https://map-cf.foreca.net/teaser/map/light/rain/{self.zoom_level}/{self.lon}/{self.lat}/380/598.png?names&units=mm"
+            url = "https://map-cf.foreca.net/teaser/map/light/rain/{}/{}/{}/380/598.png?names&units=mm".format(
+                self.zoom_level, self.lon, self.lat
+            )
             response = requests.get(url, headers=HEADERS, timeout=10)
             if response.status_code == 200 and len(response.content) > 0:
                 output_file = join(
                     WEATHER_DETAIL_VIEW_DIR,
-                    f'radar_{self.zoom_level}.png')
+                    'radar_{}.png'.format(self.zoom_level)
+                )
                 with open(output_file, 'wb') as f:
                     f.write(response.content)
 
@@ -224,9 +290,10 @@ class WeatherDetailView(Screen, HelpableScreen):
                 reactor.callFromThread(self._update_map_pixmap, output_file)
             else:
                 print(
-                    f"[WeatherDetail] Download failed for zoom {self.zoom_level}")
+                    "[WeatherDetail] Download failed for zoom {}".format(self.zoom_level)
+                )
         except Exception as e:
-            print(f"[WeatherDetail] Download error: {e}")
+            print("[WeatherDetail] Download error: {}".format(e))
         finally:
             self._downloading = False
             reactor.callFromThread(self._reset_zoom_label)
@@ -266,41 +333,77 @@ class WeatherDetailView(Screen, HelpableScreen):
             period_data = day_data.get(period, {})
             temp = period_data.get('temp')
             symbol = period_data.get('symbol', 'd000')
-            widget = self[f'symbol_{period}_{suffix}']
+            widget_name = f'symbol_{period}_{suffix}'
 
+            # Conditions for using NA
+            use_na = False
             if temp is None or temp == 'N/A':
-                # Usa na.png
-                path = get_icon_path('na.png')
-                if path:
-                    widget.instance.setPixmapFromFile(path)
-                    widget.show()
+                use_na = True
+            elif symbol == 'd000' and period in ['evening', 'overnight']:
+                use_na = True
+
+            if use_na:
+                # Try loading animation from "NA" folder
+                frames = self._load_animated_frames("NA")
+                if frames:
+                    self._start_animation(widget_name, frames)
                 else:
-                    widget.hide()
+                    # Static Fallback
+                    path = get_icon_path('na.png')
+                    if path:
+                        self[widget_name].instance.setPixmapFromFile(path)
+                        self[widget_name].show()
+                    else:
+                        self[widget_name].hide()
+                    self._stop_animation(widget_name)
                 continue
 
-            if symbol == 'd000' and period in ['evening', 'overnight']:
-                path = get_icon_path('na.png')
-                if path:
-                    widget.instance.setPixmapFromFile(path)
-                    widget.show()
-                else:
-                    widget.hide()
-                continue
-
-            path = get_icon_path(f"{symbol}.png")
-            if path:
-                widget.instance.setPixmapFromFile(path)
-                widget.show()
+            # Valid data: standard animation or static icon
+            frames = self._load_animated_frames(symbol)
+            if frames:
+                self._start_animation(widget_name, frames)
             else:
-                widget.hide()
+                path = get_icon_path(f"{symbol}.png")
+                if path:
+                    self[widget_name].instance.setPixmapFromFile(path)
+                    self[widget_name].show()
+                else:
+                    self[widget_name].hide()
+                self._stop_animation(widget_name)
+
+    # def _set_symbols_for_day(self, suffix, day_data):
+        # periods = ['morning', 'afternoon', 'evening', 'overnight']
+        # for period in periods:
+            # period_data = day_data.get(period, {})
+            # temp = period_data.get('temp')
+            # symbol = period_data.get('symbol', 'd000')
+            # widget_name = f'symbol_{period}_{suffix}'
+
+            # if temp is None or temp == 'N/A':
+                # # No data – hide widget
+                # self[widget_name].hide()
+                # self._stop_animation(widget_name)
+                # continue
+
+            # # Try to load animated frames
+            # frames = self._load_animated_frames(symbol)
+            # if frames:
+                # self._start_animation(widget_name, frames)
+            # else:
+                # # Fallback static icon
+                # path = get_icon_path(f"{symbol}.png")
+                # if path:
+                    # self[widget_name].instance.setPixmapFromFile(path)
+                    # self[widget_name].show()
+                # else:
+                    # self[widget_name].hide()
+                # self._stop_animation(widget_name)
 
     def _setup_temperature_labels(self):
         temp_unit = self.unit_manager.get_temp_label()
         for suffix in ['1', '2']:
-            self[f'temp_label_morning_{suffix}'].setText(temp_unit)
-            self[f'temp_label_afternoon_{suffix}'].setText(temp_unit)
-            self[f'temp_label_evening_{suffix}'].setText(temp_unit)
-            self[f'temp_label_overnight_{suffix}'].setText(temp_unit)
+            for period in ['morning', 'afternoon', 'evening', 'overnight']:
+                self[f'temp_label_{period}_{suffix}'].setText(temp_unit)
 
     def _format_summary(self, day):
         if not day:
@@ -364,9 +467,6 @@ class WeatherDetailView(Screen, HelpableScreen):
 
         for suffix, day in [('today', today), ('tomorrow', tomorrow)]:
             wind_dir = day.get('wind_dir')
-            if DEBUG:
-                print(
-                    f"[WeatherDetail] wind_dir for {suffix}: {wind_dir} (tipo: {type(wind_dir)})")
             if wind_dir is not None and wind_dir != 'N/A':
                 try:
                     deg = float(wind_dir)
@@ -383,9 +483,6 @@ class WeatherDetailView(Screen, HelpableScreen):
                     self[f'wind_icon_{suffix}'].hide()
 
             else:
-                if DEBUG:
-                    print(
-                        f"[WeatherDetail] wind_dir assente per {suffix}, nascondo icona")
                 self[f'wind_icon_{suffix}'].hide()
 
     def _update_temperature_values(self):
@@ -438,3 +535,7 @@ class WeatherDetailView(Screen, HelpableScreen):
             return "w" + directions[index]
         except BaseException:
             return "wN"
+
+    def close(self):
+        self._stop_all_animations()
+        super(WeatherDetailView, self).close()

@@ -38,10 +38,13 @@
     <widget name="wind_dir_icon_0" position="153,443" size="34,34" zPosition="3" alphatest="blend" scale="1" />
     <widget name="wind_speed_0" position="197,450" size="100,20" font="Liberation; 18" foregroundColor="#ff9900" transparent="1" halign="left" zPosition="3" />
 
+    <widget name="humidity_icon_0" position="150,587" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+    <widget name="pressure_icon_0" position="153,513" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+
     <widget name="humidity_0" position="193,593" size="100,20" font="Liberation; 18" foregroundColor="#99ccff" transparent="1" halign="left" zPosition="3" />
-    <ePixmap position="150,587" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="150,587" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" /> -->
     <widget name="pressure_0" position="197,520" size="100,20" font="Liberation; 18" foregroundColor="#99ff99" transparent="1" halign="left" zPosition="3" />
-    <ePixmap position="153,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="153,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" /> -->
     <widget name="sunrise_0" position="93,267" size="67,20" font="Liberation; 16" foregroundColor="#ffff99" transparent="1" halign="center" zPosition="13" />
     <widget name="sunset_0" position="283,267" size="67,20" font="Liberation; 16" foregroundColor="#ff9999" transparent="1" halign="center" zPosition="13" />
     <ePixmap position="87,170" size="267,220" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/day_light.png" zPosition="10" scale="1" />
@@ -54,10 +57,13 @@
     <widget name="wind_dir_icon_1" position="563,443" size="34,34" zPosition="3" alphatest="blend" scale="1" />
     <widget name="wind_speed_1" position="603,450" size="100,20" font="Liberation; 18" foregroundColor="#ff9900" transparent="1" halign="left" zPosition="3" />
 
+    <widget name="humidity_icon_1" position="563,587" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+    <widget name="pressure_icon_1" position="567,513" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+
     <widget name="humidity_1" position="603,593" size="100,20" font="Liberation; 18" foregroundColor="#99ccff" transparent="1" halign="left" zPosition="3" />
-    <ePixmap position="563,587" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="563,587" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" /> -->
     <widget name="pressure_1" position="607,520" size="100,20" font="Liberation; 18" foregroundColor="#99ff99" transparent="1" halign="left" zPosition="3" />
-    <ePixmap position="567,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="567,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" /> -->
     <widget name="sunrise_1" position="503,267" size="67,20" font="Liberation; 16" foregroundColor="#ffff99" transparent="1" halign="center" zPosition="13" />
     <widget name="sunset_1" position="690,267" size="67,20" font="Liberation; 16" foregroundColor="#ff9999" transparent="1" halign="center" zPosition="13" />
     <ePixmap position="910,170" size="267,220" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/day_light.png" zPosition="10" scale="1" />
@@ -69,11 +75,15 @@
     <widget name="temp_minmax_2" position="1000,340" size="80,20" font="Liberation; 16" foregroundColor="#cccccc" transparent="1" halign="center" zPosition="13" />
     <widget name="wind_dir_icon_2" position="963,443" size="34,34" zPosition="3" alphatest="blend" scale="1" />
     <widget name="wind_speed_2" position="1003,450" size="100,20" font="Liberation; 18" foregroundColor="#ff9900" transparent="1" halign="left" zPosition="3" />
+
+    <widget name="humidity_icon_2" position="967,580" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+    <widget name="pressure_icon_2" position="967,513" size="34,34" alphatest="blend" zPosition="13" scale="1" />
+
     <widget name="humidity_2" position="1003,587" size="100,20" font="Liberation; 18" foregroundColor="#99ccff" transparent="1" halign="left" zPosition="3" />
-    <ePixmap position="967,580" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="967,580" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/humidity.png" zPosition="10" scale="1" /> -->
     <widget name="pressure_2" position="1003,520" size="100,20" font="Liberation; 18" foregroundColor="#99ff99" transparent="1" halign="left" zPosition="3" />
 
-    <ePixmap position="967,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" />
+    <!-- <ePixmap position="967,513" size="34,34" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/barometer.png" zPosition="10" scale="1" /> -->
     <widget name="sunrise_2" position="917,267" size="67,20" font="Liberation; 16" foregroundColor="#ffff99" transparent="1" halign="center" zPosition="13" />
     <widget name="sunset_2" position="1107,267" size="67,20" font="Liberation; 16" foregroundColor="#ff9999" transparent="1" halign="center" zPosition="13" />
     <ePixmap position="497,170" size="267,220" alphatest="blend" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/images/day_light.png" zPosition="10" scale="1" />

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.2.2'
-changelog='\nAdd ANimated Icons on hours details\nAdd Background on screens\nAdd Animated Icons\nCustom Skins (New)** – you can now create your own skins without modifying the built‑in ones.\n,Final Release\nOffer coffee if you like this plugin'
+version='1.2.3'
+changelog = '\nWeather Icon Animations:\nAdded animation support in hour_detail.py, favorites_detail.py, and weather_detail.py using eTimer and animated_icons/.\nFixed static fallback when animations are unavailable.\n\n"N/A" handling for missing data:\nAdded animated_icons/NA/ for missing data display.\nUpdated _set_symbols_for_day to handle invalid or None values.\n\nToday night fix:\nFixed missing night data by copying early hours from tomorrow when needed.\n\nDebugging & permissions:\nAuto-create debug/ folder to prevent file errors.\nOffer coffee if you like this plugin'
 
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz
