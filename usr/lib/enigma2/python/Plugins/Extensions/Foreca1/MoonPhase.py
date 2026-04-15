@@ -12,7 +12,7 @@ from threading import Thread
 import requests
 
 from . import _, DEBUG
-from .moon_calc import DtoJD, LunarPos, LunarIllum, JDtoD, JDLunarPhase, CheckState
+from .moon_calc import DtoJD, LunarPos, LunarIllum, JDtoD, JDLunarPhase  # , CheckState
 
 
 MOON_PHASES = {
