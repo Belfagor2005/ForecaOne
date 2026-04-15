@@ -67,6 +67,7 @@ class WeatherDetailView(Screen, HelpableScreen):
         self.lat = foreca_preview.lat
         self.lon = foreca_preview.lon
         self.myloc = foreca_preview.myloc
+        self.tz_offset = getattr(foreca_preview, 'tz_offset', None)
         self.paths = [
             foreca_preview.path_loc0,
             foreca_preview.path_loc1,
@@ -246,7 +247,9 @@ class WeatherDetailView(Screen, HelpableScreen):
     def _fetch_data(self):
         if hasattr(self.weather_api, 'get_today_tomorrow_details'):
             return self.weather_api.get_today_tomorrow_details(
-                self.location_id) or {}
+                self.location_id,
+                tz_offset=self.tz_offset
+            ) or {}
         return {}
 
     def _on_layout_finished(self):

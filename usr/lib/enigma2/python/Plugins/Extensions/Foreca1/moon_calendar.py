@@ -16,8 +16,9 @@ from Components.ProgressBar import ProgressBar
 from Components.Sources.List import List
 from Tools.LoadPixmap import LoadPixmap
 
-from . import _, PLUGIN_PATH, load_skin_for_class, apply_global_theme
+from . import _, PLUGIN_PATH, DEBUG, load_skin_for_class, apply_global_theme
 from .MoonPhase import MoonPhase
+from .moon_calc import JDtoD  # CheckState, JDLunarPhase
 from .google_translate import trans
 
 
@@ -68,10 +69,6 @@ class MoonCalendar(Screen, HelpableScreen):
     def _apply_theme(self):
         apply_global_theme(self)
 
-    # -------------------------------------------------------------------------
-    # Helper methods for special events
-    # -------------------------------------------------------------------------
-
     def _is_supermoon(self, full_moon):
         """Return True if the full moon is a supermoon (distance = 360000 km)."""
         return full_moon.get('distance', 999999) <= 360000
@@ -120,41 +117,42 @@ class MoonCalendar(Screen, HelpableScreen):
             end = datetime(year + 1, 1, 1) - timedelta(days=1)
         else:
             end = datetime(year, month + 1, 1) - timedelta(days=1)
-
-        jd_start = self.moon._date_to_jd(start)
-        jd_end = self.moon._date_to_jd(end)
-
+        best_dist = float('inf')
         best_jd = None
-        best_dist = float("inf")
-
-        jd = jd_start
-        while jd <= jd_end:
-            data = self.moon._compute_lunar_data(jd)
-
-            if data["distance"] < best_dist:
-                best_dist = data["distance"]
+        current = start
+        while current <= end:
+            jd = self._date_to_jd(current)
+            data = self.moon.get_phase_info_for_jd(jd)
+            dist = data['distance']
+            if dist < best_dist:
+                best_dist = dist
                 best_jd = jd
-
-            jd += 1
-
+            current += timedelta(days=1)
         if best_jd:
-            dt = self.moon._jd_to_date(best_jd)
+            dt = self._jd_to_datetime(best_jd)
             info = self.moon.get_phase_info_for_jd(
-                best_jd)   # ottiene tutti i dati
+                best_jd)
             return {
                 'date': dt,
                 'distance': best_dist,
                 'icon_path': info['icon_path'],
-                'phase_name': info['name'],          # real phase of the day
+                'phase_name': info['name'],
                 'illumination': info['illumination'],
                 'event_type': 'Perigee'
             }
         return None
 
-    # -------------------------------------------------------------------------
-    # Calendar generation
-    # -------------------------------------------------------------------------
+    def _date_to_jd(self, dt):
+        from .moon_calc import DtoJD
+        return DtoJD(dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second)
 
+    def _jd_to_datetime(self, jd):
+        d, m, y, h, mn, s, _ = JDtoD(jd)
+        return datetime(y, m, d, h, mn, s)
+
+    # ------------------------------------------------------------------
+    # Calendar generation
+    # ------------------------------------------------------------------
     def load_calendar(self):
         """Generate the list of lunar phases and special events for the next 12 months."""
         self["info"].setText(_("Calculating..."))
@@ -165,7 +163,7 @@ class MoonCalendar(Screen, HelpableScreen):
             start_month = 1
             start_year = today.year + 1
         else:
-            start_month = today.month  # + 1
+            start_month = today.month
             start_year = today.year
 
         current = datetime(start_year, start_month, 1)
@@ -233,6 +231,7 @@ class MoonCalendar(Screen, HelpableScreen):
 
         # Build the list for the Listbox
         self.list = []
+
         # self.list.append((
         # _("Month"),        # 0
         # None,              # 1: no icon
@@ -240,8 +239,17 @@ class MoonCalendar(Screen, HelpableScreen):
         # _("Day"),          # 3
         # _("Time")          # 4
         # ))
-        for p in self.phases:
+
+        for idx, p in enumerate(self.phases, start=1):
             self.list.append(self._create_entry(p))
+            if DEBUG:
+                print(
+                    f"[MoonCalendar] #{idx:02d} | "
+                    f"Date: {p.get('date', 'N/A')} | "
+                    f"Phase: {p.get('phase_name', 'N/A')} | "
+                    f"Illum: {p.get('illumination', 'N/A')}% | "
+                    f"Icon: {p.get('icon_path', 'N/A')}"
+                )
         # Update current moon info
         info = self.moon.get_phase_info()
 
@@ -261,6 +269,7 @@ class MoonCalendar(Screen, HelpableScreen):
         self["info"].setText(
             trans("Found {} lunar phases").format(len(self.phases))
         )
+        self.instance.invalidate()
 
     def _create_entry(self, phase):
         """Create a UI entry tuple for a lunar phase or special event."""
@@ -293,10 +302,20 @@ class MoonCalendar(Screen, HelpableScreen):
         elif event_type == "Black Moon":
             phase_text = _("Black Moon") + " ◇"
         elif event_type == 'Perigee':
-            phase_text = _("Perigee") + f" ({phase['distance']:.0f} km)"
+            # phase_text = _("Perigee") + f" ({phase['distance']:.0f} km)"
+            dist_km = int(round(phase['distance']))
+            phase_text = _("Perigee") + f" ({dist_km} km)"
         else:
             phase_text = _(phase["phase_name"])
-
+        if DEBUG:
+            print(
+                f"[MoonCalendar] Entry | "
+                f"Month: {month} | "
+                f"Day: {day} | "
+                f"Hour: {hour} | "
+                f"Phase: {phase_text} | "
+                f"Icon: {icon}"
+            )
         return (month, icon, phase_text, day, hour)
 
     def _get_month_phases(self, year, month):
@@ -320,14 +339,14 @@ class MoonCalendar(Screen, HelpableScreen):
         else:
             end_of_month = datetime(year, month + 1, 1) - timedelta(days=1)
 
-        jd_start = self.moon._date_to_jd(start_of_month)
-        jd_end = self.moon._date_to_jd(end_of_month)
-        jd_ref = self.moon._date_to_jd(datetime(2000, 1, 6, 0, 0, 0))
+        jd_start = self._date_to_jd(start_of_month)
+        jd_end = self._date_to_jd(end_of_month)
+        jd_ref = self._date_to_jd(datetime(2000, 1, 6, 0, 0, 0))
         month_phases = []
         for target in target_phases:
             jd_phase = self._find_next_phase_after(jd_start, target, jd_ref)
             while jd_phase <= jd_end:
-                dt_phase = self.moon._jd_to_date(jd_phase)
+                dt_phase = self._jd_to_datetime(jd_phase)
                 if dt_phase.year == year and dt_phase.month == month:
                     info = self.moon.get_phase_info_for_jd(jd_phase)
                     month_phases.append({
@@ -340,7 +359,7 @@ class MoonCalendar(Screen, HelpableScreen):
                     })
                 # Move to the next phase (using the constant from the moon
                 # object)
-                jd_phase += self.moon.SYNODIC_MONTH
+                jd_phase += 29.530588853
 
         month_phases.sort(key=lambda x: x['date'])
         return month_phases
@@ -348,30 +367,34 @@ class MoonCalendar(Screen, HelpableScreen):
     def _find_next_phase_after(self, jd_start, target_phase, jd_ref):
         """Find the Julian Day of the next target phase after jd_start."""
         days_since_ref = jd_start - jd_ref
-        phase_at_start = (days_since_ref / self.moon.SYNODIC_MONTH) % 1.0
+        phase_at_start = (days_since_ref / 29.530588853) % 1.0
         delta = (target_phase - phase_at_start) % 1.0
         if delta < 0.0001:
             delta = 1.0
-        jd_target = jd_start + delta * self.moon.SYNODIC_MONTH
-        return jd_target
+        return jd_start + delta * 29.530588853
 
     def show_details(self):
         idx = self["menu"].getSelectedIndex()
         if idx < 0 or idx >= len(self.phases):
             return
         phase = self.phases[idx]
-        if phase.get('event_type'):
-            phase_name = _(phase['phase_name'])
-        else:
-            phase_name = _(phase['phase_name'])
+        phase_name = _(phase['phase_name'])
+        date_obj = phase['date']
+        illum = phase['illumination']
+        distance_km = int(round(phase['distance']))
+        age = self.moon._calculate_age(date_obj)
+        mag = self.moon._calculate_magnitude(phase['distance'], illum)
+        diam = self.moon._calculate_angular_diameter(phase['distance'])
+
         details = trans("Phase: {}").format(phase_name) + "\n"
-        details += trans("Date: {}").format(
-            phase['date'].strftime("%d.%m.%Y")) + "\n"
-        details += trans("Time: {}").format(
-            phase['date'].strftime("%H:%M")) + "\n"
-        details += trans("Illumination: {:.1f}%").format(
-            phase['illumination']) + "\n"
-        details += trans("Distance: {} km").format(phase['distance'])
+        details += trans("Date: {}").format(date_obj.strftime("%d.%m.%Y")) + "\n"
+        details += trans("Time: {}").format(date_obj.strftime("%H:%M")) + "\n"
+        details += trans("Illumination: {:.1f}%").format(illum) + "\n"
+        details += trans("Distance: {} km").format(distance_km) + "\n"
+        details += trans("Age: {:.1f} days").format(age) + "\n"
+        details += trans("Magnitude: {:.2f}").format(mag) + "\n"
+        details += trans("Angular diameter: {:.0f} arcsec").format(diam)
+
         self.session.open(MessageBox, details, MessageBox.TYPE_INFO)
 
     def exit(self):

@@ -405,6 +405,14 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["icon_moonset"] = Pixmap()
         self["moonset_value"] = Label()
 
+        self["moonrise_azimuth"] = Label()
+        self["moonset_azimuth"] = Label()
+        self["moon_transit_time"] = Label()
+        self["moon_transit_alt"] = Label()
+        self["moon_magnitude"] = Label()
+        self["moon_angular_diameter"] = Label()
+        self["moon_age"] = Label()
+
         self.list = []
         self["menu"] = List(self.list)
 
@@ -846,9 +854,13 @@ class Foreca_Preview(Screen, HelpableScreen):
         self["key_blue"].setText(_(button_names[0]))
         self["key_green"].setText(_(button_names[1]))
         self["key_yellow"].setText(_(button_names[2]))
-
-        print(
-            f"[DEBUG] Final buttons: Blue={button_names[0]}, Green={button_names[1]}, Yellow={button_names[2]}")
+        if DEBUG:
+            print(
+                f"[DEBUG] Final buttons | "
+                f"Blue: {button_names[0] if len(button_names) > 0 else 'N/A'} | "
+                f"Green: {button_names[1] if len(button_names) > 1 else 'N/A'} | "
+                f"Yellow: {button_names[2] if len(button_names) > 2 else 'N/A'}"
+            )
 
     def _load_favorite(self, fav_index, path_loc, forced_name=None):
         """Load data for the specified favorite.
@@ -902,13 +914,17 @@ class Foreca_Preview(Screen, HelpableScreen):
             self.town = 'N/A'
 
         # Debug prints
-        print(
-            f"[DEBUG] _load_favorite: fav_index={fav_index}, path_loc={path_loc}")
-        print(
-            f"[DEBUG] path_loc0={self.path_loc0}, path_loc1={self.path_loc1}, path_loc2={self.path_loc2}")
         if DEBUG:
+            print("[DEBUG] _load_favorite:", fav_index, path_loc)
+            print("[DEBUG] paths:",
+                  self.path_loc0,
+                  self.path_loc1,
+                  self.path_loc2)
             _write_favorite_debug(
-                f"# DEBUG: Location loaded: town={self.town}, country={self.country}, lon={self.lon}, lat={self.lat}")
+                "# DEBUG: Location loaded: {} {} {} {}".format(
+                    self.town, self.country, self.lon, self.lat
+                )
+            )
         # Get current weather
         current = self.weather_api.get_current_weather(location_id)
         if current:
@@ -1110,12 +1126,12 @@ class Foreca_Preview(Screen, HelpableScreen):
                 f"[DEBUG] Daily forecast for day {self.tag}: {day_selected.__dict__ if day_selected else 'None'}")
 
         # Update UI
-        self._update_moon()
+        self._update_moon(target_date=target_date)
         self.my_cur_weather()
         self.my_forecast_weather()
         self._update_titles()
-
-        print("[DEBUG] Call _update_fav_button_names()")
+        if DEBUG:
+            print("[DEBUG] Call _update_fav_button_names()")
         self._update_fav_button_names()
 
         if self.lat != 'N/A' and self.lon != 'N/A':
@@ -1449,13 +1465,16 @@ class Foreca_Preview(Screen, HelpableScreen):
 
         # --- WEATHER ICON MANAGEMENT (ANIMATION OR STATIC) ---
         # NOTE: This block has been moved to the bottom to avoid early return
-        print(f"[ANIM] self.pic = {self.pic}")
+        if DEBUG:
+            print(f"[ANIM] self.pic = {self.pic}")
         anim_dir = join(PLUGIN_PATH, "animated_icons", self.pic)
-        print(f"[ANIM] anim_dir = {anim_dir}")
-        print(f"[ANIM] exists? {exists(anim_dir)}")
+        if DEBUG:
+            print(f"[ANIM] anim_dir = {anim_dir}")
+            print(f"[ANIM] exists? {exists(anim_dir)}")
         if exists(anim_dir):
             frames = sorted(glob.glob(join(anim_dir, "*.png")))
-            print(f"[ANIM] found {len(frames)} frames: {frames}")
+            if DEBUG:
+                print(f"[ANIM] found {len(frames)} frames: {frames}")
             if frames:
                 self._start_weather_animation(frames)
             else:
@@ -1879,92 +1898,202 @@ class Foreca_Preview(Screen, HelpableScreen):
         if source:
             print(f"[Foreca1] Station source: {source}")
 
-    def _update_moon(self):
-        info = self.moon.get_phase_info()
-        phase_name = info["name"]
-        illumination = info["illumination"]
-        icon_path = info["icon_path"]
+    def _update_moon(self, target_date=None):
+        if target_date is None:
+            target_date = datetime.datetime.utcnow()
 
-        if "icon_moon" in self and icon_path:
+        info = self.moon.get_phase_info(target_date)
+        phase_name = info.get("name", "N/A")
+        illumination = info.get("illumination", 0)
+        icon_path = info.get("icon_path")
+
+        extra = None
+        try:
+            extra = self.moon.get_moon_extra_details(float(self.lat), float(self.lon), target_date)
+        except Exception as e:
+            print("[Moon] extra error:", e)
+            extra = {}
+
+        # --- main UI ---
+        if "icon_moon" in self and icon_path and exists(icon_path):
             self["icon_moon"].instance.setPixmapFromFile(icon_path)
+
         if "moon_label" in self:
             self["moon_label"].setText(_(phase_name))
+
         if "moon_illum" in self:
-            self["moon_illum"].setText(
-                _("Illumination") + f" {illumination:.1f}%")
+            self["moon_illum"].setText(_("Illumination") + f" {illumination:.1f}%")
+
         if "illum_bar" in self:
-            self["illum_bar"].setValue(int(info["illumination"]))
-            # self["illum_bar"].setValue(int(illumination))
+            self["illum_bar"].setValue(int(illumination))
 
         if "moon_distance" in self:
-            distance = self.moon.get_moon_distance()
+            distance = self.moon.get_moon_distance(target_date)
             self["moon_distance"].setText(_("Distance {} km").format(distance))
 
+        if extra:
+            if "moonrise_azimuth" in self:
+                self["moonrise_azimuth"].setText(
+                    "Azimut Rise: {:.0f}°".format(extra.get('rise_azimuth', 0))
+                )
+
+            if "moonset_azimuth" in self:
+                self["moonset_azimuth"].setText(
+                    "Azimut Set: {:.0f}°".format(extra.get('set_azimuth', 0))
+                )
+
+            if "moon_transit_time" in self:
+                self["moon_transit_time"].setText(
+                    "Transit Time: {}".format(extra.get("transit_time", "N/A"))
+                )
+
+            if "moon_transit_alt" in self:
+                self["moon_transit_alt"].setText(
+                    "Transit Alt.: {:.0f}°".format(extra.get('transit_altitude', 0))
+                )
+
+            if "moon_magnitude" in self:
+                self["moon_magnitude"].setText(
+                    "Magnitude: {:.2f}".format(extra.get('magnitude', 0))
+                )
+
+            if "moon_angular_diameter" in self:
+                self["moon_angular_diameter"].setText(
+                    "Angular D.: {:.0f}\"".format(extra.get('angular_diameter', 0))
+                )
+
+            if "moon_age" in self:
+                self["moon_age"].setText(
+                    "Age: {:.1f} d".format(extra.get('age', 0))
+                )
+
+        # API request for moonrise/moonset (passing the date)
         if self.lat != 'N/A' and self.lon != 'N/A':
             try:
                 lat_f = float(self.lat)
                 lon_f = float(self.lon)
-                print(f"[Moon] _update_moon: lat={lat_f}, lon={lon_f}")
-            except ValueError:
-                print(
-                    f"[Moon] _update_moon: invalid lat/lon: {self.lat}, {self.lon}")
-                return
+                offset_hours = None
+                if hasattr(self, 'tz_offset'):
+                    offset_hours = self.tz_offset
+                elif hasattr(self, 'tz'):
+                    offset_hours = self.tz.utcoffset(datetime.datetime.now()).total_seconds() / 3600
 
-            # Calculate offset in hours for the location
-            offset_hours = None
-            if hasattr(self, 'tz_offset'):
-                offset_hours = self.tz_offset
-            elif hasattr(self, 'tz'):
-                from datetime import datetime
-                offset_hours = self.tz.utcoffset(
-                    datetime.now()).total_seconds() / 3600
-            self.moon.get_moon_data_async(
-                float(self.lat), float(self.lon),
-                callback=self._moon_api_callback,
-                max_days=5,
-                offset_hours=offset_hours
-            )
-        else:
-            if "moonrise_value" in self:
-                self["moonrise_value"].setText("N/A")
-            if "moonset_value" in self:
-                self["moonset_value"].setText("N/A")
+                # Pass target date to API
+                self.moon.get_moon_data_async(
+                    float(self.lat), float(self.lon),
+                    callback=self._moon_api_callback,
+                    max_days=5,
+                    offset_hours=offset_hours,
+                    date=target_date
+                )
+                
+            except Exception as e:
+                print(f"[Moon] Error: {e}")
+
 
     def _moon_api_callback(self, api_data):
         if api_data:
             from twisted.internet import reactor
 
             def update_ui():
-                print(f"[Moon] update_ui called, api_data={api_data}")
-                if "moonrise_value" in self and api_data.get(
-                        "rise", "N/A") != "N/A":
+                if DEBUG:
+                    print("[Moon] DEBUG - api_data received:", api_data)
+                    print("[Moon] DEBUG - rise:", api_data.get("rise"))
+                    print("[Moon] DEBUG - set:", api_data.get("set"))
+                    print("[Moon] DEBUG - phase:", api_data.get("phase"))
+                    print("[Moon] DEBUG - illumination (fraction):", api_data.get("illumination"))
+
+                # Update moonrise/moonset (already in local time)
+                if "moonrise_value" in self and api_data.get("rise", "N/A") != "N/A":
                     self["moonrise_value"].setText(api_data["rise"])
                     self["moonrise_value"].instance.invalidate()
-                    print(f"[Moon] set moonrise_value to {api_data['rise']}")
-                if "moonset_value" in self and api_data.get(
-                        "set", "N/A") != "N/A":
+
+                if "moonset_value" in self and api_data.get("set", "N/A") != "N/A":
                     self["moonset_value"].setText(api_data["set"])
                     self["moonset_value"].instance.invalidate()
-                    print(f"[Moon] set moonset_value to {api_data['set']}")
 
-                info = self.moon.get_phase_info()
-                if "icon_moon" in self and info["icon_path"]:
-                    self["icon_moon"].instance.setPixmapFromFile(
-                        info["icon_path"])
-                if "moon_label" in self:
-                    self["moon_label"].setText(_(info["name"]))
-                    self["moon_label"].instance.invalidate()
-                if "moon_illum" in self:
-                    self["moon_illum"].setText(
-                        _("Illumination") + f" {info['illumination']:.1f}%")
-                    self["moon_illum"].instance.invalidate()
-                if "moon_distance" in self:
+                # Use API data for phase and illumination
+                api_phase = api_data.get("phase")
+                api_illum = api_data.get("illumination")
+
+                if api_phase and api_phase != "N/A" and api_illum is not None:
+                    illum_percent = api_illum * 100
+                    icon_number = self._get_icon_number_from_api(api_phase, illum_percent)
+
+                    # Look for icon file (use moon icon folder)
+                    icon_path = join(MOON_ICON_PATH, f"moon{icon_number:04d}.png")
+                    if not exists(icon_path):
+                        icon_path = self.moon._find_nearest_icon(icon_number)
+
+                    if icon_path and exists(icon_path):
+                        self["icon_moon"].instance.setPixmapFromFile(icon_path)
+
+                    self["moon_label"].setText(_(api_phase))
+                    self["moon_illum"].setText(_("Illumination") + f" {illum_percent:.1f}%")
+                    self["illum_bar"].setValue(int(illum_percent))
+
                     distance = self.moon.get_moon_distance()
-                    self["moon_distance"].setText(
-                        _("Distance {} km").format(distance))
-                    self["moon_distance"].instance.invalidate()
+                    distance_km = int(round(distance))  # or f"{distance:.0f}"
+                    self["moon_distance"].setText(_("Distance {} km").format(distance_km))
+
+                else:
+                    # Fallback to internal calculations (if API fails)
+                    info = self.moon.get_phase_info()
+
+                    if "icon_moon" in self and info["icon_path"]:
+                        self["icon_moon"].instance.setPixmapFromFile(info["icon_path"])
+
+                    if "moon_label" in self:
+                        self["moon_label"].setText(_(info["name"]))
+
+                    if "moon_illum" in self:
+                        self["moon_illum"].setText(
+                            _("Illumination") + f" {info['illumination']:.1f}%"
+                        )
+
+                    if "illum_bar" in self:
+                        self["illum_bar"].setValue(int(info["illumination"]))
+
+                    if "moon_distance" in self:
+                        self["moon_distance"].setText(
+                            _("Distance {} km").format(info["distance"])
+                        )
+
                 self.instance.invalidate()
+
+                if DEBUG:
+                    print("[Moon] DEBUG - Setting moon_label to:", _(api_phase))
+                    print("[Moon] DEBUG - Setting illumination to:", illum_percent)
+                    print("[Moon] DEBUG - Selected icon:", icon_number, icon_path)
+
             reactor.callFromThread(update_ui)
+
+    def _get_icon_number_from_api(self, phase_name, illum_percent):
+        """
+        Maps phase and illumination (0-100) to the icon index (0-100)
+        according to the naming convention of moonXXXX.png files
+        """
+        name = phase_name.lower()
+        if name == "new moon":
+            return 0
+        if name == "first quarter":
+            return 25
+        if name == "full moon":
+            return 50
+        if name in ("last quarter", "third quarter"):
+            return 75
+
+        # For intermediate phases (Waxing Crescent, Waxing Gibbous, etc.) use illumination
+        if "waxing crescent" in name:
+            return int(round(illum_percent * 25 / 50))
+        if "waxing gibbous" in name:
+            return int(round(25 + (illum_percent - 50) * 25 / 50))
+        if "waning gibbous" in name:
+            return int(round(50 + (100 - illum_percent) * 25 / 50))
+        if "waning crescent" in name:
+            return int(round(75 + (50 - illum_percent) * 25 / 50))
+        # Fallback
+        return 50
 
     def open_foreca_api_maps(self, callback=None):
         if not exists(CONFIG_FILE):
@@ -2049,7 +2178,10 @@ class Foreca_Preview(Screen, HelpableScreen):
         # debug: start opening meteogram
         if DEBUG:
             write_meteogram_debug(
-                f"[DEBUG] open_meteogram called - myloc={self.myloc}, town={self.town}")
+                "[DEBUG] open_meteogram called - myloc={}, town={}".format(
+                    self.myloc, self.town
+                )
+            )
 
         location_id = [self.path_loc0, self.path_loc1,
                        self.path_loc2][self.myloc].split('/')[0]
@@ -2058,7 +2190,10 @@ class Foreca_Preview(Screen, HelpableScreen):
         # debug: location info
         if DEBUG:
             write_meteogram_debug(
-                f"[DEBUG] location_id={location_id}, location_name={location_name}")
+                "[DEBUG] location_id={}, location_name={}".format(
+                    location_id, location_name
+                )
+            )
 
         if not location_id:
             self.session.open(

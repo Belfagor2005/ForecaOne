@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Copyright (c) @Lululla 2026
-# MoonPhase.py - Astronomical constants with precise calculations
+# MoonPhase.py - Accurate lunar phase calculations (Meeus algorithms)
 
 import glob
 import time
 import datetime
+import math
 from os.path import exists, join, isdir, basename
-from time import mktime, localtime
-from math import pi, cos, radians, sin
 from threading import Thread
 import requests
 
-from . import _
+from . import _, DEBUG
+from .moon_calc import DtoJD, LunarPos, LunarIllum, JDtoD, JDLunarPhase, CheckState
 
 
 MOON_PHASES = {
@@ -28,498 +28,175 @@ MOON_PHASES = {
 
 
 class MoonPhase:
-    # Astronomical constants
-    SYNODIC_MONTH = 29.530588853  # days between two new moons
-    # Reference date: New Moon on January 6, 2000 at 00:00 UTC
-    NEW_MOON_REF = (2000, 1, 6, 0, 0, 0, 0, 0, 0)  # struct_time
-
     def __init__(self, icon_path=None, total_icons=101):
-        """
-        icon_path: absolute path to the folder containing the icons (moon0000.png ... moon0100.png)
-        total_icons: total number of icons (default 101, from 0 to 100)
-        """
         self.icon_path = icon_path
         self.total_icons = total_icons
-        self.api_data = None  # stores data obtained from the USNO API
+        self.api_data = None  # data from USNO API (moonrise/moonset)
 
-    def _moon_phase_to_icon(self, phase_name, illum_percent):
-        """
-        Maps the phase name and illumination percentage (0-100)
-        to the icon index (0-100) according to your icon sequence.
-        """
-
-        # Indicative centers of the main phases
-        phase_centers = {
-            "New Moon": 0,
-            "Waxing Crescent": 12,
-            "First Quarter": 25,
-            "Waxing Gibbous": 37,
-            "Full Moon": 50,
-            "Waning Gibbous": 62,
-            "Last Quarter": 75,
-            "Waning Crescent": 87,
-        }
-
-        # Special cases with linear variation
-        if phase_name == "New Moon":
-            # Very close to 0% or 100%
-            return 0 if illum_percent < 10 else 100
-
-        elif phase_name == "Waxing Crescent":
-            # illum from 0% to 50% -> icons from 0 to 25
-            return int(illum_percent * 25 / 50)
-
-        elif phase_name == "First Quarter":
+    # ------------------------------------------------------------------
+    # Maps phase + illumination to icon index (0-100)
+    # ------------------------------------------------------------------
+    def _phase_to_icon(self, phase_name, illum_percent):
+        name = phase_name.lower()
+        if name == "new moon":
+            return 0
+        if name == "first quarter":
             return 25
-
-        elif phase_name == "Waxing Gibbous":
-            # illum from 50% to 100% -> icons from 25 to 50
-            return int(25 + (illum_percent - 50) * 25 / 50)
-
-        elif phase_name == "Full Moon":
+        if name == "full moon":
             return 50
-
-        elif phase_name == "Waning Gibbous":
-            # illum from 100% to 50% -> icons from 50 to 75
-            return int(50 + (100 - illum_percent) * 25 / 50)
-
-        elif phase_name == "Last Quarter":
+        if name in ("last quarter", "third quarter"):
             return 75
 
-        elif phase_name == "Waning Crescent":
-            # illum from 50% to 0% -> icons from 75 to 100
-            return int(75 + (50 - illum_percent) * 25 / 50)
+        if "waxing crescent" in name:
+            return int(round(illum_percent * 25 / 50))
+        if "waxing gibbous" in name:
+            return int(round(25 + (illum_percent - 50) * 25 / 50))
+        if "waning gibbous" in name:
+            return int(round(50 + (100 - illum_percent) * 25 / 50))
+        if "waning crescent" in name:
+            return int(round(75 + (50 - illum_percent) * 25 / 50))
+        return 50
 
-        else:
-            # fallback to center
-            return phase_centers.get(phase_name, 50)
-
-    # -------------------------------------------------------------------------
-    # Precise lunar calculations (based on Meeus / external code)
-    # -------------------------------------------------------------------------
-
-    def _date_to_jd(self, dt):
-        """
-        Convert a datetime object to Julian Day (approximate).
-        Usa lo stesso metodo di MoonCalendar per coerenza.
-        """
-        return dt.toordinal() + 1721424.5
-
-    def _jd_to_date(self, jd):
-        """Convert a Julian Day value to a datetime object.
-
-        Uses the same conversion formula as MoonCalendar.
-        """
-        from datetime import datetime
-
-        jd = jd + 0.5
-        z = int(jd)
-        f = jd - z
-
-        if z < 2299161:
-            a = z
-        else:
-            alpha = int((z - 1867216.25) / 36524.25)
-            a = z + 1 + alpha - int(alpha / 4)
-
-        b = a + 1524
-        c = int((b - 122.1) / 365.25)
-        d = int(365.25 * c)
-        e = int((b - d) / 30.6001)
-
-        day = int(b - d - int(30.6001 * e) + f)
-        month = int(e - 1 if e < 14 else e - 13)
-        year = int(c - 4716 if month > 2 else c - 4715)
-
-        total_seconds = int(f * 86400)
-        seconds = total_seconds % 60
-        minutes = (total_seconds // 60) % 60
-        hours = total_seconds // 3600
-
-        return datetime(year, month, day, hours, minutes, seconds)
-
-    def _compute_lunar_data(self, jd):
-        """
-        Computes precise lunar data for a given Julian Day (geocentric).
-        Returns a dictionary with illumination, phase_name, distance, trend.
-        """
-        T = (jd - 2451545.0) / 36525.0
-
-        # Mean elements (degrees)
-        Dm = (
-            297.8501921
-            + 445267.114034 * T
-            - 0.0018819 * T * T
-            + T * T * T / 545868
-            - T * T * T * T / 113065000
-        )
-
-        Ms = (
-            357.5291092
-            + 35999.0502909 * T
-            - 0.0001536 * T * T
-            + T * T * T / 24490000
-        )
-
-        Mm = (
-            134.9633964
-            + 477198.8675055 * T
-            + 0.0087414 * T * T
-            + T * T * T / 69699
-            - T * T * T * T / 14712000
-        )
-
-        Fm = (
-            93.272095
-            + 483202.0175233 * T
-            - 0.0036539 * T * T
-            - T * T * T / 3526000
-            + T * T * T * T / 863310000
-        )
-
-        # Eccentricity factor
-        E = 1 - 0.002516 * T - 0.0000074 * T * T
-
-        # Distance correction (ER)
-        ER = (
-            -20.905355 * cos(radians(Mm))
-            - 3.699111 * cos(radians(2 * Dm - Mm))
-            - 2.955968 * cos(radians(2 * Dm))
-            - 0.569925 * cos(radians(2 * Mm))
-            + 0.048888 * cos(radians(Ms)) * E
-            - 0.003149 * cos(radians(2 * Fm))
-            + 0.246158 * cos(radians(2 * Dm - 2 * Mm))
-            - 0.152138 * cos(radians(2 * Dm - Ms - Mm)) * E
-            - 0.170733 * cos(radians(2 * Dm + Mm))
-            - 0.204586 * cos(radians(2 * Dm - Ms)) * E
-            - 0.129620 * cos(radians(Mm - Ms)) * E
-            + 0.108743 * cos(radians(Dm))
-            + 0.104755 * cos(radians(Mm + Ms)) * E
-            + 0.010321 * cos(radians(2 * Dm - 2 * Fm))
-            + 0.079661 * cos(radians(Mm - 2 * Fm))
-            - 0.034782 * cos(radians(4 * Dm - Mm))
-            - 0.023210 * cos(radians(3 * Mm))
-            - 0.021636 * cos(radians(4 * Dm - 2 * Mm))
-            + 0.024208 * cos(radians(2 * Dm + Ms - Mm)) * E
-            + 0.030824 * cos(radians(2 * Dm + Ms)) * E
-            - 0.008379 * cos(radians(Dm - Mm))
-            - 0.016675 * cos(radians(Dm + Ms)) * E
-            - 0.012831 * cos(radians(2 * Dm - Ms + Mm)) * E
-            - 0.010445 * cos(radians(2 * Dm + 2 * Mm))
-        )
-
-        # Illumination angle IM (degrees)
-        IM = (
-            180
-            - Dm
-            - 6.289 * sin(radians(Mm))
-            + 2.100 * sin(radians(Ms)) * E
-            - 1.274 * sin(radians(2 * Dm - Mm))
-            - 0.658 * sin(radians(2 * Dm))
-            - 0.214 * sin(radians(2 * Mm))
-            - 0.114 * sin(radians(Dm))
-        )
-
-        IM = IM % 360
-        illumination = (1 + cos(radians(IM))) / 2 * 100
-
-        # Distance in km
-        distance = int(385000.56 + ER * 1000)
-
-        # Trend (waxing/waning) by comparing illumination with a slightly later
-        # time
-        jd2 = jd + 0.5
-        T2 = (jd2 - 2451545.0) / 36525.0
-
-        Dm2 = (
-            297.8501921
-            + 445267.114034 * T2
-            - 0.0018819 * T2 * T2
-            + T2 * T2 * T2 / 545868
-            - T2 * T2 * T2 * T2 / 113065000
-        )
-
-        Ms2 = (
-            357.5291092
-            + 35999.0502909 * T2
-            - 0.0001536 * T2 * T2
-            + T2 * T2 * T2 / 24490000
-        )
-
-        Mm2 = (
-            134.9633964
-            + 477198.8675055 * T2
-            + 0.0087414 * T2 * T2
-            + T2 * T2 * T2 / 69699
-            - T2 * T2 * T2 * T2 / 14712000
-        )
-
-        IM2 = (180 -
-               Dm2 -
-               6.289 *
-               sin(radians(Mm2)) +
-               2.100 *
-               sin(radians(Ms2)) *
-               (1 -
-                0.002516 *
-                T2 -
-                0.0000074 *
-                T2 *
-                T2) -
-               1.274 *
-               sin(radians(2 *
-                           Dm2 -
-                           Mm2)) -
-               0.658 *
-               sin(radians(2 *
-                           Dm2)) -
-               0.214 *
-               sin(radians(2 *
-                           Mm2)) -
-               0.114 *
-               sin(radians(Dm2)))
-
-        IM2 = IM2 % 360
-        illum2 = (1 + cos(radians(IM2))) / 2 * 100
-
-        trend = 1 if illum2 > illumination else -1
-
-        # --- DETERMINING PHASE NAME BASED ON AGE ---
-        from datetime import datetime
-        # Calculate the age in days since the last reference new moon (6 Jan
-        # 2000 00:00 UTC)
-        ref_jd = self._date_to_jd(datetime(2000, 1, 6, 0, 0, 0))
-        days_since_ref = jd - ref_jd
-        age = days_since_ref % self.SYNODIC_MONTH
-
-        if age < 1.5:
-            phase_name = "New Moon"
-        elif age < 6.5:
-            phase_name = "Waxing Crescent"
-        elif age < 8.5:
-            phase_name = "First Quarter"
-        elif age < 13.5:
-            phase_name = "Waxing Gibbous"
-        elif age < 15.5:
-            phase_name = "Full Moon"
-        elif age < 20.5:
-            phase_name = "Waning Gibbous"
-        elif age < 22.5:
-            phase_name = "Last Quarter"
-        else:
-            phase_name = "Waning Crescent"
-
-        return {
-            "illumination": illumination,
-            "phase_name": phase_name,
-            "distance": distance,
-            "trend": trend,
-        }
-
-    def _get_current_phase_value(self):
-        # This method is kept for compatibility but not used in precise mode
-        # We'll still use it if needed, but better to use precise.
-        ref_time = mktime(self.NEW_MOON_REF)
-        ref_days = ref_time / 86400.0
-        now_days = mktime(localtime()) / 86400.0
-        days_since_ref = now_days - ref_days
-        phase = (days_since_ref % self.SYNODIC_MONTH) / self.SYNODIC_MONTH
-        return phase
-
-    def _illumination_from_phase(self, phase):
-        return (1 - cos(2 * pi * phase)) / 2 * 100
-
-    def _get_phase_name(self, phase):
-        # Approximate phase names
-        if phase < 0.03 or phase >= 0.97:
-            return "New Moon"
-        elif phase < 0.22:
-            return "Waxing Crescent"
-        elif phase < 0.28:
-            return "First Quarter"
-        elif phase < 0.47:
-            return "Waxing Gibbous"
-        elif phase < 0.53:
-            return "Full Moon"
-        elif phase < 0.72:
-            return "Waning Gibbous"
-        elif phase < 0.78:
-            return "Last Quarter"
-        else:
-            return "Waning Crescent"
-
-    # -------------------------------------------------------------------------
-    # Public API
-    # -------------------------------------------------------------------------
-    def get_phase_info(self):
-        """
-        Returns a dictionary with phase, illumination, name, icon number, and icon path.
-        Gives priority to API data if available, otherwise falls back to precise internal calculation.
-        """
-        if self.api_data and self.api_data["illumination"] is not None and self.api_data["phase"] != "N/A":
-            # Use API data
-            illum_percent = self.api_data["illumination"] * 100
-            phase_name = self.api_data["phase"]
-            # Determine waxing/waning from phase name
-            crescente = phase_name in [
-                "Waxing Crescent",
-                "First Quarter",
-                "Waxing Gibbous"]
-            # Linear mapping
-            if crescente:
-                icon_number = int(round(illum_percent * 50 / 100))
-            else:
-                icon_number = int(round(50 + (100 - illum_percent) * 50 / 100))
-            if phase_name == "New Moon":
-                icon_number = 0 if illum_percent < 10 else 100
-            elif phase_name == "Full Moon":
-                icon_number = 50
-            icon_number = max(0, min(100, icon_number))
-            illumination = illum_percent
-            name = phase_name
-            # We don't have distance from API, use precise calculation for
-            # distance
-            jd = self._get_julian_day()
-            distance = self._compute_lunar_data(jd)['distance']
-        else:
-            # Fallback to precise calculation
-            jd = self._get_julian_day()
-            data = self._compute_lunar_data(jd)
-            illumination = data['illumination']
-            name = data['phase_name']
-            distance = data['distance']
-            # Map illumination to icon using the same logic as API case
-            crescente = data['trend'] == 1
-            if crescente:
-                icon_number = int(round(illumination * 50 / 100))
-            else:
-                icon_number = int(round(50 + (100 - illumination) * 50 / 100))
-            if name == "New Moon":
-                icon_number = 0 if illumination < 10 else 100
-            elif name == "Full Moon":
-                icon_number = 50
-            icon_number = max(0, min(100, icon_number))
-
-        # Find icon file
-        icon_file = None
-        if self.icon_path:
-            icon_file = join(self.icon_path, f"moon{icon_number:04d}.png")
-            if not exists(icon_file):
-                icon_file = self._find_nearest_icon(icon_number)
-
-        return {
-            "illumination": illumination,
-            "name": name,
-            "icon_number": icon_number,
-            "icon_path": icon_file,
-            "distance": distance
-        }
-
-    def _get_julian_day(self, t=None):
-        if t is None:
-            t = mktime(localtime())
-        dt = datetime.datetime.utcfromtimestamp(t)
+    # ------------------------------------------------------------------
+    # Determines the lunar phase from a date (datetime)
+    # ------------------------------------------------------------------
+    def _get_phase_name_from_date(self, dt):
+        # Calculate Julian Day
+        # Calcola Julian Day
+        jd = DtoJD(dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second)
+        # Calculate k value (number of lunations since 2000)
         year = dt.year
         month = dt.month
         day = dt.day + (dt.hour + dt.minute / 60.0 + dt.second / 3600.0) / 24.0
-        if month <= 2:
-            year -= 1
-            month += 12
-        A = year // 100
-        B = 2 - A + A // 4
-        JD = int(365.25 * (year + 4716)) + \
-            int(30.6001 * (month + 1)) + day + B - 1524.5
-        return JD
+        YearFrac = year + (month - 1 + (day - 1) / 30.5) / 12
+        k = (YearFrac - 2000) * 12.3685
+        # Find the nearest main phase
+        p = int(abs(k - int(k)) / 0.25) * 0.25
+        # Search the four surrounding phases
+        candidates = []
+        for offset in [-0.5, -0.25, 0, 0.25, 0.5]:
+            k_cand = int(k) + p + offset
+            jd_cand = JDLunarPhase(k_cand)
+            phase_cand = CheckState(k_cand)
+            candidates.append((abs(jd_cand - jd), phase_cand, jd_cand))
+        # Choose the closest one
+        candidates.sort(key=lambda x: x[0])
+        nearest_phase = candidates[0][1]
+        # Now determine the exact phase between the main ones
+        # (waxing/waning) based on illumination and trend
+        illum = LunarIllum(jd) * 100
+        # Predict trend by checking illumination +6 hours
+        jd_plus = jd + 0.25
+        illum_plus = LunarIllum(jd_plus) * 100
+        waxing = illum_plus > illum
 
-    def get_phase_info_for_jd(self, jd):
-        """
-        Returns lunar information for a given Julian Day.
-        Similar to get_phase_info() but based on the specified JD.
-        """
-        data = self._compute_lunar_data(jd)
-        illumination = data['illumination']
-        # already calculated in _compute_lunar_data
-        phase_name = data['phase_name']
-        distance = data['distance']
-        trend = data['trend']
-
-        # Map illumination to icon (0–100) linearly, with corrections for the main phases
-        # The icon must be consistent with the phase name.
-        if phase_name == "New Moon":
-            icon_number = 0 if illumination < 10 else 100
-        elif phase_name == "Waxing Crescent":
-            # illumination from ~0 to 50% → icon from 0 to 25
-            icon_number = int(round(illumination * 25 / 50))
-        elif phase_name == "First Quarter":
-            icon_number = 25
-        elif phase_name == "Waxing Gibbous":
-            # illumination from ~50 to 100% → icon from 25 to 50
-            icon_number = int(round(25 + (illumination - 50) * 25 / 50))
-        elif phase_name == "Full Moon":
-            icon_number = 50
-        elif phase_name == "Waning Gibbous":
-            # illumination from 100 to 50% → icon from 50 to 75
-            icon_number = int(round(50 + (100 - illumination) * 25 / 50))
-        elif phase_name == "Last Quarter":
-            icon_number = 75
-        elif phase_name == "Waning Crescent":
-            # illumination from 50 to 0% → icon from 75 to 100
-            icon_number = int(round(75 + (50 - illumination) * 25 / 50))
+        if nearest_phase == "New Moon":
+            return "New Moon"
+        elif nearest_phase == "First Quarter":
+            return "First Quarter"
+        elif nearest_phase == "Full Moon":
+            return "Full Moon"
+        elif nearest_phase == "Third Quarter":
+            return "Third Quarter"
         else:
-            # fallback (should not happen)
-            waxing = (trend == 1)
+            # Between main phases, determine intermediate phase
             if waxing:
-                icon_number = int(round(illumination * 50 / 100))
+                if illum < 50:
+                    return "Waxing Crescent"
+                else:
+                    return "Waxing Gibbous"
             else:
-                icon_number = int(round(50 + (100 - illumination) * 50 / 100))
-            icon_number = max(0, min(100, icon_number))
+                if illum > 50:
+                    return "Waning Gibbous"
+                else:
+                    return "Waning Crescent"
 
-        # Ensure the icon number stays within the 0–100 range
-        icon_number = max(0, min(100, icon_number))
+    # ------------------------------------------------------------------
+    # Get complete information for a date (default now)
+    # ------------------------------------------------------------------
+    def get_phase_info(self, target_date=None):
+        if target_date is None:
+            target_date = datetime.datetime.utcnow()
+        elif isinstance(target_date, datetime.date) and not isinstance(
+                target_date, datetime.datetime):
+            # If it's a date without a time, set the time to 00:00:00 UTC
+            target_date = datetime.datetime(
+                target_date.year, target_date.month, target_date.day, 0, 0, 0)
+
+        jd = DtoJD(target_date.day, target_date.month, target_date.year,
+                   target_date.hour, target_date.minute, target_date.second)
+        illum = LunarIllum(jd) * 100
+        phase_name = self._get_phase_name_from_date(target_date)
+        distance = LunarPos(jd)[0]  # _Delta
+        icon_number = self._phase_to_icon(phase_name, illum)
+
+        # Calculate trend (waxing/waning) by comparing with +6 hours
+        jd_next = jd + 0.25
+        illum_next = LunarIllum(jd_next) * 100
+        trend = 1 if illum_next > illum else -1
 
         icon_file = None
         if self.icon_path:
             icon_file = join(self.icon_path, f"moon{icon_number:04d}.png")
             if not exists(icon_file):
                 icon_file = self._find_nearest_icon(icon_number)
-
+        if DEBUG:
+            print("[MoonPhase] DEBUG - target_date:", target_date)
+            print("[MoonPhase] DEBUG - jd:", jd)
+            print("[MoonPhase] DEBUG - illum calcolate:", illum)
+            print("[MoonPhase] DEBUG - phase_name calcolate:", phase_name)
+            print("[MoonPhase] DEBUG - distance:", distance)
         return {
-            'illumination': illumination,
-            'name': phase_name,
-            'distance': distance,
-            'icon_number': icon_number,
-            'icon_path': icon_file,
-            'jd': jd,
-            'trend': trend
+            "illumination": illum,
+            "name": phase_name,
+            "icon_number": icon_number,
+            "icon_path": icon_file,
+            "distance": round(distance),   # or int(round(distance))
+            "jd": jd,
+            "trend": trend
         }
 
-    # -------------------------------------------------------------------------
-    # API methods (unchanged)
-    # -------------------------------------------------------------------------
-    def get_moon_data_async(
-            self,
-            lat,
-            lon,
-            callback,
-            max_days=2,
-            offset_hours=None):
+    # ------------------------------------------------------------------
+    # For compatibility: get_phase_info_for_jd
+    # ------------------------------------------------------------------
+    def get_phase_info_for_jd(self, jd):
+        """
+        Returns lunar information for a given Julian Day.
+        Includes jd and trend for compatibility.
+        """
+        dt = self._jd_to_datetime(jd)
+        info = self.get_phase_info(dt)
+        illum_now = info['illumination']
+        jd_next = jd + 0.25
+        illum_next = LunarIllum(jd_next) * 100
+        trend = 1 if illum_next > illum_now else -1
+        info['jd'] = jd
+        info['trend'] = trend
+        return info
+
+    def _jd_to_datetime(self, jd):
+        d, m, y, h, mn, s, _ = JDtoD(jd)
+        return datetime.datetime(y, m, d, h, mn, s)
+
+    # ------------------------------------------------------------------
+    # API for moonrise/moonset (USNO) – asynchronous
+    # ------------------------------------------------------------------
+    def get_moon_data_async(self, lat, lon, callback, max_days=2, offset_hours=None, date=None):
         def worker():
-            result = self.get_moon_data_from_api(
-                lat, lon, max_days, offset_hours)
+            result = self.get_moon_data_from_api(lat, lon, max_days, offset_hours, date)
             if callback:
                 callback(result)
         Thread(target=worker).start()
 
-    def get_moon_data_from_api(self, lat, lon, max_days=2, offset_hours=None):
+    def get_moon_data_from_api(self, lat, lon, max_days=2, offset_hours=None, date=None):
         if offset_hours is None:
             offset_hours = self._get_offset_hours()
         try:
-            base_date = datetime.date.today()
+            base_date = date if date is not None else datetime.date.today()
             moonrise = "N/A"
             moonset = "N/A"
             phase_name = "N/A"
             illumination = None
-
             for days_offset in range(max_days + 1):
                 check_date = base_date + datetime.timedelta(days=days_offset)
                 date_str = check_date.strftime("%Y-%m-%d")
@@ -530,37 +207,29 @@ class MoonPhase:
                     "tz": str(offset_hours),
                     "dst": "false"
                 }
-                response = requests.get(url, params=params, timeout=10)
-                if response.status_code != 200:
-                    continue
-
-                data = response.json()
-                props = data.get("properties", {}).get("data", {})
-                if not props:
-                    continue
-
-                # Acquisisci fase e illuminazione solo per oggi
-                if days_offset == 0:
-                    phase_name = props.get("curphase", "N/A")
-                    illum_str = props.get(
-                        "fracillum", "0%").replace(
-                        "%", "").strip()
-                    illumination = float(illum_str) / \
-                        100.0 if illum_str != "N/A" else None
-
-                # Cerca alba e tramonto
-                for item in props.get("moondata", []):
-                    phen = item.get("phen", "")
-                    time_val = item.get("time", "N/A")
-                    if phen == "Rise" and moonrise == "N/A":
-                        moonrise = time_val
-                    elif phen == "Set" and moonset == "N/A":
-                        moonset = time_val
-
-                # Se abbiamo trovato entrambi, interrompi
-                if moonrise != "N/A" and moonset != "N/A":
-                    break
-
+                try:
+                    response = requests.get(url, params=params, timeout=10)
+                    if response.status_code != 200:
+                        continue
+                    data = response.json()
+                    props = data.get("properties", {}).get("data", {})
+                    if not props:
+                        continue
+                    if days_offset == 0:
+                        phase_name = props.get("curphase", "N/A")
+                        illum_str = props.get("fracillum", "0%").replace("%", "").strip()
+                        illumination = float(illum_str) / 100.0 if illum_str != "N/A" else None
+                    for item in props.get("moondata", []):
+                        phen = item.get("phen", "")
+                        time_val = item.get("time", "N/A")
+                        if phen == "Rise" and moonrise == "N/A":
+                            moonrise = time_val
+                        elif phen == "Set" and moonset == "N/A":
+                            moonset = time_val
+                    if moonrise != "N/A" and moonset != "N/A":
+                        break
+                except Exception as e:
+                    print(f"[Moon] API error: {e}")
             result = {
                 "rise": moonrise,
                 "set": moonset,
@@ -571,21 +240,23 @@ class MoonPhase:
                 self.api_data = result
             return result
         except Exception as e:
-            print(f"[Moon] Exception: {e}")
+            print(f"[Moon] Exception in API: {e}")
             return None
 
     def _get_offset_hours(self):
         lt = time.localtime()
-        if lt.tm_isdst > 0:
+        if lt.tm_isdst:
             offset_sec = -time.altzone
         else:
             offset_sec = -time.timezone
         return round(offset_sec / 3600.0, 1)
 
-    def get_moon_distance(self):
-        # Use precise calculation
-        jd = self._get_julian_day()
-        return self._compute_lunar_data(jd)['distance']
+    # def get_moon_distance(self):
+        # return self.get_phase_info()["distance"]
+
+    def get_moon_distance(self, target_date=None):
+        info = self.get_phase_info(target_date)
+        return info["distance"]
 
     def _find_nearest_icon(self, target_num):
         if not self.icon_path or not isdir(self.icon_path):
@@ -602,3 +273,228 @@ class MoonPhase:
             return None
         nearest = min(numbers, key=lambda x: abs(x[0] - target_num))
         return nearest[1]
+
+    def get_moon_extra_details(self, lat, lon, dt=None):
+        """
+        Calculates additional Moon data for a specific date and position.
+
+        Parameters:
+            lat: observer latitude (degrees, negative for South)
+            lon: observer longitude (degrees, negative for West)
+            dt: datetime object (UTC). If None, uses current UTC time.
+
+        Returns a dictionary with:
+            - rise_time: moonrise time (HH:MM string, local time)
+            - set_time: moonset time (HH:MM string, local time)
+            - rise_azimuth: azimuth at moonrise (degrees, from North)
+            - set_azimuth: azimuth at moonset (degrees, from North)
+            - transit_time: transit (culmination) time (HH:MM string, local time)
+            - transit_altitude: maximum altitude (degrees)
+            - magnitude: apparent visual magnitude
+            - angular_diameter: angular diameter (arcseconds)
+            - age: age in days since last New Moon
+        """
+
+        if dt is None:
+            dt = datetime.datetime.now(datetime.timezone.utc)
+        jd = DtoJD(dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second)
+        _, ra, dec, _, _ = LunarPos(jd)
+        distance = LunarPos(jd)[0]
+        # phase_name = self._get_phase_name_from_date(dt)   <-- ELIMINA QUESTA
+        illumination = LunarIllum(jd) * 100
+
+        # 2. Calculate rise/set time and azimuth (interpolation)
+        rise_time, set_time, rise_az, set_az = self._calculate_rise_set(lat, lon, dt, ra, dec)
+
+        # 3. Calculate transit time and altitude
+        transit_time, transit_alt = self._calculate_transit(lat, lon, dt, ra, dec)
+
+        # 4. Calculate apparent magnitude
+        magnitude = self._calculate_magnitude(distance, illumination)
+
+        # 5. Calculate angular diameter
+        angular_diameter = self._calculate_angular_diameter(distance)
+
+        # 6. Calculate Moon age
+        age = self._calculate_age(dt)
+
+        return {
+            "rise_time": rise_time,
+            "set_time": set_time,
+            "rise_azimuth": rise_az,
+            "set_azimuth": set_az,
+            "transit_time": transit_time,
+            "transit_altitude": transit_alt,
+            "magnitude": magnitude,
+            "angular_diameter": angular_diameter,
+            "age": age
+        }
+
+    def _calculate_rise_set(self, lat, lon, dt, ra, dec):
+        # Search around midnight of the specified day
+        start_dt = datetime.datetime(dt.year, dt.month, dt.day, 0, 0, 0, tzinfo=datetime.timezone.utc)
+        rise_time = None
+        set_time = None
+        rise_az = None
+        set_az = None
+        prev_alt_val = None
+
+        # Search interval: 24 hours
+        for minute_offset in range(0, 24 * 60):
+            check_dt = start_dt + datetime.timedelta(minutes=minute_offset)
+            jd_check = DtoJD(check_dt.day, check_dt.month, check_dt.year, check_dt.hour, check_dt.minute, check_dt.second)
+            _, ra_check, dec_check, _, _ = LunarPos(jd_check)
+            alt, az = self._equatorial_to_horizontal(lat, lon, check_dt, ra_check, dec_check)
+
+            if minute_offset > 0 and prev_alt_val is not None:
+                if prev_alt_val < 0 and alt >= 0:
+                    rise_time = check_dt
+                    rise_az = az
+                elif prev_alt_val > 0 and alt <= 0:
+                    set_time = check_dt
+                    set_az = az
+            prev_alt_val = alt
+
+            if rise_time and set_time:
+                break
+
+        # Format times as HH:MM strings (local time)
+        tz_offset = self._get_offset_hours()
+        if rise_time:
+            local_rise = rise_time + datetime.timedelta(hours=tz_offset)
+            rise_time_str = local_rise.strftime("%H:%M")
+        else:
+            rise_time_str = "N/A"
+
+        if set_time:
+            local_set = set_time + datetime.timedelta(hours=tz_offset)
+            set_time_str = local_set.strftime("%H:%M")
+        else:
+            set_time_str = "N/A"
+
+        return rise_time_str, set_time_str, rise_az, set_az
+
+    def _calculate_transit(self, lat, lon, dt, ra, dec):
+        start_dt = datetime.datetime(dt.year, dt.month, dt.day, 0, 0, 0, tzinfo=datetime.timezone.utc)
+        max_alt = -90
+        transit_dt = None
+
+        # Search full 24 hours
+        for minute_offset in range(0, 24 * 60):
+            check_dt = start_dt + datetime.timedelta(minutes=minute_offset)
+            jd_check = DtoJD(check_dt.day, check_dt.month, check_dt.year, check_dt.hour, check_dt.minute, check_dt.second)
+            _, ra_check, dec_check, _, _ = LunarPos(jd_check)
+            alt, az = self._equatorial_to_horizontal(lat, lon, check_dt, ra_check, dec_check)
+
+            # Track maximum altitude (transit point)
+            if alt > max_alt:
+                max_alt = alt
+                transit_dt = check_dt
+
+        tz_offset = self._get_offset_hours()
+        if transit_dt:
+            local_transit = transit_dt + datetime.timedelta(hours=tz_offset)
+            transit_time_str = local_transit.strftime("%H:%M")
+        else:
+            transit_time_str = "N/A"
+
+        return transit_time_str, max_alt
+
+    def _equatorial_to_horizontal(self, lat, lon, dt, ra, dec):
+        """
+        Converts equatorial coordinates (RA, Dec) to horizontal coordinates (alt, az).
+
+        Parameters:
+            lat: observer latitude (degrees)
+            lon: observer longitude (degrees)
+            dt: UTC datetime
+            ra: right ascension (degrees)
+            dec: declination (degrees)
+
+        Returns:
+            alt: altitude (degrees, 0=horizon, 90=zenith)
+            az: azimuth (degrees, from North, clockwise)
+        """
+        # Compute local sidereal time (LST)
+        # JD at start of day (UTC midnight)
+        jd_midnight = DtoJD(dt.day, dt.month, dt.year, 0, 0, 0)
+        # UTC hours in the day
+        utc_hours = dt.hour + dt.minute / 60.0 + dt.second / 3600.0
+        # Mean sidereal time at Greenwich (GMST) in hours
+        # T = (jd_midnight - 2451545.0) / 36525.0
+        gmst_hours = 18.697374558 + 24.06570982441908 * (jd_midnight - 2451545.0) / 36525.0
+        gmst_hours = (gmst_hours + 24.0) % 24.0
+        # Add UTC hour
+        lst_hours = (gmst_hours + utc_hours + lon / 15.0) % 24.0
+        # Hour angle (H) in degrees
+        h = (lst_hours - ra / 15.0) * 15.0
+        # Ensure H is in [-180, 180]
+        if h > 180:
+            h -= 360
+        elif h < -180:
+            h += 360
+
+        # Convert lat, dec, h to radians
+        lat_rad = math.radians(lat)
+        dec_rad = math.radians(dec)
+        h_rad = math.radians(h)
+
+        # Compute altitude (alt)
+        sin_alt = math.sin(lat_rad) * math.sin(dec_rad) + math.cos(lat_rad) * math.cos(dec_rad) * math.cos(h_rad)
+        alt = math.degrees(math.asin(sin_alt))
+
+        # Compute azimuth (az)
+        sin_az = -math.cos(dec_rad) * math.sin(h_rad)
+        cos_az = math.sin(dec_rad) - math.sin(lat_rad) * sin_alt
+        az = math.degrees(math.atan2(sin_az, cos_az))
+
+        # Normalize azimuth to [0, 360)
+        az = (az + 360.0) % 360.0
+
+        return alt, az
+
+    def _calculate_magnitude(self, distance, illumination):
+        # Magnitudine a distanza media e fase piena
+        mag_full = -12.74
+        # Correzione per distanza (legge inversa del quadrato)
+        dist_factor = 5.0 * math.log10(distance / 384400.0)
+        # Correzione per fase (modello lineare in log, approssimato)
+        if illumination > 0:
+            phase_factor = 2.5 * math.log10(illumination / 100.0)
+        else:
+            phase_factor = 0
+        magnitude = mag_full + dist_factor + phase_factor
+        return round(magnitude, 2)
+
+    def _calculate_angular_diameter(self, distance):
+        # Mean radius of the Moon in km
+        moon_radius = 1737.4
+        # Angular diameter in radians
+        angular_rad = 2.0 * math.asin(moon_radius / distance)
+        # Convert to arcseconds
+        angular_arcsec = math.degrees(angular_rad) * 3600.0
+        return round(angular_arcsec, 1)
+
+    def _calculate_age(self, dt):
+        jd = DtoJD(dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second)
+        # Calculate k value for the current date (number of lunations since 2000)
+        year = dt.year
+        month = dt.month
+        day = dt.day + (dt.hour + dt.minute / 60.0 + dt.second / 3600.0) / 24.0
+        YearFrac = year + (month - 1 + (day - 1) / 30.5) / 12
+        k = (YearFrac - 2000) * 12.3685
+        # Find the last New Moon (nearest integer k rounded down)
+        k_new = int(k)
+        jd_new = JDLunarPhase(k_new)
+        age_days = jd - jd_new
+        return round(age_days, 2)
+
+
+# extra = self.moon.get_moon_extra_details(float(self.lat), float(self.lon))
+# self["moonrise_azimuth"].setText(f"{extra['rise_azimuth']:.0f}°")
+# self["moonset_azimuth"].setText(f"{extra['set_azimuth']:.0f}°")
+# self["moon_transit_time"].setText(extra['transit_time'])
+# self["moon_transit_alt"].setText(f"{extra['transit_altitude']:.0f}°")
+# self["moon_magnitude"].setText(f"{extra['magnitude']:.2f}")
+# self["moon_angular_diameter"].setText(f"{extra['angular_diameter']:.0f}\"")
+# self["moon_age"].setText(f"{extra['age']:.1f} d")

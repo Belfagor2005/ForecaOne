@@ -427,7 +427,11 @@ class ForecaFreeAPI:
             logging.getLogger(__name__).error(f"Error in hourly forecast: {e}")
             return []
 
-    def get_today_tomorrow_details(self, location_id: str) -> dict:
+    def get_today_tomorrow_details(self, location_id: str, tz_offset: float = None) -> dict:
+        """
+        Returns hourly details for today and tomorrow, divided into local time slots.
+        If tz_offset is provided (e.g. +2, -5), converts UTC hours to local hours.
+        """
         result = {'today': {}, 'tomorrow': {}}
 
         daily_all = self.get_daily_forecast(location_id, days=2)
@@ -441,36 +445,44 @@ class ForecaFreeAPI:
             hourly = self.get_hourly_forecast(location_id, day=day_index)
             if not hourly:
                 return None
+
             periods = {
-                'overnight': [],  # 0-6
-                'morning': [],    # 6-12
-                'afternoon': [],  # 12-18
-                'evening': []     # 18-24
+                'overnight': [],   # 00:00 - 05:59 local time
+                'morning': [],     # 06:00 - 11:59 local time
+                'afternoon': [],   # 12:00 - 17:59 local time
+                'evening': []      # 18:00 - 23:59 local time
             }
+
             for h in hourly:
-                hour = h.time.hour
-                if 0 <= hour < 6:
+                hour_utc = h.time.hour
+                if tz_offset is not None:
+                    # Simple conversion with integer offset (handles modulo 24)
+                    hour_local = int((hour_utc + tz_offset) % 24)
+                else:
+                    hour_local = hour_utc
+
+                if 0 <= hour_local < 6:
                     periods['overnight'].append(h)
-                elif 6 <= hour < 12:
+                elif 6 <= hour_local < 12:
                     periods['morning'].append(h)
-                elif 12 <= hour < 18:
+                elif 12 <= hour_local < 18:
                     periods['afternoon'].append(h)
-                elif 18 <= hour < 24:
+                elif 18 <= hour_local < 24:
                     periods['evening'].append(h)
+
             day_data = {}
             for period, hours_list in periods.items():
                 if not hours_list:
                     day_data[period] = {'temp': 'N/A', 'symbol': 'na'}
                 else:
-                    avg_temp = sum(
-                        h.temp for h in hours_list) / len(hours_list)
+                    avg_temp = sum(h.temp for h in hours_list) / len(hours_list)
                     symbols = [h.condition for h in hours_list]
+                    # Median symbol for the time slot
                     symbol = symbols[len(symbols) // 2] if symbols else 'na'
-                    day_data[period] = {
-                        'temp': round(avg_temp), 'symbol': symbol}
+                    day_data[period] = {'temp': round(avg_temp), 'symbol': symbol}
             return day_data
 
-        # Process tomorrow first (needed for today's overnight fallback)
+        # Process tomorrow (index 1) and today (index 0)
         tomorrow_periods = _process_day(1)
         today_periods = _process_day(0)
 
@@ -479,14 +491,14 @@ class ForecaFreeAPI:
         if not tomorrow_periods:
             tomorrow_periods = {}
 
-        # If today's overnight slot is empty, use tomorrow's.
-        if today_periods.get('overnight', {}).get(
-                'temp') == 'N/A' and tomorrow_periods.get('overnight'):
+        # If today's 'overnight' slot is empty, use tomorrow's (useful for positive timezones)
+        if today_periods.get('overnight', {}).get('temp') == 'N/A' and tomorrow_periods.get('overnight'):
             today_periods['overnight'] = tomorrow_periods['overnight']
 
         result['today'].update(today_periods)
         result['tomorrow'].update(tomorrow_periods)
 
+        # Daily summary data
         result['today']['text'] = today_daily.condition
         result['today']['max_temp'] = today_daily.max_temp
         result['today']['min_temp'] = today_daily.min_temp
