@@ -2008,6 +2008,19 @@ class Foreca_Preview(Screen, HelpableScreen):
             except Exception as e:
                 print(f"[Moon] Error in API call: {e}")
 
+        # --- DEBUG MOON VALUES ---
+        if DEBUG:
+            write_current_weather_debug("MOON VALUES:")
+            write_current_weather_debug(f"  Phase       : {phase_name}")
+            write_current_weather_debug(f"  Illumination: {illumination:.1f}%")
+            write_current_weather_debug(f"  Distance    : {int(round(distance_km))} km")
+            # Note: rise/set times are updated asynchronously by _moon_api_callback
+            if "moonrise_value" in self:
+                write_current_weather_debug(f"  Moonrise    : {self['moonrise_value'].getText()}")
+            if "moonset_value" in self:
+                write_current_weather_debug(f"  Moonset     : {self['moonset_value'].getText()}")
+            write_current_weather_debug("-" * 60)
+
         self.instance.invalidate()
 
     def _moon_api_callback(self, api_data):
@@ -2038,6 +2051,7 @@ class Foreca_Preview(Screen, HelpableScreen):
 
         reactor.callFromThread(update_ui)
 
+    # not used
     def _get_icon_number_from_api(self, phase_name, illum_percent):
         """
         Maps phase and illumination (0-100) to the icon index (0-100)
