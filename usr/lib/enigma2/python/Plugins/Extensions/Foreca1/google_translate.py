@@ -3,36 +3,21 @@
 # Copyright (c) @Lululla 2026
 # Google Translate API for Foreca One Weather Plugin
 
-import time
-import socket
-from os.path import join, dirname, exists
-from os import makedirs, remove
-import json
 import hashlib
-from json import loads, JSONDecodeError
-from sys import version_info
+import json
+import socket
+import time
+from json import JSONDecodeError, loads
+from os import makedirs, remove
+from os.path import dirname, exists, join
+
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
+
 from Components.config import config
 
 from . import DEBUG, HEADERS, SYSTEM_DIR
-
-PY3 = version_info[0] >= 3
-
-try:
-    unicode
-except NameError:
-    unicode = str
-
-
-if PY3:
-    from urllib.parse import urlencode
-    from urllib.request import Request, urlopen
-    from urllib.error import URLError, HTTPError
-    text_type = str
-else:
-    from urllib import urlencode
-    from urllib2 import Request, urlopen, URLError, HTTPError
-    text_type = unicode
-
 
 # ============================================================
 # CUSTOM CONFIGURATION
@@ -129,43 +114,29 @@ def _get_system_language():
 
 
 def _to_unicode(text):
-    """
-    Converts any input into a Unicode string.
-    Automatically handles encoding/decoding.
-    """
+    """Convert any input into a Unicode string."""
     if text is None:
-        return u""
+        return ""
 
-    # If already Unicode (Python 2) or str (Python 3)
-    if PY3:
-        if isinstance(text, str):
-            return text
-        elif isinstance(text, bytes):
-            try:
-                return text.decode('utf-8', errors='ignore')
-            except BaseException:
-                return str(text, errors='ignore')
-    else:
-        # Python 2
-        if isinstance(text, text_type):
-            return text
-        elif isinstance(text, str):
-            try:
-                return text.decode('utf-8', errors='ignore')
-            except BaseException:
-                return text_type(text, errors='ignore')
+    if isinstance(text, str):
+        return text
 
-    # Fallback for other types (int, float, etc.)
+    if isinstance(text, bytes):
+        try:
+            return text.decode("utf-8", errors="ignore")
+        except Exception:
+            return str(text, errors="ignore")
+
     try:
-        return str(text) if PY3 else text_type(text)
-    except BaseException:
-        return u""
+        return str(text)
+    except Exception:
+        return ""
 
 
 def _clean_whitespace(text):
     text_unicode = _to_unicode(text)
-    while u"  " in text_unicode:
-        text_unicode = text_unicode.replace(u"  ", u" ")
+    while "  " in text_unicode:
+        text_unicode = text_unicode.replace("  ", " ")
     return text_unicode.strip()
 
 
@@ -302,7 +273,7 @@ def translate_text(text, target_lang=None, use_cache=True):
     _log(f"Target language: '{target_lang}'")
     # Input validation
     if not text:
-        return u""
+        return ""
 
     # Convert to Unicode
     text_unicode = _to_unicode(text)
@@ -359,14 +330,14 @@ def translate_text(text, target_lang=None, use_cache=True):
         raw_data = response.read()
 
         # Decode the response
-        if PY3 and isinstance(raw_data, bytes):
+        if isinstance(raw_data, bytes):
             raw_data = raw_data.decode('utf-8')
 
         # Parse JSON response
         data = loads(raw_data)
 
         # Extract the translation from the JSON structure
-        translated_text = u""
+        translated_text = ""
         if isinstance(data, list) and data:
             # Typical structure: [[[translation, original], ...], ...]
             for item in data[0]:

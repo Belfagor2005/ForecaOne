@@ -3,7 +3,6 @@
 # Copyright (c) @Lululla 2026
 # slideshow.py - Manage overlay map Foreca One
 
-from __future__ import absolute_import
 
 from os.path import exists, join
 from os import listdir, remove
