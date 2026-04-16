@@ -136,7 +136,8 @@ def read_api_config():
 def has_api_credentials():
     """Return True if Foreca API credentials are configured."""
     config_data = read_api_config()
-    return bool(config_data.get("API_USER") and config_data.get("API_PASSWORD"))
+    return bool(config_data.get("API_USER")
+                and config_data.get("API_PASSWORD"))
 
 
 def is_valid(v):
@@ -233,11 +234,36 @@ class ForecaSetup(Screen, ConfigListScreen):
         self["status"] = StaticText(CONFIG_FILE)
 
         config_data = read_api_config()
-        self.api_user = NoSave(ConfigText(default=config_data.get("API_USER", ""), fixed_size=False))
-        self.api_password = NoSave(ConfigPassword(default=config_data.get("API_PASSWORD", ""), fixed_size=False))
-        self.token_expire_hours = NoSave(ConfigText(default=config_data.get("TOKEN_EXPIRE_HOURS", "168"), fixed_size=False))
-        self.map_server = NoSave(ConfigText(default=config_data.get("MAP_SERVER", "map-eu.foreca.com"), fixed_size=False))
-        self.auth_server = NoSave(ConfigText(default=config_data.get("AUTH_SERVER", "pfa.foreca.com"), fixed_size=False))
+        self.api_user = NoSave(
+            ConfigText(
+                default=config_data.get(
+                    "API_USER",
+                    ""),
+                fixed_size=False))
+        self.api_password = NoSave(
+            ConfigPassword(
+                default=config_data.get(
+                    "API_PASSWORD",
+                    ""),
+                fixed_size=False))
+        self.token_expire_hours = NoSave(
+            ConfigText(
+                default=config_data.get(
+                    "TOKEN_EXPIRE_HOURS",
+                    "168"),
+                fixed_size=False))
+        self.map_server = NoSave(
+            ConfigText(
+                default=config_data.get(
+                    "MAP_SERVER",
+                    "map-eu.foreca.com"),
+                fixed_size=False))
+        self.auth_server = NoSave(
+            ConfigText(
+                default=config_data.get(
+                    "AUTH_SERVER",
+                    "pfa.foreca.com"),
+                fixed_size=False))
 
         entries = [
             getConfigListEntry(_("API user"), self.api_user),
@@ -311,7 +337,8 @@ class ForecaSetup(Screen, ConfigListScreen):
                 config_file.write("# Foreca API configuration\n")
                 config_file.write(f"API_USER={api_user}\n")
                 config_file.write(f"API_PASSWORD={api_password}\n")
-                config_file.write(f"TOKEN_EXPIRE_HOURS={token_expire_hours_int}\n")
+                config_file.write(
+                    f"TOKEN_EXPIRE_HOURS={token_expire_hours_int}\n")
                 config_file.write(f"MAP_SERVER={map_server}\n")
                 config_file.write(f"AUTH_SERVER={auth_server}\n")
         except Exception as error:
