@@ -68,24 +68,24 @@ class MoonPhase:
         """
         # Calculate Julian Day
         jd = DtoJD(dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second)
-        
+
         # Calculate illumination and trend (waxing/waning)
         illum = LunarIllum(jd) * 100
         jd_next = jd + 0.25
         illum_next = LunarIllum(jd_next) * 100
         waxing = illum_next > illum   # True = waxing, False = waning
-        
+
         # Calculate k value (number of lunations since 2000)
         year = dt.year
         month = dt.month
-        day = dt.day + (dt.hour + dt.minute/60.0 + dt.second/3600.0)/24.0
-        YearFrac = year + (month - 1 + (day - 1)/30.5)/12
+        day = dt.day + (dt.hour + dt.minute / 60.0 + dt.second / 3600.0) / 24.0
+        YearFrac = year + (month - 1 + (day - 1) / 30.5) / 12
         k = (YearFrac - 2000) * 12.3685
-        
+
         # Round to the nearest quarter (0, 0.25, 0.5, 0.75)
         k0 = round(k * 4) / 4.0
         jd_phase = JDLunarPhase(k0)
-        
+
         # Determine the main phase name based on fractional part of k0
         frac = abs(k0 - int(k0))
         if frac < 0.01:
@@ -96,11 +96,12 @@ class MoonPhase:
             main_phase = "Full Moon"
         else:
             main_phase = "Last Quarter"
-        
-        # If we are extremely close to the main phase (within ~0.02 days ≈ 30 minutes)
+
+        # If we are extremely close to the main phase (within ~0.02 days ≈ 30
+        # minutes)
         if abs(jd - jd_phase) < 0.02:
             return main_phase
-        
+
         # Determine intermediate phase
         if main_phase == "New Moon":
             return "Waxing Crescent" if waxing else "Waning Crescent"

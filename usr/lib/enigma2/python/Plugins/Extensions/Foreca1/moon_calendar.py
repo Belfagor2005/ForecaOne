@@ -346,7 +346,8 @@ class MoonCalendar(Screen, HelpableScreen):
             jd_phase = self._find_next_phase_after(jd_start, target, jd_ref)
             while jd_phase <= jd_end:
                 dt_phase_utc = self.moon._jd_to_datetime(jd_phase)   # UTC
-                dt_phase_local = self._utc_to_local(dt_phase_utc)    # converti in ora locale
+                dt_phase_local = self._utc_to_local(
+                    dt_phase_utc)    # converti in ora locale
                 if dt_phase_local.year == year and dt_phase_local.month == month:
                     info = self.moon.get_phase_info_for_jd(jd_phase)
                     month_phases.append({

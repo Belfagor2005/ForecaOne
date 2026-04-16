@@ -714,7 +714,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                 self.after_main_menu,
                 MoonCalendar,
                 self.moon,
-                getattr(self, 'tz_offset', None)   # passa l'offset (es. 2.0 per Italia)
+                # passa l'offset (es. 2.0 per Italia)
+                getattr(self, 'tz_offset', None)
             )
         elif key == "stations":
             location_id = [self.path_loc0, self.path_loc1,
@@ -1915,14 +1916,16 @@ class Foreca_Preview(Screen, HelpableScreen):
         if target_date is None:
             target_date = datetime.datetime.utcnow()
         elif isinstance(target_date, datetime.date) and not isinstance(target_date, datetime.datetime):
-            target_date = datetime.datetime(target_date.year, target_date.month, target_date.day, 0, 0, 0)
+            target_date = datetime.datetime(
+                target_date.year, target_date.month, target_date.day, 0, 0, 0)
 
         # Get accurate moon data from internal calculations (MoonPhase)
         info = self.moon.get_phase_info(target_date)
         phase_name = info.get("name", "N/A")
         illumination = info.get("illumination", 0)
         icon_path = info.get("icon_path")
-        distance_km = info.get("distance", 0)          # already rounded in MoonPhase
+        # already rounded in MoonPhase
+        distance_km = info.get("distance", 0)
         """
         extra = None
         try:
@@ -1938,11 +1941,13 @@ class Foreca_Preview(Screen, HelpableScreen):
         if "moon_label" in self:
             self["moon_label"].setText(_(phase_name))
         if "moon_illum" in self:
-            self["moon_illum"].setText(_("Illumination") + f" {illumination:.1f}%")
+            self["moon_illum"].setText(
+                _("Illumination") + f" {illumination:.1f}%")
         if "illum_bar" in self:
             self["illum_bar"].setValue(int(illumination))
         if "moon_distance" in self:
-            self["moon_distance"].setText(_("Distance {} km").format(int(round(distance_km))))
+            self["moon_distance"].setText(
+                _("Distance {} km").format(int(round(distance_km))))
         """
         if extra:
             if "moonrise_azimuth" in self:
@@ -1980,7 +1985,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                     "Age: {:.1f} d".format(extra.get('age', 0))
                 )
         """
-        # Request moonrise/moonset from USNO API (does NOT overwrite phase/icon)
+        # Request moonrise/moonset from USNO API (does NOT overwrite
+        # phase/icon)
         if self.lat != 'N/A' and self.lon != 'N/A':
             try:
                 lat_f = float(self.lat)
@@ -1989,7 +1995,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                 if hasattr(self, 'tz_offset'):
                     offset_hours = self.tz_offset
                 elif hasattr(self, 'tz'):
-                    offset_hours = self.tz.utcoffset(datetime.datetime.now()).total_seconds() / 3600
+                    offset_hours = self.tz.utcoffset(
+                        datetime.datetime.now()).total_seconds() / 3600
 
                 self.moon.get_moon_data_async(
                     lat_f, lon_f,
@@ -2015,7 +2022,8 @@ class Foreca_Preview(Screen, HelpableScreen):
 
         def update_ui():
             # Update moonrise and moonset only
-            if "moonrise_value" in self and api_data.get("rise", "N/A") != "N/A":
+            if "moonrise_value" in self and api_data.get(
+                    "rise", "N/A") != "N/A":
                 self["moonrise_value"].setText(api_data["rise"])
                 self["moonrise_value"].instance.invalidate()
             if "moonset_value" in self and api_data.get("set", "N/A") != "N/A":
@@ -2023,7 +2031,8 @@ class Foreca_Preview(Screen, HelpableScreen):
                 self["moonset_value"].instance.invalidate()
 
             # Do NOT touch icon_moon, moon_label, moon_illum, illum_bar, moon_distance
-            # They are already correctly set by _update_moon using internal calculations.
+            # They are already correctly set by _update_moon using internal
+            # calculations.
 
             self.instance.invalidate()
 
@@ -2119,8 +2128,10 @@ class Foreca_Preview(Screen, HelpableScreen):
             )
 
             lines.append(
-                _("Transit (culmination): {}").format(extra.get('transit_time', 'N/A'))
-            )
+                _("Transit (culmination): {}").format(
+                    extra.get(
+                        'transit_time',
+                        'N/A')))
             lines.append(
                 _("Transit altitude: {:.0f}°").format(extra.get('transit_altitude'))
                 if extra.get('transit_altitude') is not None else _("Transit altitude: N/A")
