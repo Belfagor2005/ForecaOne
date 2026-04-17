@@ -12,9 +12,8 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#, fuzzy
 msgid "(Additional data not available)"
-msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα σταθμού"
+msgstr "(Δεν υπάρχουν διαθέσιμα επιπλέον δεδομένα)"
 
 msgid "0 - Today"
 msgstr "0 - Σήμερα"
@@ -47,7 +46,7 @@ msgid "9 - Today + 9 days"
 msgstr "9 - Σήμερα + 9 ημέρες"
 
 msgid "=== MOON DETAILS ==="
-msgstr ""
+msgstr "=== ΛΕΠΤΟΜΕΡΕΙΕΣ ΣΕΛΗΝΗΣ ==="
 
 msgid "API credentials not configured."
 msgstr "Τα διαπιστευτήρια API δεν έχουν ρυθμιστεί."
@@ -55,13 +54,11 @@ msgstr "Τα διαπιστευτήρια API δεν έχουν ρυθμιστε
 msgid "API error"
 msgstr "Σφάλμα API"
 
-#, fuzzy
 msgid "API password"
-msgstr "Σφάλμα API"
+msgstr "Κωδικός API"
 
-#, fuzzy
 msgid "API user"
-msgstr "Σφάλμα API"
+msgstr "Χρήστης API"
 
 msgid "AQI {}"
 msgstr "AQI {}"
@@ -79,23 +76,22 @@ msgid "Afternoon"
 msgstr "Απόγευμα"
 
 msgid "Age since New Moon: {:.1f} days"
-msgstr ""
+msgstr "Ηλικία από Νέα σελήνη: {:.1f} ημέρες"
 
-#, fuzzy
 msgid "Age: N/A"
-msgstr "AQI: Μ/Δ"
+msgstr "Ηλικία: Μ/Δ"
 
 msgid "Angular diameter: N/A"
-msgstr ""
+msgstr "Γωνιακή διάμετρος: Μ/Δ"
 
 msgid "Angular diameter: {:.0f}"
-msgstr ""
+msgstr "Γωνιακή διάμετρος: {:.0f}"
 
 msgid "Apparent magnitude: N/A"
-msgstr ""
+msgstr "Φαινόμενο μέγεθος: Μ/Δ"
 
 msgid "Apparent magnitude: {:.2f}"
-msgstr ""
+msgstr "Φαινόμενο μέγεθος: {:.2f}"
 
 msgid "Assign to Favorite 1"
 msgstr "Αντιστοίχιση στο Αγαπημένο 1"
@@ -113,7 +109,7 @@ msgid "Austria"
 msgstr "Αυστρία"
 
 msgid "Auth server"
-msgstr ""
+msgstr "Διακομιστής ταυτοποίησης"
 
 msgid "Baden-Wuerttemberg"
 msgstr "Βάδη-Βυρτεμβέργη"
@@ -188,7 +184,7 @@ msgid "Close legend"
 msgstr "Κλείσιμο υπομνήματος"
 
 msgid "Close setup without saving"
-msgstr ""
+msgstr "Κλείσιμο ρυθμίσεων χωρίς αποθήκευση"
 
 msgid "Cloudy"
 msgstr "Συννεφιασμένος"
@@ -238,6 +234,9 @@ msgstr "Επιλογή χρώματος"
 msgid "Condition: {}"
 msgstr "Κατάσταση: {}"
 
+msgid "Configure Foreca API credentials"
+msgstr "Ρύθμιση διαπιστευτηρίων Foreca API"
+
 msgid "Continents Weather Maps"
 msgstr "Χάρτες καιρού ηπείρων"
 
@@ -281,7 +280,7 @@ msgid "Decrease Speed"
 msgstr "Μείωση ταχύτητας"
 
 msgid "Defaults"
-msgstr ""
+msgstr "Προεπιλογές"
 
 msgid "Denmark"
 msgstr "Δανία"
@@ -433,15 +432,14 @@ msgstr "Πρώτο τέταρτο"
 msgid "Fog"
 msgstr "Ομίχλη"
 
-#, fuzzy
 msgid "Foreca API Setup"
-msgstr "Μενού Foreca One"
+msgstr "Ρύθμιση Foreca API"
 
 msgid "Foreca API credentials are not configured yet. Please enter them in the setup screen."
-msgstr ""
+msgstr "Τα διαπιστευτήρια Foreca API δεν έχουν ρυθμιστεί ακόμη. Παρακαλώ εισάγετε τα στην οθόνη ρυθμίσεων."
 
 msgid "Foreca API settings saved successfully."
-msgstr ""
+msgstr "Οι ρυθμίσεις Foreca API αποθηκεύτηκαν επιτυχώς."
 
 msgid "Foreca One"
 msgstr "Foreca One"
@@ -454,6 +452,9 @@ msgstr "Μενού Foreca One"
 
 msgid "Foreca One No stations found"
 msgstr "Δεν βρέθηκαν σταθμοί Foreca One"
+
+msgid "Foreca One Setup"
+msgstr "Ρύθμιση Foreca One"
 
 msgid "Foreca One Stations: {} stations nearby ({})"
 msgstr "Σταθμοί: {} σταθμοί κοντά ({}) Foreca One"
@@ -495,7 +496,7 @@ msgid "Germany"
 msgstr "Γερμανία"
 
 msgid "Good"
-msgstr ""
+msgstr "Καλό"
 
 msgid "Great Britain"
 msgstr "Μεγάλη Βρετανία"
@@ -516,7 +517,7 @@ msgid "Hamburg"
 msgstr "Αμβούργο"
 
 msgid "Hazardous"
-msgstr ""
+msgstr "Επικίνδυνο"
 
 msgid "Header - not selectable"
 msgstr "Κεφαλίδα - μη επιλέξιμο"
@@ -666,7 +667,7 @@ msgid "Map loaded"
 msgstr "Ο χάρτης φορτώθηκε"
 
 msgid "Map server"
-msgstr ""
+msgstr "Διακομιστής χαρτών"
 
 msgid "Map {} selected"
 msgstr "Επιλέχθηκε ο χάρτης {}"
@@ -702,7 +703,7 @@ msgid "Mild (10-20°C)"
 msgstr "Ήπιος (10-20°C)"
 
 msgid "Moderate"
-msgstr "Μέτριο"
+msgstr "Μέτρια"
 
 msgid "Moderate (20-40 km/h)"
 msgstr "Μέτριος (20-40 χλμ/ω)"
@@ -713,15 +714,14 @@ msgstr "Μέτρια βροχή"
 msgid "Month"
 msgstr "Μήνας"
 
-#, fuzzy
 msgid "Moon details"
-msgstr "Λεπτομέρειες ώρας"
+msgstr "Λεπτομέρειες σελήνης"
 
 msgid "Moonrise: {}"
-msgstr ""
+msgstr "Ανατολή σελήνης: {}"
 
 msgid "Moonset: {}"
-msgstr ""
+msgstr "Δύση σελήνης: {}"
 
 msgid "Morning"
 msgstr "Πρωί"
@@ -930,15 +930,14 @@ msgstr "Περίγειο"
 msgid "Phase"
 msgstr "Φάση"
 
-#, fuzzy
 msgid "Phase: {}"
-msgstr "Φάση"
+msgstr "Φάση: {}"
 
 msgid "Play/Pause"
 msgstr "Εκτέλεση/Παύση"
 
 msgid "Please enter both API user and API password."
-msgstr ""
+msgstr "Παρακαλώ εισάγετε τόσο τον χρήστη API όσο και τον κωδικό API."
 
 msgid "Please wait ..."
 msgstr "Παρακαλώ περιμένετε ..."
@@ -1001,13 +1000,13 @@ msgid "Previous time"
 msgstr "Προηγούμενη φορά"
 
 msgid "Rain Prob."
-msgstr "Πιθανότ. βροχής"
+msgstr "Πιθανότητα βροχής"
 
 msgid "Rain prob. {}%"
-msgstr "Πιθανότ. βροχής {}%"
+msgstr "Πιθανότητα βροχής {}%"
 
 msgid "Rain prob.: N/A"
-msgstr "Πιθανότ. βροχής: Μ/Δ"
+msgstr "Πιθανότητα βροχής: Μ/Δ"
 
 msgid "Rain: {:.1f} {}"
 msgstr "Βροχή: {:.1f} {}"
@@ -1022,7 +1021,7 @@ msgid "Refresh"
 msgstr "Ανανέωση"
 
 msgid "Restore default server values"
-msgstr ""
+msgstr "Επαναφορά προεπιλεγμένων τιμών διακομιστή"
 
 msgid "Rhineland-Palatine"
 msgstr "Ρηνανία-Παλατινάτο"
@@ -1037,10 +1036,10 @@ msgid "Rise"
 msgstr "Ανατολή"
 
 msgid "Rise azimuth: N/A"
-msgstr ""
+msgstr "Αζιμούθιο ανατολής: Μ/Δ"
 
 msgid "Rise azimuth: {:.0f}°"
-msgstr ""
+msgstr "Αζιμούθιο ανατολής: {:.0f}°"
 
 msgid "Russia"
 msgstr "Ρωσία"
@@ -1060,9 +1059,8 @@ msgstr "Δορυφορικές φωτογραφίες σύντομα!"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#, fuzzy
 msgid "Save API settings"
-msgstr "Μενού - Ρυθμίσεις"
+msgstr "Αποθήκευση ρυθμίσεων API"
 
 msgid "Saxony"
 msgstr "Σαξονία"
@@ -1110,10 +1108,10 @@ msgid "Selected hour details"
 msgstr "Λεπτομέρειες επιλεγμένης ώρας"
 
 msgid "Set azimuth: N/A"
-msgstr ""
+msgstr "Αζιμούθιο δύσης: Μ/Δ"
 
 msgid "Set azimuth: {:.0f}°"
-msgstr ""
+msgstr "Αζιμούθιο δύσης: {:.0f}°"
 
 msgid "Sets"
 msgstr "Δύση"
@@ -1134,10 +1132,10 @@ msgid "Snow / ice"
 msgstr "Χιόνι / πάγος"
 
 msgid "Snow prob. {}%"
-msgstr "Πιθανότ. χιονιού {}%"
+msgstr "Πιθανότητα χιονιού {}%"
 
 msgid "Snow prob.: N/A"
-msgstr "Πιθανότ. χιονιού: Μ/Δ"
+msgstr "Πιθανότητα χιονιού: Μ/Δ"
 
 msgid "South Africa"
 msgstr "Νότια Αφρική"
@@ -1199,9 +1197,8 @@ msgstr "Θερμοκρασία: {}{}"
 msgid "Temperature: {}°C"
 msgstr "Θερμοκρασία: {}°C"
 
-#, fuzzy
 msgid "Thanks {thanks} and other friends for suggestions"
-msgstr "Ευχαριστίες στον {thanks} και άλλους φίλους για τις προτάσεις και τις δοκιμές"
+msgstr "Ευχαριστίες στον {thanks} και άλλους φίλους για τις προτάσεις"
 
 msgid "The remote version ({remote}) is older than the current one ({current})."
 msgstr "Η απομακρυσμένη έκδοση ({remote}) είναι παλαιότερη από την τρέχουσα ({current})."
@@ -1219,31 +1216,31 @@ msgid "Today"
 msgstr "Σήμερα"
 
 msgid "Today/Tomorrow details"
-msgstr "Λεπτομέρειες για Σήμερα/Αύριο"
+msgstr "Λεπτομέρειες για σήμερα/αύριο"
 
 msgid "Toggle legend"
 msgstr "Εναλλαγή υπομνήματος"
 
 msgid "Token expire hours"
-msgstr ""
+msgstr "Ώρες λήξης token"
 
 msgid "Token expire hours must be -1 or a positive number."
-msgstr ""
+msgstr "Οι ώρες λήξης του token πρέπει να είναι -1 ή θετικός αριθμός."
 
 msgid "Token expire hours must be a number."
-msgstr ""
+msgstr "Οι ώρες λήξης του token πρέπει να είναι ένας αριθμός."
 
 msgid "Tomorrow"
 msgstr "Αύριο"
 
 msgid "Transit (culmination): {}"
-msgstr ""
+msgstr "Μεσουράνηση (κορύφωση): {}"
 
 msgid "Transit altitude: N/A"
-msgstr ""
+msgstr "Ύψος μεσουράνησης: Μ/Δ"
 
 msgid "Transit altitude: {:.0f}°"
-msgstr ""
+msgstr "Ύψος μεσουράνησης: {:.0f}°"
 
 msgid "Transparency Settings"
 msgstr "Ρυθμίσεις διαφάνειας"
@@ -1258,10 +1255,10 @@ msgid "UV N/A"
 msgstr "UV Μ/Δ"
 
 msgid "Unhealthy"
-msgstr ""
+msgstr "Ανθυγιεινό"
 
 msgid "Unhealthy for sensitives"
-msgstr ""
+msgstr "Ανθυγιεινό για ευαίσθητες ομάδες"
 
 msgid "Unit Settings"
 msgstr "Ρυθμίσεις μονάδων"
@@ -1309,7 +1306,7 @@ msgid "Use ←/→/↑/↓ to move | OK to exit"
 msgstr "Χρησιμοποιήστε ←/→/↑/↓ για μετακίνηση | OK για έξοδο"
 
 msgid "Use ▲/▼ to change, OK to select"
-msgstr "Χρησιμοποιήστε τα ▲/▼ για αλλαγή, OK για επιλογή"
+msgstr "Χρησιμοποιήστε ▲/▼ για αλλαγή, OK για επιλογή"
 
 msgid "Using current time"
 msgstr "Χρήση τρέχουσας ώρας"
@@ -1326,9 +1323,8 @@ msgstr "Πολύ ζέστη (>40°C)"
 msgid "Very low"
 msgstr "Πολύ χαμηλή"
 
-#, fuzzy
 msgid "Very unhealthy"
-msgstr "Πολύ ισχυρή βροχή"
+msgstr "Πολύ ανθυγιεινό"
 
 msgid "Visibility: %s m"
 msgstr "Ορατότητα: %s μ"
@@ -1340,19 +1336,19 @@ msgid "W"
 msgstr "Δ"
 
 msgid "Waning Crescent"
-msgstr "Φθίνουσα ημισέληνος"
+msgstr "Φθίνων μηνίσκος"
 
 msgid "Waning Gibbous"
-msgstr "Φθίνουσα αμφίκυρτη"
+msgstr "Φθίνων αμφίκυρτος"
 
 msgid "Warm (20-30°C)"
 msgstr "Ζέστη (20-30°C)"
 
 msgid "Waxing Crescent"
-msgstr "Αύξουσα ημισέληνος"
+msgstr "Αύξων μηνίσκος"
 
 msgid "Waxing Gibbous"
-msgstr "Αύξουσα αμφίκυρτη"
+msgstr "Αύξων αμφίκυρτος"
 
 msgid "Weather"
 msgstr "Καιρός"
@@ -1473,39 +1469,3 @@ msgstr "• ΚΙΤΡΙΝΟ για αποθήκευση ως Αγαπημένο 2
 
 msgid "← Frame"
 msgstr "← Καρέ"
-
-#, fuzzy
-#~ msgid "Foreca One Setup"
-#~ msgstr "Μενού Foreca One"
-
-#, fuzzy
-#~ msgid "7 Day Forecast"
-#~ msgstr "OK - Πρόγνωση"
-
-#, fuzzy
-#~ msgid "Blue"
-#~ msgstr "Μπλε σελήνη"
-
-#, fuzzy
-#~ msgid "Cloud Cover"
-#~ msgstr "Συννεφιασμένος και μπόρες"
-
-#, fuzzy
-#~ msgid "Distance"
-#~ msgstr "Απόσταση: %s"
-
-#, fuzzy
-#~ msgid "Green"
-#~ msgstr "Ελλάδα"
-
-#, fuzzy
-#~ msgid "Image Downloaded"
-#~ msgstr "Σελίδα κάτω"
-
-#, fuzzy
-#~ msgid "Last update"
-#~ msgstr "Τελευταίο τέταρτο"
-
-#, fuzzy
-#~ msgid "Wetter.de Maps Test"
-#~ msgstr "Χάρτες καιρού"
