@@ -2424,15 +2424,12 @@ class Foreca_Preview(Screen, HelpableScreen):
         lines.append("")
 
         if extra:
-            # Times (already in local time thanks to the API)
-            # NOTE: rise_time and set_time are swapped in the extra dict,
-            # so we display set_time as Moonrise and rise_time as Moonset.
-            lines.append(
-                _("Moonrise: {}").format(extra.get('set_time', 'N/A'))
-            )
-            lines.append(
-                _("Moonset: {}").format(extra.get('rise_time', 'N/A'))
-            )
+            # Use the already correct values from the main screen widgets
+            moonrise_widget = self["moonrise_value"].getText() if "moonrise_value" in self else "N/A"
+            moonset_widget = self["moonset_value"].getText() if "moonset_value" in self else "N/A"
+
+            lines.append(_("Moonrise: {}").format(moonrise_widget))
+            lines.append(_("Moonset: {}").format(moonset_widget))
 
             lines.append(
                 _("Rise azimuth: {:.0f}°").format(extra.get('rise_azimuth'))
