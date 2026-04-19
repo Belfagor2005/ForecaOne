@@ -1,4 +1,5 @@
-# 🌤️ Foreca One Weather Forecast – Enigma2 Plugin
+<h1 align="center">🌤️ Foreca One Weather Forecast – Enigma2 Plugin</h1>
+
 
 <p align="center">
   <img src="https://github.com/Belfagor2005/ForecaOne/blob/main/usr/lib/enigma2/python/Plugins/Extensions/Foreca1/buttons/ForecaOne.png" alt="Foreca1 Screenshot" width="300">
@@ -24,6 +25,8 @@
     <img src="https://img.shields.io/badge/Python-3.x-yellow.svg" alt="Python">
   </a>
 </p>
+
+[![Donate](https://img.shields.io/badge/_-Donate-red.svg?logo=githubsponsors&labelColor=555555&style=for-the-badge)](Maintainers.md#maintainers "Donate")
 
 
 ## 📸 Screenshots
