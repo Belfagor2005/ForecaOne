@@ -691,6 +691,7 @@ class Foreca_Preview(Screen, HelpableScreen):
         # ---- START THREAD TO LOAD MAP ----
         if self.lat != 'N/A' and self.lon != 'N/A':
             Thread(target=self.mypicload).start()
+        self.my_cur_weather()
 
     def mypicload(self):
         """Download radar map."""
