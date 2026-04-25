@@ -1307,7 +1307,8 @@ class Foreca_Preview(Screen, HelpableScreen):
             except (ValueError, TypeError):
                 daily_uvi = None
 
-            self.f_uvi = [str(daily_uvi) if daily_uvi is not None else 'N/A' for _ in hourly]
+            self.f_uvi = [
+                str(daily_uvi) if daily_uvi is not None else 'N/A' for _ in hourly]
 
             self.f_solar = [
                 str(h.solar_radiation) if h.solar_radiation is not None else '0' for h in hourly]
