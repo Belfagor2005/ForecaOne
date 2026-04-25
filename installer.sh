@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version='1.2.6'
+version='1.2.7'
 changelog = '\nFix Update Widget\nFix Moon Calendar\nAdd major details Moon\nAdded animation support/.Updated _set_symbols_for_day to handle invalid or None values.\n\nDebugging & permissions:\nAuto-create debug/ folder to prevent file errors.\nOffer coffee if you like this plugin'
 TMPPATH=/tmp/ForecaOne-install
 FILEPATH=/tmp/ForecaOne-main.tar.gz
