@@ -1,20 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Foreca 1\n"
+"PO-Revision-Date: 2026-04-30 14:36+0000\n"
+"Last-Translator:  <EMAIL@ADDRESS>\n"
+"Language-Team: Thai <(nothing)>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 # Foreca1 translations
 # Copyright (C) 2025 Lululla Team
 # This file is distributed under the same license as the Lululla package.
 # [lululla] <ekekaz@gmail.com>, 2025.
 #
-
-
-
-
-
-
-
-
-
-
-
-
 msgid "(Additional data not available)"
 msgstr ""
 
@@ -213,7 +212,7 @@ msgstr ""
 msgid "Cloudy, thunderstorms with rain"
 msgstr ""
 
-msgid "Cold (< 0°C)"
+msgid "Cold (< 0C)"
 msgstr ""
 
 msgid "Color Legend"
@@ -240,7 +239,7 @@ msgstr ""
 msgid "Continents Weather Maps"
 msgstr ""
 
-msgid "Cool (0-10°C)"
+msgid "Cool (0-10C)"
 msgstr ""
 
 msgid "Could not fetch update information."
@@ -291,13 +290,13 @@ msgstr ""
 msgid "Dewpoint {}"
 msgstr ""
 
-msgid "Dewpoint {}°C"
+msgid "Dewpoint {}C"
 msgstr ""
 
 msgid "Dewpoint: %d%s"
 msgstr ""
 
-msgid "Dewpoint: %s°C"
+msgid "Dewpoint: %sC"
 msgstr ""
 
 msgid "Dewpoint: N/A"
@@ -408,7 +407,7 @@ msgstr ""
 msgid "Feels like: %d%s"
 msgstr ""
 
-msgid "Feels like: %s°C"
+msgid "Feels like: %sC"
 msgstr ""
 
 msgid "Feels like: N/A"
@@ -420,7 +419,7 @@ msgstr ""
 msgid "Feels like: {}{}"
 msgstr ""
 
-msgid "Feels like: {}°C"
+msgid "Feels like: {}C"
 msgstr ""
 
 msgid "Finland"
@@ -471,7 +470,7 @@ msgstr ""
 msgid "Found %d cities online for '%s'"
 msgstr ""
 
-msgid "Frame →"
+msgid "Frame "
 msgstr ""
 
 msgid "Frame: {}"
@@ -534,7 +533,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-msgid "Hot (30-40°C)"
+msgid "Hot (30-40C)"
 msgstr ""
 
 msgid "Hour Details"
@@ -561,10 +560,10 @@ msgstr ""
 msgid "Illumination: {:.1f}%"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d – %(day)s"
+msgid "Image %(current)d/%(total)d  %(day)s"
 msgstr ""
 
-msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
+msgid "Image %(current)d/%(total)d  %(day)s (Paused)"
 msgstr ""
 
 msgid "Image not available"
@@ -696,7 +695,7 @@ msgstr ""
 msgid "Middle East"
 msgstr ""
 
-msgid "Mild (10-20°C)"
+msgid "Mild (10-20C)"
 msgstr ""
 
 msgid "Moderate"
@@ -1035,7 +1034,7 @@ msgstr ""
 msgid "Rise azimuth: N/A"
 msgstr ""
 
-msgid "Rise azimuth: {:.0f}°"
+msgid "Rise azimuth: {:.0f}"
 msgstr ""
 
 msgid "Russia"
@@ -1107,7 +1106,7 @@ msgstr ""
 msgid "Set azimuth: N/A"
 msgstr ""
 
-msgid "Set azimuth: {:.0f}°"
+msgid "Set azimuth: {:.0f}"
 msgstr ""
 
 msgid "Sets"
@@ -1179,7 +1178,7 @@ msgstr ""
 msgid "Temperature: %d%s"
 msgstr ""
 
-msgid "Temperature: %s°C"
+msgid "Temperature: %sC"
 msgstr ""
 
 msgid "Temperature: N/A"
@@ -1191,7 +1190,7 @@ msgstr ""
 msgid "Temperature: {}{}"
 msgstr ""
 
-msgid "Temperature: {}°C"
+msgid "Temperature: {}C"
 msgstr ""
 
 msgid "Thanks {thanks} and other friends for suggestions"
@@ -1236,7 +1235,7 @@ msgstr ""
 msgid "Transit altitude: N/A"
 msgstr ""
 
-msgid "Transit altitude: {:.0f}°"
+msgid "Transit altitude: {:.0f}"
 msgstr ""
 
 msgid "Transparency Settings"
@@ -1296,13 +1295,13 @@ msgstr ""
 msgid "Use arrow keys to scroll"
 msgstr ""
 
-msgid "Use ← → to change time | OK to exit"
+msgid "Use   to change time | OK to exit"
 msgstr ""
 
-msgid "Use ←/→/↑/↓ to move | OK to exit"
+msgid "Use /// to move | OK to exit"
 msgstr ""
 
-msgid "Use ▲/▼ to change, OK to select"
+msgid "Use / to change, OK to select"
 msgstr ""
 
 msgid "Using current time"
@@ -1314,7 +1313,7 @@ msgstr ""
 msgid "Very high"
 msgstr ""
 
-msgid "Very hot (>40°C)"
+msgid "Very hot (>40C)"
 msgstr ""
 
 msgid "Very low"
@@ -1338,7 +1337,7 @@ msgstr ""
 msgid "Waning Gibbous"
 msgstr ""
 
-msgid "Warm (20-30°C)"
+msgid "Warm (20-30C)"
 msgstr ""
 
 msgid "Waxing Crescent"
@@ -1443,26 +1442,26 @@ msgstr ""
 msgid "{hours} h {mins} min"
 msgstr ""
 
-msgid "• BLUE to save as Home\n"
+msgid " BLUE to save as Home\n"
 msgstr ""
 
-msgid "• CH+/CH- to jump 500 cities\n"
+msgid " CH+/CH- to jump 500 cities\n"
 msgstr ""
 
-msgid "• GREEN to save as Favorite 1\n"
+msgid " GREEN to save as Favorite 1\n"
 msgstr ""
 
-msgid "• OK to select city\n"
+msgid " OK to select city\n"
 msgstr ""
 
-msgid "• RED to open search keyboard\n"
+msgid " RED to open search keyboard\n"
 msgstr ""
 
-msgid "• Use arrow keys to navigate\n"
+msgid " Use arrow keys to navigate\n"
 msgstr ""
 
-msgid "• YELLOW to save as Favorite 2\n"
+msgid " YELLOW to save as Favorite 2\n"
 msgstr ""
 
-msgid "← Frame"
+msgid " Frame"
 msgstr ""
