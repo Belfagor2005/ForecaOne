@@ -1,90 +1,88 @@
-# Foreca1 translations
-# Copyright (C) 2025 Lululla Team
-# This file is distributed under the same license as the Lululla package.
-# [lululla] <ekekaz@gmail.com>, 2025.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreca1\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-04-30 15:05+0000\n"
-"Last-Translator:  <EMAIL@ADDRESS>\n"
-"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 3.9\n"
 
+#, fuzzy
 msgid "(Additional data not available)"
-msgstr ""
+msgstr "Nejsou k dispozici žádná data o stanici"
 
 msgid "0 - Today"
-msgstr ""
+msgstr "0 - Dnes"
 
 msgid "1 - Today + 1 day"
-msgstr ""
+msgstr "1 - Dnes + 1 den"
 
 msgid "2 - Today + 2 days"
-msgstr ""
+msgstr "2 - Dnes + 2 dny"
 
 msgid "3 - Today + 3 days"
-msgstr ""
+msgstr "3 - Dnes + 3 dny"
 
 msgid "4 - Today + 4 days"
-msgstr ""
+msgstr "4 - Dnes + 4 dny"
 
 msgid "5 - Today + 5 days"
-msgstr ""
+msgstr "5 - Dnes + 5 dní"
 
 msgid "6 - Today + 6 days"
-msgstr ""
+msgstr "6 - Dnes + 6 dní"
 
 msgid "7 - Today + 7 days"
-msgstr ""
+msgstr "7 - Dnes + 7 dní"
 
 msgid "8 - Today + 8 days"
-msgstr ""
+msgstr "8 - Dnes + 8 dní"
 
 msgid "9 - Today + 9 days"
-msgstr ""
+msgstr "9 - Dnes + 9 dní"
 
 msgid "=== MOON DETAILS ==="
 msgstr ""
 
 msgid "API credentials not configured."
-msgstr ""
+msgstr "Přihlašovací údaje API nejsou nakonfigurovány."
 
 msgid "API error"
-msgstr ""
+msgstr "Chyba API"
 
+#, fuzzy
 msgid "API password"
-msgstr ""
+msgstr "Chyba API"
 
+#, fuzzy
 msgid "API user"
-msgstr ""
+msgstr "Chyba API"
 
 msgid "AQI {}"
-msgstr ""
+msgstr "AQI {}"
 
 msgid "AQI: N/A"
-msgstr ""
+msgstr "AQI: N/A"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilé"
 
 msgid "Advanced Unit Settings"
-msgstr ""
+msgstr "Pokročilá nastavení jednotky"
 
 msgid "Afternoon"
-msgstr ""
+msgstr "Odpoledne"
 
 msgid "Age since New Moon: {:.1f} days"
 msgstr ""
 
+#, fuzzy
 msgid "Age: N/A"
-msgstr ""
+msgstr "AQI: N/A"
 
 msgid "Angular diameter: N/A"
 msgstr ""
@@ -99,343 +97,349 @@ msgid "Apparent magnitude: {:.2f}"
 msgstr ""
 
 msgid "Assign to Favorite 1"
-msgstr ""
+msgstr "Přiřadit k Oblíbeným 1"
 
 msgid "Assign to Favorite 2"
-msgstr ""
+msgstr "Přiřadit k Oblíbeným 2"
 
 msgid "Assign to Home"
-msgstr ""
+msgstr "Přiřadit k domovu"
 
 msgid "Australia"
-msgstr ""
+msgstr "Austrálie"
 
 msgid "Austria"
-msgstr ""
+msgstr "Rakousko"
 
 msgid "Auth server"
 msgstr ""
 
 msgid "Baden-Wuerttemberg"
-msgstr ""
+msgstr "Bádensko-Württembersko"
 
 msgid "Barometer"
-msgstr ""
+msgstr "Barometr"
 
 msgid "Bavaria"
-msgstr ""
+msgstr "Bavorsko"
 
 msgid "Belgium"
-msgstr ""
+msgstr "Belgie"
 
 msgid "Berlin"
-msgstr ""
+msgstr "Berlín"
 
 msgid "Black Moon"
-msgstr ""
+msgstr "Černý měsíc"
 
 msgid "Blue - Home"
-msgstr ""
+msgstr "Modrá - Domov"
 
 msgid "Blue Moon"
-msgstr ""
+msgstr "Modrý měsíc"
 
 msgid "Brandenburg"
-msgstr ""
+msgstr "Braniborsko"
 
 msgid "Bremen"
-msgstr ""
+msgstr "Brémy"
 
 msgid "Calculating..."
-msgstr ""
+msgstr "Vypočítávám..."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Celsius, km/h, hPa"
-msgstr ""
+msgstr "Celsia, km/h, hPa"
 
 msgid "Changelog: {changelog}"
-msgstr ""
+msgstr "Seznam změn: {changelog}"
 
 msgid "Changes apply immediately"
-msgstr ""
+msgstr "Změny se projeví okamžitě"
 
 msgid "Check for updates"
-msgstr ""
+msgstr "Zkontrolovat aktualizace"
 
 msgid "Choose detail view"
-msgstr ""
+msgstr "Zvolit detailní zobrazení"
 
 msgid "City Selection"
-msgstr ""
+msgstr "Výběr města"
 
 msgid "City list file not found!"
-msgstr ""
+msgstr "Soubor se seznamem měst nebyl nalezen!"
 
 msgid "Cleanup Foreca One Temp Files?"
-msgstr ""
+msgstr "Vyčistit dočasné soubory Foreca One?"
 
 msgid "Cleanup temp files"
-msgstr ""
+msgstr "Vyčistit dočasné soubory"
 
 msgid "Clear"
-msgstr ""
+msgstr "Jasno"
 
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 msgid "Close legend"
-msgstr ""
+msgstr "Zavřít legendu"
 
 msgid "Close setup without saving"
 msgstr ""
 
 msgid "Cloudy"
-msgstr ""
+msgstr "Oblačno"
 
 msgid "Cloudy and light rain"
-msgstr ""
+msgstr "Oblačno a slabý déšť"
 
 msgid "Cloudy and light snow"
-msgstr ""
+msgstr "Oblačno a slabé sněžení"
 
 msgid "Cloudy and light wet snow"
-msgstr ""
+msgstr "Oblačno a slabé mokré sněžení"
 
 msgid "Cloudy and showers"
-msgstr ""
+msgstr "Oblačno a přeháňky"
 
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "Oblačno a sněhové přeháňky"
 
 msgid "Cloudy and wet snow showers"
-msgstr ""
+msgstr "Oblačno a přeháňky mokrého sněhu"
 
 msgid "Cloudy, thunderstorms with rain"
-msgstr ""
+msgstr "Oblačno, bouřky s deštěm"
 
 msgid "Cold (< 0°C)"
-msgstr ""
+msgstr "Mráz (< 0 °C)"
 
 msgid "Color Legend"
-msgstr ""
+msgstr "Legenda barev"
 
 msgid "Color Selector"
-msgstr ""
+msgstr "Výběr barvy"
 
 msgid "Color data"
-msgstr ""
+msgstr "Barevná data"
 
 msgid "Color legend"
-msgstr ""
+msgstr "Legenda barev"
 
 msgid "Color name"
-msgstr ""
+msgstr "Název barvy"
 
 msgid "Color select"
-msgstr ""
+msgstr "Výběr barvy"
 
 msgid "Condition: {}"
-msgstr ""
+msgstr "Podmínky: {}"
 
 msgid "Continents Weather Maps"
-msgstr ""
+msgstr "Mapy počasí kontinentů"
 
 msgid "Cool (0-10°C)"
-msgstr ""
+msgstr "Chladno (0–10 °C)"
 
 msgid "Could not fetch update information."
-msgstr ""
+msgstr "Nepodařilo se načíst informace o aktualizaci."
 
 msgid "Could not initialize map API."
-msgstr ""
+msgstr "Nepodařilo se inicializovat mapové API."
 
 msgid "Could not load forecast data"
-msgstr ""
+msgstr "Nepodařilo se načíst data předpovědi"
 
 msgid "Could not parse version information."
-msgstr ""
+msgstr "Nepodařilo se zpracovat informace o verzi."
 
 msgid "Current weather and forecast"
-msgstr ""
+msgstr "Aktuální počasí a předpověď"
 
 msgid "Current weather and forecast for the next 10 days"
-msgstr ""
+msgstr "Aktuální počasí a předpověď na příštích 10 dní"
 
 msgid "Current: {}"
-msgstr ""
+msgstr "Aktuálně: {}"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "Česká republika"
 
 msgid "Data provided by Foreca"
-msgstr ""
+msgstr "Data poskytuje Foreca"
 
 msgid "Date: {}"
-msgstr ""
+msgstr "Datum: {}"
 
 msgid "Day"
-msgstr ""
+msgstr "Den"
 
 msgid "Decrease Speed"
-msgstr ""
+msgstr "Zpomalit"
 
 msgid "Defaults"
 msgstr ""
 
 msgid "Denmark"
-msgstr ""
+msgstr "Dánsko"
 
 msgid "Details"
-msgstr ""
+msgstr "Detaily"
 
 msgid "Dewpoint {}"
-msgstr ""
+msgstr "Rosný bod {}"
 
 msgid "Dewpoint {}°C"
-msgstr ""
+msgstr "Rosný bod {}°C"
 
 msgid "Dewpoint: %d%s"
-msgstr ""
+msgstr "Rosný bod: %d%s"
 
 msgid "Dewpoint: %s°C"
-msgstr ""
+msgstr "Rosný bod: %s°C"
 
 msgid "Dewpoint: N/A"
-msgstr ""
+msgstr "Rosný bod: N/A"
 
 msgid "Distance {} km"
-msgstr ""
+msgstr "Vzdálenost {} km"
 
 msgid "Distance: %s"
-msgstr ""
+msgstr "Vzdálenost: %s"
 
 msgid "Distance: {}"
-msgstr ""
+msgstr "Vzdálenost: {}"
 
 msgid "Distance: {} km"
-msgstr ""
+msgstr "Vzdálenost: {} km"
 
 msgid "Do you want to install it now?"
 msgstr ""
+"Nová verze %s k dispozici\n"
+"\n"
+"Seznam změn: %s\n"
+"\n"
+"Chcete ji nyní nainstalovat?"
 
 msgid "Down"
-msgstr ""
+msgstr "Dolů"
 
 msgid "Down - Next page"
-msgstr ""
+msgstr "Dolů - Další stránka"
 
 msgid "Download error"
-msgstr ""
+msgstr "Chyba stahování"
 
 msgid "Downloading images..."
-msgstr ""
+msgstr "Stahování obrázků..."
 
 msgid "Downloading tiles..."
-msgstr ""
+msgstr "Stahování dlaždic..."
 
 msgid "E"
-msgstr ""
+msgstr "E"
 
 msgid "East Asia"
-msgstr ""
+msgstr "Východní Asie"
 
 msgid "Error checking for updates."
-msgstr ""
+msgstr "Chyba při kontrole aktualizací."
 
 msgid "Error loading data"
-msgstr ""
+msgstr "Chyba při načítání dat"
 
 msgid "Error loading map"
-msgstr ""
+msgstr "Chyba při načítání mapy"
 
 msgid "Error loading maps. Check connection."
-msgstr ""
+msgstr "Chyba při načítání map. Zkontrolujte připojení."
 
 msgid "Error saving favorite!"
-msgstr ""
+msgstr "Chyba při ukládání oblíbené položky!"
 
 msgid "Europe"
-msgstr ""
+msgstr "Evropa"
 
 msgid "European Weather Maps"
-msgstr ""
+msgstr "Evropské mapy počasí"
 
 msgid "Evening"
-msgstr ""
+msgstr "Večer"
 
 msgid "Exit"
-msgstr ""
+msgstr "Odejít"
 
 msgid "Exit - End"
-msgstr ""
+msgstr "Konec - konec"
 
 msgid "Exit / Close legend"
-msgstr ""
+msgstr "Ukončit / Zavřít legendu"
 
 msgid "Extreme"
-msgstr ""
+msgstr "Extrémní"
 
 msgid "Extreme / thunderstorms"
-msgstr ""
+msgstr "Extrémní / bouřky"
 
 msgid "Fahrenheit, mph, inHg"
-msgstr ""
+msgstr "Fahrenheit, mph, inHg"
 
 msgid "Faster: {}s"
-msgstr ""
+msgstr "Rychleji: {}s"
 
 msgid "Favorite 1"
-msgstr ""
+msgstr "Oblíbené 1"
 
 msgid "Favorite 2"
-msgstr ""
+msgstr "Oblíbené 2"
 
 msgid "Favorites Details"
-msgstr ""
+msgstr "Podrobnosti oblíbených položek"
 
 msgid "Favorites details"
-msgstr ""
+msgstr "Podrobnosti oblíbených položek"
 
 msgid "Feels like"
-msgstr ""
+msgstr "Pocitová teplota"
 
 msgid "Feels like {}"
-msgstr ""
+msgstr "Pocitově {}"
 
 msgid "Feels like {}{}"
-msgstr ""
+msgstr "Pocitově {}{}"
 
 msgid "Feels like: %d%s"
-msgstr ""
+msgstr "Pocitově: %d%s"
 
 msgid "Feels like: %s°C"
-msgstr ""
+msgstr "Pocitově: %s°C"
 
 msgid "Feels like: N/A"
-msgstr ""
+msgstr "Pocitově: N/A"
 
 msgid "Feels like: {}"
-msgstr ""
+msgstr "Pocitově: {}"
 
 msgid "Feels like: {}{}"
-msgstr ""
+msgstr "Pocitově: {}{}"
 
 msgid "Feels like: {}°C"
-msgstr ""
+msgstr "Pocitově: {}°C"
 
 msgid "Finland"
-msgstr ""
+msgstr "Finsko"
 
 msgid "First Quarter"
-msgstr ""
+msgstr "První čtvrť"
 
 msgid "Fog"
-msgstr ""
+msgstr "Mlha"
 
+#, fuzzy
 msgid "Foreca API Setup"
-msgstr ""
+msgstr "Nabídka Foreca One"
 
 msgid "Foreca API credentials are not configured yet. Please enter them in the setup screen."
 msgstr ""
@@ -444,277 +448,278 @@ msgid "Foreca API settings saved successfully."
 msgstr ""
 
 msgid "Foreca One"
-msgstr ""
+msgstr "Foreca One"
 
 msgid "Foreca One Live Maps (API)"
-msgstr ""
+msgstr "Živé mapy Foreca One (API)"
 
 msgid "Foreca One Menu"
-msgstr ""
+msgstr "Nabídka Foreca One"
 
 msgid "Foreca One No stations found"
-msgstr ""
+msgstr "Foreca One: Nebyly nalezeny žádné stanice"
 
 msgid "Foreca One Stations: {} stations nearby ({})"
-msgstr ""
+msgstr "Stanice Foreca One: {} stanic v okolí ({})"
 
 msgid "Foreca One Weather Forecast"
-msgstr ""
+msgstr "Předpověď počasí Foreca One"
 
 msgid "Foreca One Weather and Forecast ver. %s"
-msgstr ""
+msgstr "Foreca One Počasí a předpověď ver. %s"
 
 msgid "Foreca One | Map {}"
-msgstr ""
+msgstr "Foreca One | Mapa {}"
 
 msgid "Found %d cities locally for '%s'"
-msgstr ""
+msgstr "Nalezeno %d měst lokálně pro „%s“"
 
 msgid "Found %d cities online for '%s'"
-msgstr ""
+msgstr "Nalezeno %d měst online pro „%s“"
 
 msgid "Frame →"
-msgstr ""
+msgstr "Snímek →"
 
 msgid "Frame: {}"
-msgstr ""
+msgstr "Snímek: {}"
 
 msgid "France"
-msgstr ""
+msgstr "Francie"
 
 msgid "Full Moon"
-msgstr ""
+msgstr "Úplněk"
 
 msgid "Gale force (>60 km/h)"
-msgstr ""
+msgstr "Vichřice (>60 km/h)"
 
 msgid "German States Weather Maps"
-msgstr ""
+msgstr "Mapy počasí německých spolkových zemí"
 
 msgid "Germany"
-msgstr ""
+msgstr "Německo"
 
 msgid "Good"
-msgstr ""
+msgstr "Dobrý"
 
 msgid "Great Britain"
-msgstr ""
+msgstr "Velká Británie"
 
 msgid "Greece"
-msgstr ""
+msgstr "Řecko"
 
 msgid "Green - Favorite 1"
-msgstr ""
+msgstr "Zelené – Oblíbená 1"
 
 msgid "Gust {}"
-msgstr ""
+msgstr "Nárazy {}"
 
 msgid "Gust: {:.1f} {}"
-msgstr ""
+msgstr "Nárazy: {:.1f} {}"
 
 msgid "Hamburg"
-msgstr ""
+msgstr "Hamburg"
 
 msgid "Hazardous"
-msgstr ""
+msgstr "Nebezpečný"
 
 msgid "Header - not selectable"
-msgstr ""
+msgstr "Záhlaví – nelze vybrat"
 
 msgid "Heavy rain"
-msgstr ""
+msgstr "Silný déšť"
 
 msgid "Help"
-msgstr ""
+msgstr "Pomoc"
 
 msgid "Hesse"
-msgstr ""
+msgstr "Hesse"
 
 msgid "High"
-msgstr ""
+msgstr "Vysoká"
 
 msgid "Home"
-msgstr ""
+msgstr "Domů"
 
 msgid "Hot (30-40°C)"
-msgstr ""
+msgstr "Horko (30–40 °C)"
 
 msgid "Hour Details"
-msgstr ""
+msgstr "Podrobnosti hodiny"
 
 msgid "Humidity"
-msgstr ""
+msgstr "Vlhkost"
 
 msgid "Humidity: %s%%"
-msgstr ""
+msgstr "Vlhkost: %s%%"
 
 msgid "Humidity: {}%"
-msgstr ""
+msgstr "Vlhkost: {}%"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Maďarsko"
 
 msgid "Ice / frost"
-msgstr ""
+msgstr "Led / mráz"
 
 msgid "Illumination"
-msgstr ""
+msgstr "Osvětlení"
 
 msgid "Illumination: {:.1f}%"
-msgstr ""
+msgstr "Osvětlení: {:.1f}%"
 
 msgid "Image %(current)d/%(total)d – %(day)s"
-msgstr ""
+msgstr "Obrázek %(current)d/%(total)d – %(day)s"
 
 msgid "Image %(current)d/%(total)d – %(day)s (Paused)"
-msgstr ""
+msgstr "Obrázek %(current)d/%(total)d – %(day)s (Pozastaveno)"
 
 msgid "Image not available"
-msgstr ""
+msgstr "Obrázek není k dispozici"
 
 msgid "Imperial System"
-msgstr ""
+msgstr "Imperiální systém"
 
 msgid "Increase Speed"
-msgstr ""
+msgstr "Zrychlit"
 
 msgid "Info"
-msgstr ""
+msgstr "Informace"
 
 msgid "Info - About"
-msgstr ""
+msgstr "Info – O aplikaci"
 
 msgid "Ireland"
-msgstr ""
+msgstr "Irsko"
 
 msgid "Italy"
-msgstr ""
+msgstr "Itálie"
 
 msgid "Jump 100 down"
-msgstr ""
+msgstr "Skočit o 100 dolů"
 
 msgid "Jump 100 up"
-msgstr ""
+msgstr "Posun o 100 nahoru"
 
 msgid "Jump 500 down"
-msgstr ""
+msgstr "Skočit o 500 dolů"
 
 msgid "Jump 500 up"
-msgstr ""
+msgstr "Skočit o 500 nahoru"
 
 msgid "Keyboard"
-msgstr ""
+msgstr "Klávesnice"
 
 msgid "Last Quarter"
-msgstr ""
+msgstr "Poslední čtvrtletí"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Lotyšsko"
 
 msgid "Left - Previous day"
-msgstr ""
+msgstr "Vlevo - Předchozí den"
 
 msgid "Left arrow - Previous day"
-msgstr ""
+msgstr "Šipka vlevo - Předchozí den"
 
 msgid "Light (0-20 km/h)"
-msgstr ""
+msgstr "Slabý (0–20 km/h)"
 
 msgid "Light rain / drizzle"
-msgstr ""
+msgstr "Slabý déšť / mrholení"
 
 msgid "Light to moderate"
-msgstr ""
+msgstr "Slabý až mírný"
 
 msgid "Loading available maps..."
-msgstr ""
+msgstr "Načítání dostupných map..."
 
 msgid "Loading lunar phases..."
-msgstr ""
+msgstr "Načítání fází Měsíce..."
 
 msgid "Loading nearby stations..."
-msgstr ""
+msgstr "Načítání blízkých stanic..."
 
 msgid "Loading tiles..."
-msgstr ""
+msgstr "Načítání dlaždic..."
 
 msgid "Loading weekly forecast..."
-msgstr ""
+msgstr "Načítání týdenní předpovědi..."
 
 msgid "Loading..."
-msgstr ""
+msgstr "Načítám..."
 
 msgid "Low"
-msgstr ""
+msgstr "Nízká"
 
 msgid "Lower Saxony"
-msgstr ""
+msgstr "Dolní Sasko"
 
 msgid "Lunar Calendar"
-msgstr ""
+msgstr "Lunární kalendář"
 
 msgid "Lunar phases from next month"
-msgstr ""
+msgstr "Fáze Měsíce od příštího měsíce"
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "Lucembursko"
 
 msgid "Map & Tiles Loaded"
-msgstr ""
+msgstr "Mapa a dlaždice načteny"
 
 msgid "Map loaded"
-msgstr ""
+msgstr "Mapa načtena"
 
 msgid "Map server"
 msgstr ""
 
 msgid "Map {} selected"
-msgstr ""
+msgstr "Vybrána mapa {}"
 
 msgid "Mecklenburg-Vorpommern"
-msgstr ""
+msgstr "Mecklenburg-Vorpommern"
 
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgid "Menu - Settings"
-msgstr ""
+msgstr "Menu – Nastavení"
 
 msgid "Merge failed"
-msgstr ""
+msgstr "Sloučení se nezdařilo"
 
 msgid "Meteogram"
-msgstr ""
+msgstr "Meteogram"
 
 msgid "Metric System"
-msgstr ""
+msgstr "Metrický systém"
 
 msgid "Middle America"
-msgstr ""
+msgstr "Střední Amerika"
 
 msgid "Middle Asia"
-msgstr ""
+msgstr "Střední Asie"
 
 msgid "Middle East"
-msgstr ""
+msgstr "Střední východ"
 
 msgid "Mild (10-20°C)"
-msgstr ""
+msgstr "Mírné (10–20 °C)"
 
 msgid "Moderate"
-msgstr ""
+msgstr "Moderovat"
 
 msgid "Moderate (20-40 km/h)"
-msgstr ""
+msgstr "Mírné (20–40 km/h)"
 
 msgid "Moderate rain"
-msgstr ""
+msgstr "Mírný déšť"
 
 msgid "Month"
-msgstr ""
+msgstr "Měsíc"
 
+#, fuzzy
 msgid "Moon details"
-msgstr ""
+msgstr "Podrobnosti hodiny"
 
 msgid "Moonrise: {}"
 msgstr ""
@@ -723,316 +728,317 @@ msgid "Moonset: {}"
 msgstr ""
 
 msgid "Morning"
-msgstr ""
+msgstr "Ráno"
 
 msgid "Mostly clear"
-msgstr ""
+msgstr "Většinou jasné"
 
 msgid "Move Down"
-msgstr ""
+msgstr "Dolů"
 
 msgid "Move Up"
-msgstr ""
+msgstr "Nahoru"
 
 msgid "Move down"
-msgstr ""
+msgstr "Posunout dolů"
 
 msgid "Move up"
-msgstr ""
+msgstr "Posunout nahoru"
 
 msgid "N"
-msgstr ""
+msgstr "N"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Nizozemsko"
 
 msgid "New Moon"
-msgstr ""
+msgstr "Novoluní"
 
 msgid "New version {version} is available."
-msgstr ""
+msgstr "Je k dispozici nová verze {version}."
 
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 msgid "Next Image"
-msgstr ""
+msgstr "Další obrázek"
 
 msgid "Next frame"
-msgstr ""
+msgstr "Další snímek"
 
 msgid "Next page"
-msgstr ""
+msgstr "Další stránka"
 
 msgid "Next time"
-msgstr ""
+msgstr "Příště"
 
 msgid "No Internet connection detected."
-msgstr ""
+msgstr "Nebyla zjištěna žádná internetová konektivita."
 
 msgid "No OSM tiles"
-msgstr ""
+msgstr "Žádné dlaždice OSM"
 
 msgid "No cities found locally for '%s'"
-msgstr ""
+msgstr "Lokálně nebyla nalezena žádná města pro '%s'"
 
 msgid "No city selected"
-msgstr ""
+msgstr "Není vybráno žádné město"
 
 msgid "No data"
-msgstr ""
+msgstr "Žádná data"
 
 msgid "No date available"
-msgstr ""
+msgstr "Datum není k dispozici"
 
 msgid "No location selected"
-msgstr ""
+msgstr "Není vybrána žádná poloha"
 
 msgid "No specific legend available."
-msgstr ""
+msgstr "Není k dispozici žádná konkrétní legenda."
 
 msgid "No station data"
-msgstr ""
+msgstr "Žádná data o stanici"
 
 msgid "No station data available"
-msgstr ""
+msgstr "Nejsou k dispozici žádná data o stanici"
 
 msgid "No stations found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné stanice"
 
 msgid "No tiles downloaded"
-msgstr ""
+msgstr "Nebyly staženy žádné dlaždice"
 
 msgid "North Africa"
-msgstr ""
+msgstr "Severní Afrika"
 
 msgid "North America"
-msgstr ""
+msgstr "Severní Amerika"
 
 msgid "North Rhine-Westphalia"
-msgstr ""
+msgstr "Severní Porýní-Vestfálsko"
 
 msgid "Norway"
-msgstr ""
+msgstr "Norsko"
 
 msgid "OK - Ext Info"
-msgstr ""
+msgstr "OK - Rozšířené info"
 
 msgid "OK - Forecast"
-msgstr ""
+msgstr "OK - Předpověď"
 
 msgid "OK - Open Map"
-msgstr ""
+msgstr "OK - Otevřít mapu"
 
 msgid "Ok - Details"
-msgstr ""
+msgstr "OK – Detaily"
 
 msgid "Open Keyboard"
-msgstr ""
+msgstr "Otevřete klávesnici"
 
 msgid "Open Map"
-msgstr ""
+msgstr "Otevřít mapu"
 
 msgid "Original design and idea by %s"
-msgstr ""
+msgstr "Původní design a nápad od %s"
 
 msgid "Overcast"
-msgstr ""
+msgstr "Zataženo"
 
 msgid "Overcast and light rain"
-msgstr ""
+msgstr "Zataženo a slabý déšť"
 
 msgid "Overcast and light snow"
-msgstr ""
+msgstr "Zataženo a slabé sněžení"
 
 msgid "Overcast and light wet snow"
-msgstr ""
+msgstr "Zataženo a slabý déšť se sněhem"
 
 msgid "Overcast and rain"
-msgstr ""
+msgstr "Zataženo a déšť"
 
 msgid "Overcast and showers"
-msgstr ""
+msgstr "Zataženo a přeháňky"
 
 msgid "Overcast and snow"
-msgstr ""
+msgstr "Zataženo a sněžení"
 
 msgid "Overcast and snow showers"
-msgstr ""
+msgstr "Zataženo a sněhové přeháňky"
 
 msgid "Overcast and wet snow"
-msgstr ""
+msgstr "Zataženo a déšť se sněhem"
 
 msgid "Overcast and wet snow showers"
-msgstr ""
+msgstr "Zataženo a přeháňky deště se sněhem"
 
 msgid "Overcast, thunderstorms with rain"
-msgstr ""
+msgstr "Zataženo, bouřky s deštěm"
 
 msgid "Overnight"
-msgstr ""
+msgstr "Přes noc"
 
 msgid "Page Down"
-msgstr ""
+msgstr "Page down"
 
 msgid "Page Up"
-msgstr ""
+msgstr "Page up"
 
 msgid "Page down"
-msgstr ""
+msgstr "O stránku dolů"
 
 msgid "Page up"
-msgstr ""
+msgstr "O stránku nahoru"
 
 msgid "Pan down"
-msgstr ""
+msgstr "Posun dolů"
 
 msgid "Pan left"
-msgstr ""
+msgstr "Posunout doleva"
 
 msgid "Pan right"
-msgstr ""
+msgstr "Posunout doprava"
 
 msgid "Pan up"
-msgstr ""
+msgstr "Posun nahoru"
 
 msgid "Partly cloudy"
-msgstr ""
+msgstr "Polojasno"
 
 msgid "Partly cloudy and light rain"
-msgstr ""
+msgstr "Polojasno a slabý déšť"
 
 msgid "Partly cloudy and light snow"
-msgstr ""
+msgstr "Polojasno a slabé sněžení"
 
 msgid "Partly cloudy and light wet snow"
-msgstr ""
+msgstr "Polojasno a slabé mokré sněžení"
 
 msgid "Partly cloudy and showers"
-msgstr ""
+msgstr "Polojasno a přeháňky"
 
 msgid "Partly cloudy and snow showers"
-msgstr ""
+msgstr "Polojasno a sněhové přeháňky"
 
 msgid "Partly cloudy and wet snow showers"
-msgstr ""
+msgstr "Polojasno a přeháňky mokrého sněhu"
 
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr ""
+msgstr "Polojasno, možnost bouřek s deštěm"
 
 msgid "Perigee"
-msgstr ""
+msgstr "Perigeum"
 
 msgid "Phase"
-msgstr ""
+msgstr "Fáze"
 
+#, fuzzy
 msgid "Phase: {}"
-msgstr ""
+msgstr "Fáze"
 
 msgid "Play/Pause"
-msgstr ""
+msgstr "Přehrát/Pozastavit"
 
 msgid "Please enter both API user and API password."
 msgstr ""
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "Čekejte prosím…"
 
 msgid "Poland"
-msgstr ""
+msgstr "Polsko"
 
 msgid "Portugal"
-msgstr ""
+msgstr "Portugalsko"
 
 msgid "Precipitation"
-msgstr ""
+msgstr "Srážky"
 
 msgid "Precipitation: {}"
-msgstr ""
+msgstr "Srážky: {}"
 
 msgid "Precipitations"
-msgstr ""
+msgstr "Srážky"
 
 msgid "Precipitations: {}%"
-msgstr ""
+msgstr "Srážky: {}%"
 
 msgid "Press RED to search again"
-msgstr ""
+msgstr "Stiskněte ČERVENÉ pro opětovné vyhledání"
 
 msgid "Pressure"
-msgstr ""
+msgstr "Tlak"
 
 msgid "Pressure: %s"
-msgstr ""
+msgstr "Tlak: %s"
 
 msgid "Pressure: %s hPa"
-msgstr ""
+msgstr "Tlak: %s hPa"
 
 msgid "Pressure: N/A"
-msgstr ""
+msgstr "Tlak: N/A"
 
 msgid "Pressure: {}"
-msgstr ""
+msgstr "Tlak: {}"
 
 msgid "Pressure: {} hPa"
-msgstr ""
+msgstr "Tlak: {} hPa"
 
 msgid "Prev"
-msgstr ""
+msgstr "Předchozí"
 
 msgid "Previous"
-msgstr ""
+msgstr "Předchozí"
 
 msgid "Previous Image"
-msgstr ""
+msgstr "Předchozí obrázek"
 
 msgid "Previous frame"
-msgstr ""
+msgstr "Předchozí snímek"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Předchozí stránka"
 
 msgid "Previous time"
-msgstr ""
+msgstr "Předchozí čas"
 
 msgid "Rain Prob."
-msgstr ""
+msgstr "Pravd. deště."
 
 msgid "Rain prob. {}%"
-msgstr ""
+msgstr "Pravd. deště {}%"
 
 msgid "Rain prob.: N/A"
-msgstr ""
+msgstr "Pravděpodobnost deště: N/A"
 
 msgid "Rain: {:.1f} {}"
-msgstr ""
+msgstr "Déšť: {:.1f} {}"
 
 msgid "RainViewer Radar"
-msgstr ""
+msgstr "Radar RainViewer"
 
 msgid "Red - Color select"
-msgstr ""
+msgstr "Červená – výběr barvy"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Obnovit"
 
 msgid "Restore default server values"
 msgstr ""
 
 msgid "Rhineland-Palatine"
-msgstr ""
+msgstr "Porýní-Falc"
 
 msgid "Right - Next day"
-msgstr ""
+msgstr "Správně - Další den"
 
 msgid "Right arrow - Next day"
-msgstr ""
+msgstr "Šipka vpravo - Další den"
 
 msgid "Rise"
-msgstr ""
+msgstr "Východ měsíce"
 
 msgid "Rise azimuth: N/A"
 msgstr ""
@@ -1041,70 +1047,71 @@ msgid "Rise azimuth: {:.0f}°"
 msgstr ""
 
 msgid "Russia"
-msgstr ""
+msgstr "Rusko"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "Saarland"
-msgstr ""
+msgstr "Sársko"
 
 msgid "Satellite Photos"
-msgstr ""
+msgstr "Satelitní snímky"
 
 msgid "Satellite photos coming soon!"
-msgstr ""
+msgstr "Satelitní snímky již brzy!"
 
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
+#, fuzzy
 msgid "Save API settings"
-msgstr ""
+msgstr "Menu – Nastavení"
 
 msgid "Saxony"
-msgstr ""
+msgstr "Sasko"
 
 msgid "Saxony-Anhalt"
-msgstr ""
+msgstr "Sasko-Anhaltsko"
 
 msgid "Schleswig-Holstein"
-msgstr ""
+msgstr "Šlesvicko-Holštýnsko"
 
 msgid "Scraped"
-msgstr ""
+msgstr "Staženo"
 
 msgid "Search first tries online, if fails uses local list."
-msgstr ""
+msgstr "Vyhledávání nejprve zkusí online, a když se to nepovede, použije místní seznam."
 
 msgid "Search your City"
-msgstr ""
+msgstr "Prohledejte své město"
 
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Vyhledávání „%s“…"
 
 msgid "Select"
-msgstr ""
+msgstr "Vybrat"
 
 msgid "Select Region"
-msgstr ""
+msgstr "Vybrat kraj/region"
 
 msgid "Select a city"
-msgstr ""
+msgstr "Zvolte město"
 
 msgid "Select a map with OK"
-msgstr ""
+msgstr "Vyberte mapu a potvrďte OK"
 
 msgid "Select unit system"
-msgstr ""
+msgstr "Vyberte systém jednotek"
 
 msgid "Select wind unit"
-msgstr ""
+msgstr "Vyberte jednotku větru"
 
 msgid "Select {} unit"
-msgstr ""
+msgstr "Vyberte jednotku pro {}"
 
 msgid "Selected hour details"
-msgstr ""
+msgstr "Podrobnosti pro vybranou hodinu"
 
 msgid "Set azimuth: N/A"
 msgstr ""
@@ -1113,112 +1120,113 @@ msgid "Set azimuth: {:.0f}°"
 msgstr ""
 
 msgid "Sets"
-msgstr ""
+msgstr "Západ měsíce"
 
 msgid "Show info"
-msgstr ""
+msgstr "Zobrazit info"
 
 msgid "Showers"
-msgstr ""
+msgstr "Přeháňky"
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovensko"
 
 msgid "Slower: {}s"
-msgstr ""
+msgstr "Pomaleji: {}s"
 
 msgid "Snow / ice"
-msgstr ""
+msgstr "Sníh / led"
 
 msgid "Snow prob. {}%"
-msgstr ""
+msgstr "Pravděpodobnost sněhu: {}%"
 
 msgid "Snow prob.: N/A"
-msgstr ""
+msgstr "Pravděpodobnost sněhu: N/A"
 
 msgid "South Africa"
-msgstr ""
+msgstr "Jižní Afrika"
 
 msgid "South America"
-msgstr ""
+msgstr "Jižní Ameriky"
 
 msgid "Southeast Asia"
-msgstr ""
+msgstr "Jihovýchodní Asie"
 
 msgid "Spain"
-msgstr ""
+msgstr "Španělsko"
 
 msgid "Station Observations"
-msgstr ""
+msgstr "Pozorování ze stanic"
 
 msgid "Station: {}"
-msgstr ""
+msgstr "Stanice: {}"
 
 msgid "Strong (40-60 km/h)"
-msgstr ""
+msgstr "Silný (40–60 km/h)"
 
 msgid "Sunrise"
-msgstr ""
+msgstr "Východ slunce"
 
 msgid "Sunset"
-msgstr ""
+msgstr "Západ slunce"
 
 msgid "Super Full Moon"
-msgstr ""
+msgstr "Superúplněk"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Švédsko"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Švýcarsko"
 
 msgid "Temp"
-msgstr ""
+msgstr "Teplota"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Teplota"
 
 msgid "Temperature: %d%s"
-msgstr ""
+msgstr "Teplota: %d%s"
 
 msgid "Temperature: %s°C"
-msgstr ""
+msgstr "Teplota: %s°C"
 
 msgid "Temperature: N/A"
-msgstr ""
+msgstr "Teplota: N/A"
 
 msgid "Temperature: {}"
-msgstr ""
+msgstr "Teplota: {}"
 
 msgid "Temperature: {}{}"
-msgstr ""
+msgstr "Teplota: {}{}"
 
 msgid "Temperature: {}°C"
-msgstr ""
+msgstr "Teplota: {}°C"
 
+#, fuzzy
 msgid "Thanks {thanks} and other friends for suggestions"
-msgstr ""
+msgstr "Děkujeme {thanks} a dalším přátelům za návrhy a testování"
 
 msgid "The remote version ({remote}) is older than the current one ({current})."
-msgstr ""
+msgstr "Vzdálená verze ({remote}) je starší než aktuální ({current})."
 
 msgid "Thin upper cloud"
-msgstr ""
+msgstr "Řídká vysoká oblačnost"
 
 msgid "Thuringia"
-msgstr ""
+msgstr "Durynsko"
 
 msgid "Time"
-msgstr ""
+msgstr "Čas"
 
 msgid "Today"
-msgstr ""
+msgstr "Dnes"
 
 msgid "Today/Tomorrow details"
-msgstr ""
+msgstr "Podrobnosti pro dnešek/zítřek"
 
 msgid "Toggle legend"
-msgstr ""
+msgstr "Přepnout legendu"
 
 msgid "Token expire hours"
 msgstr ""
@@ -1230,7 +1238,7 @@ msgid "Token expire hours must be a number."
 msgstr ""
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Zítra"
 
 msgid "Transit (culmination): {}"
 msgstr ""
@@ -1242,229 +1250,265 @@ msgid "Transit altitude: {:.0f}°"
 msgstr ""
 
 msgid "Transparency Settings"
-msgstr ""
+msgstr "Nastavení průhlednosti"
 
 msgid "Transparency level"
-msgstr ""
+msgstr "Úroveň průhlednosti"
 
 msgid "UV Index"
-msgstr ""
+msgstr "UV index"
 
 msgid "UV N/A"
-msgstr ""
+msgstr "UV N/A"
 
 msgid "Unhealthy"
-msgstr ""
+msgstr "Nezdravé"
 
 msgid "Unhealthy for sensitives"
-msgstr ""
+msgstr "Nezdravé pro citlivé osoby"
 
 msgid "Unit Settings"
-msgstr ""
+msgstr "Nastavení lekce"
 
 msgid "Unit Settings (Advanced)"
-msgstr ""
+msgstr "Nastavení jednotek (pokročilé)"
 
 msgid "Unit Settings (Simple)"
-msgstr ""
+msgstr "Nastavení jednotek (jednoduché)"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámý"
 
 msgid "Up"
-msgstr ""
+msgstr "Nahoru"
 
 msgid "Up - Previous page"
-msgstr ""
+msgstr "Nahoru – Předchozí stránka"
 
 msgid "Update canceled."
-msgstr ""
+msgstr "Aktualizace zrušena."
 
 msgid "Update completed. Please restart Enigma2."
-msgstr ""
+msgstr "Aktualizace dokončena. Restartujte prosím Enigma2."
 
 msgid "Updated {}"
-msgstr ""
+msgstr "Aktualizováno {}"
 
 msgid "Updated: N/A"
-msgstr ""
+msgstr "Aktualizováno: N/A"
 
 msgid "Updated: {}"
-msgstr ""
+msgstr "Aktualizováno: {}"
 
 msgid "Updating..."
-msgstr ""
+msgstr "Aktualizuji..."
 
 msgid "Use arrow keys to scroll"
-msgstr ""
+msgstr "Použijte šipky k posouvání"
 
 msgid "Use ← → to change time | OK to exit"
-msgstr ""
+msgstr "Použijte ← → ke změně času | OK pro ukončení"
 
 msgid "Use ←/→/↑/↓ to move | OK to exit"
-msgstr ""
+msgstr "Použijte ←/→/↑/↓ k pohybu | OK pro ukončení"
 
 msgid "Use ▲/▼ to change, OK to select"
-msgstr ""
+msgstr "Použijte ▲/▼ ke změně, OK pro výběr"
 
 msgid "Using current time"
-msgstr ""
+msgstr "Používá se aktuální čas"
 
 msgid "Very heavy rain"
-msgstr ""
+msgstr "Velmi silný déšť"
 
 msgid "Very high"
-msgstr ""
+msgstr "Velmi vysoká"
 
 msgid "Very hot (>40°C)"
-msgstr ""
+msgstr "Velmi horko (>40 °C)"
 
 msgid "Very low"
-msgstr ""
+msgstr "Velmi nízké"
 
 msgid "Very unhealthy"
-msgstr ""
+msgstr "Velmi nezdravé"
 
 msgid "Visibility: %s m"
-msgstr ""
+msgstr "Dohlednost: %s m"
 
 msgid "Visibility: {} m"
-msgstr ""
+msgstr "Dohlednost: {} m"
 
 msgid "W"
-msgstr ""
+msgstr "W"
 
 msgid "Waning Crescent"
-msgstr ""
+msgstr "Couvající srpek"
 
 msgid "Waning Gibbous"
-msgstr ""
+msgstr "Couvající úplněk"
 
 msgid "Warm (20-30°C)"
-msgstr ""
+msgstr "Teplo (20–30 °C)"
 
 msgid "Waxing Crescent"
-msgstr ""
+msgstr "Dorůstající srpek"
 
 msgid "Waxing Gibbous"
-msgstr ""
+msgstr "Dorůstající úplněk"
 
 msgid "Weather"
-msgstr ""
+msgstr "Počasí"
 
 msgid "Weather Map"
-msgstr ""
+msgstr "Mapa počasí"
 
 msgid "Weather Maps"
-msgstr ""
+msgstr "Mapy počasí"
 
 msgid "Weather Maps & Satellite"
-msgstr ""
+msgstr "Mapy počasí a satelit"
 
 msgid "Weather Maps (Wetterkontor)"
-msgstr ""
+msgstr "Mapy počasí (Wetterkontor)"
 
 msgid "Weather Maps Slideshow"
-msgstr ""
+msgstr "Prezentace map počasí"
 
 msgid "Weather Radar"
-msgstr ""
+msgstr "Meteorologický radar"
 
 msgid "Weather today"
-msgstr ""
+msgstr "Počasí dnes"
 
 msgid "Weather tomorrow"
-msgstr ""
+msgstr "Zítřejší počasí"
 
 msgid "Weekly Forecast"
-msgstr ""
+msgstr "Týdenní předpověď"
 
 msgid "Wind"
-msgstr ""
+msgstr "Vítr"
 
 msgid "Wind Direction today"
-msgstr ""
+msgstr "Směr větru dnes"
 
 msgid "Wind Direction tomorrow"
-msgstr ""
+msgstr "Směr větru zítra"
 
 msgid "Wind direction"
-msgstr ""
+msgstr "Směr větru"
 
 msgid "Wind speed"
-msgstr ""
+msgstr "Rychlost větru"
 
 msgid "Wind speed {}"
-msgstr ""
+msgstr "Rychlost větru {}"
 
 msgid "Wind speed: {:.1f} {}"
-msgstr ""
+msgstr "Rychlost větru: {:.1f} {}"
 
 msgid "Wind: %d %s %s"
-msgstr ""
+msgstr "Vítr: %d %s %s"
 
 msgid "Wind: %s km/h %s"
-msgstr ""
+msgstr "Vítr: %s km/h %s"
 
 msgid "Wind: N/A"
-msgstr ""
+msgstr "Vítr: N/A"
 
 msgid "Wind: {}"
-msgstr ""
+msgstr "Vítr: {}"
 
 msgid "Wind: {} km/h {}"
-msgstr ""
+msgstr "Vítr: {} km/h {}"
 
 msgid "Wind: {} {} {}"
-msgstr ""
+msgstr "Vítr: {} {} {}"
 
 msgid "Window transparency"
-msgstr ""
+msgstr "Průhlednost okna"
 
 msgid "Yellow - Favorite 2"
-msgstr ""
+msgstr "Žlutá - Oblíbená 2"
 
 msgid "Zoom In"
-msgstr ""
+msgstr "Přiblížit"
 
 msgid "Zoom Out"
-msgstr ""
+msgstr "Oddálit"
 
 msgid "Zoom+"
-msgstr ""
+msgstr "Přiblížit+"
 
 msgid "Zoom-"
-msgstr ""
+msgstr "Oddálit-"
 
 msgid "Zoom:"
-msgstr ""
+msgstr "Přiblížení:"
 
 msgid "v."
-msgstr ""
+msgstr "proti."
 
 msgid "{hours} h {mins} min"
-msgstr ""
+msgstr "{hours} h {mins} min"
 
 msgid "• BLUE to save as Home\n"
-msgstr ""
+msgstr "• MODRÉ pro uložení jako Domov\n"
 
 msgid "• CH+/CH- to jump 500 cities\n"
-msgstr ""
+msgstr "• CH+/CH- pro skok o 500 měst\n"
 
 msgid "• GREEN to save as Favorite 1\n"
-msgstr ""
+msgstr "• ZELENÉ pro uložení jako Oblíbené 1\n"
 
 msgid "• OK to select city\n"
-msgstr ""
+msgstr "• OK pro výběr města\n"
 
 msgid "• RED to open search keyboard\n"
-msgstr ""
+msgstr "• ČERVENÉ pro otevření klávesnice vyhledávání\n"
 
 msgid "• Use arrow keys to navigate\n"
-msgstr ""
+msgstr "• Pomocí šipek se pohybujte\n"
 
 msgid "• YELLOW to save as Favorite 2\n"
-msgstr ""
+msgstr "• ŽLUTÉ pro uložení jako Oblíbené 2\n"
 
 msgid "← Frame"
-msgstr ""
+msgstr "← Rámeček"
+
+#, fuzzy
+#~ msgid "Foreca One Setup"
+#~ msgstr "Nabídka Foreca One"
+
+#, fuzzy
+#~ msgid "7 Day Forecast"
+#~ msgstr "OK - Předpověď"
+
+#, fuzzy
+#~ msgid "Blue"
+#~ msgstr "Modrý měsíc"
+
+#, fuzzy
+#~ msgid "Cloud Cover"
+#~ msgstr "Oblačno a přeháňky"
+
+#, fuzzy
+#~ msgid "Distance"
+#~ msgstr "Vzdálenost: %s"
+
+#, fuzzy
+#~ msgid "Green"
+#~ msgstr "Řecko"
+
+#, fuzzy
+#~ msgid "Image Downloaded"
+#~ msgstr "Page down"
+
+#, fuzzy
+#~ msgid "Last update"
+#~ msgstr "Poslední čtvrtletí"
+
+#, fuzzy
+#~ msgid "Wetter.de Maps Test"
+#~ msgstr "Mapy počasí"
