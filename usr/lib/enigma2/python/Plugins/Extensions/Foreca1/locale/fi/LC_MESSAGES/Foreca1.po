@@ -1470,8 +1470,8 @@ msgstr "• KELTAINEN tallentaaksesi suosikiksi 2\n"
 msgid "← Frame"
 msgstr "← Kehys"
 
-msgid "7 Day Forecast"
-msgstr "7 päivän ennuste"
+#~ msgid "7 Day Forecast"
+#~ msgstr "7 päivän ennuste"
 
 #, fuzzy
 #~ msgid "Foreca One Setup"
