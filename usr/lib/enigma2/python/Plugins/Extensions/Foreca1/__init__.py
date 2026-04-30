@@ -61,7 +61,7 @@ if not exists(METEOGRAM_CACHE):
 if not exists(WEATHER_DETAIL_CACHE):
     makedirs(WEATHER_DETAIL_CACHE)
 
-PluginLanguageDomain = "Foreca"
+PluginLanguageDomain = "Foreca1"
 PluginLanguagePath = "Extensions/Foreca1/locale"
 HEADERS = {
     "User-Agent": (
