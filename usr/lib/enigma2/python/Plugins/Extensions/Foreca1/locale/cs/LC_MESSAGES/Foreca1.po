@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"Last-Translator: Warder <ciksa@seznam.cz> + doga\n"
 "Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -11,9 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
 
-#, fuzzy
 msgid "(Additional data not available)"
-msgstr "Nejsou k dispozici žádná data o stanici"
+msgstr "Dodatečná data nejsou k dispozici"
 
 msgid "0 - Today"
 msgstr "0 - Dnes"
@@ -46,7 +45,7 @@ msgid "9 - Today + 9 days"
 msgstr "9 - Dnes + 9 dní"
 
 msgid "=== MOON DETAILS ==="
-msgstr ""
+msgstr "===  DETAILY MĚSÍCE ==="
 
 msgid "API credentials not configured."
 msgstr "Přihlašovací údaje API nejsou nakonfigurovány."
@@ -54,13 +53,11 @@ msgstr "Přihlašovací údaje API nejsou nakonfigurovány."
 msgid "API error"
 msgstr "Chyba API"
 
-#, fuzzy
 msgid "API password"
-msgstr "Chyba API"
+msgstr "API heslo"
 
-#, fuzzy
 msgid "API user"
-msgstr "Chyba API"
+msgstr "API uživatel"
 
 msgid "AQI {}"
 msgstr "AQI {}"
@@ -78,23 +75,22 @@ msgid "Afternoon"
 msgstr "Odpoledne"
 
 msgid "Age since New Moon: {:.1f} days"
-msgstr ""
+msgstr "Věk od novoluní: {:.1f} dní"
 
-#, fuzzy
 msgid "Age: N/A"
-msgstr "AQI: N/A"
+msgstr "VěkI: N/A"
 
 msgid "Angular diameter: N/A"
-msgstr ""
+msgstr "Úhlový průměr: N/A"
 
 msgid "Angular diameter: {:.0f}"
-msgstr ""
+msgstr "Úhlový průměr:  {:.0f}"
 
 msgid "Apparent magnitude: N/A"
-msgstr ""
+msgstr "Zdánlivá velikost: N/A"
 
 msgid "Apparent magnitude: {:.2f}"
-msgstr ""
+msgstr "Zdánlivá velikost: {:.2f}"
 
 msgid "Assign to Favorite 1"
 msgstr "Přiřadit k Oblíbeným 1"
@@ -112,7 +108,7 @@ msgid "Austria"
 msgstr "Rakousko"
 
 msgid "Auth server"
-msgstr ""
+msgstr "Aut. server"
 
 msgid "Baden-Wuerttemberg"
 msgstr "Bádensko-Württembersko"
@@ -187,7 +183,7 @@ msgid "Close legend"
 msgstr "Zavřít legendu"
 
 msgid "Close setup without saving"
-msgstr ""
+msgstr "Zavřít nastavení bez uložení"
 
 msgid "Cloudy"
 msgstr "Oblačno"
@@ -280,7 +276,7 @@ msgid "Decrease Speed"
 msgstr "Zpomalit"
 
 msgid "Defaults"
-msgstr ""
+msgstr "Výchozí"
 
 msgid "Denmark"
 msgstr "Dánsko"
@@ -339,7 +335,7 @@ msgid "Downloading tiles..."
 msgstr "Stahování dlaždic..."
 
 msgid "E"
-msgstr "E"
+msgstr "V"
 
 msgid "East Asia"
 msgstr "Východní Asie"
@@ -437,15 +433,14 @@ msgstr "První čtvrť"
 msgid "Fog"
 msgstr "Mlha"
 
-#, fuzzy
 msgid "Foreca API Setup"
-msgstr "Nabídka Foreca One"
+msgstr "Nabídka Foreca One API"
 
 msgid "Foreca API credentials are not configured yet. Please enter them in the setup screen."
-msgstr ""
+msgstr "Přihlašovací údaje k rozhraní Foreca API nejsou zatím nakonfigurovány. Zadejte je prosím do formuláře na obrazovce."
 
 msgid "Foreca API settings saved successfully."
-msgstr ""
+msgstr "Nastavení Foreca API úspěšně uloženo."
 
 msgid "Foreca One"
 msgstr "Foreca One"
@@ -511,10 +506,10 @@ msgid "Green - Favorite 1"
 msgstr "Zelené – Oblíbená 1"
 
 msgid "Gust {}"
-msgstr "Nárazy {}"
+msgstr "Poryv {}"
 
 msgid "Gust: {:.1f} {}"
-msgstr "Nárazy: {:.1f} {}"
+msgstr "Poryv: {:.1f} {}"
 
 msgid "Hamburg"
 msgstr "Hamburg"
@@ -670,7 +665,7 @@ msgid "Map loaded"
 msgstr "Mapa načtena"
 
 msgid "Map server"
-msgstr ""
+msgstr "Mapový server"
 
 msgid "Map {} selected"
 msgstr "Vybrána mapa {}"
@@ -706,7 +701,7 @@ msgid "Mild (10-20°C)"
 msgstr "Mírné (10–20 °C)"
 
 msgid "Moderate"
-msgstr "Moderovat"
+msgstr "Mírný"
 
 msgid "Moderate (20-40 km/h)"
 msgstr "Mírné (20–40 km/h)"
@@ -717,15 +712,14 @@ msgstr "Mírný déšť"
 msgid "Month"
 msgstr "Měsíc"
 
-#, fuzzy
 msgid "Moon details"
-msgstr "Podrobnosti hodiny"
+msgstr "Detaily měsíce"
 
 msgid "Moonrise: {}"
-msgstr ""
+msgstr "Východ měsíce: {}"
 
 msgid "Moonset: {}"
-msgstr ""
+msgstr "Západ měsíce: {}"
 
 msgid "Morning"
 msgstr "Ráno"
@@ -746,7 +740,7 @@ msgid "Move up"
 msgstr "Posunout nahoru"
 
 msgid "N"
-msgstr "N"
+msgstr "S"
 
 msgid "N/A"
 msgstr "N/A"
@@ -934,15 +928,14 @@ msgstr "Perigeum"
 msgid "Phase"
 msgstr "Fáze"
 
-#, fuzzy
 msgid "Phase: {}"
-msgstr "Fáze"
+msgstr "Fáze: {}"
 
 msgid "Play/Pause"
 msgstr "Přehrát/Pozastavit"
 
 msgid "Please enter both API user and API password."
-msgstr ""
+msgstr "Zadejte prosím uživatele API i heslo API."
 
 msgid "Please wait ..."
 msgstr "Čekejte prosím…"
@@ -1026,7 +1019,7 @@ msgid "Refresh"
 msgstr "Obnovit"
 
 msgid "Restore default server values"
-msgstr ""
+msgstr "Obnovit výchozí hodnoty serveru"
 
 msgid "Rhineland-Palatine"
 msgstr "Porýní-Falc"
@@ -1041,16 +1034,16 @@ msgid "Rise"
 msgstr "Východ měsíce"
 
 msgid "Rise azimuth: N/A"
-msgstr ""
+msgstr "Azimut východu: N/A"
 
 msgid "Rise azimuth: {:.0f}°"
-msgstr ""
+msgstr "Azimut východu: {:.0f}°"
 
 msgid "Russia"
 msgstr "Rusko"
 
 msgid "S"
-msgstr "S"
+msgstr "J"
 
 msgid "Saarland"
 msgstr "Sársko"
@@ -1064,9 +1057,8 @@ msgstr "Satelitní snímky již brzy!"
 msgid "Save"
 msgstr "Uložit"
 
-#, fuzzy
 msgid "Save API settings"
-msgstr "Menu – Nastavení"
+msgstr "Uložit nastavení API"
 
 msgid "Saxony"
 msgstr "Sasko"
@@ -1114,10 +1106,10 @@ msgid "Selected hour details"
 msgstr "Podrobnosti pro vybranou hodinu"
 
 msgid "Set azimuth: N/A"
-msgstr ""
+msgstr "Azimut západu: N/A"
 
 msgid "Set azimuth: {:.0f}°"
-msgstr ""
+msgstr "Azimut západu: {:.0f}°"
 
 msgid "Sets"
 msgstr "Západ měsíce"
@@ -1203,7 +1195,6 @@ msgstr "Teplota: {}{}"
 msgid "Temperature: {}°C"
 msgstr "Teplota: {}°C"
 
-#, fuzzy
 msgid "Thanks {thanks} and other friends for suggestions"
 msgstr "Děkujeme {thanks} a dalším přátelům za návrhy a testování"
 
@@ -1229,25 +1220,25 @@ msgid "Toggle legend"
 msgstr "Přepnout legendu"
 
 msgid "Token expire hours"
-msgstr ""
+msgstr "Platnost tokenu: hodiny"
 
 msgid "Token expire hours must be -1 or a positive number."
-msgstr ""
+msgstr "Platnost tokenu: hodiny musí být -1 nebo kladné číslo."
 
 msgid "Token expire hours must be a number."
-msgstr ""
+msgstr "Platnost tokenu: hodiny musí být číslo."
 
 msgid "Tomorrow"
 msgstr "Zítra"
 
 msgid "Transit (culmination): {}"
-msgstr ""
+msgstr "Pohyb (kulminace): {}"
 
 msgid "Transit altitude: N/A"
-msgstr ""
+msgstr "Výška pohybu: N/A"
 
 msgid "Transit altitude: {:.0f}°"
-msgstr ""
+msgstr "Výška pohybu: {:.0f}°"
 
 msgid "Transparency Settings"
 msgstr "Nastavení průhlednosti"
@@ -1268,7 +1259,7 @@ msgid "Unhealthy for sensitives"
 msgstr "Nezdravé pro citlivé osoby"
 
 msgid "Unit Settings"
-msgstr "Nastavení lekce"
+msgstr "Nastavení jednotek"
 
 msgid "Unit Settings (Advanced)"
 msgstr "Nastavení jednotek (pokročilé)"
@@ -1340,13 +1331,13 @@ msgid "Visibility: {} m"
 msgstr "Dohlednost: {} m"
 
 msgid "W"
-msgstr "W"
+msgstr "Z"
 
 msgid "Waning Crescent"
 msgstr "Couvající srpek"
 
 msgid "Waning Gibbous"
-msgstr "Couvající úplněk"
+msgstr "Couvající měsíc"
 
 msgid "Warm (20-30°C)"
 msgstr "Teplo (20–30 °C)"
@@ -1355,7 +1346,7 @@ msgid "Waxing Crescent"
 msgstr "Dorůstající srpek"
 
 msgid "Waxing Gibbous"
-msgstr "Dorůstající úplněk"
+msgstr "Dorůstající měsíc"
 
 msgid "Weather"
 msgstr "Počasí"
